@@ -2,7 +2,7 @@
 
 **Author:** Kartikey · **Enrollment:** 10121
 
-Run from this directory against a running Minikube cluster. The manifests provide examples for the assignment; commands that alter host DNS or run long-lived tunnels are described but should be run only on the workstation where the cluster is active. Replace screenshot names with genuine captures.
+Run from this directory against a running Minikube cluster. The manifests provide examples for the assignment; commands that alter host DNS or run long-lived tunnels are described but should be run only on the workstation where the cluster is active. Terminal evidence from this run is linked below.
 
 ## Four ports
 
@@ -103,13 +103,13 @@ The ExternalName Service displayed `CLUSTER-IP <none>` and `EXTERNAL-IP api.gith
 
 ## Screenshot evidence
 
-Capture these required items in `screenshots/` from actual command runs; the names are listed here so each brief requirement has a place:
+These screenshots show the listed commands and results from this cluster:
 
-- `01.1-four-ports.png`, `02.1-clusterip-endpoints.png`, `02.2-clusterip-dns-curl.png`
-- `03.1-nodeport-mapping.png`, `03.2-nodeport-access.png`, `04.1-loadbalancer-ip.png`, `04.2-loadbalancer-page.png`
-- `05.1-externalname-cname.png`, `05.2-externalname-curl.png`, `06.1-headless-dns.png`, `06.2-stateful-ordinal-curl.png`
-- `07.1-empty-endpoints.png`, `07.2-manual-endpoints.png`, `08.1-resolv-conf.png`, `08.2-coredns-resolution.png`
-- `09.1-pod-identities.png`, `09.2-identity-recreation.png`, `10.1-controller-matrix.png`, `11.1-service-decision-cost.png`
-- `12.1-docker-driver-direct-failure.png`, `12.2-minikube-service-forward.png`
+- [01.1-four-ports.png](./screenshots/01.1-four-ports.png), [02.1-clusterip-endpoints.png](./screenshots/02.1-clusterip-endpoints.png), [02.2-clusterip-dns-curl.png](./screenshots/02.2-clusterip-dns-curl.png)
+- [03.1-nodeport-mapping.png](./screenshots/03.1-nodeport-mapping.png), [03.2-nodeport-access.png](./screenshots/03.2-nodeport-access.png), [04.1-loadbalancer-ip.png](./screenshots/04.1-loadbalancer-ip.png), [04.2-loadbalancer-page.png](./screenshots/04.2-loadbalancer-page.png)
+- [05.1-externalname-cname.png](./screenshots/05.1-externalname-cname.png), [05.2-externalname-curl.png](./screenshots/05.2-externalname-curl.png), [06.1-headless-dns.png](./screenshots/06.1-headless-dns.png), [06.2-stateful-ordinal-curl.png](./screenshots/06.2-stateful-ordinal-curl.png)
+- [07.1-empty-endpoints.png](./screenshots/07.1-empty-endpoints.png), [07.2-manual-endpoints.png](./screenshots/07.2-manual-endpoints.png), [08.1-resolv-conf.png](./screenshots/08.1-resolv-conf.png), [08.2-coredns-resolution.png](./screenshots/08.2-coredns-resolution.png)
+- [09.1-pod-identities.png](./screenshots/09.1-pod-identities.png), [09.2-identity-recreation.png](./screenshots/09.2-identity-recreation.png), [10.1-controller-matrix.png](./screenshots/10.1-controller-matrix.png), [11.1-service-decision-cost.png](./screenshots/11.1-service-decision-cost.png)
+- [12.1-docker-driver-direct-failure.png](./screenshots/12.1-docker-driver-direct-failure.png), [12.2-minikube-service-forward.png](./screenshots/12.2-minikube-service-forward.png)
 
-Do not substitute expected output for a screenshot captured from this cluster.
+The LoadBalancer stayed pending without the sudo-backed Minikube tunnel; host DNS was checked with Host headers because `/etc/hosts` was not edited.

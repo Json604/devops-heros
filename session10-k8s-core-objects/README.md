@@ -98,8 +98,8 @@ The rolling update completed at revisions 1 and 2, and `rollout undo` restored t
 
 ## Screenshot evidence
 
-Capture genuine terminal screenshots in `screenshots/` showing both the command and the observed output. These are the required evidence filenames; links remain placeholders until real captures are added:
+Capture genuine terminal screenshots in `screenshots/` showing both the command and the observed output. The captures below show terminal commands and observed results:
 
-- `01-cluster-health.png`, `02-nginx-pod-operations.png`, `03-imagepullbackoff-error.png`, `04-pod-lifecycle-stages.png`
-- `05-lifecycle-probes-crashloop.png`, `05-lifecycle-init-multicontainer.png`, `06-controllers-rs-statefulset.png`, `07-daemonset-verification.png`
-- `08-rolling-update-and-rollback.png`, `09-troubleshooting-drills.png`, `11-blue-green-cutover.png`, `12-canary-traffic-split.png`, `13-recreate-downtime-outage.png`
+- [01-cluster-health.png](./screenshots/01-cluster-health.png), [02-nginx-pod-operations.png](./screenshots/02-nginx-pod-operations.png), [03-imagepullbackoff-error.png](./screenshots/03-imagepullbackoff-error.png), [04-pod-lifecycle-stages.png](./screenshots/04-pod-lifecycle-stages.png)
+- [05-lifecycle-probes-crashloop.png](./screenshots/05-lifecycle-probes-crashloop.png), [05-lifecycle-init-multicontainer.png](./screenshots/05-lifecycle-init-multicontainer.png), [06-controllers-rs-statefulset.png](./screenshots/06-controllers-rs-statefulset.png), [07-daemonset-verification.png](./screenshots/07-daemonset-verification.png)
+- [08-rolling-update-and-rollback.png](./screenshots/08-rolling-update-and-rollback.png), [09-troubleshooting-drills.png](./screenshots/09-troubleshooting-drills.png), [11-blue-green-cutover.png](./screenshots/11-blue-green-cutover.png), [12-canary-traffic-split.png](./screenshots/12-canary-traffic-split.png), [13-recreate-downtime-outage.png](./screenshots/13-recreate-downtime-outage.png)

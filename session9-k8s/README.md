@@ -2,7 +2,7 @@
 
 **Author:** Kartikey · **Course:** SST DevOps & Cloud (SWE) · **Session:** 09
 
-This lab uses Minikube with Docker driver and `kubectl`. Commands below are run from the repository root. Replace screenshot placeholders with screenshots captured from your own terminal; no sample output is represented as local evidence.
+This lab uses Minikube with Docker driver and `kubectl`. Commands below are run from the repository root. The terminal outputs and screenshots below were captured from the local Minikube run.
 
 ## 1. Install and verify the tools
 
@@ -17,7 +17,7 @@ Client Version: v1.37.0
 Kustomize Version: v5.8.1
 ```
 
-**Screenshot placeholder:** Capture this terminal section as `screenshots/01-version-check.png`.
+**Screenshot:** ![Minikube and kubectl versions](./screenshots/01-version-check.png)
 
 ## 2. Start the local cluster
 
@@ -32,11 +32,16 @@ $ minikube start
 * Preparing Kubernetes v1.37.0 on containerd 2.3.4 ...
 * Verifying Kubernetes components...
   - Using image gcr.io/k8s-minikube/storage-provisioner:v5
-* Enabled addons: default-storageclass, storage-provisioner
+  - After the addon is enabled, please run "minikube tunnel" and your ingress resources would be available at "127.0.0.1"
+  - Using image registry.k8s.io/ingress-nginx/controller:v1.15.1
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.9
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.9
+* Verifying ingress addon...
+* Enabled addons: storage-provisioner, default-storageclass, ingress
 * Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 ```
 
-**Screenshot placeholder:** Capture this terminal section as `screenshots/02-minikube-start.png`.
+**Screenshot:** ![Minikube start](./screenshots/02-minikube-start.png)
 
 ## 3. Check cluster health
 
@@ -52,10 +57,10 @@ apiserver: Running
 kubeconfig: Configured
 $ kubectl get nodes -o wide
 NAME       STATUS   ROLES           AGE     VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION            CONTAINER-RUNTIME
-minikube   Ready    control-plane   2m51s   v1.37.0   192.168.49.2   <none>        Debian GNU/Linux 12 (bookworm)   7.0.12-linuxkit (arm64)   containerd://2.3.4
+minikube   Ready    control-plane   38m   v1.37.0   192.168.49.2   <none>        Debian GNU/Linux 12 (bookworm)   7.0.12-linuxkit (arm64)   containerd://2.3.4
 ```
 
-**Screenshot placeholder:** Capture this terminal section as `screenshots/03-minikube-status.png`.
+**Screenshot:** ![Cluster status and node](./screenshots/03-minikube-status.png)
 
 ## 4. Stop the cluster
 
@@ -75,7 +80,7 @@ apiserver: Stopped
 kubeconfig: Stopped
 ```
 
-**Screenshot placeholder:** Capture this terminal section as `screenshots/04-minikube-stop.png`.
+**Screenshot:** ![Minikube stopped](./screenshots/04-minikube-stop.png)
 
 ## 5. Kubernetes architecture
 

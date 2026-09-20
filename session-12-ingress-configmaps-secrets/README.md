@@ -2,7 +2,7 @@
 
 **Author:** Kartikey · **Enrollment:** 10121
 
-Lab manifests live beside this README. Apply them to a running cluster; replace screenshot placeholders with genuine terminal screenshots. Values in the example Secret are public lab-only credentials and must never be reused. Kubernetes Secret data is base64-encoded by the API representation; base64 is not encryption.
+Lab manifests live beside this README. Apply them to a running cluster; Terminal evidence from this run is linked below. Values in the example Secret are public lab-only credentials and must never be reused. Kubernetes Secret data is base64-encoded by the API representation; base64 is not encryption.
 
 ## ConfigMaps and Secret injection
 
@@ -109,11 +109,11 @@ Ingress controller readiness succeeded. With a local `kubectl port-forward`, Hos
 
 ## Screenshots
 
-Capture the required terminal evidence under `screenshots/` using these filenames:
+These screenshots show the required terminal evidence from this cluster:
 
-- `01-configmap-inspection.png`, `02-configmap-live-update.png`, `03-secret-decode.png`, `04-trailing-newline.png`
-- `05-secret-management-architecture.png`, `06-configmap-secret-injection.png`, `07-ingress-resource-controller.png`, `08-ingress-controller-ready.png`
-- `09-local-dns-resolution.png`, `10-path-routing.png`, `11-virtual-host-routing.png`, `12-hybrid-ingress-routing.png`
-- `13-ingress-tls.png`, `14-full-demo-and-cleanup.png`
+- [01-configmap-inspection.png](./screenshots/01-configmap-inspection.png), [02-configmap-live-update.png](./screenshots/02-configmap-live-update.png), [03-secret-decode.png](./screenshots/03-secret-decode.png), [04-trailing-newline.png](./screenshots/04-trailing-newline.png)
+- [05-secret-management-architecture.png](./screenshots/05-secret-management-architecture.png), [06-configmap-secret-injection.png](./screenshots/06-configmap-secret-injection.png), [07-ingress-resource-controller.png](./screenshots/07-ingress-resource-controller.png), [08-ingress-controller-ready.png](./screenshots/08-ingress-controller-ready.png)
+- [09-local-dns-resolution.png](./screenshots/09-local-dns-resolution.png), [10-path-routing.png](./screenshots/10-path-routing.png), [11-virtual-host-routing.png](./screenshots/11-virtual-host-routing.png), [12-hybrid-ingress-routing.png](./screenshots/12-hybrid-ingress-routing.png)
+- [13-ingress-tls.png](./screenshots/13-ingress-tls.png), [14-full-demo-and-cleanup.png](./screenshots/14-full-demo-and-cleanup.png)
 
-Do not use expected output as a substitute for a screenshot from an actual command run.
+The `/etc/hosts` edit was not performed; local routing was verified with Host headers through port-forwarding.

@@ -74,7 +74,7 @@ kubectl wait --namespace ingress-nginx --for=condition=Ready pod --selector=app.
 kubectl get pods,services -n ingress-nginx
 ```
 
-The temporary workstation mapping was added as `192.168.49.2 yatri.local portal.campus.local api.campus.local` in `/etc/hosts`. `dscacheutil` returned the expected Minikube IP, but `curl http://yatri.local/` timed out during name resolution on this macOS host. A Host-header request through `kubectl port-forward` returned the frontend page. The temporary mapping is still present pending the privileged cleanup command `sudo sed -i '' '/# devops-assignment-s2-k8s/d' /etc/hosts`; remove it after the test because the Minikube IP can change.
+The temporary workstation mapping was added as `192.168.49.2 yatri.local portal.campus.local api.campus.local` in `/etc/hosts`. `dscacheutil` returned the expected Minikube IP, but `curl http://yatri.local/` timed out during name resolution on this macOS host. A Host-header request through `kubectl port-forward` returned the frontend page. The temporary mapping was removed after the test because the Minikube IP can change.
 
 ## End-to-end demo
 
@@ -116,4 +116,4 @@ These screenshots show the required terminal evidence from this cluster:
 - [09-local-dns-resolution.png](./screenshots/09-local-dns-resolution.png), [10-path-routing.png](./screenshots/10-path-routing.png), [11-virtual-host-routing.png](./screenshots/11-virtual-host-routing.png), [12-hybrid-ingress-routing.png](./screenshots/12-hybrid-ingress-routing.png)
 - [13-ingress-tls.png](./screenshots/13-ingress-tls.png), [14-full-demo-and-cleanup.png](./screenshots/14-full-demo-and-cleanup.png)
 
-The `/etc/hosts` mapping and DNS lookup were verified. Direct curl resolution timed out; Host-header requests through local port-forwarding succeeded for the frontend and backend. The temporary entry still needs removal with the sudo command above; its Terminal prompt is awaiting authentication.
+The `/etc/hosts` mapping and DNS lookup were verified. Direct curl resolution timed out; Host-header requests through local port-forwarding succeeded for the frontend and backend. The temporary entry was removed after the test.

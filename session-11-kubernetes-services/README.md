@@ -61,9 +61,21 @@ kubectl delete -f 05-headless/client-pod.yaml -f 05-headless/app-statefulset.yam
 
 A Deployment replaces a deleted Pod with a new generated name; a StatefulSet recreates the deleted ordinal with the same stable identity. The StatefulSet sample in `09-identity/` can be used alongside the stateless Deployment.
 
+## Workload controller comparison
+
+| Concern | Deployment | StatefulSet | DaemonSet |
+|---|---|---|---|
+| Best fit | Interchangeable stateless replicas such as APIs and web frontends | Stateful members that need stable ordinal identity and per-replica storage | Node-level agents such as log collectors and exporters |
+| Pod identity | ReplicaSet hash plus generated suffix; replacement gets a new Pod name | Stable ordinal and hostname (for example `web-stateful-0`); a recreated Pod can receive a different IP | One Pod associated with each eligible node; Pod name is regenerated if recreated |
+| Lifecycle | Replicas can be created or terminated in parallel | Ordered creation and deletion by ordinal, controlled by update policy | Reconciles one instance onto each eligible node |
+| Storage | Usually ephemeral or shared volume; storage is not tied to a replica identity | `volumeClaimTemplates` creates a PVC per ordinal; data can persist when that Pod is recreated | Commonly node-local or `hostPath` data; lifetime follows the node |
+| Discovery | Usually a selector-backed ClusterIP Service | Headless Service provides stable per-ordinal DNS; Pod IP itself is not guaranteed stable | Often internal Service or direct node-local discovery |
+| Placement / scaling | Scheduler places requested replica count across eligible nodes | Scheduler places ordered replicas; scaling adds or removes ordinals | Desired count tracks eligible nodes; node selector, taints and tolerations affect eligibility |
+| Production use | Stateless web apps, APIs, workers | Databases and clustered queues that need stable member names or storage | Monitoring, logging, security and networking agents |
+
 ## Architecture and cost notes
 
-FQDN format is `<service>.<namespace>.svc.<cluster-domain>` (often `cluster.local`). Pod resolver search domains expand short names; `ndots:5` tries search suffixes before an absolute lookup when a query has fewer than five dots, which can add DNS requests for external names. Check the actual Pod's `/etc/resolv.conf` rather than assuming cluster values.
+FQDN format is `<service>.<namespace>.svc.<cluster-domain>` (often `cluster.local`). Pod resolver search domains expand short names; `ndots:5` tries the Pod search suffixes before an absolute lookup when a query has fewer than five dots. For a name such as `api.github.com`, that can trigger several unsuccessful cluster-domain lookups before the external query succeeds, adding DNS work and latency; the actual resolver settings should be checked per Pod. Check the actual Pod's `/etc/resolv.conf` rather than assuming cluster values.
 
 Deployment Pods are interchangeable and scale freely. StatefulSet Pods have stable ordinals, ordered lifecycle, and optional per-ordinal PVCs via `volumeClaimTemplates`; a headless Service supplies stable DNS. DaemonSets place a Pod on each eligible node, commonly for node agents.
 
@@ -99,7 +111,7 @@ flowchart TD
 
 The ClusterIP Service had three ready endpoints and both the short service name and full FQDN returned `<title>Welcome to nginx!</title>`. The client resolver showed `nameserver 10.96.0.10`, search suffixes for `default.svc.cluster.local`, `svc.cluster.local`, and `cluster.local`, and `options ndots:5`. NodePort mapped `80:30080/TCP`; `minikube service web-service-nodeport --url` returned a local `127.0.0.1` URL, and a request through that URL returned `HTTP/1.1 200 OK`. The LoadBalancer Service remained `<pending>` because starting `minikube tunnel` prompted for sudo credentials in this terminal.
 
-The ExternalName Service displayed `CLUSTER-IP <none>` and `EXTERNAL-IP api.github.com`; CoreDNS returned the CNAME and an address during the lookup. The headless Service returned three Pod A records, and direct access to `web-stateful-0.web-service-headless` returned the Nginx title. Deleting the stateless Deployment Pod resulted in a new generated suffix; deleting `web-stateful-0` recreated the same ordinal. A selectorless Service showed the supplied endpoint `192.0.2.10:3306`; that reserved documentation address proves endpoint association only and is not an active database.
+The ExternalName Service displayed `CLUSTER-IP <none>` and `EXTERNAL-IP api.github.com`; CoreDNS returned the CNAME and an address during the lookup. An HTTPS request through that alias reached the external address but returned HTTP 400 because the request used the service-alias hostname; this proves name resolution and a TCP/TLS connection, not a successful API response. The headless Service returned three Pod A records, and direct access to `web-stateful-0.web-service-headless` returned the Nginx title. Deleting the stateless Deployment Pod resulted in a new generated suffix; deleting `web-stateful-0` recreated the same ordinal. A selectorless Service showed the supplied endpoint `192.0.2.10:3306`; that reserved documentation address proves endpoint association only and is not an active database.
 
 ## Screenshot evidence
 

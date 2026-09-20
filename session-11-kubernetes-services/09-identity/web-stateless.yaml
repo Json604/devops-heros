@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: web-stateless}
+spec:
+  replicas: 2
+  selector: {matchLabels: {app: web-stateless}}
+  template:
+    metadata: {labels: {app: web-stateless}}
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27-alpine
+          ports: [{containerPort: 80}]

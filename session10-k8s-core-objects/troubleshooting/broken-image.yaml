@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yatri-backend
+  labels: {app: yatri-app, tier: backend}
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: yatri-app, tier: backend}
+  template:
+    metadata:
+      labels: {app: yatri-app, tier: backend}
+    spec:
+      containers:
+        - name: api
+          image: python:tag-that-does-not-exist
+          command: ["python", "-m", "http.server", "8080"]
+          ports: [{containerPort: 8080}]

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Pod
+metadata: {name: lifecycle-failed, labels: {app: lifecycle}}
+spec:
+  restartPolicy: Never
+  containers:
+    - {name: fail, image: busybox:1.36, command: ["sh", "-c", "echo failing; exit 1"]}

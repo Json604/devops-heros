@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: {name: node-exporter}
+spec:
+  selector: {matchLabels: {app: node-exporter}}
+  template:
+    metadata: {labels: {app: node-exporter}}
+    spec:
+      containers:
+        - name: exporter
+          image: prom/node-exporter:v1.8.2
+          args: ["--path.rootfs=/host"]
+          ports: [{name: metrics, containerPort: 9100}]
+          volumeMounts: [{name: host-root, mountPath: /host, readOnly: true}]
+      volumes: [{name: host-root, hostPath: {path: /, type: Directory}}]

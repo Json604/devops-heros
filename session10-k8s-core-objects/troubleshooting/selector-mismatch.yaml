@@ -1,0 +1,12 @@
+# This invalid object demonstrates template labels that do not match selector.
+# Apply returns a validation error. selector-mismatch-fixed.yaml is the corrected form.
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: selector-error-demo}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: selector-error-demo}}
+  template:
+    metadata: {labels: {app: wrong-label}}
+    spec:
+      containers: [{name: web, image: nginx:1.27-alpine}]

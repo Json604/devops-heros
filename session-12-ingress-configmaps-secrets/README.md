@@ -74,7 +74,7 @@ kubectl wait --namespace ingress-nginx --for=condition=Ready pod --selector=app.
 kubectl get pods,services -n ingress-nginx
 ```
 
-The workstation mapping exercise is `MINIKUBE_IP=$(minikube ip); echo "$MINIKUBE_IP yatri.local" | sudo tee -a /etc/hosts`, then verify with `grep yatri.local /etc/hosts`. Remove the entry after the lab because the Minikube address can change. For local routing checks without a persistent hosts-file edit, pass `-H 'Host: yatri.local'` or use curl `--resolve`.
+The temporary workstation mapping was added as `192.168.49.2 yatri.local portal.campus.local api.campus.local` in `/etc/hosts`. `dscacheutil` returned the expected Minikube IP, but `curl http://yatri.local/` timed out during name resolution on this macOS host. A Host-header request through `kubectl port-forward` returned the frontend page. The temporary mapping was removed after the test because the Minikube IP can change.
 
 ## End-to-end demo
 
@@ -116,4 +116,4 @@ These screenshots show the required terminal evidence from this cluster:
 - [09-local-dns-resolution.png](./screenshots/09-local-dns-resolution.png), [10-path-routing.png](./screenshots/10-path-routing.png), [11-virtual-host-routing.png](./screenshots/11-virtual-host-routing.png), [12-hybrid-ingress-routing.png](./screenshots/12-hybrid-ingress-routing.png)
 - [13-ingress-tls.png](./screenshots/13-ingress-tls.png), [14-full-demo-and-cleanup.png](./screenshots/14-full-demo-and-cleanup.png)
 
-The `/etc/hosts` edit was not performed; local routing was verified with Host headers through port-forwarding.
+The `/etc/hosts` mapping and DNS lookup were verified, then the temporary entry was removed. Direct curl resolution timed out; Host-header requests through local port-forwarding succeeded for the frontend and backend.

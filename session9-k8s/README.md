@@ -17,7 +17,7 @@ Client Version: v1.37.0
 Kustomize Version: v5.8.1
 ```
 
-**Screenshot:** `![Minikube and kubectl version](./screenshots/01-version-check.png)`
+**Screenshot placeholder:** Capture this terminal section as `screenshots/01-version-check.png`.
 
 ## 2. Start the local cluster
 
@@ -36,7 +36,7 @@ $ minikube start
 * Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 ```
 
-**Screenshot:** `![Minikube start](./screenshots/02-minikube-start.png)`
+**Screenshot placeholder:** Capture this terminal section as `screenshots/02-minikube-start.png`.
 
 ## 3. Check cluster health
 
@@ -55,7 +55,7 @@ NAME       STATUS   ROLES           AGE     VERSION   INTERNAL-IP    EXTERNAL-IP
 minikube   Ready    control-plane   2m51s   v1.37.0   192.168.49.2   <none>        Debian GNU/Linux 12 (bookworm)   7.0.12-linuxkit (arm64)   containerd://2.3.4
 ```
 
-**Screenshot:** `![Cluster status and node](./screenshots/03-minikube-status.png)`
+**Screenshot placeholder:** Capture this terminal section as `screenshots/03-minikube-status.png`.
 
 ## 4. Stop the cluster
 
@@ -75,7 +75,7 @@ apiserver: Stopped
 kubeconfig: Stopped
 ```
 
-**Screenshot:** `![Minikube stopped](./screenshots/04-minikube-stop.png)`
+**Screenshot placeholder:** Capture this terminal section as `screenshots/04-minikube-stop.png`.
 
 ## 5. Kubernetes architecture
 

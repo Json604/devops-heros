@@ -1,0 +1,2 @@
+bucket_arn = "arn:aws:s3:::kartikey-24bcs10121-devops-lab"
+bucket_name = "kartikey-24bcs10121-devops-lab"

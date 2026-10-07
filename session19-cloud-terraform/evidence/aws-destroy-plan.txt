@@ -1,0 +1,489 @@
+aws_vpc.lab: Refreshing state... [id=vpc-0feb704246a09258d]
+data.aws_ami.linux: Reading...
+aws_s3_bucket.lab: Refreshing state... [id=kartikey-24bcs10121-cloud-lab]
+data.aws_ami.linux: Read complete after 4s [id=ami-03054015e26069645]
+aws_s3_bucket_public_access_block.lab: Refreshing state... [id=kartikey-24bcs10121-cloud-lab]
+aws_s3_bucket_policy.tls: Refreshing state... [id=kartikey-24bcs10121-cloud-lab]
+aws_s3_bucket_versioning.lab: Refreshing state... [id=kartikey-24bcs10121-cloud-lab]
+aws_s3_bucket_server_side_encryption_configuration.lab: Refreshing state... [id=kartikey-24bcs10121-cloud-lab]
+aws_internet_gateway.lab: Refreshing state... [id=igw-00720aa18eb10533a]
+aws_security_group.web: Refreshing state... [id=sg-011592ba61e38f337]
+aws_subnet.public[0]: Refreshing state... [id=subnet-09efc454e58d63707]
+aws_subnet.public[1]: Refreshing state... [id=subnet-0f6b5b78c9119c7f3]
+aws_route_table.public: Refreshing state... [id=rtb-0cdabf55dcbf6279f]
+aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-00551f7d248add4d0]
+aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0460bbbb1bb732f0e]
+aws_instance.web: Refreshing state... [id=i-068ff1d9b9a4be1a8]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_instance.web will be destroyed
+  - resource "aws_instance" "web" {
+      - ami                                  = "ami-03054015e26069645" -> null
+      - arn                                  = "arn:aws:ec2:ap-south-1:365811604761:instance/i-068ff1d9b9a4be1a8" -> null
+      - associate_public_ip_address          = true -> null
+      - availability_zone                    = "ap-south-1a" -> null
+      - disable_api_stop                     = false -> null
+      - disable_api_termination              = false -> null
+      - ebs_optimized                        = false -> null
+      - force_destroy                        = false -> null
+      - get_password_data                    = false -> null
+      - hibernation                          = false -> null
+      - id                                   = "i-068ff1d9b9a4be1a8" -> null
+      - instance_initiated_shutdown_behavior = "stop" -> null
+      - instance_state                       = "running" -> null
+      - instance_type                        = "t3.micro" -> null
+      - ipv6_address_count                   = 0 -> null
+      - ipv6_addresses                       = [] -> null
+      - monitoring                           = false -> null
+      - placement_partition_number           = 0 -> null
+      - primary_network_interface_id         = "eni-03b54876cc46547c6" -> null
+      - private_dns                          = "ip-10-21-1-103.ap-south-1.compute.internal" -> null
+      - private_ip                           = "10.21.1.103" -> null
+      - public_dns                           = "ec2-13-127-83-54.ap-south-1.compute.amazonaws.com" -> null
+      - public_ip                            = "13.127.83.54" -> null
+      - region                               = "ap-south-1" -> null
+      - secondary_private_ips                = [] -> null
+      - security_groups                      = [] -> null
+      - source_dest_check                    = true -> null
+      - subnet_id                            = "subnet-09efc454e58d63707" -> null
+      - tags                                 = {
+          - "Name" = "kartikey-cloud-web"
+        } -> null
+      - tags_all                             = {
+          - "Name"       = "kartikey-cloud-web"
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - tenancy                              = "default" -> null
+      - user_data                            = <<-EOT
+            #!/bin/bash
+            set -eu
+            dnf install -y nginx
+            printf '%s' '<h1>Kartikey - 24bcs10121</h1><p>Terraform cloud lab</p>' > /usr/share/nginx/html/index.html
+            systemctl enable --now nginx
+        EOT -> null
+      - user_data_replace_on_change          = false -> null
+      - vpc_security_group_ids               = [
+          - "sg-011592ba61e38f337",
+        ] -> null
+        # (9 unchanged attributes hidden)
+
+      - capacity_reservation_specification {
+          - capacity_reservation_preference = "open" -> null
+        }
+
+      - cpu_options {
+          - core_count            = 1 -> null
+          - threads_per_core      = 2 -> null
+            # (2 unchanged attributes hidden)
+        }
+
+      - credit_specification {
+          - cpu_credits = "unlimited" -> null
+        }
+
+      - enclave_options {
+          - enabled = false -> null
+        }
+
+      - maintenance_options {
+          - auto_recovery = "default" -> null
+        }
+
+      - metadata_options {
+          - http_endpoint               = "enabled" -> null
+          - http_protocol_ipv6          = "disabled" -> null
+          - http_put_response_hop_limit = 2 -> null
+          - http_tokens                 = "required" -> null
+          - instance_metadata_tags      = "disabled" -> null
+        }
+
+      - primary_network_interface {
+          - delete_on_termination = true -> null
+          - network_interface_id  = "eni-03b54876cc46547c6" -> null
+        }
+
+      - private_dns_name_options {
+          - enable_resource_name_dns_a_record    = false -> null
+          - enable_resource_name_dns_aaaa_record = false -> null
+          - hostname_type                        = "ip-name" -> null
+        }
+
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/xvda" -> null
+          - encrypted             = true -> null
+          - iops                  = 3000 -> null
+          - kms_key_id            = "arn:aws:kms:ap-south-1:365811604761:key/75b93742-c4c8-4e58-b764-0c0cd14151c9" -> null
+          - tags                  = {} -> null
+          - tags_all              = {
+              - "Project"    = "devops-coursework"
+              - "RollNumber" = "24bcs10121"
+              - "Student"    = "Kartikey"
+            } -> null
+          - throughput            = 125 -> null
+          - volume_id             = "vol-0a36c029b5c5f69e4" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp3" -> null
+        }
+    }
+
+  # aws_internet_gateway.lab will be destroyed
+  - resource "aws_internet_gateway" "lab" {
+      - arn      = "arn:aws:ec2:ap-south-1:365811604761:internet-gateway/igw-00720aa18eb10533a" -> null
+      - id       = "igw-00720aa18eb10533a" -> null
+      - owner_id = "365811604761" -> null
+      - region   = "ap-south-1" -> null
+      - tags     = {} -> null
+      - tags_all = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - vpc_id   = "vpc-0feb704246a09258d" -> null
+    }
+
+  # aws_route_table.public will be destroyed
+  - resource "aws_route_table" "public" {
+      - arn              = "arn:aws:ec2:ap-south-1:365811604761:route-table/rtb-0cdabf55dcbf6279f" -> null
+      - id               = "rtb-0cdabf55dcbf6279f" -> null
+      - owner_id         = "365811604761" -> null
+      - propagating_vgws = [] -> null
+      - region           = "ap-south-1" -> null
+      - route            = [
+          - {
+              - cidr_block                 = "0.0.0.0/0"
+              - gateway_id                 = "igw-00720aa18eb10533a"
+                # (12 unchanged attributes hidden)
+            },
+        ] -> null
+      - tags             = {} -> null
+      - tags_all         = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - vpc_id           = "vpc-0feb704246a09258d" -> null
+    }
+
+  # aws_route_table_association.public[0] will be destroyed
+  - resource "aws_route_table_association" "public" {
+      - id             = "rtbassoc-00551f7d248add4d0" -> null
+      - region         = "ap-south-1" -> null
+      - route_table_id = "rtb-0cdabf55dcbf6279f" -> null
+      - subnet_id      = "subnet-09efc454e58d63707" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_route_table_association.public[1] will be destroyed
+  - resource "aws_route_table_association" "public" {
+      - id             = "rtbassoc-0460bbbb1bb732f0e" -> null
+      - region         = "ap-south-1" -> null
+      - route_table_id = "rtb-0cdabf55dcbf6279f" -> null
+      - subnet_id      = "subnet-0f6b5b78c9119c7f3" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_s3_bucket.lab will be destroyed
+  - resource "aws_s3_bucket" "lab" {
+      - arn                         = "arn:aws:s3:::kartikey-24bcs10121-cloud-lab" -> null
+      - bucket                      = "kartikey-24bcs10121-cloud-lab" -> null
+      - bucket_domain_name          = "kartikey-24bcs10121-cloud-lab.s3.amazonaws.com" -> null
+      - bucket_namespace            = "global" -> null
+      - bucket_region               = "ap-south-1" -> null
+      - bucket_regional_domain_name = "kartikey-24bcs10121-cloud-lab.s3.ap-south-1.amazonaws.com" -> null
+      - force_destroy               = false -> null
+      - hosted_zone_id              = "Z11RGJOFQNVJUP" -> null
+      - id                          = "kartikey-24bcs10121-cloud-lab" -> null
+      - object_lock_enabled         = false -> null
+      - policy                      = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "s3:*"
+                      - Condition = {
+                          - Bool = {
+                              - "aws:SecureTransport" = "false"
+                            }
+                        }
+                      - Effect    = "Deny"
+                      - Principal = "*"
+                      - Resource  = [
+                          - "arn:aws:s3:::kartikey-24bcs10121-cloud-lab",
+                          - "arn:aws:s3:::kartikey-24bcs10121-cloud-lab/*",
+                        ]
+                      - Sid       = "DenyInsecureTransport"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - region                      = "ap-south-1" -> null
+      - request_payer               = "BucketOwner" -> null
+      - tags                        = {} -> null
+      - tags_all                    = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+        # (2 unchanged attributes hidden)
+
+      - grant {
+          - id          = "901c1df101219127af2aef6c1cb043c1cec00d5888385a3c0115a5a351123c53" -> null
+          - permissions = [
+              - "FULL_CONTROL",
+            ] -> null
+          - type        = "CanonicalUser" -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - server_side_encryption_configuration {
+          - rule {
+              - bucket_key_enabled = false -> null
+
+              - apply_server_side_encryption_by_default {
+                  - sse_algorithm     = "AES256" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+        }
+
+      - versioning {
+          - enabled    = true -> null
+          - mfa_delete = false -> null
+        }
+    }
+
+  # aws_s3_bucket_policy.tls will be destroyed
+  - resource "aws_s3_bucket_policy" "tls" {
+      - bucket = "kartikey-24bcs10121-cloud-lab" -> null
+      - id     = "kartikey-24bcs10121-cloud-lab" -> null
+      - policy = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "s3:*"
+                      - Condition = {
+                          - Bool = {
+                              - "aws:SecureTransport" = "false"
+                            }
+                        }
+                      - Effect    = "Deny"
+                      - Principal = "*"
+                      - Resource  = [
+                          - "arn:aws:s3:::kartikey-24bcs10121-cloud-lab",
+                          - "arn:aws:s3:::kartikey-24bcs10121-cloud-lab/*",
+                        ]
+                      - Sid       = "DenyInsecureTransport"
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - region = "ap-south-1" -> null
+    }
+
+  # aws_s3_bucket_public_access_block.lab will be destroyed
+  - resource "aws_s3_bucket_public_access_block" "lab" {
+      - block_public_acls       = true -> null
+      - block_public_policy     = true -> null
+      - bucket                  = "kartikey-24bcs10121-cloud-lab" -> null
+      - id                      = "kartikey-24bcs10121-cloud-lab" -> null
+      - ignore_public_acls      = true -> null
+      - region                  = "ap-south-1" -> null
+      - restrict_public_buckets = true -> null
+    }
+
+  # aws_s3_bucket_server_side_encryption_configuration.lab will be destroyed
+  - resource "aws_s3_bucket_server_side_encryption_configuration" "lab" {
+      - bucket                = "kartikey-24bcs10121-cloud-lab" -> null
+      - id                    = "kartikey-24bcs10121-cloud-lab" -> null
+      - region                = "ap-south-1" -> null
+        # (1 unchanged attribute hidden)
+
+      - rule {
+          - blocked_encryption_types = [
+              - "SSE-C",
+            ] -> null
+          - bucket_key_enabled       = false -> null
+
+          - apply_server_side_encryption_by_default {
+              - sse_algorithm     = "AES256" -> null
+                # (1 unchanged attribute hidden)
+            }
+        }
+    }
+
+  # aws_s3_bucket_versioning.lab will be destroyed
+  - resource "aws_s3_bucket_versioning" "lab" {
+      - bucket                = "kartikey-24bcs10121-cloud-lab" -> null
+      - id                    = "kartikey-24bcs10121-cloud-lab" -> null
+      - region                = "ap-south-1" -> null
+        # (1 unchanged attribute hidden)
+
+      - versioning_configuration {
+          - mfa_delete = "Disabled" -> null
+          - status     = "Enabled" -> null
+        }
+    }
+
+  # aws_security_group.web will be destroyed
+  - resource "aws_security_group" "web" {
+      - arn                    = "arn:aws:ec2:ap-south-1:365811604761:security-group/sg-011592ba61e38f337" -> null
+      - description            = "Managed by Terraform" -> null
+      - egress                 = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 0
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "-1"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 0
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - id                     = "sg-011592ba61e38f337" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "<ADMIN_IPV4>/32",
+                ]
+              - from_port        = 80
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 80
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - name                   = "kartikey-web-c1a77b15cc82c8b09377117297" -> null
+      - name_prefix            = "kartikey-web-" -> null
+      - owner_id               = "365811604761" -> null
+      - region                 = "ap-south-1" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {} -> null
+      - tags_all               = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - vpc_id                 = "vpc-0feb704246a09258d" -> null
+    }
+
+  # aws_subnet.public[0] will be destroyed
+  - resource "aws_subnet" "public" {
+      - arn                                            = "arn:aws:ec2:ap-south-1:365811604761:subnet/subnet-09efc454e58d63707" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "ap-south-1a" -> null
+      - availability_zone_id                           = "aps1-az1" -> null
+      - cidr_block                                     = "10.21.1.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-09efc454e58d63707" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = true -> null
+      - owner_id                                       = "365811604761" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - region                                         = "ap-south-1" -> null
+      - tags                                           = {
+          - "kubernetes.io/role/elb" = "1"
+        } -> null
+      - tags_all                                       = {
+          - "Project"                = "devops-coursework"
+          - "RollNumber"             = "24bcs10121"
+          - "Student"                = "Kartikey"
+          - "kubernetes.io/role/elb" = "1"
+        } -> null
+      - vpc_id                                         = "vpc-0feb704246a09258d" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # aws_subnet.public[1] will be destroyed
+  - resource "aws_subnet" "public" {
+      - arn                                            = "arn:aws:ec2:ap-south-1:365811604761:subnet/subnet-0f6b5b78c9119c7f3" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "ap-south-1b" -> null
+      - availability_zone_id                           = "aps1-az3" -> null
+      - cidr_block                                     = "10.21.2.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0f6b5b78c9119c7f3" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = true -> null
+      - owner_id                                       = "365811604761" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - region                                         = "ap-south-1" -> null
+      - tags                                           = {
+          - "kubernetes.io/role/elb" = "1"
+        } -> null
+      - tags_all                                       = {
+          - "Project"                = "devops-coursework"
+          - "RollNumber"             = "24bcs10121"
+          - "Student"                = "Kartikey"
+          - "kubernetes.io/role/elb" = "1"
+        } -> null
+      - vpc_id                                         = "vpc-0feb704246a09258d" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # aws_vpc.lab will be destroyed
+  - resource "aws_vpc" "lab" {
+      - arn                                  = "arn:aws:ec2:ap-south-1:365811604761:vpc/vpc-0feb704246a09258d" -> null
+      - assign_generated_ipv6_cidr_block     = false -> null
+      - cidr_block                           = "10.21.0.0/16" -> null
+      - default_network_acl_id               = "acl-091899f8cbe4f2c27" -> null
+      - default_route_table_id               = "rtb-043b2f2e36dee5b1d" -> null
+      - default_security_group_id            = "sg-013cfbb3f0670d237" -> null
+      - dhcp_options_id                      = "dopt-0eff2d9f28236c74f" -> null
+      - enable_dns_hostnames                 = true -> null
+      - enable_dns_support                   = true -> null
+      - enable_network_address_usage_metrics = false -> null
+      - id                                   = "vpc-0feb704246a09258d" -> null
+      - instance_tenancy                     = "default" -> null
+      - ipv6_netmask_length                  = 0 -> null
+      - main_route_table_id                  = "rtb-043b2f2e36dee5b1d" -> null
+      - owner_id                             = "365811604761" -> null
+      - region                               = "ap-south-1" -> null
+      - tags                                 = {
+          - "Name" = "kartikey-devops"
+        } -> null
+      - tags_all                             = {
+          - "Name"       = "kartikey-devops"
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+        # (4 unchanged attributes hidden)
+    }
+
+Plan: 0 to add, 0 to change, 14 to destroy.
+
+Changes to Outputs:
+  - bucket_name = "kartikey-24bcs10121-cloud-lab" -> null
+  - vpc_id      = "vpc-0feb704246a09258d" -> null
+  - web_url     = "http://13.127.83.54" -> null
+
+─────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: destroy.tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "destroy.tfplan"

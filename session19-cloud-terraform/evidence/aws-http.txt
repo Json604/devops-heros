@@ -1,0 +1,6 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    56  100    56    0     0    539      0 --:--:-- --:--:-- --:--:--   543
+<h1>Kartikey - 24bcs10121</h1><p>Terraform cloud lab</p>

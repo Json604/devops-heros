@@ -1,0 +1,33 @@
+aws_s3_bucket_public_access_block.lab: Destroying... [id=kartikey-24bcs10121-cloud-lab]
+aws_s3_bucket_policy.tls: Destroying... [id=kartikey-24bcs10121-cloud-lab]
+aws_s3_bucket_versioning.lab: Destroying... [id=kartikey-24bcs10121-cloud-lab]
+aws_s3_bucket_server_side_encryption_configuration.lab: Destroying... [id=kartikey-24bcs10121-cloud-lab]
+aws_instance.web: Destroying... [id=i-068ff1d9b9a4be1a8]
+aws_s3_bucket_server_side_encryption_configuration.lab: Destruction complete after 1s
+aws_s3_bucket_policy.tls: Destruction complete after 1s
+aws_s3_bucket_versioning.lab: Destruction complete after 2s
+aws_s3_bucket_public_access_block.lab: Destruction complete after 3s
+aws_s3_bucket.lab: Destroying... [id=kartikey-24bcs10121-cloud-lab]
+aws_s3_bucket.lab: Destruction complete after 0s
+aws_instance.web: Still destroying... [id=i-068ff1d9b9a4be1a8, 00m10s elapsed]
+aws_instance.web: Still destroying... [id=i-068ff1d9b9a4be1a8, 00m20s elapsed]
+aws_instance.web: Still destroying... [id=i-068ff1d9b9a4be1a8, 00m30s elapsed]
+aws_instance.web: Destruction complete after 33s
+aws_route_table_association.public[1]: Destroying... [id=rtbassoc-0460bbbb1bb732f0e]
+aws_route_table_association.public[0]: Destroying... [id=rtbassoc-00551f7d248add4d0]
+aws_security_group.web: Destroying... [id=sg-011592ba61e38f337]
+aws_route_table_association.public[0]: Destruction complete after 1s
+aws_route_table_association.public[1]: Destruction complete after 1s
+aws_subnet.public[0]: Destroying... [id=subnet-09efc454e58d63707]
+aws_route_table.public: Destroying... [id=rtb-0cdabf55dcbf6279f]
+aws_subnet.public[1]: Destroying... [id=subnet-0f6b5b78c9119c7f3]
+aws_security_group.web: Destruction complete after 2s
+aws_subnet.public[0]: Destruction complete after 1s
+aws_subnet.public[1]: Destruction complete after 1s
+aws_route_table.public: Destruction complete after 3s
+aws_internet_gateway.lab: Destroying... [id=igw-00720aa18eb10533a]
+aws_internet_gateway.lab: Destruction complete after 1s
+aws_vpc.lab: Destroying... [id=vpc-0feb704246a09258d]
+aws_vpc.lab: Destruction complete after 0s
+
+Apply complete! Resources: 0 added, 0 changed, 14 destroyed.

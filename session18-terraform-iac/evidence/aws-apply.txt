@@ -1,0 +1,17 @@
+aws_s3_bucket.lab: Creating...
+aws_s3_bucket.lab: Creation complete after 6s [id=kartikey-24bcs10121-devops-lab]
+aws_s3_bucket_versioning.lab: Creating...
+aws_s3_bucket_public_access_block.lab: Creating...
+aws_s3_bucket_policy.tls: Creating...
+aws_s3_bucket_server_side_encryption_configuration.lab: Creating...
+aws_s3_bucket_public_access_block.lab: Creation complete after 1s [id=kartikey-24bcs10121-devops-lab]
+aws_s3_bucket_policy.tls: Creation complete after 1s [id=kartikey-24bcs10121-devops-lab]
+aws_s3_bucket_server_side_encryption_configuration.lab: Creation complete after 1s [id=kartikey-24bcs10121-devops-lab]
+aws_s3_bucket_versioning.lab: Creation complete after 2s [id=kartikey-24bcs10121-devops-lab]
+
+Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_arn = "arn:aws:s3:::kartikey-24bcs10121-devops-lab"
+bucket_name = "kartikey-24bcs10121-devops-lab"

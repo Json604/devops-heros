@@ -1,0 +1,12 @@
+aws_s3_bucket_server_side_encryption_configuration.lab: Destroying... [id=kartikey-24bcs10121-devops-lab]
+aws_s3_bucket_policy.tls: Destroying... [id=kartikey-24bcs10121-devops-lab]
+aws_s3_bucket_public_access_block.lab: Destroying... [id=kartikey-24bcs10121-devops-lab]
+aws_s3_bucket_versioning.lab: Destroying... [id=kartikey-24bcs10121-devops-lab]
+aws_s3_bucket_server_side_encryption_configuration.lab: Destruction complete after 8s
+aws_s3_bucket_public_access_block.lab: Destruction complete after 8s
+aws_s3_bucket_versioning.lab: Destruction complete after 8s
+aws_s3_bucket_policy.tls: Destruction complete after 8s
+aws_s3_bucket.lab: Destroying... [id=kartikey-24bcs10121-devops-lab]
+aws_s3_bucket.lab: Destruction complete after 1s
+
+Apply complete! Resources: 0 added, 0 changed, 5 destroyed.

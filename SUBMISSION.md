@@ -17,8 +17,8 @@ Recorded on 7 October 2026. The [root index](README.md) links every assignment a
 | 15 | Notes Helm chart; create/repo/search/install/list/status/get; production upgrade; deliberately broken image upgrade; rollback to working revision 2; three healthy production replicas; uninstall. |
 | 16 | Calculator app and 7 tests; build artifact; Docker image; GHCR push; two-replica Kubernetes deployment and HTTP check in GitHub Actions. |
 | 17 | 17 API tests, frontend build, SAST, SCA, secret scanning, both container scans, security gates, SHA-tagged GHCR publication and Kubernetes deployment. |
-| 18 | S3 Terraform implementation; AWS service research; provider initialization, validation and mocked-provider tests. Live AWS work remains pending below. |
-| 19 | VPC, two subnets, routes, Security Group, EC2 and S3 code; architecture and commands; validation and mocked-provider tests. Live AWS work remains pending below. |
+| 18 | S3 Terraform implementation and AWS research; real AWS plan/apply/show/output completed; 5 resources created and destroyed; Console screenshots and cleanup verification saved. |
+| 19 | VPC, two subnets, routes, Security Group, EC2 and S3 provisioned on AWS; browser/HTTP verification passed; all 14 resources destroyed; screenshots and cleanup verification saved. |
 | 20 | Prometheus application/cAdvisor targets UP; Grafana live metrics; application-down alert reached Firing and service recovered; Argo repaired replica drift. |
 | 21 | Campus Helpdesk UI/API/PostgreSQL/migrations; non-root images; ConfigMap/Secret/Ingress/HPA/probes/PVC; Helm; EKS Terraform; monitoring; GitOps; failure recovery. |
 
@@ -45,6 +45,8 @@ The [hosted scan summary](session21-final-devops-project/evidence/ci-security-su
 - [Helm lifecycle](session-15-helm/screenshots/session15.jpg)
 - [Calculator GitHub pipeline](session-16-github-actions/screenshots/github-actions.jpg)
 - [Terraform S3 checks](session18-terraform-iac/screenshots/session18.jpg)
+- [Live S3 creation and cleanup](session18-terraform-iac/screenshots/aws-lifecycle.jpg)
+- [Live EC2/VPC/S3 creation and cleanup](session19-cloud-terraform/screenshots/aws-lifecycle.jpg)
 - [Terraform cloud checks](session19-cloud-terraform/screenshots/session19.jpg)
 - [GitOps self-heal](session20-monitoring-observability-gitops/screenshots/gitops.jpg)
 - [Helpdesk application](session21-final-devops-project/screenshots/helpdesk-compose.jpg)
@@ -63,7 +65,7 @@ Command-output screenshots are browser captures of the recorded transcripts, lab
 
 ## Outstanding external requirements
 
-1. Real AWS S3, EC2/VPC and EKS provisioning, live plans, `apply`, `show`, `output`, Console screenshots and `destroy`. AWS execution is authorized, but no usable local AWS profile is configured: browser-based CLI sign-in returned HTTP 400. No paid resources were created. The complete code and commands are ready. [EKS pricing](https://aws.amazon.com/eks/pricing/) includes cluster charges as well as the underlying resources.
+1. Session 21 remains separate: EKS provisioning and its plan/Console/destroy evidence have not been completed. Sessions 18 and 19 live AWS requirements are complete and their resources were removed. The Session 21 review also identified production ServiceMonitor prerequisites, specific screenshots, and the persistent release demonstration still to address.
 2. The instructor's live/recorded presentation and submission-form delivery. These have not been represented as completed.
 
 ## Running locally

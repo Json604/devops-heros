@@ -1,0 +1,3 @@
+bucket_name = "kartikey-24bcs10121-cloud-lab"
+vpc_id = "vpc-0feb704246a09258d"
+web_url = "http://13.127.83.54"

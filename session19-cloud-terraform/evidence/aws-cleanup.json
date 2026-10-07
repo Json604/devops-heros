@@ -1,0 +1,15 @@
+{
+  "buckets": [],
+  "instance": [
+    {
+      "InstanceId": "i-068ff1d9b9a4be1a8",
+      "State": "terminated"
+    }
+  ],
+  "vpc": [],
+  "volume": [],
+  "terraform_managed_resources_remaining": {
+    "session18": 0,
+    "session19": 0
+  }
+}

@@ -31,4 +31,4 @@
 | 20 | [Monitoring, observability and GitOps](session20-monitoring-observability-gitops/README.md) |
 | 21 | [Campus Helpdesk final project](session21-final-devops-project/README.md) |
 
-See [submission status](SUBMISSION.md) for executed checks, pipeline URLs, screenshots and the outstanding live AWS requirement. Code, command transcripts and screenshots are included in each session directory. No live AWS deployment or destroy output is claimed by the mocked Terraform tests.
+See [submission status](SUBMISSION.md) for executed checks, pipeline URLs, screenshots and the remaining Session 21 requirements. Code, command transcripts and screenshots are included in each session directory. Sessions 18 and 19 include real AWS provisioning and verified teardown evidence, separate from the mocked Terraform tests.

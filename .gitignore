@@ -18,3 +18,5 @@ kubeconfig*
 *.pem
 *.key
 build/
+
+/session19-cloud-terraform/terraform.tfvars

@@ -1,0 +1,51 @@
+name: Session 16 - Calculator CI CD
+on:
+  push:
+    branches: [main, 'submission/**']
+    paths: ['session-16-github-actions/**', '.github/workflows/session16.yml']
+  pull_request:
+    paths: ['session-16-github-actions/**', '.github/workflows/session16.yml']
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with: {python-version: '3.12'}
+    - run: pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt
+    - run: pytest -v session-16-github-actions/10-final-cicd-pipeline/tests
+    - run: bash session-16-github-actions/10-final-cicd-pipeline/build.sh
+    - uses: actions/upload-artifact@v4
+      with:
+        name: calculator-build
+        path: session-16-github-actions/10-final-cicd-pipeline/build/calculator.tar.gz
+  cd:
+    needs: ci
+    runs-on: ubuntu-latest
+    permissions: {contents: read, packages: write}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build image
+      run: docker build -t calculator:local session-16-github-actions/10-final-cicd-pipeline
+    - name: Publish image
+      if: github.event_name != 'pull_request'
+      env:
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OWNER: ${{ github.repository_owner }}
+      run: |
+        printf '%s' "$TOKEN" | docker login ghcr.io -u "$OWNER" --password-stdin
+        owner=$(printf '%s' "$OWNER" | tr '[:upper:]' '[:lower:]')
+        docker tag calculator:local ghcr.io/$owner/devops-calculator:${{ github.sha }}
+        docker push ghcr.io/$owner/devops-calculator:${{ github.sha }}
+    - uses: helm/kind-action@v1
+      with: {cluster_name: calculator-ci}
+    - name: Deploy application
+      run: |
+        kind load docker-image calculator:local --name calculator-ci
+        kubectl apply -f session-16-github-actions/10-final-cicd-pipeline/kubernetes.yaml
+        kubectl rollout status deployment/calculator --timeout=180s
+        kubectl run verify --image=busybox:1.36 --restart=Never -- sh -ec 'wget -qO- "http://calculator:8080/calculate?operation=add&a=10&b=5" | grep 15'
+        kubectl wait --for=jsonpath='{.status.phase}'=Succeeded pod/verify --timeout=90s
+        kubectl logs verify

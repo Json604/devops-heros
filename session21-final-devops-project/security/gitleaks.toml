@@ -1,0 +1,3 @@
+title = "Campus Helpdesk secret scanning"
+[extend]
+useDefault = true

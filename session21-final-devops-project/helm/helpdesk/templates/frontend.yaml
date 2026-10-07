@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helpdesk-frontend
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels: {app: helpdesk-frontend}
+  template:
+    metadata:
+      labels: {app: helpdesk-frontend}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+{{ toYaml . | indent 8 }}
+      {{- end }}
+      containers:
+      - name: frontend
+        image: "{{ .Values.frontend.image }}:{{ .Values.frontend.tag }}"
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        ports: [{name: http, containerPort: 8080}]
+        startupProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 3
+          failureThreshold: 60
+        readinessProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 5
+        livenessProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 10
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 101
+          allowPrivilegeEscalation: false
+          capabilities: {drop: [ALL]}
+        resources:
+          requests: {cpu: 100m, memory: 128Mi}
+          limits: {cpu: 500m, memory: 256Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  labels: {app: helpdesk-frontend}
+spec:
+  type: ClusterIP
+  selector: {app: helpdesk-frontend}
+  ports: [{name: http, port: 8080, targetPort: http}]

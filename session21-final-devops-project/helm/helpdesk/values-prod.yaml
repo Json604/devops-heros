@@ -1,0 +1,11 @@
+backend:
+  image: ghcr.io/json604/campus-helpdesk-backend
+  tag: SET_COMMIT_SHA
+frontend:
+  image: ghcr.io/json604/campus-helpdesk-frontend
+  tag: SET_COMMIT_SHA
+postgres:
+  storageClass: gp3
+  storage: 5Gi
+monitoring:
+  serviceMonitor: true

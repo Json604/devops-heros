@@ -1,0 +1,27 @@
+replicaCount: 2
+backend:
+  image: campus-helpdesk-backend
+  tag: local
+frontend:
+  image: campus-helpdesk-frontend
+  tag: local
+imagePullPolicy: IfNotPresent
+imagePullSecrets: []
+postgres:
+  image: postgres:16-alpine
+  database: helpdesk
+  username: helpdesk
+  existingSecret: helpdesk-database
+  storage: 1Gi
+  storageClass: ""
+ingress:
+  enabled: true
+  className: nginx
+  host: helpdesk.local
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPU: 60
+monitoring:
+  serviceMonitor: false

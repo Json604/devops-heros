@@ -1,0 +1,230 @@
+---
+# Source: helpdesk/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: helpdesk-config
+data:
+  APP_NAME: Campus Helpdesk API
+  POSTGRES_HOST: postgres
+  POSTGRES_DB: "helpdesk"
+  POSTGRES_USER: "helpdesk"
+---
+# Source: helpdesk/templates/backend.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels: {app: helpdesk-backend}
+spec:
+  type: ClusterIP
+  selector: {app: helpdesk-backend}
+  ports: [{name: http, port: 8000, targetPort: http}]
+---
+# Source: helpdesk/templates/frontend.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  labels: {app: helpdesk-frontend}
+spec:
+  type: ClusterIP
+  selector: {app: helpdesk-frontend}
+  ports: [{name: http, port: 8080, targetPort: http}]
+---
+# Source: helpdesk/templates/postgres.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  ports: [{name: postgres, port: 5432, targetPort: 5432}]
+  selector: {app: helpdesk-postgres}
+---
+# Source: helpdesk/templates/backend.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helpdesk-backend
+spec:
+  selector:
+    matchLabels: {app: helpdesk-backend}
+  template:
+    metadata:
+      labels: {app: helpdesk-backend}
+      annotations:
+        checksum/config: c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6
+    spec:
+      containers:
+      - name: backend
+        image: "campus-helpdesk-backend:local"
+        imagePullPolicy: IfNotPresent
+        ports: [{name: http, containerPort: 8000}]
+        envFrom: [{configMapRef: {name: helpdesk-config}}]
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: {name: helpdesk-database, key: password}
+        startupProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 3
+          failureThreshold: 60
+        readinessProbe:
+          httpGet: {path: /ready, port: http}
+          periodSeconds: 5
+        livenessProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 10
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10001
+          allowPrivilegeEscalation: false
+          capabilities: {drop: [ALL]}
+        resources:
+          requests: {cpu: 100m, memory: 128Mi}
+          limits: {cpu: 500m, memory: 256Mi}
+---
+# Source: helpdesk/templates/frontend.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helpdesk-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: helpdesk-frontend}
+  template:
+    metadata:
+      labels: {app: helpdesk-frontend}
+      annotations:
+        checksum/config: c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6
+    spec:
+      containers:
+      - name: frontend
+        image: "campus-helpdesk-frontend:local"
+        imagePullPolicy: IfNotPresent
+        ports: [{name: http, containerPort: 8080}]
+        startupProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 3
+          failureThreshold: 60
+        readinessProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 5
+        livenessProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 10
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 101
+          allowPrivilegeEscalation: false
+          capabilities: {drop: [ALL]}
+        resources:
+          requests: {cpu: 100m, memory: 128Mi}
+          limits: {cpu: 500m, memory: 256Mi}
+---
+# Source: helpdesk/templates/hpa.yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: helpdesk-backend
+spec:
+  scaleTargetRef: {apiVersion: apps/v1, kind: Deployment, name: helpdesk-backend}
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target: {type: Utilization, averageUtilization: 60}
+---
+# Source: helpdesk/templates/postgres.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: helpdesk-postgres
+spec:
+  serviceName: postgres
+  replicas: 1
+  selector:
+    matchLabels: {app: helpdesk-postgres}
+  template:
+    metadata:
+      labels: {app: helpdesk-postgres}
+    spec:
+      securityContext:
+        runAsUser: 999
+        runAsGroup: 999
+        fsGroup: 999
+      containers:
+      - name: postgres
+        image: "postgres:16-alpine"
+        envFrom: [{configMapRef: {name: helpdesk-config}}]
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: {name: helpdesk-database, key: password}
+        - {name: PGDATA, value: /var/lib/postgresql/data/pgdata}
+        ports: [{containerPort: 5432}]
+        readinessProbe:
+          exec: {command: [sh, -c, 'pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"']}
+          periodSeconds: 5
+        resources:
+          requests: {cpu: 100m, memory: 128Mi}
+          limits: {cpu: 500m, memory: 512Mi}
+        volumeMounts: [{name: data, mountPath: /var/lib/postgresql/data}]
+  volumeClaimTemplates:
+  - metadata: {name: data}
+    spec:
+      accessModes: [ReadWriteOnce]
+      resources:
+        requests:
+          storage: 1Gi
+---
+# Source: helpdesk/templates/migration.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: helpdesk-migrate-1
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 10
+  activeDeadlineSeconds: 300
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: migrate
+        image: "campus-helpdesk-backend:local"
+        imagePullPolicy: IfNotPresent
+        command: [alembic, upgrade, head]
+        envFrom: [{configMapRef: {name: helpdesk-config}}]
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: {name: helpdesk-database, key: password}
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10001
+          allowPrivilegeEscalation: false
+          capabilities: {drop: [ALL]}
+---
+# Source: helpdesk/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: helpdesk
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: helpdesk.local
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend: {service: {name: backend, port: {number: 8000}}}
+      - path: /
+        pathType: Prefix
+        backend: {service: {name: frontend, port: {number: 8080}}}

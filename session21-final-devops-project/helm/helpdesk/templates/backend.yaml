@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helpdesk-backend
+spec:
+  {{- if not .Values.hpa.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels: {app: helpdesk-backend}
+  template:
+    metadata:
+      labels: {app: helpdesk-backend}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+{{ toYaml . | indent 8 }}
+      {{- end }}
+      containers:
+      - name: backend
+        image: "{{ .Values.backend.image }}:{{ .Values.backend.tag }}"
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        ports: [{name: http, containerPort: 8000}]
+        envFrom: [{configMapRef: {name: helpdesk-config}}]
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: {name: {{ .Values.postgres.existingSecret }}, key: password}
+        startupProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 3
+          failureThreshold: 60
+        readinessProbe:
+          httpGet: {path: /ready, port: http}
+          periodSeconds: 5
+        livenessProbe:
+          httpGet: {path: /health, port: http}
+          periodSeconds: 10
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10001
+          allowPrivilegeEscalation: false
+          capabilities: {drop: [ALL]}
+        resources:
+          requests: {cpu: 100m, memory: 128Mi}
+          limits: {cpu: 500m, memory: 256Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels: {app: helpdesk-backend}
+spec:
+  type: ClusterIP
+  selector: {app: helpdesk-backend}
+  ports: [{name: http, port: 8000, targetPort: http}]

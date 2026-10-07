@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: helpdesk-migrate-{{ .Release.Revision }}
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 10
+  activeDeadlineSeconds: 300
+  template:
+    spec:
+      restartPolicy: OnFailure
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+{{ toYaml . | indent 8 }}
+      {{- end }}
+      containers:
+      - name: migrate
+        image: "{{ .Values.backend.image }}:{{ .Values.backend.tag }}"
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        command: [alembic, upgrade, head]
+        envFrom: [{configMapRef: {name: helpdesk-config}}]
+        env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef: {name: {{ .Values.postgres.existingSecret }}, key: password}
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10001
+          allowPrivilegeEscalation: false
+          capabilities: {drop: [ALL]}

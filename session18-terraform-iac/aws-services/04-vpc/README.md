@@ -1,6 +1,6 @@
 # VPC: networking
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 A VPC is a logically isolated AWS network. Its CIDR defines its address range, for example `10.21.0.0/16`. Subnets divide that range and belong to individual Availability Zones. Route tables decide the next hop for a destination. The most specific matching route wins.

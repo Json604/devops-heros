@@ -1,6 +1,6 @@
 # Session 18: Terraform and AWS services
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 - [Terraform S3 demo](terraform-s3-demo/README.md)
@@ -11,3 +11,9 @@
 - [DynamoDB and RDS](aws-services/05-dynamodb-rds/README.md)
 
 Local provider initialization, validation and mocked-provider tests are recorded in `evidence/`. Live AWS apply/show/output/destroy evidence is pending: no AWS resources were created during this submission run.
+
+## Screenshot evidence
+
+![Recorded assignment evidence](screenshots/session18.jpg)
+
+Command-output screenshots display the captured transcripts; the full text files are retained in `evidence/`. GitHub and application screenshots capture their live pages.

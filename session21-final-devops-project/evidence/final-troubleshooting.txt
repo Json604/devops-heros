@@ -1,0 +1,588 @@
++ kubectl set image -n helpdesk deployment/helpdesk-backend backend=python:missing-24bcs10121
+deployment.apps/helpdesk-backend image updated
++ sleep 25
++ kubectl get pods -n helpdesk
+NAME                                 READY   STATUS             RESTARTS   AGE
+helpdesk-backend-7d9c969878-m8ftl    1/1     Running            0          80s
+helpdesk-backend-7d9c969878-xzhtj    1/1     Running            0          80s
+helpdesk-backend-d99b95fd8-h72rg     0/1     ImagePullBackOff   0          25s
+helpdesk-frontend-756f7c46d5-d2nvb   1/1     Running            0          19m
+helpdesk-frontend-756f7c46d5-r9qkk   1/1     Running            0          19m
+helpdesk-migrate-1-d8c4q             0/1     Completed          4          19m
+helpdesk-postgres-0                  1/1     Running            0          19m
++ kubectl describe pods -n helpdesk -l app=helpdesk-backend
+Name:             helpdesk-backend-7d9c969878-m8ftl
+Namespace:        helpdesk
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:35:25 +0530
+Labels:           app=helpdesk-backend
+                  pod-template-hash=7d9c969878
+Annotations:      checksum/config: c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6
+Status:           Running
+IP:               10.244.0.58
+IPs:
+  IP:           10.244.0.58
+Controlled By:  ReplicaSet/helpdesk-backend-7d9c969878
+Containers:
+  backend:
+    Container ID:   containerd://7f68587f915113ea706ba4b8fdc021a9dba76f54afdc861aa538b38f56428bf4
+    Image:          campus-helpdesk-backend:local
+    Image ID:       sha256:c5e7b46a7ff74cc2fceeb50886b808bd56f12e76ed4c6df3dc0fc6615069cc3f
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Wed, 07 Oct 2026 18:35:25 +0530
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:http/health delay=0s timeout=1s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/ready delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/health delay=0s timeout=1s period=3s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      helpdesk-config  ConfigMap  Optional: false
+    Environment:
+      POSTGRES_PASSWORD:  <set to the key 'password' in secret 'helpdesk-database'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pp9mf (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-pp9mf:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             helpdesk-backend-7d9c969878-xzhtj
+Namespace:        helpdesk
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:35:25 +0530
+Labels:           app=helpdesk-backend
+                  pod-template-hash=7d9c969878
+Annotations:      checksum/config: c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6
+Status:           Running
+IP:               10.244.0.57
+IPs:
+  IP:           10.244.0.57
+Controlled By:  ReplicaSet/helpdesk-backend-7d9c969878
+Containers:
+  backend:
+    Container ID:   containerd://62f02b9def0453600a728d809e6886dbf058824756239b67fd63f6e0f037faef
+    Image:          campus-helpdesk-backend:local
+    Image ID:       sha256:c5e7b46a7ff74cc2fceeb50886b808bd56f12e76ed4c6df3dc0fc6615069cc3f
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Wed, 07 Oct 2026 18:35:25 +0530
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:http/health delay=0s timeout=1s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/ready delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/health delay=0s timeout=1s period=3s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      helpdesk-config  ConfigMap  Optional: false
+    Environment:
+      POSTGRES_PASSWORD:  <set to the key 'password' in secret 'helpdesk-database'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-lb87s (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-lb87s:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             helpdesk-backend-d99b95fd8-h72rg
+Namespace:        helpdesk
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:36:20 +0530
+Labels:           app=helpdesk-backend
+                  pod-template-hash=d99b95fd8
+Annotations:      checksum/config: c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6
+Status:           Pending
+IP:               10.244.0.60
+IPs:
+  IP:           10.244.0.60
+Controlled By:  ReplicaSet/helpdesk-backend-d99b95fd8
+Containers:
+  backend:
+    Container ID:
+    Image:          python:missing-24bcs10121
+    Image ID:
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:http/health delay=0s timeout=1s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/ready delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/health delay=0s timeout=1s period=3s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      helpdesk-config  ConfigMap  Optional: false
+    Environment:
+      POSTGRES_PASSWORD:  <set to the key 'password' in secret 'helpdesk-database'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kklmb (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       False
+  ContainersReady             False
+  PodScheduled                True
+Volumes:
+  kube-api-access-kklmb:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
++ kubectl get events -n helpdesk --sort-by=.lastTimestamp
+LAST SEEN   TYPE      REASON                         OBJECT                                           MESSAGE
+19m         Normal    Scheduled                      pod/helpdesk-postgres-0                          Successfully assigned helpdesk/helpdesk-postgres-0 to kartikey-devops
+19m         Normal    ExternalProvisioning           persistentvolumeclaim/data-helpdesk-postgres-0   Waiting for a volume to be created either by the external provisioner 'k8s.io/minikube-hostpath' or manually by the system administrator. If volume creation is delayed, please verify that the provisioner is running and correctly registered.
+19m         Normal    ProvisioningSucceeded          persistentvolumeclaim/data-helpdesk-postgres-0   Successfully provisioned volume pvc-d313bae4-76db-45f8-884a-94d6b05f1a13
+19m         Normal    Scheduled                      pod/helpdesk-frontend-756f7c46d5-d2nvb           Successfully assigned helpdesk/helpdesk-frontend-756f7c46d5-d2nvb to kartikey-devops
+19m         Normal    SuccessfulCreate               statefulset/helpdesk-postgres                    create Pod helpdesk-postgres-0 in StatefulSet helpdesk-postgres successful
+19m         Normal    SuccessfulCreate               statefulset/helpdesk-postgres                    create Claim data-helpdesk-postgres-0 Pod helpdesk-postgres-0 in StatefulSet helpdesk-postgres success
+19m         Normal    Scheduled                      pod/helpdesk-frontend-756f7c46d5-r9qkk           Successfully assigned helpdesk/helpdesk-frontend-756f7c46d5-r9qkk to kartikey-devops
+19m         Normal    SuccessfulCreate               replicaset/helpdesk-frontend-756f7c46d5          Created pod: helpdesk-frontend-756f7c46d5-r9qkk
+19m         Normal    SuccessfulCreate               replicaset/helpdesk-frontend-756f7c46d5          Created pod: helpdesk-frontend-756f7c46d5-d2nvb
+19m         Normal    SuccessfulCreate               replicaset/helpdesk-backend-7d9c969878           Created pod: helpdesk-backend-7d9c969878-q5lhn
+19m         Normal    ScalingReplicaSet              deployment/helpdesk-frontend                     Scaled up replica set helpdesk-frontend-756f7c46d5 from 0 to 2
+19m         Normal    Scheduled                      pod/helpdesk-migrate-1-d8c4q                     Successfully assigned helpdesk/helpdesk-migrate-1-d8c4q to kartikey-devops
+19m         Normal    SuccessfulCreate               job/helpdesk-migrate-1                           Created pod: helpdesk-migrate-1-d8c4q
+19m         Warning   FailedScheduling               pod/helpdesk-postgres-0                          0/1 nodes are available: pod has unbound immediate PersistentVolumeClaims. not found
+19m         Normal    Provisioning                   persistentvolumeclaim/data-helpdesk-postgres-0   External provisioner is provisioning volume for claim "helpdesk/data-helpdesk-postgres-0"
+19m         Normal    ScalingReplicaSet              deployment/helpdesk-backend                      Scaled up replica set helpdesk-backend-7d9c969878 from 0 to 1
+19m         Normal    Scheduled                      pod/helpdesk-backend-7d9c969878-q5lhn            Successfully assigned helpdesk/helpdesk-backend-7d9c969878-q5lhn to kartikey-devops
+19m         Normal    Pulled                         pod/helpdesk-backend-7d9c969878-q5lhn            Container image "campus-helpdesk-backend:local" already present on machine
+19m         Normal    Started                        pod/helpdesk-frontend-756f7c46d5-r9qkk           Started container frontend
+19m         Normal    Pulled                         pod/helpdesk-frontend-756f7c46d5-d2nvb           Container image "campus-helpdesk-frontend:local" already present on machine
+19m         Normal    Created                        pod/helpdesk-frontend-756f7c46d5-d2nvb           Created container: frontend
+19m         Normal    Started                        pod/helpdesk-frontend-756f7c46d5-d2nvb           Started container frontend
+19m         Normal    Pulled                         pod/helpdesk-frontend-756f7c46d5-r9qkk           Container image "campus-helpdesk-frontend:local" already present on machine
+19m         Normal    Created                        pod/helpdesk-backend-7d9c969878-q5lhn            Created container: backend
+19m         Normal    Started                        pod/helpdesk-backend-7d9c969878-q5lhn            Started container backend
+19m         Normal    Created                        pod/helpdesk-frontend-756f7c46d5-r9qkk           Created container: frontend
+19m         Normal    SuccessfulCreate               replicaset/helpdesk-backend-7d9c969878           Created pod: helpdesk-backend-7d9c969878-mknq6
+19m         Normal    Scheduled                      pod/helpdesk-backend-7d9c969878-mknq6            Successfully assigned helpdesk/helpdesk-backend-7d9c969878-mknq6 to kartikey-devops
+19m         Normal    SuccessfulRescale              horizontalpodautoscaler/helpdesk-backend         New size: 2; reason: Current number of replicas below Spec.MinReplicas
+19m         Normal    ScalingReplicaSet              deployment/helpdesk-backend                      Scaled up replica set helpdesk-backend-7d9c969878 from 1 to 2
+19m         Normal    Started                        pod/helpdesk-backend-7d9c969878-mknq6            Started container backend
+19m         Normal    Pulled                         pod/helpdesk-backend-7d9c969878-mknq6            Container image "campus-helpdesk-backend:local" already present on machine
+19m         Normal    Sync                           ingress/helpdesk                                 Scheduled for sync
+19m         Normal    Created                        pod/helpdesk-backend-7d9c969878-mknq6            Created container: backend
+19m         Warning   Failed                         pod/helpdesk-postgres-0                          Failed to pull image "postgres:16-alpine": failed to pull and unpack image "docker.io/library/postgres:16-alpine": failed to copy: httpReadSeeker: failed open: failed to do request: Get "https://production.cloudfront.docker.com/registry-v2/docker/registry/v2/blobs/sha256/ef/ef738a34a8651d11b2bace81c55c7e2187f786b484add6c83070884340074368/data?Expires=%5BREDACTED%5D&Key-Pair-Id=%5BREDACTED%5D&Signature=%5BREDACTED%5D": dial tcp: lookup production.cloudfront.docker.com on 192.168.65.254:53: server misbehaving
+19m         Warning   Failed                         pod/helpdesk-postgres-0                          Error: ErrImagePull
+19m         Warning   Failed                         pod/helpdesk-postgres-0                          Error: ImagePullBackOff
+19m         Normal    BackOff                        pod/helpdesk-postgres-0                          Back-off pulling image "postgres:16-alpine"
+18m         Normal    Pulling                        pod/helpdesk-postgres-0                          Pulling image "postgres:16-alpine"
+18m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/helpdesk-backend         invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+18m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/helpdesk-backend         failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+18m         Normal    Pulled                         pod/helpdesk-postgres-0                          Successfully pulled image "postgres:16-alpine" in 3.474s (16.967s including waiting). Image size: 113894072 bytes.
+18m         Normal    Started                        pod/helpdesk-postgres-0                          Started container postgres
+18m         Normal    Created                        pod/helpdesk-postgres-0                          Created container: postgres
+18m         Warning   Unhealthy                      pod/helpdesk-postgres-0                          Readiness probe failed: /var/run/postgresql:5432 - no response
+17m         Warning   BackOff                        pod/helpdesk-migrate-1-d8c4q                     Back-off restarting failed container migrate in pod helpdesk-migrate-1-d8c4q_helpdesk(20b62f63-de85-4d7e-abce-0667bcf799be)
+17m         Warning   Unhealthy                      pod/helpdesk-backend-7d9c969878-mknq6            Readiness probe failed: HTTP probe failed with statuscode: 500
+17m         Warning   Unhealthy                      pod/helpdesk-backend-7d9c969878-q5lhn            Readiness probe failed: HTTP probe failed with statuscode: 500
+17m         Normal    Created                        pod/helpdesk-migrate-1-d8c4q                     Created container: migrate
+17m         Normal    Started                        pod/helpdesk-migrate-1-d8c4q                     Started container migrate
+17m         Normal    Pulled                         pod/helpdesk-migrate-1-d8c4q                     Container image "campus-helpdesk-backend:local" already present on machine
+17m         Normal    Completed                      job/helpdesk-migrate-1                           Job completed
+16m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/helpdesk-backend         failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+16m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/helpdesk-backend         invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+4m3s        Normal    SuccessfulCreate               replicaset/helpdesk-backend-d99b95fd8            Created pod: helpdesk-backend-d99b95fd8-zcw2z
+4m3s        Normal    Scheduled                      pod/helpdesk-backend-d99b95fd8-zcw2z             Successfully assigned helpdesk/helpdesk-backend-d99b95fd8-zcw2z to kartikey-devops
+3m55s       Warning   Failed                         pod/helpdesk-backend-d99b95fd8-zcw2z             Error: ImagePullBackOff
+3m55s       Normal    BackOff                        pod/helpdesk-backend-d99b95fd8-zcw2z             Back-off pulling image "python:missing-24bcs10121"
+3m42s       Normal    Pulling                        pod/helpdesk-backend-d99b95fd8-zcw2z             Pulling image "python:missing-24bcs10121"
+3m41s       Warning   Failed                         pod/helpdesk-backend-d99b95fd8-zcw2z             Error: ErrImagePull
+3m41s       Warning   Failed                         pod/helpdesk-backend-d99b95fd8-zcw2z             Failed to pull image "python:missing-24bcs10121": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/library/python:missing-24bcs10121": failed to resolve reference "docker.io/library/python:missing-24bcs10121": docker.io/library/python:missing-24bcs10121: not found
+3m38s       Normal    ScalingReplicaSet              deployment/helpdesk-backend                      Scaled down replica set helpdesk-backend-d99b95fd8 from 1 to 0
+3m38s       Normal    SuccessfulDelete               replicaset/helpdesk-backend-d99b95fd8            Deleted pod: helpdesk-backend-d99b95fd8-zcw2z
+3m28s       Normal    ScalingReplicaSet              deployment/helpdesk-backend                      Scaled up replica set helpdesk-backend-6cd785fb85 from 0 to 1
+3m28s       Normal    SuccessfulCreate               replicaset/helpdesk-backend-6cd785fb85           Created pod: helpdesk-backend-6cd785fb85-65spm
+3m28s       Normal    Pulled                         pod/helpdesk-backend-6cd785fb85-65spm            Container image "campus-helpdesk-backend:local" already present on machine
+3m28s       Normal    Scheduled                      pod/helpdesk-backend-6cd785fb85-65spm            Successfully assigned helpdesk/helpdesk-backend-6cd785fb85-65spm to kartikey-devops
+3m27s       Normal    Created                        pod/helpdesk-backend-6cd785fb85-65spm            Created container: backend
+3m27s       Normal    Started                        pod/helpdesk-backend-6cd785fb85-65spm            Started container backend
+3m21s       Normal    Killing                        pod/helpdesk-backend-7d9c969878-q5lhn            Stopping container backend
+3m21s       Normal    SuccessfulDelete               replicaset/helpdesk-backend-7d9c969878           Deleted pod: helpdesk-backend-7d9c969878-q5lhn
+3m21s       Normal    ScalingReplicaSet              deployment/helpdesk-backend                      Scaled down replica set helpdesk-backend-7d9c969878 from 2 to 0
+3m21s       Normal    ScalingReplicaSet              deployment/helpdesk-backend                      Scaled down replica set helpdesk-backend-6cd785fb85 from 1 to 0
+3m21s       Warning   Unhealthy                      pod/helpdesk-backend-6cd785fb85-65spm            Readiness probe failed: HTTP probe failed with statuscode: 404
+3m21s       Normal    Killing                        pod/helpdesk-backend-6cd785fb85-65spm            Stopping container backend
+3m21s       Normal    SuccessfulDelete               replicaset/helpdesk-backend-6cd785fb85           Deleted pod: helpdesk-backend-6cd785fb85-65spm
+3m21s       Normal    Killing                        pod/helpdesk-backend-7d9c969878-mknq6            Stopping container backend
+3m21s       Normal    SuccessfulDelete               replicaset/helpdesk-backend-7d9c969878           Deleted pod: helpdesk-backend-7d9c969878-mknq6
+80s         Normal    Pulled                         pod/helpdesk-backend-7d9c969878-xzhtj            Container image "campus-helpdesk-backend:local" already present on machine
+80s         Normal    ScalingReplicaSet              deployment/helpdesk-backend                      Scaled up replica set helpdesk-backend-7d9c969878 from 0 to 2
+80s         Normal    Created                        pod/helpdesk-backend-7d9c969878-xzhtj            Created container: backend
+80s         Normal    Started                        pod/helpdesk-backend-7d9c969878-xzhtj            Started container backend
+80s         Normal    SuccessfulCreate               replicaset/helpdesk-backend-7d9c969878           Created pod: helpdesk-backend-7d9c969878-m8ftl
+80s         Normal    Scheduled                      pod/helpdesk-backend-7d9c969878-m8ftl            Successfully assigned helpdesk/helpdesk-backend-7d9c969878-m8ftl to kartikey-devops
+80s         Normal    Pulled                         pod/helpdesk-backend-7d9c969878-m8ftl            Container image "campus-helpdesk-backend:local" already present on machine
+80s         Normal    Scheduled                      pod/helpdesk-backend-7d9c969878-xzhtj            Successfully assigned helpdesk/helpdesk-backend-7d9c969878-xzhtj to kartikey-devops
+80s         Normal    Created                        pod/helpdesk-backend-7d9c969878-m8ftl            Created container: backend
+80s         Normal    Started                        pod/helpdesk-backend-7d9c969878-m8ftl            Started container backend
+80s         Normal    SuccessfulCreate               replicaset/helpdesk-backend-7d9c969878           Created pod: helpdesk-backend-7d9c969878-xzhtj
+35s         Warning   FailedGetResourceMetric        horizontalpodautoscaler/helpdesk-backend         failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+35s         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/helpdesk-backend         invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+25s         Normal    Scheduled                      pod/helpdesk-backend-d99b95fd8-h72rg             Successfully assigned helpdesk/helpdesk-backend-d99b95fd8-h72rg to kartikey-devops
+25s         Normal    ScalingReplicaSet              deployment/helpdesk-backend                      Scaled up replica set helpdesk-backend-d99b95fd8 from 0 to 1
+25s         Normal    SuccessfulCreate               replicaset/helpdesk-backend-d99b95fd8            Created pod: helpdesk-backend-d99b95fd8-h72rg
+16s         Normal    BackOff                        pod/helpdesk-backend-d99b95fd8-h72rg             Back-off pulling image "python:missing-24bcs10121"
+16s         Warning   Failed                         pod/helpdesk-backend-d99b95fd8-h72rg             Error: ImagePullBackOff
+5s          Warning   FailedGetResourceMetric        horizontalpodautoscaler/helpdesk-backend         failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+5s          Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/helpdesk-backend         invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+4s          Normal    Pulling                        pod/helpdesk-backend-d99b95fd8-h72rg             Pulling image "python:missing-24bcs10121"
+3s          Warning   Failed                         pod/helpdesk-backend-d99b95fd8-h72rg             Failed to pull image "python:missing-24bcs10121": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/library/python:missing-24bcs10121": failed to resolve reference "docker.io/library/python:missing-24bcs10121": docker.io/library/python:missing-24bcs10121: not found
+3s          Warning   Failed                         pod/helpdesk-backend-d99b95fd8-h72rg             Error: ErrImagePull
++ kubectl set image -n helpdesk deployment/helpdesk-backend backend=campus-helpdesk-backend:local
+deployment.apps/helpdesk-backend image updated
++ kubectl rollout status -n helpdesk deployment/helpdesk-backend --timeout=180s
+deployment "helpdesk-backend" successfully rolled out
++ kubectl patch service/backend -n helpdesk -p '{"spec":{"selector":{"app":"wrong-app"}}}'
+service/backend patched
++ sleep 5
++ kubectl describe service/backend -n helpdesk
+Name:                     backend
+Namespace:                helpdesk
+Labels:                   app=helpdesk-backend
+                          app.kubernetes.io/managed-by=Helm
+Annotations:              meta.helm.sh/release-name: helpdesk
+                          meta.helm.sh/release-namespace: helpdesk
+Selector:                 app=wrong-app
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.106.7.31
+IPs:                      10.106.7.31
+Port:                     http  8000/TCP
+TargetPort:               http/TCP
+Endpoints:
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
++ kubectl get endpointslices -n helpdesk -l kubernetes.io/service-name=backend
+NAME            ADDRESSTYPE   PORTS     ENDPOINTS   AGE
+backend-vdkmd   IPv4          <unset>   <unset>     19m
++ kubectl get pods -n helpdesk --show-labels
+NAME                                 READY   STATUS      RESTARTS   AGE   LABELS
+helpdesk-backend-7d9c969878-m8ftl    1/1     Running     0          85s   app=helpdesk-backend,pod-template-hash=7d9c969878
+helpdesk-backend-7d9c969878-xzhtj    1/1     Running     0          85s   app=helpdesk-backend,pod-template-hash=7d9c969878
+helpdesk-frontend-756f7c46d5-d2nvb   1/1     Running     0          19m   app=helpdesk-frontend,pod-template-hash=756f7c46d5
+helpdesk-frontend-756f7c46d5-r9qkk   1/1     Running     0          19m   app=helpdesk-frontend,pod-template-hash=756f7c46d5
+helpdesk-migrate-1-d8c4q             0/1     Completed   4          19m   batch.kubernetes.io/controller-uid=b5b2dd09-6115-409f-bfd0-c6d7096cb7b6,batch.kubernetes.io/job-name=helpdesk-migrate-1,controller-uid=b5b2dd09-6115-409f-bfd0-c6d7096cb7b6,job-name=helpdesk-migrate-1
+helpdesk-postgres-0                  1/1     Running     0          19m   app=helpdesk-postgres,apps.kubernetes.io/pod-index=0,controller-revision-hash=helpdesk-postgres-997cb948f,statefulset.kubernetes.io/pod-name=helpdesk-postgres-0
++ kubectl patch service/backend -n helpdesk -p '{"spec":{"selector":{"app":"helpdesk-backend"}}}'
+service/backend patched
++ sleep 5
++ kubectl get endpointslices -n helpdesk -l kubernetes.io/service-name=backend
+NAME            ADDRESSTYPE   PORTS   ENDPOINTS                 AGE
+backend-vdkmd   IPv4          8000    10.244.0.57,10.244.0.58   19m
++ kubectl patch deployment/helpdesk-backend -n helpdesk --type=json -p '[{"op":"replace","path":"/spec/template/spec/containers/0/readinessProbe/httpGet/path","value":"/missing"}]'
+deployment.apps/helpdesk-backend patched
++ sleep 20
++ kubectl get pods -n helpdesk
+NAME                                 READY   STATUS      RESTARTS   AGE
+helpdesk-backend-6cd785fb85-lcp9n    0/1     Running     0          20s
+helpdesk-backend-7d9c969878-m8ftl    1/1     Running     0          111s
+helpdesk-backend-7d9c969878-xzhtj    1/1     Running     0          111s
+helpdesk-frontend-756f7c46d5-d2nvb   1/1     Running     0          19m
+helpdesk-frontend-756f7c46d5-r9qkk   1/1     Running     0          19m
+helpdesk-migrate-1-d8c4q             0/1     Completed   4          19m
+helpdesk-postgres-0                  1/1     Running     0          19m
++ kubectl describe pods -n helpdesk -l app=helpdesk-backend
+Name:             helpdesk-backend-6cd785fb85-lcp9n
+Namespace:        helpdesk
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:36:56 +0530
+Labels:           app=helpdesk-backend
+                  pod-template-hash=6cd785fb85
+Annotations:      checksum/config: c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6
+Status:           Running
+IP:               10.244.0.61
+IPs:
+  IP:           10.244.0.61
+Controlled By:  ReplicaSet/helpdesk-backend-6cd785fb85
+Containers:
+  backend:
+    Container ID:   containerd://3058339b08db642040e73204c5922383e58fc55898aacb511dcd2c60828046a9
+    Image:          campus-helpdesk-backend:local
+    Image ID:       sha256:bad7f1bab54df3536a3457938c2b248634f69ec26b6777d67a481e3f839669f6
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Wed, 07 Oct 2026 18:36:56 +0530
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:http/health delay=0s timeout=1s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/missing delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/health delay=0s timeout=1s period=3s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      helpdesk-config  ConfigMap  Optional: false
+    Environment:
+      POSTGRES_PASSWORD:  <set to the key 'password' in secret 'helpdesk-database'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pmssb (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       False
+  ContainersReady             False
+  PodScheduled                True
+Volumes:
+  kube-api-access-pmssb:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             helpdesk-backend-7d9c969878-m8ftl
+Namespace:        helpdesk
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:35:25 +0530
+Labels:           app=helpdesk-backend
+                  pod-template-hash=7d9c969878
+Annotations:      checksum/config: c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6
+Status:           Running
+IP:               10.244.0.58
+IPs:
+  IP:           10.244.0.58
+Controlled By:  ReplicaSet/helpdesk-backend-7d9c969878
+Containers:
+  backend:
+    Container ID:   containerd://7f68587f915113ea706ba4b8fdc021a9dba76f54afdc861aa538b38f56428bf4
+    Image:          campus-helpdesk-backend:local
+    Image ID:       sha256:c5e7b46a7ff74cc2fceeb50886b808bd56f12e76ed4c6df3dc0fc6615069cc3f
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Wed, 07 Oct 2026 18:35:25 +0530
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:http/health delay=0s timeout=1s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/ready delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/health delay=0s timeout=1s period=3s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      helpdesk-config  ConfigMap  Optional: false
+    Environment:
+      POSTGRES_PASSWORD:  <set to the key 'password' in secret 'helpdesk-database'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pp9mf (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-pp9mf:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             helpdesk-backend-7d9c969878-xzhtj
+Namespace:        helpdesk
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:35:25 +0530
+Labels:           app=helpdesk-backend
+                  pod-template-hash=7d9c969878
+Annotations:      checksum/config: c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6
+Status:           Running
+IP:               10.244.0.57
+IPs:
+  IP:           10.244.0.57
+Controlled By:  ReplicaSet/helpdesk-backend-7d9c969878
+Containers:
+  backend:
+    Container ID:   containerd://62f02b9def0453600a728d809e6886dbf058824756239b67fd63f6e0f037faef
+    Image:          campus-helpdesk-backend:local
+    Image ID:       sha256:c5e7b46a7ff74cc2fceeb50886b808bd56f12e76ed4c6df3dc0fc6615069cc3f
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Wed, 07 Oct 2026 18:35:25 +0530
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  256Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:http/health delay=0s timeout=1s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/ready delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/health delay=0s timeout=1s period=3s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      helpdesk-config  ConfigMap  Optional: false
+    Environment:
+      POSTGRES_PASSWORD:  <set to the key 'password' in secret 'helpdesk-database'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-lb87s (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-lb87s:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
++ kubectl logs -n helpdesk -l app=helpdesk-backend --tail=12
+INFO:     10.244.0.1:46348 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.244.0.1:51494 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:51500 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:51506 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.244.0.1:48666 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.44:51046 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     10.244.0.1:48676 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:48690 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.244.0.1:57670 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:57686 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.44:42506 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     10.244.0.1:57702 - "GET /health HTTP/1.1" 200 OK
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     10.244.0.1:43256 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.244.0.1:43258 - "GET /missing HTTP/1.1" 404 Not Found
+INFO:     10.244.0.1:43274 - "GET /missing HTTP/1.1" 404 Not Found
+INFO:     10.244.0.1:43286 - "GET /missing HTTP/1.1" 404 Not Found
+INFO:     10.244.0.1:43290 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.244.0.1:39594 - "GET /missing HTTP/1.1" 404 Not Found
+INFO:     10.244.0.1:55094 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.44:33902 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     10.244.0.1:55098 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.244.0.1:47146 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:47162 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:47178 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.244.0.1:33284 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:33290 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:33300 - "GET /health HTTP/1.1" 200 OK
+INFO:     10.244.0.1:46518 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:46524 - "GET /ready HTTP/1.1" 200 OK
+INFO:     10.244.0.1:46528 - "GET /health HTTP/1.1" 200 OK
++ restore
++ kubectl set image -n helpdesk deployment/helpdesk-backend backend=campus-helpdesk-backend:local
++ kubectl patch service/backend -n helpdesk -p '{"spec":{"selector":{"app":"helpdesk-backend"}}}'
+service/backend patched (no change)
++ kubectl patch deployment/helpdesk-backend -n helpdesk --type=json -p '[{"op":"replace","path":"/spec/template/spec/containers/0/readinessProbe/httpGet/path","value":"/ready"}]'
+deployment.apps/helpdesk-backend patched
++ kubectl rollout status -n helpdesk deployment/helpdesk-backend --timeout=180s
+deployment "helpdesk-backend" successfully rolled out
++ kubectl exec -n helpdesk deployment/helpdesk-backend -- python -c 'import urllib.request; print(urllib.request.urlopen("http://backend:8000/ready").read().decode())'
+{"status":"READY"}
++ kubectl get pods,svc -n helpdesk
+NAME                                     READY   STATUS      RESTARTS   AGE
+pod/helpdesk-backend-6cd785fb85-lcp9n    0/1     Completed   0          20s
+pod/helpdesk-backend-7d9c969878-m8ftl    1/1     Running     0          111s
+pod/helpdesk-backend-7d9c969878-xzhtj    1/1     Running     0          111s
+pod/helpdesk-frontend-756f7c46d5-d2nvb   1/1     Running     0          19m
+pod/helpdesk-frontend-756f7c46d5-r9qkk   1/1     Running     0          19m
+pod/helpdesk-migrate-1-d8c4q             0/1     Completed   4          19m
+pod/helpdesk-postgres-0                  1/1     Running     0          19m
+
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/backend    ClusterIP   10.106.7.31     <none>        8000/TCP   19m
+service/frontend   ClusterIP   10.108.133.92   <none>        8080/TCP   19m
+service/postgres   ClusterIP   10.98.195.20    <none>        5432/TCP   19m
++ trap - EXIT

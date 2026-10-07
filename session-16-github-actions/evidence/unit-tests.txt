@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.3, pytest-9.1.1, pluggy-1.6.0 -- /private/tmp/devops-venv/bin/python3.14
+cachedir: .pytest_cache
+rootdir: /Users/kartikey/Desktop/clg:uni/devops_assignments/devops-heros/session-16-github-actions/10-final-cicd-pipeline
+configfile: pytest.ini
+plugins: platformdirs-4.12.3, anyio-4.15.1
+collecting ... collected 7 items
+
+session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[add-10-5-15] PASSED [ 14%]
+session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[subtract-10-5-5] PASSED [ 28%]
+session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[multiply-10-5-50] PASSED [ 42%]
+session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[divide-10-5-2] PASSED [ 57%]
+session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[add--2-1--1] PASSED [ 71%]
+session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[multiply-0-5-0] PASSED [ 85%]
+session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_zero_divisor PASSED [100%]
+
+============================== 7 passed in 0.01s ===============================

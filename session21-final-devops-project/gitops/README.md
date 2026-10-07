@@ -1,6 +1,6 @@
 # GitOps deployment
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 Git contains the declared desired state. Argo CD reads it continuously, renders the Helm chart and compares it with the cluster. Automated synchronization applies changes; `selfHeal` repairs manual drift and `prune` removes resources deleted from desired state.
@@ -20,3 +20,5 @@ For a published release, download the successful pipeline's `release-values.yaml
 To verify drift correction, scale `helpdesk-frontend` manually to three replicas and watch it return to the two replicas declared in Git. The backend's replicas are deliberately omitted when HPA is enabled so GitOps does not fight the autoscaler. The migration Job is an Argo Sync hook with BeforeHookCreation cleanup, allowing migrations before readiness succeeds on each sync.
 
 For a Git rollback, revert the release-tag commit and push. Database changes need a compatible migration strategy; reverting application images does not automatically reverse schema changes.
+
+During the local run, Docker Desktop's upstream DNS intermittently returned NXDOMAIN for `github.com`, causing Argo `ComparisonError` while application Pods stayed healthy. A lookup against `1.1.1.1` succeeded. The dedicated lab cluster's CoreDNS forwarding was changed to `1.1.1.1 8.8.8.8`, then CoreDNS was restarted and both Applications refreshed. This changed only the newly created lab cluster, not the workstation DNS settings.

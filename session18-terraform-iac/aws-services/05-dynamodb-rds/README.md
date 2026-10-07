@@ -1,6 +1,6 @@
 # DynamoDB and RDS
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 ## DynamoDB

@@ -1,6 +1,6 @@
 # Session 14: Kubernetes troubleshooting
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 Run `bash run-lab.sh` from this directory. It creates only the `troubleshooting-lab` namespace. The script inspects broken resources before replacing them with the paired fixed manifests. [Full before/after transcript](evidence/troubleshooting.txt).
@@ -49,3 +49,9 @@ The supplied `mini-project/broken-pod.yaml` requests an invalid image. Its statu
 This cluster uses kindnet, so these tests do not claim that NetworkPolicy enforcement was verified. For policy faults, use a policy-capable CNI and inspect ingress/egress rules in both namespaces.
 
 Cleanup: `kubectl delete namespace troubleshooting-lab`.
+
+## Screenshot evidence
+
+![Recorded assignment evidence](screenshots/session14.jpg)
+
+Command-output screenshots display the captured transcripts; the full text files are retained in `evidence/`. GitHub and application screenshots capture their live pages.

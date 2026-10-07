@@ -1,6 +1,6 @@
 # Terraform S3 demo
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 Files: `provider.tf` declares the AWS provider and region; `variables.tf` defines inputs; `terraform.tfvars` contains non-secret lab settings; `main.tf` creates the bucket and controls; `outputs.tf` exports bucket identifiers. The dependency graph is inferred from resource references.

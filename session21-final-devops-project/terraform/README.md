@@ -1,6 +1,6 @@
 # AWS EKS infrastructure
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 Local checks (no AWS account needed):

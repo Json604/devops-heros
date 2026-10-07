@@ -1,0 +1,14 @@
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 1%/50%   1         5         1          20m
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          20m
++ kubectl top pods -n hpa-lab
+NAME                       CPU(cores)   MEMORY(bytes)
+cpu-demo-946886ff5-29wwj   1m           52Mi
++ kubectl get pvc -n production-webapp
+NAME       STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+web-data   Bound    pvc-e214de2d-c187-4800-badf-f20eb4d84ddc   500Mi      RWO            standard       <unset>                 22m
++ kubectl exec -n production-webapp deploy/web-app -- cat /data/student.txt
+Kartikey - 24bcs10121

@@ -1,6 +1,6 @@
 # Session 15: Helm
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 The Notes application follows the instructor's mini-project: an Nginx Deployment, ConfigMap and NodePort Service packaged in a chart. Development uses one replica; production values use three. A ConfigMap checksum in the Pod template makes an environment change restart the Pods instead of leaving stale environment variables.
@@ -29,3 +29,9 @@ Run `bash run-lab.sh`. [Complete output](evidence/helm-workflow.txt) includes ev
 The run verified Pods and `printenv ENVIRONMENT` after changes. Rollback restored the development value. A rollback creates a new revision; it does not erase historical revisions. Helm rollback also does not undo database schema/data changes, which need a separate migration policy.
 
 Use a distinct `service.nodePort` override when installing another Notes release in the same cluster, because a NodePort is cluster-wide.
+
+## Screenshot evidence
+
+![Recorded assignment evidence](screenshots/session15.jpg)
+
+Command-output screenshots display the captured transcripts; the full text files are retained in `evidence/`. GitHub and application screenshots capture their live pages.

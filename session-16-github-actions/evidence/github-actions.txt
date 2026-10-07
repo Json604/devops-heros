@@ -1,0 +1,521 @@
+ci	Set up job	﻿2026-10-07T13:02:54.4914338Z Current runner version: '2.337.0'
+ci	Set up job	2026-10-07T13:02:54.4944860Z ##[group]Runner Image Provisioner
+ci	Set up job	2026-10-07T13:02:54.4946113Z Hosted Compute Agent
+ci	Set up job	2026-10-07T13:02:54.4946820Z Version: 20260901.588
+ci	Set up job	2026-10-07T13:02:54.4947560Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+ci	Set up job	2026-10-07T13:02:54.4948779Z Build Date: 2026-09-01T19:56:44Z
+ci	Set up job	2026-10-07T13:02:54.4949688Z Worker ID: {ee3f0da7-e8c5-48b5-a477-a7a1ab79057f}
+ci	Set up job	2026-10-07T13:02:54.4950740Z Azure Region: eastus
+ci	Set up job	2026-10-07T13:02:54.4951470Z ##[endgroup]
+ci	Set up job	2026-10-07T13:02:54.4953204Z ##[group]Operating System
+ci	Set up job	2026-10-07T13:02:54.4954095Z Ubuntu
+ci	Set up job	2026-10-07T13:02:54.4954735Z 24.04.5
+ci	Set up job	2026-10-07T13:02:54.4955373Z LTS
+ci	Set up job	2026-10-07T13:02:54.4956032Z ##[endgroup]
+ci	Set up job	2026-10-07T13:02:54.4956800Z ##[group]Runner Image
+ci	Set up job	2026-10-07T13:02:54.4957508Z Image: ubuntu-24.04
+ci	Set up job	2026-10-07T13:02:54.4958284Z Version: 20260927.320.1
+ci	Set up job	2026-10-07T13:02:54.4959657Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+ci	Set up job	2026-10-07T13:02:54.4962075Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+ci	Set up job	2026-10-07T13:02:54.4963307Z ##[endgroup]
+ci	Set up job	2026-10-07T13:02:54.4964705Z ##[group]GITHUB_TOKEN Permissions
+ci	Set up job	2026-10-07T13:02:54.4967024Z Contents: read
+ci	Set up job	2026-10-07T13:02:54.4967736Z Metadata: read
+ci	Set up job	2026-10-07T13:02:54.4968370Z ##[endgroup]
+ci	Set up job	2026-10-07T13:02:54.4971024Z Secret source: Actions
+ci	Set up job	2026-10-07T13:02:54.4972112Z Cache mode: write
+ci	Set up job	2026-10-07T13:02:54.4973241Z Prepare workflow directory
+ci	Set up job	2026-10-07T13:02:54.5330349Z Prepare all required actions
+ci	Set up job	2026-10-07T13:02:54.5385014Z Getting action download info
+ci	Set up job	2026-10-07T13:02:54.7415004Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+ci	Set up job	2026-10-07T13:02:55.2581630Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+ci	Set up job	2026-10-07T13:02:55.4065839Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+ci	Set up job	2026-10-07T13:02:55.6921817Z Complete job name: ci
+ci	Run actions/checkout@v4	﻿2026-10-07T13:02:55.7647611Z ##[group]Run actions/checkout@v4
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7648762Z with:
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7649432Z   repository: Json604/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7656123Z   token: ***
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7656775Z   ssh-strict: true
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7657447Z   ssh-user: git
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7658129Z   persist-credentials: true
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7658894Z   clean: true
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7659576Z   sparse-checkout-cone-mode: true
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7660468Z   fetch-depth: 1
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7661138Z   fetch-tags: false
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7661807Z   show-progress: true
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7662512Z   lfs: false
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7663144Z   submodules: false
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7663834Z   set-safe-directory: true
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7664657Z   allow-unsafe-pr-checkout: false
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.7665654Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.8480172Z Syncing repository: Json604/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.8482663Z ##[group]Getting Git version info
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.8483879Z Working directory is '/home/runner/work/devops-heros/devops-heros'
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.8485692Z [command]/usr/bin/git version
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.9657053Z git version 2.55.0
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.9674359Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.9686584Z Temporarily overriding HOME='/home/runner/work/_temp/6c920dd0-5815-4d22-ab9a-8b2c7345ee64' before making global git config changes
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.9688823Z Adding repository directory to the temporary git global config as a safe directory
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.9691236Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.9948366Z Deleting the contents of '/home/runner/work/devops-heros/devops-heros'
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.9952478Z ##[group]Initializing the repository
+ci	Run actions/checkout@v4	2026-10-07T13:02:55.9956072Z [command]/usr/bin/git init /home/runner/work/devops-heros/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0446822Z hint: Using 'master' as the name for the initial branch. This default branch name
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0449172Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0451469Z hint: to use in all of your new repositories, which will suppress this warning,
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0452999Z hint: call:
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0453620Z hint:
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0454398Z hint: 	git config --global init.defaultBranch <name>
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0455327Z hint:
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0456369Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0458100Z hint: 'development'. The just-created branch can be renamed via this command:
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0459240Z hint:
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0459971Z hint: 	git branch -m <name>
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0460695Z hint:
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0461642Z hint: Disable this message with "git config set advice.defaultBranchName false"
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0463253Z Initialized empty Git repository in /home/runner/work/devops-heros/devops-heros/.git/
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0466083Z [command]/usr/bin/git remote add origin https://github.com/Json604/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0849065Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0851033Z ##[group]Disabling automatic garbage collection
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0852681Z [command]/usr/bin/git config --local gc.auto 0
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0885194Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0890774Z ##[group]Setting up auth
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0891958Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.0920479Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.3571541Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.3601774Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.3791886Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.3822473Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.4012467Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.4048053Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.4049647Z ##[group]Fetching the repository
+ci	Run actions/checkout@v4	2026-10-07T13:02:56.4056547Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +af5deab26c61c57d991fc5816c6abcc350977e7a:refs/remotes/origin/submission/kartikey-10121
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.3723361Z From https://github.com/Json604/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.3724561Z  * [new ref]         af5deab26c61c57d991fc5816c6abcc350977e7a -> origin/submission/kartikey-10121
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.3728393Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.3729170Z ##[group]Determining the checkout info
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.3730102Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.3735373Z [command]/usr/bin/git sparse-checkout disable
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.3950779Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.3979187Z ##[group]Checking out the ref
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.3983194Z [command]/usr/bin/git checkout --progress --force -B submission/kartikey-10121 refs/remotes/origin/submission/kartikey-10121
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.5766850Z Switched to a new branch 'submission/kartikey-10121'
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.5769326Z branch 'submission/kartikey-10121' set up to track 'origin/submission/kartikey-10121'.
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.5788880Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.5833320Z [command]/usr/bin/git log -1 --format=%H
+ci	Run actions/checkout@v4	2026-10-07T13:02:58.5858220Z af5deab26c61c57d991fc5816c6abcc350977e7a
+ci	Run actions/setup-python@v5	﻿2026-10-07T13:02:58.6089373Z ##[group]Run actions/setup-python@v5
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.6089663Z with:
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.6090033Z   python-version: 3.12
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.6090452Z   check-latest: false
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.6092265Z   token: ***
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.6092467Z   update-environment: true
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.6092684Z   allow-prereleases: false
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.6092886Z   freethreaded: false
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.6093079Z ##[endgroup]
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.7205155Z ##[group]Installed versions
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.7732175Z (node:2102) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.7733180Z (Use `node --trace-deprecation ...` to show where the warning was created)
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.7733727Z Successfully set up CPython (3.12.14)
+ci	Run actions/setup-python@v5	2026-10-07T13:02:58.7734354Z ##[endgroup]
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	﻿2026-10-07T13:02:58.7901088Z ##[group]Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.7902076Z [36;1mpip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt[0m
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.9532969Z shell: /usr/bin/bash -e {0}
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.9533325Z env:
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.9533577Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.9533959Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.9534312Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.9534644Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.9534964Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.9535282Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:02:58.9535555Z ##[endgroup]
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.1201189Z Collecting pytest==9.1.1 (from -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt (line 1))
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.1609597Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.1713902Z Collecting iniconfig>=1.0.1 (from pytest==9.1.1->-r session-16-github-actions/10-final-cicd-pipeline/requirements.txt (line 1))
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.1746289Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.1861721Z Collecting packaging>=22 (from pytest==9.1.1->-r session-16-github-actions/10-final-cicd-pipeline/requirements.txt (line 1))
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.1893388Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.1991963Z Collecting pluggy<2,>=1.5 (from pytest==9.1.1->-r session-16-github-actions/10-final-cicd-pipeline/requirements.txt (line 1))
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.2025483Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.2165453Z Collecting pygments>=2.7.2 (from pytest==9.1.1->-r session-16-github-actions/10-final-cicd-pipeline/requirements.txt (line 1))
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.2202422Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.2382319Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.2563460Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.2611536Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.2657136Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.2711323Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.2942529Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 55.7 MB/s  0:00:00
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:02.4467365Z Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:03.3629265Z
+ci	Run pip install -r session-16-github-actions/10-final-cicd-pipeline/requirements.txt	2026-10-07T13:03:03.3639905Z Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	﻿2026-10-07T13:03:03.4074612Z ##[group]Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4075079Z [36;1mpytest -v session-16-github-actions/10-final-cicd-pipeline/tests[0m
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4131425Z shell: /usr/bin/bash -e {0}
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4131647Z env:
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4131876Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4132232Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4132747Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4133061Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4133363Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4133662Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.4133931Z ##[endgroup]
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8382793Z ============================= test session starts ==============================
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8383562Z platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0 -- /opt/hostedtoolcache/Python/3.12.14/x64/bin/python
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8384267Z cachedir: .pytest_cache
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8384792Z rootdir: /home/runner/work/devops-heros/devops-heros/session-16-github-actions/10-final-cicd-pipeline
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8385374Z configfile: pytest.ini
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8437552Z collecting ... collected 7 items
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8437820Z
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8448821Z session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[add-10-5-15] PASSED [ 14%]
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8457382Z session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[subtract-10-5-5] PASSED [ 28%]
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8465781Z session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[multiply-10-5-50] PASSED [ 42%]
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8474187Z session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[divide-10-5-2] PASSED [ 57%]
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8482452Z session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[add--2-1--1] PASSED [ 71%]
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8490509Z session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_arithmetic[multiply-0-5-0] PASSED [ 85%]
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8585205Z session-16-github-actions/10-final-cicd-pipeline/tests/test_calculator.py::test_zero_divisor PASSED [100%]
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8585742Z
+ci	Run pytest -v session-16-github-actions/10-final-cicd-pipeline/tests	2026-10-07T13:03:03.8585883Z ============================== 7 passed in 0.01s ===============================
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	﻿2026-10-07T13:03:03.8796834Z ##[group]Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8797283Z [36;1mbash session-16-github-actions/10-final-cicd-pipeline/build.sh[0m
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8853611Z shell: /usr/bin/bash -e {0}
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8853823Z env:
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8854048Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8854402Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8854740Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8855044Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8855339Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8855637Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+ci	Run bash session-16-github-actions/10-final-cicd-pipeline/build.sh	2026-10-07T13:03:03.8855896Z ##[endgroup]
+ci	Run actions/upload-artifact@v4	﻿2026-10-07T13:03:03.9391398Z ##[group]Run actions/upload-artifact@v4
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9391656Z with:
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9391833Z   name: calculator-build
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9392140Z   path: session-16-github-actions/10-final-cicd-pipeline/build/calculator.tar.gz
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9392474Z   if-no-files-found: warn
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9392681Z   compression-level: 6
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9392864Z   overwrite: false
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9393044Z   include-hidden-files: false
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9393441Z env:
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9393682Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9394027Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9394364Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9394664Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9394966Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9395261Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:03.9395696Z ##[endgroup]
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.0726295Z (node:2148) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.0727050Z (Use `node --trace-deprecation ...` to show where the warning was created)
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.0764487Z With the provided path, there will be 1 file uploaded
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.0768434Z Artifact name is valid!
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.0769127Z Root directory input is valid!
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.3212854Z Beginning upload of artifact content to blob storage
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.3348027Z (node:2148) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.3806625Z Uploaded bytes 1072
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.4017869Z Finished uploading artifact content to blob storage!
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.4018699Z SHA256 digest of uploaded artifact zip is 45ee07605a785823032b24a7464ad73666739ba73b68067b4996d1eea4beb8d1
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.4020866Z Finalizing artifact upload
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.6565168Z Artifact calculator-build.zip successfully finalized. Artifact ID 11483219825
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.6566043Z Artifact calculator-build has been successfully uploaded! Final size is 1072 bytes. Artifact ID is 11483219825
+ci	Run actions/upload-artifact@v4	2026-10-07T13:03:04.6566674Z Artifact download URL: https://github.com/Json604/devops-heros/actions/runs/37625465561/artifacts/11483219825
+ci	Post Run actions/setup-python@v5	﻿2026-10-07T13:03:04.6705381Z Post job cleanup.
+ci	Post Run actions/setup-python@v5	2026-10-07T13:03:04.7703873Z (node:2161) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+ci	Post Run actions/setup-python@v5	2026-10-07T13:03:04.7704535Z (Use `node --trace-deprecation ...` to show where the warning was created)
+ci	Post Run actions/checkout@v4	﻿2026-10-07T13:03:04.8851616Z Post job cleanup.
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:04.9553455Z [command]/usr/bin/git version
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:04.9589112Z git version 2.55.0
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:04.9619270Z Temporarily overriding HOME='/home/runner/work/_temp/1f0d6d16-8911-4d2f-8b65-ca56154b0fdf' before making global git config changes
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:04.9620447Z Adding repository directory to the temporary git global config as a safe directory
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:04.9624142Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:04.9982375Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:05.0034682Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:05.0318743Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:05.1135910Z http.https://github.com/.extraheader
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:05.1146886Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:05.1200589Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:05.1398996Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+ci	Post Run actions/checkout@v4	2026-10-07T13:03:05.1435905Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+ci	Complete job	﻿2026-10-07T13:03:05.1756353Z Cleaning up orphan processes
+ci	Complete job	2026-10-07T13:03:05.1997550Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+cd	Set up job	﻿2026-10-07T13:03:10.2715188Z Current runner version: '2.337.0'
+cd	Set up job	2026-10-07T13:03:10.2742625Z ##[group]Runner Image Provisioner
+cd	Set up job	2026-10-07T13:03:10.2743471Z Hosted Compute Agent
+cd	Set up job	2026-10-07T13:03:10.2744574Z Version: 20260901.588
+cd	Set up job	2026-10-07T13:03:10.2745236Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+cd	Set up job	2026-10-07T13:03:10.2746017Z Build Date: 2026-09-01T19:56:44Z
+cd	Set up job	2026-10-07T13:03:10.2746980Z Worker ID: {c9116e0d-732b-4599-a421-d6d43872221f}
+cd	Set up job	2026-10-07T13:03:10.2747773Z Azure Region: northcentralus
+cd	Set up job	2026-10-07T13:03:10.2748479Z ##[endgroup]
+cd	Set up job	2026-10-07T13:03:10.2750050Z ##[group]Operating System
+cd	Set up job	2026-10-07T13:03:10.2750761Z Ubuntu
+cd	Set up job	2026-10-07T13:03:10.2751313Z 24.04.5
+cd	Set up job	2026-10-07T13:03:10.2751864Z LTS
+cd	Set up job	2026-10-07T13:03:10.2752417Z ##[endgroup]
+cd	Set up job	2026-10-07T13:03:10.2752972Z ##[group]Runner Image
+cd	Set up job	2026-10-07T13:03:10.2753556Z Image: ubuntu-24.04
+cd	Set up job	2026-10-07T13:03:10.2754180Z Version: 20260927.320.1
+cd	Set up job	2026-10-07T13:03:10.2755307Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+cd	Set up job	2026-10-07T13:03:10.2757332Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+cd	Set up job	2026-10-07T13:03:10.2758343Z ##[endgroup]
+cd	Set up job	2026-10-07T13:03:10.2759626Z ##[group]GITHUB_TOKEN Permissions
+cd	Set up job	2026-10-07T13:03:10.2761747Z Contents: read
+cd	Set up job	2026-10-07T13:03:10.2762483Z Metadata: read
+cd	Set up job	2026-10-07T13:03:10.2763099Z Packages: write
+cd	Set up job	2026-10-07T13:03:10.2763706Z ##[endgroup]
+cd	Set up job	2026-10-07T13:03:10.2766159Z Secret source: Actions
+cd	Set up job	2026-10-07T13:03:10.2767649Z Cache mode: write
+cd	Set up job	2026-10-07T13:03:10.2768609Z Prepare workflow directory
+cd	Set up job	2026-10-07T13:03:10.3112717Z Prepare all required actions
+cd	Set up job	2026-10-07T13:03:10.3160241Z Getting action download info
+cd	Set up job	2026-10-07T13:03:10.6093683Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+cd	Set up job	2026-10-07T13:03:10.7001083Z Download action repository 'helm/kind-action@v1' (SHA:ef37e7f390d99f746eb8b610417061a60e82a6cc)
+cd	Set up job	2026-10-07T13:03:10.9666071Z Complete job name: cd
+cd	Run actions/checkout@v4	﻿2026-10-07T13:03:11.0437312Z ##[group]Run actions/checkout@v4
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0438324Z with:
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0438786Z   repository: Json604/devops-heros
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0442547Z   token: ***
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0443013Z   ssh-strict: true
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0443463Z   ssh-user: git
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0443921Z   persist-credentials: true
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0444428Z   clean: true
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0444890Z   sparse-checkout-cone-mode: true
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0445426Z   fetch-depth: 1
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0445874Z   fetch-tags: false
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0446332Z   show-progress: true
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0446965Z   lfs: false
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0447401Z   submodules: false
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0447860Z   set-safe-directory: true
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0448387Z   allow-unsafe-pr-checkout: false
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.0449191Z ##[endgroup]
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1474895Z Syncing repository: Json604/devops-heros
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1477738Z ##[group]Getting Git version info
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1478993Z Working directory is '/home/runner/work/devops-heros/devops-heros'
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1480777Z [command]/usr/bin/git version
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1533761Z git version 2.55.0
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1558891Z ##[endgroup]
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1574253Z Temporarily overriding HOME='/home/runner/work/_temp/74bcf95c-7f62-4a38-91e4-aff6625019a6' before making global git config changes
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1577095Z Adding repository directory to the temporary git global config as a safe directory
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1579627Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1654285Z Deleting the contents of '/home/runner/work/devops-heros/devops-heros'
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1657198Z ##[group]Initializing the repository
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1658514Z [command]/usr/bin/git init /home/runner/work/devops-heros/devops-heros
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1767644Z hint: Using 'master' as the name for the initial branch. This default branch name
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1769399Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1771266Z hint: to use in all of your new repositories, which will suppress this warning,
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1772452Z hint: call:
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1773398Z hint:
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1774200Z hint: 	git config --global init.defaultBranch <name>
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1775181Z hint:
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1776094Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1777824Z hint: 'development'. The just-created branch can be renamed via this command:
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1779025Z hint:
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1779674Z hint: 	git branch -m <name>
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1780432Z hint:
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1781421Z hint: Disable this message with "git config set advice.defaultBranchName false"
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1783140Z Initialized empty Git repository in /home/runner/work/devops-heros/devops-heros/.git/
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1785847Z [command]/usr/bin/git remote add origin https://github.com/Json604/devops-heros
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1841636Z ##[endgroup]
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1847290Z ##[group]Disabling automatic garbage collection
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1848032Z [command]/usr/bin/git config --local gc.auto 0
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1881895Z ##[endgroup]
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1883258Z ##[group]Setting up auth
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1899043Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.1930244Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.2341128Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.2387009Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.2632443Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.2670727Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.2908605Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.2951219Z ##[endgroup]
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.2953254Z ##[group]Fetching the repository
+cd	Run actions/checkout@v4	2026-10-07T13:03:11.2962800Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +af5deab26c61c57d991fc5816c6abcc350977e7a:refs/remotes/origin/submission/kartikey-10121
+cd	Run actions/checkout@v4	2026-10-07T13:03:12.9418985Z From https://github.com/Json604/devops-heros
+cd	Run actions/checkout@v4	2026-10-07T13:03:12.9421507Z  * [new ref]         af5deab26c61c57d991fc5816c6abcc350977e7a -> origin/submission/kartikey-10121
+cd	Run actions/checkout@v4	2026-10-07T13:03:12.9425833Z ##[endgroup]
+cd	Run actions/checkout@v4	2026-10-07T13:03:12.9429466Z ##[group]Determining the checkout info
+cd	Run actions/checkout@v4	2026-10-07T13:03:12.9431417Z ##[endgroup]
+cd	Run actions/checkout@v4	2026-10-07T13:03:12.9432855Z [command]/usr/bin/git sparse-checkout disable
+cd	Run actions/checkout@v4	2026-10-07T13:03:12.9494548Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+cd	Run actions/checkout@v4	2026-10-07T13:03:12.9532424Z ##[group]Checking out the ref
+cd	Run actions/checkout@v4	2026-10-07T13:03:12.9537172Z [command]/usr/bin/git checkout --progress --force -B submission/kartikey-10121 refs/remotes/origin/submission/kartikey-10121
+cd	Run actions/checkout@v4	2026-10-07T13:03:13.1596978Z Switched to a new branch 'submission/kartikey-10121'
+cd	Run actions/checkout@v4	2026-10-07T13:03:13.1601846Z branch 'submission/kartikey-10121' set up to track 'origin/submission/kartikey-10121'.
+cd	Run actions/checkout@v4	2026-10-07T13:03:13.1665289Z ##[endgroup]
+cd	Run actions/checkout@v4	2026-10-07T13:03:13.1668855Z [command]/usr/bin/git log -1 --format=%H
+cd	Run actions/checkout@v4	2026-10-07T13:03:13.1696508Z af5deab26c61c57d991fc5816c6abcc350977e7a
+cd	Build image	﻿2026-10-07T13:03:13.1971169Z ##[group]Run docker build -t calculator:local session-16-github-actions/10-final-cicd-pipeline
+cd	Build image	2026-10-07T13:03:13.1974373Z [36;1mdocker build -t calculator:local session-16-github-actions/10-final-cicd-pipeline[0m
+cd	Build image	2026-10-07T13:03:13.2249656Z shell: /usr/bin/bash -e {0}
+cd	Build image	2026-10-07T13:03:13.2250935Z ##[endgroup]
+cd	Build image	2026-10-07T13:03:13.8027317Z #0 building with "default" instance using docker driver
+cd	Build image	2026-10-07T13:03:13.8028382Z
+cd	Build image	2026-10-07T13:03:13.8028599Z #1 [internal] load build definition from Dockerfile
+cd	Build image	2026-10-07T13:03:13.8029519Z #1 transferring dockerfile: 151B 0.0s done
+cd	Build image	2026-10-07T13:03:13.8030168Z #1 DONE 0.0s
+cd	Build image	2026-10-07T13:03:13.8030440Z
+cd	Build image	2026-10-07T13:03:13.8030779Z #2 [auth] library/python:pull token for registry-1.docker.io
+cd	Build image	2026-10-07T13:03:13.9535731Z #2 DONE 0.0s
+cd	Build image	2026-10-07T13:03:13.9536359Z
+cd	Build image	2026-10-07T13:03:13.9537263Z #3 [internal] load metadata for docker.io/library/python:3.12-slim
+cd	Build image	2026-10-07T13:03:14.2008300Z #3 DONE 0.5s
+cd	Build image	2026-10-07T13:03:14.3244560Z
+cd	Build image	2026-10-07T13:03:14.3278177Z #4 [internal] load .dockerignore
+cd	Build image	2026-10-07T13:03:14.3279559Z #4 transferring context: 2B done
+cd	Build image	2026-10-07T13:03:14.3280676Z #4 DONE 0.0s
+cd	Build image	2026-10-07T13:03:14.3281340Z
+cd	Build image	2026-10-07T13:03:14.3281806Z #5 [internal] load build context
+cd	Build image	2026-10-07T13:03:14.3282736Z #5 transferring context: 1.75kB done
+cd	Build image	2026-10-07T13:03:14.3283585Z #5 DONE 0.0s
+cd	Build image	2026-10-07T13:03:14.3284170Z
+cd	Build image	2026-10-07T13:03:14.3285824Z #6 [1/3] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+cd	Build image	2026-10-07T13:03:14.3289474Z #6 resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f done
+cd	Build image	2026-10-07T13:03:14.3291344Z #6 sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f 10.37kB / 10.37kB done
+cd	Build image	2026-10-07T13:03:14.3292925Z #6 sha256:2b4f19dae3a777dfc3b76730bda1e82e1f66ab2a2686fa93ca78edbfb4f04ffe 1.75kB / 1.75kB done
+cd	Build image	2026-10-07T13:03:14.3295219Z #6 sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316 5.66kB / 5.66kB done
+cd	Build image	2026-10-07T13:03:14.3298540Z #6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 14.68MB / 29.84MB 0.1s
+cd	Build image	2026-10-07T13:03:14.3301104Z #6 sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 1.05MB / 1.29MB 0.1s
+cd	Build image	2026-10-07T13:03:14.3303894Z #6 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 2.10MB / 12.12MB 0.1s
+cd	Build image	2026-10-07T13:03:14.4249266Z #6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 29.84MB / 29.84MB 0.2s done
+cd	Build image	2026-10-07T13:03:14.4252860Z #6 sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 1.29MB / 1.29MB 0.1s done
+cd	Build image	2026-10-07T13:03:14.4254698Z #6 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 12.12MB / 12.12MB 0.2s done
+cd	Build image	2026-10-07T13:03:14.4256433Z #6 sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813 249B / 249B 0.2s done
+cd	Build image	2026-10-07T13:03:14.4258261Z #6 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e
+cd	Build image	2026-10-07T13:03:15.3840642Z #6 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0.9s done
+cd	Build image	2026-10-07T13:03:15.3842155Z #6 extracting sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8
+cd	Build image	2026-10-07T13:03:15.6372886Z #6 extracting sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 0.1s done
+cd	Build image	2026-10-07T13:03:18.2399826Z #6 extracting sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4
+cd	Build image	2026-10-07T13:03:18.8725888Z #6 extracting sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 0.5s done
+cd	Build image	2026-10-07T13:03:18.8727135Z #6 extracting sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813 done
+cd	Build image	2026-10-07T13:03:18.8727988Z #6 DONE 4.6s
+cd	Build image	2026-10-07T13:03:18.8728180Z
+cd	Build image	2026-10-07T13:03:18.8729171Z #7 [2/3] WORKDIR /app
+cd	Build image	2026-10-07T13:03:18.8729633Z #7 DONE 0.0s
+cd	Build image	2026-10-07T13:03:19.0334629Z
+cd	Build image	2026-10-07T13:03:19.0335523Z #8 [3/3] COPY app ./app
+cd	Build image	2026-10-07T13:03:19.0336409Z #8 DONE 0.0s
+cd	Build image	2026-10-07T13:03:19.0337825Z
+cd	Build image	2026-10-07T13:03:19.0338256Z #9 exporting to image
+cd	Build image	2026-10-07T13:03:19.0338963Z #9 exporting layers
+cd	Build image	2026-10-07T13:03:19.1184372Z #9 exporting layers 0.2s done
+cd	Build image	2026-10-07T13:03:19.1348819Z #9 writing image sha256:01ffb34cb9be8dd6e37c0f553efe11ba41493788dafa11d2db40a0eefd8c5c7f done
+cd	Build image	2026-10-07T13:03:19.1350670Z #9 naming to docker.io/library/calculator:local done
+cd	Build image	2026-10-07T13:03:19.1351543Z #9 DONE 0.2s
+cd	Publish image	﻿2026-10-07T13:03:19.1565262Z ##[group]Run printf '%s' "$TOKEN" | docker login ghcr.io -u "$OWNER" --password-stdin
+cd	Publish image	2026-10-07T13:03:19.1566360Z [36;1mprintf '%s' "$TOKEN" | docker login ghcr.io -u "$OWNER" --password-stdin[0m
+cd	Publish image	2026-10-07T13:03:19.1567624Z [36;1mowner=$(printf '%s' "$OWNER" | tr '[:upper:]' '[:lower:]')[0m
+cd	Publish image	2026-10-07T13:03:19.1568721Z [36;1mdocker tag calculator:local ghcr.io/$owner/devops-calculator:af5deab26c61c57d991fc5816c6abcc350977e7a[0m
+cd	Publish image	2026-10-07T13:03:19.1569997Z [36;1mdocker push ghcr.io/$owner/devops-calculator:af5deab26c61c57d991fc5816c6abcc350977e7a[0m
+cd	Publish image	2026-10-07T13:03:19.1637509Z shell: /usr/bin/bash -e {0}
+cd	Publish image	2026-10-07T13:03:19.1637774Z env:
+cd	Publish image	2026-10-07T13:03:19.1640309Z   TOKEN: ***
+cd	Publish image	2026-10-07T13:03:19.1640527Z   OWNER: Json604
+cd	Publish image	2026-10-07T13:03:19.1640728Z ##[endgroup]
+cd	Publish image	2026-10-07T13:03:19.4896251Z
+cd	Publish image	2026-10-07T13:03:19.4897028Z Login Succeeded
+cd	Publish image	2026-10-07T13:03:19.4898301Z WARNING! Your credentials are stored unencrypted in '/home/runner/.docker/config.json'.
+cd	Publish image	2026-10-07T13:03:19.4899596Z Configure a credential helper to remove this warning. See
+cd	Publish image	2026-10-07T13:03:19.4900756Z https://docs.docker.com/go/credential-store/
+cd	Publish image	2026-10-07T13:03:19.4901359Z
+cd	Publish image	2026-10-07T13:03:19.5257118Z The push refers to repository [ghcr.io/json604/devops-calculator]
+cd	Publish image	2026-10-07T13:03:19.5964288Z b8dfa04e38da: Preparing
+cd	Publish image	2026-10-07T13:03:19.5964979Z b142a6ad54ef: Preparing
+cd	Publish image	2026-10-07T13:03:19.5965394Z dca2a125b490: Preparing
+cd	Publish image	2026-10-07T13:03:19.5965769Z b361fa3b9794: Preparing
+cd	Publish image	2026-10-07T13:03:19.5966142Z e1fa2746ad6d: Preparing
+cd	Publish image	2026-10-07T13:03:19.5966499Z 15f1c8eb1ab1: Preparing
+cd	Publish image	2026-10-07T13:03:19.5967280Z 15f1c8eb1ab1: Waiting
+cd	Publish image	2026-10-07T13:03:19.8135974Z dca2a125b490: Layer already exists
+cd	Publish image	2026-10-07T13:03:19.8152507Z e1fa2746ad6d: Layer already exists
+cd	Publish image	2026-10-07T13:03:19.8248725Z b361fa3b9794: Layer already exists
+cd	Publish image	2026-10-07T13:03:21.2159835Z b8dfa04e38da: Pushed
+cd	Publish image	2026-10-07T13:03:21.2972733Z b142a6ad54ef: Pushed
+cd	Publish image	2026-10-07T13:03:23.9623378Z 15f1c8eb1ab1: Pushed
+cd	Publish image	2026-10-07T13:03:25.9317469Z af5deab26c61c57d991fc5816c6abcc350977e7a: digest: sha256:9b0c13928aa6747d7ab573808f38ddb5c1718226331015bb6cffe3593367c79b size: 1572
+cd	Run helm/kind-action@v1	﻿2026-10-07T13:03:25.9424671Z ##[group]Run helm/kind-action@v1
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9424971Z with:
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9425179Z   cluster_name: calculator-ci
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9425428Z   version: v0.31.0
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9425630Z   wait: 60s
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9425812Z   verbosity: 0
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9426012Z   kubectl_version: v1.35.0
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9426241Z   registry: false
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9426453Z   registry_image: registry:2
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9427083Z   registry_name: kind-registry
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9427338Z   registry_port: 5000
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9427565Z   registry_enable_delete: false
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9427810Z   install_only: false
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9428044Z   ignore_failed_clean: false
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9428283Z   cloud_provider: false
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9428496Z ##[endgroup]
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9781949Z Installing kind...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:25.9796405Z /opt/hostedtoolcache/kind/v0.31.0/amd64/kind/bin ~/work/devops-heros/devops-heros
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.3299246Z kind-linux-amd64: OK
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.3337356Z ~/work/devops-heros/devops-heros
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.3337887Z Adding kind directory to PATH...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.3347678Z Installing kubectl...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.3355528Z /opt/hostedtoolcache/kind/v0.31.0/amd64/kubectl/bin ~/work/devops-heros/devops-heros
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.6254799Z kubectl: OK
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.6268747Z ~/work/devops-heros/devops-heros
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.6269099Z Adding kubectl directory to PATH...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.6291509Z kind v0.31.0 go1.25.5 linux/amd64
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.6631786Z Client Version: v1.35.0
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.6632566Z Kustomize Version: v5.7.1
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.6645829Z Creating kind cluster...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.9250221Z Creating cluster "calculator-ci" ...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:26.9251340Z  • Ensuring node image (kindest/node:v1.35.0) 🖼  ...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:35.3982027Z  ✓ Ensuring node image (kindest/node:v1.35.0) 🖼
+cd	Run helm/kind-action@v1	2026-10-07T13:03:35.3982624Z  • Preparing nodes 📦   ...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:37.2235109Z  ✓ Preparing nodes 📦
+cd	Run helm/kind-action@v1	2026-10-07T13:03:37.2522559Z  • Writing configuration 📜  ...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:37.4421459Z  ✓ Writing configuration 📜
+cd	Run helm/kind-action@v1	2026-10-07T13:03:37.4422188Z  • Starting control-plane 🕹️  ...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:45.4268095Z  ✓ Starting control-plane 🕹️
+cd	Run helm/kind-action@v1	2026-10-07T13:03:45.4268654Z  • Installing CNI 🔌  ...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:45.7264078Z  ✓ Installing CNI 🔌
+cd	Run helm/kind-action@v1	2026-10-07T13:03:45.7264684Z  • Installing StorageClass 💾  ...
+cd	Run helm/kind-action@v1	2026-10-07T13:03:46.0553517Z  ✓ Installing StorageClass 💾
+cd	Run helm/kind-action@v1	2026-10-07T13:03:46.0829546Z  • Waiting ≤ 1m0s for control-plane = Ready ⏳  ...
+cd	Run helm/kind-action@v1	2026-10-07T13:04:03.9388313Z  ✓ Waiting ≤ 1m0s for control-plane = Ready ⏳
+cd	Run helm/kind-action@v1	2026-10-07T13:04:03.9389000Z  • Ready after 18s 💚
+cd	Run helm/kind-action@v1	2026-10-07T13:04:04.0767972Z Set kubectl context to "kind-calculator-ci"
+cd	Run helm/kind-action@v1	2026-10-07T13:04:04.0768610Z You can now use your cluster with:
+cd	Run helm/kind-action@v1	2026-10-07T13:04:04.0768919Z
+cd	Run helm/kind-action@v1	2026-10-07T13:04:04.0769155Z kubectl cluster-info --context kind-calculator-ci
+cd	Run helm/kind-action@v1	2026-10-07T13:04:04.0769554Z
+cd	Run helm/kind-action@v1	2026-10-07T13:04:04.0770594Z Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
+cd	Deploy application	﻿2026-10-07T13:04:04.0850964Z ##[group]Run kind load docker-image calculator:local --name calculator-ci
+cd	Deploy application	2026-10-07T13:04:04.0851530Z [36;1mkind load docker-image calculator:local --name calculator-ci[0m
+cd	Deploy application	2026-10-07T13:04:04.0852087Z [36;1mkubectl apply -f session-16-github-actions/10-final-cicd-pipeline/kubernetes.yaml[0m
+cd	Deploy application	2026-10-07T13:04:04.0852660Z [36;1mkubectl rollout status deployment/calculator --timeout=180s[0m
+cd	Deploy application	2026-10-07T13:04:04.0853421Z [36;1mkubectl run verify --image=busybox:1.36 --restart=Never -- sh -ec 'wget -qO- "http://calculator:8080/calculate?operation=add&a=10&b=5" | grep 15'[0m
+cd	Deploy application	2026-10-07T13:04:04.0854208Z [36;1mkubectl wait --for=jsonpath='{.status.phase}'=Succeeded pod/verify --timeout=90s[0m
+cd	Deploy application	2026-10-07T13:04:04.0854666Z [36;1mkubectl logs verify[0m
+cd	Deploy application	2026-10-07T13:04:04.0920486Z shell: /usr/bin/bash -e {0}
+cd	Deploy application	2026-10-07T13:04:04.0920754Z ##[endgroup]
+cd	Deploy application	2026-10-07T13:04:04.2942762Z Image: "calculator:local" with ID "sha256:01ffb34cb9be8dd6e37c0f553efe11ba41493788dafa11d2db40a0eefd8c5c7f" not yet present on node "calculator-ci-control-plane", loading...
+cd	Deploy application	2026-10-07T13:04:08.4085263Z deployment.apps/calculator created
+cd	Deploy application	2026-10-07T13:04:08.4171060Z service/calculator created
+cd	Deploy application	2026-10-07T13:04:08.4966897Z Waiting for deployment "calculator" rollout to finish: 0 of 2 updated replicas are available...
+cd	Deploy application	2026-10-07T13:04:09.5209168Z Waiting for deployment "calculator" rollout to finish: 1 of 2 updated replicas are available...
+cd	Deploy application	2026-10-07T13:04:09.5278693Z deployment "calculator" successfully rolled out
+cd	Deploy application	2026-10-07T13:04:09.5809180Z pod/verify created
+cd	Deploy application	2026-10-07T13:04:12.5788818Z pod/verify condition met
+cd	Deploy application	2026-10-07T13:04:12.6345857Z {"result": 15.0}
+cd	Post Run helm/kind-action@v1	﻿2026-10-07T13:04:12.6473855Z Post job cleanup.
+cd	Post Run helm/kind-action@v1	2026-10-07T13:04:12.6919435Z Error response from daemon: No such container: kind-registry
+cd	Post Run helm/kind-action@v1	2026-10-07T13:04:12.7083448Z Deleting cluster "calculator-ci" ...
+cd	Post Run helm/kind-action@v1	2026-10-07T13:04:14.1059625Z Deleted nodes: ["calculator-ci-control-plane"]
+cd	Post Run actions/checkout@v4	﻿2026-10-07T13:04:14.1178480Z Post job cleanup.
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2059780Z [command]/usr/bin/git version
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2103581Z git version 2.55.0
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2144829Z Temporarily overriding HOME='/home/runner/work/_temp/2d0859fc-2171-4a90-b913-51829eebd29c' before making global git config changes
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2171347Z Adding repository directory to the temporary git global config as a safe directory
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2174875Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2199088Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2235490Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2494159Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2525451Z http.https://github.com/.extraheader
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2538026Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2578298Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2849252Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+cd	Post Run actions/checkout@v4	2026-10-07T13:04:14.2898119Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+cd	Complete job	﻿2026-10-07T13:04:14.3306323Z Cleaning up orphan processes
+cd	Complete job	2026-10-07T13:04:14.3648788Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

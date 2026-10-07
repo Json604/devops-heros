@@ -1,6 +1,6 @@
 # Session 20: Monitoring, observability and GitOps
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 The monitoring demo uses the final project's running helpdesk so CPU, memory, request and health data come from a real application. [Monitoring manifests, queries and startup commands](../session21-final-devops-project/monitoring/README.md), [actual target results](evidence/prometheus-targets.json).
@@ -28,3 +28,9 @@ kubectl get deployment/gitops-web -n gitops-lab --watch
 The intended state remains two replicas in Git. Self-heal restores two after the manual scale creates drift. To deliberately change the deployment, edit the YAML, commit, push and let Argo reconcile. This makes Git the source of truth, with reviewable history and reversion. Secrets are generated outside Git; encoded Secret data is not protected merely because it is base64.
 
 The final application's [GitOps guide](../session21-final-devops-project/gitops/README.md) connects scanned image tags to Helm deployment. See `evidence/` and `screenshots/` for recorded monitoring and reconciliation output.
+
+## Screenshot evidence
+
+![Recorded assignment evidence](screenshots/gitops.jpg)
+
+Command-output screenshots display the captured transcripts; the full text files are retained in `evidence/`. GitHub and application screenshots capture their live pages.

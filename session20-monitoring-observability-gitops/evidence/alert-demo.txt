@@ -1,0 +1,159 @@
++ kubectl get hpa/helpdesk-backend -n helpdesk -o yaml
++ trap restore EXIT
++ kubectl delete hpa/helpdesk-backend -n helpdesk
+horizontalpodautoscaler.autoscaling "helpdesk-backend" deleted from helpdesk namespace
++ kubectl scale -n helpdesk deployment/helpdesk-backend --replicas=0
+deployment.apps/helpdesk-backend scaled
++ fired=false
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ sleep 5
++ for i in '{1..36}'
++ curl -fsS http://localhost:9090/api/v1/alerts
++ python3 -c 'import json; a=json.load(open("/tmp/helpdesk-alerts.json"))["data"]["alerts"]; exit(not any(x["labels"]["alertname"]=="HelpdeskDown" and x["state"]=="firing" for x in a))'
++ cat /tmp/helpdesk-alerts.json
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"HelpdeskDown","instance":"backend.helpdesk.svc.cluster.local:8000","job":"helpdesk","severity":"critical"},"annotations":{"summary":"Helpdesk metrics endpoint is unavailable"},"state":"firing","activeAt":"2026-10-07T13:09:07.933332948Z","value":"0e+00"}]}}+ fired=true
++ break
++ test true = true
++ restore
++ kubectl scale -n helpdesk deployment/helpdesk-backend --replicas=2
+deployment.apps/helpdesk-backend scaled
++ kubectl apply -f /tmp/helpdesk-hpa-restore.yaml
+horizontalpodautoscaler.autoscaling/helpdesk-backend created
++ kubectl rollout status -n helpdesk deployment/helpdesk-backend --timeout=180s
+Waiting for deployment "helpdesk-backend" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "helpdesk-backend" rollout to finish: 1 of 2 updated replicas are available...
+deployment "helpdesk-backend" successfully rolled out
++ kubectl top pods -n helpdesk
+NAME                                 CPU(cores)   MEMORY(bytes)
+helpdesk-frontend-756f7c46d5-d2nvb   1m           8Mi
+helpdesk-frontend-756f7c46d5-r9qkk   1m           8Mi
+helpdesk-postgres-0                  3m           26Mi
++ curl -fsS 'http://localhost:9090/api/v1/query?query=up%7Bjob%3D%22helpdesk%22%7D'
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"up","instance":"backend.helpdesk.svc.cluster.local:8000","job":"helpdesk"},"value":[1791378675.512,"0"]}]}}+ trap - EXIT
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"up","instance":"backend.helpdesk.svc.cluster.local:8000","job":"helpdesk"},"value":[1791378836.216,"1"]}]}}

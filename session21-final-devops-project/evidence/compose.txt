@@ -1,0 +1,565 @@
+ Image postgres:16-alpine Pulling
+ 42522e794927 Pulling fs layer 0B
+ a939abc7661d Pulling fs layer 0B
+ 60d97d74e2c3 Pulling fs layer 0B
+ 262040291247 Pulling fs layer 0B
+ fc1879ba45ce Pulling fs layer 0B
+ a9df484dbfba Pulling fs layer 0B
+ cebfcc8ad205 Pulling fs layer 0B
+ 59d395e5f091 Pulling fs layer 0B
+ 92de42ef5e5f Pulling fs layer 0B
+ 507ae4668108 Pulling fs layer 0B
+ 42522e794927 Download complete 0B
+ 42522e794927 Extracting 1B
+ 42522e794927 Extracting 1B
+ 42522e794927 Extracting 1B
+ 60d97d74e2c3 Download complete 0B
+ a939abc7661d Download complete 0B
+ 507ae4668108 Download complete 0B
+ 42522e794927 Extracting 1B
+ 42522e794927 Extracting 1B
+ 59d395e5f091 Download complete 0B
+ cebfcc8ad205 Download complete 0B
+ 42522e794927 Extracting 1B
+ 42522e794927 Extracting 1B
+ a9df484dbfba Downloading 1.049MB
+ 42522e794927 Extracting 1B
+ a9df484dbfba Downloading 1.049MB
+ 262040291247 Download complete 0B
+ 42522e794927 Extracting 1B
+ 92de42ef5e5f Download complete 0B
+ a9df484dbfba Downloading 3.146MB
+ 42522e794927 Extracting 1B
+ a9df484dbfba Downloading 3.146MB
+ 42522e794927 Extracting 1B
+ a9df484dbfba Downloading 3.146MB
+ 42522e794927 Extracting 2B
+ a9df484dbfba Downloading 6.291MB
+ 42522e794927 Extracting 2B
+ a9df484dbfba Downloading 6.291MB
+ 42522e794927 Extracting 2B
+ a9df484dbfba Downloading 7.34MB
+ 42522e794927 Extracting 2B
+ a9df484dbfba Downloading 8.389MB
+ 42522e794927 Extracting 2B
+ a9df484dbfba Downloading 9.437MB
+ 42522e794927 Extracting 2B
+ fc1879ba45ce Download complete 0B
+ a9df484dbfba Downloading 9.437MB
+ 42522e794927 Extracting 2B
+ a9df484dbfba Downloading 10.49MB
+ 42522e794927 Extracting 2B
+ a9df484dbfba Downloading 11.53MB
+ 42522e794927 Extracting 2B
+ a9df484dbfba Downloading 11.53MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 12.58MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 13.63MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 14.68MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 15.73MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 15.73MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 16.78MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 17.83MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 18.87MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 19.92MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 20.97MB
+ 42522e794927 Extracting 3B
+ a9df484dbfba Downloading 20.97MB
+ 42522e794927 Extracting 4B
+ a9df484dbfba Downloading 22.02MB
+ 42522e794927 Extracting 4B
+ a9df484dbfba Downloading 23.07MB
+ 42522e794927 Extracting 4B
+ a9df484dbfba Downloading 23.07MB
+ 42522e794927 Extracting 4B
+ a9df484dbfba Downloading 24.12MB
+ 42522e794927 Extracting 4B
+ a9df484dbfba Downloading 25.17MB
+ 42522e794927 Extracting 4B
+ a9df484dbfba Downloading 25.17MB
+ 42522e794927 Extracting 4B
+ a9df484dbfba Downloading 25.17MB
+ 42522e794927 Extracting 4B
+ a9df484dbfba Downloading 26.21MB
+ 42522e794927 Pull complete 0B
+ 60d97d74e2c3 Pull complete 0B
+ 262040291247 Pull complete 0B
+ fc1879ba45ce Pull complete 0B
+ a9df484dbfba Downloading 27.26MB
+ a9df484dbfba Downloading 28.31MB
+ a9df484dbfba Downloading 29.36MB
+ a9df484dbfba Downloading 30.41MB
+ 93d76872891a Download complete 0B
+ a9df484dbfba Downloading 30.41MB
+ a9df484dbfba Downloading 31.46MB
+ a9df484dbfba Downloading 31.46MB
+ a9df484dbfba Downloading 32.51MB
+ a9df484dbfba Downloading 33.55MB
+ a9df484dbfba Downloading 34.6MB
+ a9df484dbfba Downloading 35.65MB
+ 2b6cc6ae9fbc Download complete 0B
+ a9df484dbfba Downloading 35.65MB
+ a9df484dbfba Downloading 36.7MB
+ a9df484dbfba Downloading 36.7MB
+ a9df484dbfba Downloading 37.75MB
+ a9df484dbfba Downloading 38.8MB
+ a9df484dbfba Downloading 38.8MB
+ a9df484dbfba Downloading 39.85MB
+ a9df484dbfba Downloading 39.85MB
+ a9df484dbfba Downloading 40.89MB
+ a9df484dbfba Downloading 41.94MB
+ a9df484dbfba Downloading 41.94MB
+ a9df484dbfba Downloading 42.99MB
+ a9df484dbfba Downloading 42.99MB
+ a9df484dbfba Downloading 44.04MB
+ a9df484dbfba Downloading 45.09MB
+ a9df484dbfba Downloading 45.09MB
+ a9df484dbfba Downloading 46.14MB
+ a9df484dbfba Downloading 47.19MB
+ a9df484dbfba Downloading 48.23MB
+ a9df484dbfba Downloading 48.23MB
+ a9df484dbfba Downloading 49.28MB
+ a9df484dbfba Downloading 50.33MB
+ a9df484dbfba Downloading 51.38MB
+ a9df484dbfba Downloading 52.43MB
+ a9df484dbfba Downloading 53.48MB
+ a9df484dbfba Downloading 53.48MB
+ a9df484dbfba Downloading 54.53MB
+ a9df484dbfba Downloading 55.57MB
+ a9df484dbfba Downloading 56.62MB
+ a9df484dbfba Downloading 56.62MB
+ a9df484dbfba Downloading 57.67MB
+ a9df484dbfba Downloading 58.72MB
+ a9df484dbfba Downloading 59.77MB
+ a9df484dbfba Downloading 59.77MB
+ a9df484dbfba Downloading 60.82MB
+ a9df484dbfba Downloading 61.87MB
+ a9df484dbfba Downloading 62.91MB
+ a9df484dbfba Downloading 62.91MB
+ a9df484dbfba Downloading 63.96MB
+ a9df484dbfba Downloading 65.01MB
+ a9df484dbfba Downloading 66.06MB
+ a9df484dbfba Downloading 66.06MB
+ a9df484dbfba Downloading 67.11MB
+ a9df484dbfba Downloading 69.21MB
+ a9df484dbfba Downloading 69.21MB
+ a9df484dbfba Downloading 70.25MB
+ a9df484dbfba Downloading 70.25MB
+ a9df484dbfba Downloading 71.3MB
+ a9df484dbfba Downloading 73.4MB
+ a9df484dbfba Downloading 73.4MB
+ a9df484dbfba Downloading 74.45MB
+ a9df484dbfba Downloading 74.45MB
+ a9df484dbfba Downloading 75.5MB
+ a9df484dbfba Downloading 77.59MB
+ a9df484dbfba Downloading 77.59MB
+ a9df484dbfba Downloading 78.64MB
+ a9df484dbfba Downloading 78.64MB
+ a9df484dbfba Downloading 78.64MB
+ a9df484dbfba Downloading 79.69MB
+ a9df484dbfba Downloading 80.74MB
+ a9df484dbfba Downloading 81.79MB
+ a9df484dbfba Downloading 82.84MB
+ a9df484dbfba Downloading 83.89MB
+ a9df484dbfba Downloading 83.89MB
+ a9df484dbfba Downloading 84.93MB
+ a9df484dbfba Downloading 84.93MB
+ a9df484dbfba Downloading 84.93MB
+ a9df484dbfba Downloading 85.98MB
+ a9df484dbfba Downloading 87.03MB
+ a9df484dbfba Downloading 87.03MB
+ a9df484dbfba Downloading 87.03MB
+ a9df484dbfba Downloading 88.08MB
+ a9df484dbfba Downloading 89.13MB
+ a9df484dbfba Downloading 90.18MB
+ a9df484dbfba Downloading 91.23MB
+ a9df484dbfba Downloading 92.27MB
+ a9df484dbfba Downloading 93.32MB
+ a9df484dbfba Downloading 94.37MB
+ a9df484dbfba Downloading 95.42MB
+ a9df484dbfba Downloading 95.42MB
+ a9df484dbfba Downloading 96.47MB
+ a9df484dbfba Downloading 97.52MB
+ a9df484dbfba Downloading 98.57MB
+ a9df484dbfba Downloading 98.57MB
+ a9df484dbfba Downloading 99.61MB
+ a9df484dbfba Downloading 100.7MB
+ a9df484dbfba Downloading 101.7MB
+ a9df484dbfba Downloading 101.7MB
+ a9df484dbfba Downloading 102.8MB
+ a9df484dbfba Downloading 103.8MB
+ a9df484dbfba Downloading 104.9MB
+ a9df484dbfba Downloading 105.9MB
+ a9df484dbfba Downloading 107MB
+ a9df484dbfba Downloading 107MB
+ a9df484dbfba Downloading 108MB
+ a9df484dbfba Downloading 108.8MB
+ a9df484dbfba Download complete 0B
+ a9df484dbfba Extracting 1B
+ a9df484dbfba Extracting 1B
+ a9df484dbfba Extracting 1B
+ a9df484dbfba Extracting 1B
+ a9df484dbfba Extracting 1B
+ a9df484dbfba Extracting 1B
+ a9df484dbfba Extracting 1B
+ a9df484dbfba Extracting 1B
+ a9df484dbfba Extracting 1B
+ a939abc7661d Pull complete 0B
+ 507ae4668108 Pull complete 0B
+ 59d395e5f091 Pull complete 0B
+ cebfcc8ad205 Pull complete 0B
+ 92de42ef5e5f Pull complete 0B
+ a9df484dbfba Pull complete 0B
+ Image postgres:16-alpine Pulled
+ Image session21-final-devops-project-frontend Building
+ Image session21-final-devops-project-migrate Building
+ Image session21-final-devops-project-backend Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.02kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 306B done
+#2 DONE 0.0s
+
+#3 [backend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 395B done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#4 ...
+
+#5 [frontend internal] load metadata for docker.io/nginxinc/nginx-unprivileged:stable-alpine
+#5 DONE 2.9s
+
+#6 [frontend internal] load metadata for docker.io/library/node:24-alpine
+#6 DONE 2.9s
+
+#7 [frontend internal] load .dockerignore
+#7 transferring context: 63B done
+#7 DONE 0.0s
+
+#8 [frontend internal] load build context
+#8 transferring context: 317B done
+#8 DONE 0.0s
+
+#9 [frontend build 1/6] FROM docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1
+#9 resolve docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1 0.0s done
+#9 DONE 0.0s
+
+#10 [frontend stage-1 1/3] FROM docker.io/nginxinc/nginx-unprivileged:stable-alpine@sha256:15c994d10d6d78658721c3bcafff14cb281fba2a4bdf9d5ba92c416a472516e3
+#10 resolve docker.io/nginxinc/nginx-unprivileged:stable-alpine@sha256:15c994d10d6d78658721c3bcafff14cb281fba2a4bdf9d5ba92c416a472516e3 0.0s done
+#10 DONE 0.0s
+
+#11 [frontend stage-1 2/3] COPY --from=build /app/dist /usr/share/nginx/html
+#11 CACHED
+
+#12 [frontend build 5/6] COPY . .
+#12 CACHED
+
+#13 [frontend build 6/6] RUN npm run build
+#13 CACHED
+
+#14 [frontend build 2/6] WORKDIR /app
+#14 CACHED
+
+#15 [frontend build 3/6] COPY package*.json ./
+#15 CACHED
+
+#16 [frontend build 4/6] RUN npm ci
+#16 CACHED
+
+#17 [frontend stage-1 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#17 CACHED
+
+#18 [frontend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:1351c76072fdab6bfb575238ebd3d26f081e84529f3c537f6f7972ccf351c175 done
+#18 exporting config sha256:a641330b6af1520a02ec01ec0ebc64be3ae958b3370ed1f2af2d4b07e89552ad done
+#18 exporting attestation manifest sha256:c0cfc4bc126822e156871e7c5084b91602ab8e753d75baec25411b2230c907bf done
+#18 exporting manifest list sha256:c0078339c0db2d3b33f609d609472cb7c0bdc783c86902553b2285d1064b1516 done
+#18 naming to docker.io/library/session21-final-devops-project-frontend:latest done
+#18 unpacking to docker.io/library/session21-final-devops-project-frontend:latest done
+#18 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 3.1s
+
+#19 [frontend] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [backend internal] load .dockerignore
+#20 transferring context: 95B done
+#20 DONE 0.0s
+
+#21 [migrate internal] load build context
+#21 transferring context: 862B done
+#21 DONE 0.0s
+
+#22 [backend 1/7] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#22 resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f done
+#22 DONE 0.0s
+
+#23 [backend 6/7] COPY alembic ./alembic
+#23 CACHED
+
+#24 [backend 3/7] COPY requirements.txt .
+#24 CACHED
+
+#25 [backend 4/7] RUN pip install --no-cache-dir -r requirements.txt && useradd --create-home --uid 10001 appuser
+#25 CACHED
+
+#26 [backend 5/7] COPY alembic.ini ./
+#26 CACHED
+
+#27 [backend 2/7] WORKDIR /app
+#27 CACHED
+
+#28 [backend 7/7] COPY app ./app
+#28 CACHED
+
+#29 [migrate] exporting to image
+#29 exporting layers done
+#29 exporting manifest sha256:486d5a10892fd429384b00e2cddd44a6d001f09802c48e9cb19f3badc84aca5b done
+#29 exporting config sha256:0002f8db6eb75a2f375b986387de6dc69c7e7c882a5b3a3945cc26203f30cf24 done
+#29 exporting attestation manifest sha256:f142f42c2fce2fed0afb60d266429be842d3f17fe61763a609f0330e84147f0d done
+#29 exporting manifest list sha256:1b4a4acda9c71c1f116f59bc959453f1c38cbd7ae832256f1abdab7319e488c4
+#29 exporting manifest list sha256:1b4a4acda9c71c1f116f59bc959453f1c38cbd7ae832256f1abdab7319e488c4 done
+#29 naming to docker.io/library/session21-final-devops-project-migrate:latest done
+#29 unpacking to docker.io/library/session21-final-devops-project-migrate:latest done
+#29 DONE 0.0s
+
+#30 [backend] exporting to image
+#30 exporting layers done
+#30 exporting manifest sha256:dc07d5e1011aaccd9d8593cee52682a37cb92a379d3765038baa668f0ef92b10 done
+#30 exporting config sha256:7999a77e9feeaa196225b2aa2dea69766592bda97e5cb3b84d850db4ab644be5 done
+#30 exporting attestation manifest sha256:345055155a800e394c836851794de1fa45518a2b560a0a0b58c7979cef01000e done
+#30 exporting manifest list sha256:4ac49f3a7d01f8c6fea8ee27685f37d3d88d159c710b8369627234536a586c22 done
+#30 naming to docker.io/library/session21-final-devops-project-backend:latest done
+#30 unpacking to docker.io/library/session21-final-devops-project-backend:latest done
+#30 DONE 0.0s
+
+#31 [backend] resolving provenance for metadata file
+#31 DONE 0.0s
+
+#32 [migrate] resolving provenance for metadata file
+#32 DONE 0.0s
+ Image session21-final-devops-project-migrate Built
+ Image session21-final-devops-project-backend Built
+ Image session21-final-devops-project-frontend Built
+ Network session21-final-devops-project_default Creating
+ Volume session21-final-devops-project_postgres-data Creating
+ Volume session21-final-devops-project_postgres-data Creating
+ Network session21-final-devops-project_default Creating
+ Volume session21-final-devops-project_postgres-data Created
+ Volume session21-final-devops-project_postgres-data Created
+ Network session21-final-devops-project_default Created
+ Network session21-final-devops-project_default Created
+ Container session21-final-devops-project-postgres-1 Creating
+ Container session21-final-devops-project-postgres-1 Created
+ Container session21-final-devops-project-migrate-1 Creating
+ Container session21-final-devops-project-migrate-1 Created
+ Container session21-final-devops-project-backend-1 Creating
+ Container session21-final-devops-project-backend-1 Created
+ Container session21-final-devops-project-frontend-1 Creating
+ Container session21-final-devops-project-frontend-1 Created
+ Container session21-final-devops-project-postgres-1 Starting
+ Container session21-final-devops-project-postgres-1 Started
+ Container session21-final-devops-project-postgres-1 Waiting
+ Container session21-final-devops-project-postgres-1 Healthy
+ Container session21-final-devops-project-migrate-1 Starting
+ Container session21-final-devops-project-migrate-1 Started
+ Container session21-final-devops-project-migrate-1 Waiting
+ Container session21-final-devops-project-migrate-1 Exited
+ Container session21-final-devops-project-backend-1 Starting
+ Container session21-final-devops-project-backend-1 Started
+ Container session21-final-devops-project-backend-1 Waiting
+ Container session21-final-devops-project-backend-1 Healthy
+ Container session21-final-devops-project-frontend-1 Starting
+Error response from daemon: ports are not available: exposing port TCP 127.0.0.1:3000 -> 127.0.0.1:0: listen tcp4 127.0.0.1:3000: bind: address already in use
+ Container session21-final-devops-project-postgres-1 Running
+ Container session21-final-devops-project-backend-1 Running
+ Container session21-final-devops-project-frontend-1 Recreate
+ Container session21-final-devops-project-frontend-1 Recreated
+ Container session21-final-devops-project-postgres-1 Waiting
+ Container session21-final-devops-project-postgres-1 Healthy
+ Container session21-final-devops-project-migrate-1 Starting
+ Container session21-final-devops-project-migrate-1 Started
+ Container session21-final-devops-project-migrate-1 Waiting
+ Container session21-final-devops-project-migrate-1 Exited
+ Container session21-final-devops-project-backend-1 Waiting
+ Container session21-final-devops-project-backend-1 Healthy
+ Container session21-final-devops-project-frontend-1 Starting
+ Container session21-final-devops-project-frontend-1 Started
+ Image session21-final-devops-project-migrate Building
+ Image session21-final-devops-project-backend Building
+ Image session21-final-devops-project-frontend Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.02kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 383B done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 306B done
+#3 DONE 0.0s
+
+#4 [auth] library/python:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [backend internal] load metadata for docker.io/library/python:3.12-alpine
+#5 ...
+
+#6 [auth] nginxinc/nginx-unprivileged:pull token for registry-1.docker.io
+#6 DONE 0.0s
+
+#7 [auth] library/node:pull token for registry-1.docker.io
+#7 DONE 0.0s
+
+#5 [migrate internal] load metadata for docker.io/library/python:3.12-alpine
+#5 DONE 6.8s
+
+#8 [migrate internal] load .dockerignore
+#8 transferring context: 95B done
+#8 DONE 0.0s
+
+#9 [backend internal] load build context
+#9 transferring context: 862B done
+#9 DONE 0.0s
+
+#10 [backend 1/7] FROM docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#10 resolve docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 done
+#10 DONE 0.0s
+
+#11 [migrate 6/7] COPY alembic ./alembic
+#11 CACHED
+
+#12 [migrate 3/7] COPY requirements.txt .
+#12 CACHED
+
+#13 [migrate 5/7] COPY alembic.ini ./
+#13 CACHED
+
+#14 [migrate 4/7] RUN pip install --no-cache-dir -r requirements.txt && adduser -D -u 10001 appuser
+#14 CACHED
+
+#15 [migrate 2/7] WORKDIR /app
+#15 CACHED
+
+#16 [migrate 7/7] COPY app ./app
+#16 CACHED
+
+#17 [migrate] exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:42877f10e663c931d323f7771414625e46fdcf8717bd1ac0bd290861cb8842c3 done
+#17 exporting config sha256:6aa534cfe4e11868c51525fbc0dfb1836efb3f9c65275a4cbe4d2413702aa295 done
+#17 exporting attestation manifest sha256:a87febab4fe7f9f0d8d1514010ca6b089e0ed249c3830599f92788b03a60a167 done
+#17 exporting manifest list sha256:58b3139bebe200cd95bbfb7c779736385df51f4b3b2d3081440839ed42110d0c done
+#17 naming to docker.io/library/session21-final-devops-project-migrate:latest done
+#17 unpacking to docker.io/library/session21-final-devops-project-migrate:latest done
+#17 DONE 0.0s
+
+#18 [backend] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:e49f4869e7023609ce50e497efbeab22b49c7483f7c8761fc74617d44628204a done
+#18 exporting config sha256:e7c91cb7befb68546ad8624fd69f530541b25a45db956d143b7491e5d4d8cb6e done
+#18 exporting attestation manifest sha256:823ebcebf2afe22bfa338f4539b0a0824e3f9088f0521eadcd0f66a23dae9722 done
+#18 exporting manifest list sha256:f8effbb5237b85809f90683f0e8a168bb203ce8be754321478795a26093db851 done
+#18 naming to docker.io/library/session21-final-devops-project-backend:latest done
+#18 unpacking to docker.io/library/session21-final-devops-project-backend:latest done
+#18 DONE 0.0s
+
+#19 [migrate] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [backend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [frontend internal] load metadata for docker.io/library/node:24-alpine
+#21 ...
+
+#22 [frontend internal] load metadata for docker.io/nginxinc/nginx-unprivileged:stable-alpine
+#22 DONE 7.4s
+
+#21 [frontend internal] load metadata for docker.io/library/node:24-alpine
+#21 DONE 7.4s
+
+#23 [frontend internal] load .dockerignore
+#23 transferring context: 63B done
+#23 DONE 0.0s
+
+#24 [frontend internal] load build context
+#24 transferring context: 317B done
+#24 DONE 0.0s
+
+#25 [frontend stage-1 1/3] FROM docker.io/nginxinc/nginx-unprivileged:stable-alpine@sha256:15c994d10d6d78658721c3bcafff14cb281fba2a4bdf9d5ba92c416a472516e3
+#25 resolve docker.io/nginxinc/nginx-unprivileged:stable-alpine@sha256:15c994d10d6d78658721c3bcafff14cb281fba2a4bdf9d5ba92c416a472516e3 0.0s done
+#25 DONE 0.0s
+
+#26 [frontend build 1/6] FROM docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1
+#26 resolve docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1 done
+#26 DONE 0.0s
+
+#27 [frontend build 6/6] RUN npm run build
+#27 CACHED
+
+#28 [frontend build 4/6] RUN npm ci
+#28 CACHED
+
+#29 [frontend build 3/6] COPY package*.json ./
+#29 CACHED
+
+#30 [frontend build 5/6] COPY . .
+#30 CACHED
+
+#31 [frontend build 2/6] WORKDIR /app
+#31 CACHED
+
+#32 [frontend stage-1 2/3] COPY --from=build /app/dist /usr/share/nginx/html
+#32 CACHED
+
+#33 [frontend stage-1 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+#33 CACHED
+
+#34 [frontend] exporting to image
+#34 exporting layers done
+#34 exporting manifest sha256:1351c76072fdab6bfb575238ebd3d26f081e84529f3c537f6f7972ccf351c175 done
+#34 exporting config sha256:a641330b6af1520a02ec01ec0ebc64be3ae958b3370ed1f2af2d4b07e89552ad done
+#34 exporting attestation manifest sha256:8c44f26b94c241c80edb35f565d3212fc82a7fcae1dbef3a8ace726c629a65db done
+#34 exporting manifest list sha256:9387b1657323a2139725d3e92824ece036cc07b8e8cc7b8b42774e12b611ba92 done
+#34 naming to docker.io/library/session21-final-devops-project-frontend:latest done
+#34 unpacking to docker.io/library/session21-final-devops-project-frontend:latest done
+#34 DONE 0.0s
+
+#35 [frontend] resolving provenance for metadata file
+#35 DONE 0.0s
+ Image session21-final-devops-project-migrate Built
+ Image session21-final-devops-project-backend Built
+ Image session21-final-devops-project-frontend Built
+ Container session21-final-devops-project-frontend-1 Running
+ Container session21-final-devops-project-postgres-1 Running
+ Container session21-final-devops-project-migrate-1 Recreate
+ Container session21-final-devops-project-migrate-1 Recreated
+ Container session21-final-devops-project-backend-1 Recreate
+ Container session21-final-devops-project-backend-1 Recreated
+ Container session21-final-devops-project-postgres-1 Waiting
+ Container session21-final-devops-project-postgres-1 Healthy
+ Container session21-final-devops-project-migrate-1 Starting
+ Container session21-final-devops-project-migrate-1 Started
+ Container session21-final-devops-project-migrate-1 Waiting
+ Container session21-final-devops-project-migrate-1 Exited
+ Container session21-final-devops-project-backend-1 Starting
+ Container session21-final-devops-project-backend-1 Started
+ Container session21-final-devops-project-backend-1 Waiting
+ Container session21-final-devops-project-backend-1 Healthy

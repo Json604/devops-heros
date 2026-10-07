@@ -1,0 +1,1234 @@
+test-and-security	Set up job	﻿2026-10-07T13:02:55.0606354Z Current runner version: '2.337.0'
+test-and-security	Set up job	2026-10-07T13:02:55.0628360Z ##[group]Runner Image Provisioner
+test-and-security	Set up job	2026-10-07T13:02:55.0629154Z Hosted Compute Agent
+test-and-security	Set up job	2026-10-07T13:02:55.0629741Z Version: 20261002.596
+test-and-security	Set up job	2026-10-07T13:02:55.0630264Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+test-and-security	Set up job	2026-10-07T13:02:55.0630886Z Build Date: 2026-10-02T22:28:27Z
+test-and-security	Set up job	2026-10-07T13:02:55.0631452Z Worker ID: {3e9b6aa8-5c60-4679-bb5e-8496517fe00c}
+test-and-security	Set up job	2026-10-07T13:02:55.0632048Z Region: westus3
+test-and-security	Set up job	2026-10-07T13:02:55.0632534Z Cloud: Azure
+test-and-security	Set up job	2026-10-07T13:02:55.0632979Z ##[endgroup]
+test-and-security	Set up job	2026-10-07T13:02:55.0634127Z ##[group]Operating System
+test-and-security	Set up job	2026-10-07T13:02:55.0634649Z Ubuntu
+test-and-security	Set up job	2026-10-07T13:02:55.0635282Z 24.04.5
+test-and-security	Set up job	2026-10-07T13:02:55.0635776Z LTS
+test-and-security	Set up job	2026-10-07T13:02:55.0636207Z ##[endgroup]
+test-and-security	Set up job	2026-10-07T13:02:55.0636661Z ##[group]Runner Image
+test-and-security	Set up job	2026-10-07T13:02:55.0637229Z Image: ubuntu-24.04
+test-and-security	Set up job	2026-10-07T13:02:55.0637753Z Version: 20261004.327.1
+test-and-security	Set up job	2026-10-07T13:02:55.0638642Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+test-and-security	Set up job	2026-10-07T13:02:55.0640052Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+test-and-security	Set up job	2026-10-07T13:02:55.0640846Z ##[endgroup]
+test-and-security	Set up job	2026-10-07T13:02:55.0641786Z ##[group]GITHUB_TOKEN Permissions
+test-and-security	Set up job	2026-10-07T13:02:55.0643723Z Contents: read
+test-and-security	Set up job	2026-10-07T13:02:55.0644223Z Metadata: read
+test-and-security	Set up job	2026-10-07T13:02:55.0644711Z ##[endgroup]
+test-and-security	Set up job	2026-10-07T13:02:55.0646840Z Secret source: Actions
+test-and-security	Set up job	2026-10-07T13:02:55.0647664Z Cache mode: write
+test-and-security	Set up job	2026-10-07T13:02:55.0648232Z Prepare workflow directory
+test-and-security	Set up job	2026-10-07T13:02:55.0912112Z Prepare all required actions
+test-and-security	Set up job	2026-10-07T13:02:55.0960603Z Getting action download info
+test-and-security	Set up job	2026-10-07T13:02:55.4400931Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+test-and-security	Set up job	2026-10-07T13:02:55.5298117Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+test-and-security	Set up job	2026-10-07T13:02:55.6267444Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+test-and-security	Set up job	2026-10-07T13:02:55.7274653Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+test-and-security	Set up job	2026-10-07T13:02:55.9356898Z Complete job name: test-and-security
+test-and-security	Run actions/checkout@v4	﻿2026-10-07T13:02:55.9963378Z ##[group]Run actions/checkout@v4
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9964095Z with:
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9964583Z   fetch-depth: 0
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9965218Z   repository: Json604/devops-heros
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9968459Z   token: ***
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9968886Z   ssh-strict: true
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9969313Z   ssh-user: git
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9970085Z   persist-credentials: true
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9970584Z   clean: true
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9971043Z   sparse-checkout-cone-mode: true
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9971576Z   fetch-tags: false
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9972019Z   show-progress: true
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9972460Z   lfs: false
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9972889Z   submodules: false
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9973379Z   set-safe-directory: true
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9973915Z   allow-unsafe-pr-checkout: false
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:55.9974648Z ##[endgroup]
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0852781Z Syncing repository: Json604/devops-heros
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0855900Z ##[group]Getting Git version info
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0857270Z Working directory is '/home/runner/work/devops-heros/devops-heros'
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0859209Z [command]/usr/bin/git version
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0908690Z git version 2.55.0
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0925965Z ##[endgroup]
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0937580Z Temporarily overriding HOME='/home/runner/work/_temp/e9991923-2d19-41d0-ab51-4a3c705335b1' before making global git config changes
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0939540Z Adding repository directory to the temporary git global config as a safe directory
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0941540Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0989639Z Deleting the contents of '/home/runner/work/devops-heros/devops-heros'
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0992946Z ##[group]Initializing the repository
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.0995940Z [command]/usr/bin/git init /home/runner/work/devops-heros/devops-heros
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1111492Z hint: Using 'master' as the name for the initial branch. This default branch name
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1113252Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1114884Z hint: to use in all of your new repositories, which will suppress this warning,
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1116590Z hint: call:
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1117259Z hint:
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1118123Z hint: 	git config --global init.defaultBranch <name>
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1119016Z hint:
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1119853Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1121194Z hint: 'development'. The just-created branch can be renamed via this command:
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1122246Z hint:
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1122985Z hint: 	git branch -m <name>
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1123711Z hint:
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1124611Z hint: Disable this message with "git config set advice.defaultBranchName false"
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1126371Z Initialized empty Git repository in /home/runner/work/devops-heros/devops-heros/.git/
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1128910Z [command]/usr/bin/git remote add origin https://github.com/Json604/devops-heros
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1300509Z ##[endgroup]
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1301914Z ##[group]Disabling automatic garbage collection
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1304636Z [command]/usr/bin/git config --local gc.auto 0
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1351775Z ##[endgroup]
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1353072Z ##[group]Setting up auth
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1359377Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1394785Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1745994Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1772007Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1927525Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.1952986Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.2105870Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.2136976Z ##[endgroup]
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.2138240Z ##[group]Fetching the repository
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:56.2144716Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4847083Z From https://github.com/Json604/devops-heros
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4848707Z  * [new branch]      main       -> origin/main
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4850032Z  * [new branch]      submission/kartikey-10121 -> origin/submission/kartikey-10121
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4860762Z [command]/usr/bin/git branch --list --remote origin/submission/kartikey-10121
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4883593Z   origin/submission/kartikey-10121
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4892180Z [command]/usr/bin/git rev-parse refs/remotes/origin/submission/kartikey-10121
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4914771Z af5deab26c61c57d991fc5816c6abcc350977e7a
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4918432Z ##[endgroup]
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4919782Z ##[group]Determining the checkout info
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4932171Z ##[endgroup]
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4933934Z [command]/usr/bin/git sparse-checkout disable
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.4983180Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.5008060Z ##[group]Checking out the ref
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.5011925Z [command]/usr/bin/git checkout --progress --force -B submission/kartikey-10121 refs/remotes/origin/submission/kartikey-10121
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.7327795Z Switched to a new branch 'submission/kartikey-10121'
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.7331044Z branch 'submission/kartikey-10121' set up to track 'origin/submission/kartikey-10121'.
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.7343464Z ##[endgroup]
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.7380665Z [command]/usr/bin/git log -1 --format=%H
+test-and-security	Run actions/checkout@v4	2026-10-07T13:02:58.7402655Z af5deab26c61c57d991fc5816c6abcc350977e7a
+test-and-security	Run actions/setup-python@v5	﻿2026-10-07T13:02:58.7707964Z ##[group]Run actions/setup-python@v5
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.7709160Z with:
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.7710135Z   python-version: 3.12
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.7711197Z   check-latest: false
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.7718412Z   token: ***
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.7719438Z   update-environment: true
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.7720580Z   allow-prereleases: false
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.7721673Z   freethreaded: false
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.7722720Z ##[endgroup]
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.8910478Z ##[group]Installed versions
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.8987138Z (node:2086) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.8990690Z (Use `node --trace-deprecation ...` to show where the warning was created)
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.8993057Z Successfully set up CPython (3.12.15)
+test-and-security	Run actions/setup-python@v5	2026-10-07T13:02:58.8996002Z ##[endgroup]
+test-and-security	Run actions/setup-node@v4	﻿2026-10-07T13:02:58.9322157Z ##[group]Run actions/setup-node@v4
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9323659Z with:
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9324790Z   node-version: 24
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9325942Z   always-auth: false
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9326854Z   check-latest: false
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9337284Z   token: ***
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9339431Z env:
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9340913Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9343023Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9345319Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9347185Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9348649Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9350432Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:58.9353691Z ##[endgroup]
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:59.0605922Z Found in cache @ /opt/hostedtoolcache/node/24.21.0/x64
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:59.0609243Z (node:2094) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:59.0611720Z (Use `node --trace-deprecation ...` to show where the warning was created)
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:59.0613688Z ##[group]Environment details
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:59.4606024Z node: v24.21.0
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:59.4606681Z npm: 11.19.0
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:59.4607081Z yarn: 1.22.22
+test-and-security	Run actions/setup-node@v4	2026-10-07T13:02:59.4607902Z ##[endgroup]
+test-and-security	Install backend dependencies	﻿2026-10-07T13:02:59.4708952Z ##[group]Run pip install -r session21-final-devops-project/application/backend/requirements-dev.txt
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4709772Z pip install -r session21-final-devops-project/application/backend/requirements-dev.txt
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4902484Z shell: /usr/bin/bash -e {0}
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4902905Z env:
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4903368Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4903859Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4904302Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4904747Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4905537Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4905994Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test-and-security	Install backend dependencies	2026-10-07T13:02:59.4906363Z ##[endgroup]
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.2794978Z Collecting fastapi==0.142.2 (from -r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 1))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.3520814Z   Downloading fastapi-0.142.2-py3-none-any.whl.metadata (27 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.3800066Z Collecting uvicorn==0.54.0 (from -r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 2))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.3900690Z   Downloading uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.6105205Z Collecting sqlalchemy==2.1.3 (from -r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 3))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.6209200Z   Downloading sqlalchemy-2.1.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.7 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.7688415Z Collecting psycopg==3.3.6 (from psycopg[binary]==3.3.6->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 4))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.7790036Z   Downloading psycopg-3.3.6-py3-none-any.whl.metadata (4.4 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.7936971Z Collecting pydantic-settings==2.15.0 (from -r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.8038297Z   Downloading pydantic_settings-2.15.0-py3-none-any.whl.metadata (3.9 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.8177704Z Collecting prometheus-fastapi-instrumentator==8.1.0 (from -r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 6))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.8277977Z   Downloading prometheus_fastapi_instrumentator-8.1.0-py3-none-any.whl.metadata (13 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.8447033Z Collecting alembic==1.20.0 (from -r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 7))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.8546467Z   Downloading alembic-1.20.0-py3-none-any.whl.metadata (7.3 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.8739228Z Collecting pytest==9.1.1 (from -r session21-final-devops-project/application/backend/requirements-dev.txt (line 2))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.8838892Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.8974673Z Collecting httpx==0.28.1 (from -r session21-final-devops-project/application/backend/requirements-dev.txt (line 3))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.9072992Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.9191941Z Collecting bandit==1.9.4 (from -r session21-final-devops-project/application/backend/requirements-dev.txt (line 4))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.9290644Z   Downloading bandit-1.9.4-py3-none-any.whl.metadata (7.1 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.9441361Z Collecting pip-audit==2.10.1 (from -r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.9539614Z   Downloading pip_audit-2.10.1-py3-none-any.whl.metadata (28 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.9755956Z Collecting starlette>=0.46.0 (from fastapi==0.142.2->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 1))
+test-and-security	Install backend dependencies	2026-10-07T13:03:00.9854856Z   Downloading starlette-1.7.0-py3-none-any.whl.metadata (6.6 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.0554021Z Collecting pydantic>=2.9.0 (from fastapi==0.142.2->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 1))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.0653740Z   Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.0922759Z Collecting typing-extensions>=4.8.0 (from fastapi==0.142.2->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 1))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.1025646Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.1121265Z Collecting typing-inspection>=0.4.2 (from fastapi==0.142.2->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 1))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.1221012Z   Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.1336683Z Collecting annotated-doc>=0.0.2 (from fastapi==0.142.2->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 1))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.1434648Z   Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.1752450Z Collecting opentelemetry-api>=1.44.0 (from fastapi==0.142.2->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 1))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.1849989Z   Downloading opentelemetry_api-1.45.1-py3-none-any.whl.metadata (1.4 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.1982090Z Collecting click>=7.0 (from uvicorn==0.54.0->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 2))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.2082846Z   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.2191086Z Collecting h11>=0.8 (from uvicorn==0.54.0->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 2))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.2290260Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.2442839Z Collecting python-dotenv>=0.21.0 (from pydantic-settings==2.15.0->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.2541922Z   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.2678850Z Collecting prometheus-client<1.0.0,>=0.8.0 (from prometheus-fastapi-instrumentator==8.1.0->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 6))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.2775479Z   Downloading prometheus_client-0.26.0-py3-none-any.whl.metadata (2.1 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.2920511Z Collecting Mako (from alembic==1.20.0->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 7))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.3026476Z   Downloading mako-1.4.3-py3-none-any.whl.metadata (2.9 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.3133658Z Collecting iniconfig>=1.0.1 (from pytest==9.1.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 2))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.3230701Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.3342610Z Collecting packaging>=22 (from pytest==9.1.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 2))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.3440144Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.3538662Z Collecting pluggy<2,>=1.5 (from pytest==9.1.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 2))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.3637454Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.3782957Z Collecting pygments>=2.7.2 (from pytest==9.1.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 2))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.3881741Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.4048652Z Collecting anyio (from httpx==0.28.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 3))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.4147134Z   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.4290342Z Collecting certifi (from httpx==0.28.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 3))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.4391381Z   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.4526771Z Collecting httpcore==1.* (from httpx==0.28.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 3))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.4628425Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.4763294Z Collecting idna (from httpx==0.28.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 3))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.4864043Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.5149363Z Collecting PyYAML>=5.3.1 (from bandit==1.9.4->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 4))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.5248291Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.5389322Z Collecting stevedore>=1.20.0 (from bandit==1.9.4->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 4))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.5487577Z   Downloading stevedore-5.9.1-py3-none-any.whl.metadata (2.3 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.5753749Z Collecting rich (from bandit==1.9.4->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 4))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.5852038Z   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.6154563Z Collecting CacheControl>=0.13.0 (from CacheControl[filecache]>=0.13.0->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.6253753Z   Downloading cachecontrol-0.14.4-py3-none-any.whl.metadata (3.1 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.6495986Z Collecting cyclonedx-python-lib<12,>=5 (from pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.6596707Z   Downloading cyclonedx_python_lib-11.12.0-py3-none-any.whl.metadata (6.9 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.6728668Z Collecting pip-api>=0.0.28 (from pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.6830061Z   Downloading pip_api-0.0.35-py3-none-any.whl.metadata (17 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.6930280Z Collecting pip-requirements-parser>=32.0.0 (from pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.7027737Z   Downloading pip_requirements_parser-32.0.1-py3-none-any.whl.metadata (9.3 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.7185320Z Collecting requests>=2.31.0 (from pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.7283377Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.7491503Z Collecting tomli>=2.2.1 (from pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.7591705Z   Downloading tomli-2.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.7684422Z Collecting tomli-w>=1.2.0 (from pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.7782064Z   Downloading tomli_w-1.2.0-py3-none-any.whl.metadata (5.7 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.7924208Z Collecting platformdirs>=4.2.0 (from pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.8021907Z   Downloading platformdirs-4.12.3-py3-none-any.whl.metadata (5.5 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.9099497Z Collecting psycopg-binary==3.3.6 (from psycopg[binary]==3.3.6->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 4))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.9198477Z   Downloading psycopg_binary-3.3.6-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.7 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.9323906Z Collecting license-expression<31,>=30 (from cyclonedx-python-lib<12,>=5->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.9421146Z   Downloading license_expression-30.4.4-py3-none-any.whl.metadata (11 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.9570711Z Collecting packageurl-python<2,>=0.11 (from cyclonedx-python-lib<12,>=5->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.9668376Z   Downloading packageurl_python-0.17.6-py3-none-any.whl.metadata (5.1 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.9791599Z Collecting py-serializable<3.0.0,>=2.1.0 (from cyclonedx-python-lib<12,>=5->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.9889112Z   Downloading py_serializable-2.1.0-py3-none-any.whl.metadata (4.3 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:01.9994575Z Collecting sortedcontainers<3.0.0,>=2.4.0 (from cyclonedx-python-lib<12,>=5->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.0093102Z   Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.0238738Z Collecting boolean.py>=4.0 (from license-expression<31,>=30->cyclonedx-python-lib<12,>=5->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.0336942Z   Downloading boolean_py-5.0-py3-none-any.whl.metadata (2.3 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.0457246Z Collecting defusedxml<0.8.0,>=0.7.1 (from py-serializable<3.0.0,>=2.1.0->cyclonedx-python-lib<12,>=5->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.0555464Z   Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.1266363Z Collecting msgpack<2.0.0,>=0.5.2 (from CacheControl>=0.13.0->CacheControl[filecache]>=0.13.0->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.1365657Z   Downloading msgpack-1.2.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.1551623Z Collecting filelock>=3.8.0 (from CacheControl[filecache]>=0.13.0->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.1652932Z   Downloading filelock-4.0.12-py3-none-any.whl.metadata (2.0 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.1723214Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages (from pip-api>=0.0.28->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5)) (26.2.1)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.3307097Z Collecting pyparsing (from pip-requirements-parser>=32.0.0->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.3407591Z   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.3513372Z Collecting annotated-types>=0.6.0 (from pydantic>=2.9.0->fastapi==0.142.2->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 1))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.3610755Z   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.8452282Z Collecting pydantic-core==2.46.5 (from pydantic>=2.9.0->fastapi==0.142.2->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 1))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.8555941Z   Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.9501595Z Collecting charset_normalizer<4,>=2 (from requests>=2.31.0->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.9603030Z   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.9806288Z Collecting urllib3<3,>=1.26 (from requests>=2.31.0->pip-audit==2.10.1->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 5))
+test-and-security	Install backend dependencies	2026-10-07T13:03:02.9906190Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.0133552Z Collecting markdown-it-py>=2.2.0 (from rich->bandit==1.9.4->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 4))
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.0232694Z   Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.0359455Z Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->bandit==1.9.4->-r session21-final-devops-project/application/backend/requirements-dev.txt (line 4))
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.0459016Z   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.0903945Z Collecting MarkupSafe>=2.0 (from Mako->alembic==1.20.0->-r /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend/requirements.txt (line 7))
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.1003756Z   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.1160012Z Downloading fastapi-0.142.2-py3-none-any.whl (144 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.1364360Z Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.1489145Z Downloading sqlalchemy-2.1.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.7 MB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.2425752Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 54.0 MB/s  0:00:00
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.2527770Z Downloading psycopg-3.3.6-py3-none-any.whl (215 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.2652346Z Downloading pydantic_settings-2.15.0-py3-none-any.whl (69 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.2771468Z Downloading prometheus_fastapi_instrumentator-8.1.0-py3-none-any.whl (19 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.2888972Z Downloading alembic-1.20.0-py3-none-any.whl (268 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.3012181Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.3135789Z Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.3257426Z Downloading bandit-1.9.4-py3-none-any.whl (134 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.3375611Z Downloading pip_audit-2.10.1-py3-none-any.whl (62 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.3497176Z Downloading psycopg_binary-3.3.6-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.2 MB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.3920129Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 126.4 MB/s  0:00:00
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.4023811Z Downloading cyclonedx_python_lib-11.12.0-py3-none-any.whl (529 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.4066380Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 529.5/529.5 kB 111.2 MB/s  0:00:00
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.4165341Z Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.4283122Z Downloading license_expression-30.4.4-py3-none-any.whl (120 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.4404725Z Downloading packageurl_python-0.17.6-py3-none-any.whl (36 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.4519822Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.4699676Z Downloading prometheus_client-0.26.0-py3-none-any.whl (64 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.4821884Z Downloading py_serializable-2.1.0-py3-none-any.whl (23 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.4939082Z Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.5055800Z Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.5174320Z Downloading starlette-1.7.0-py3-none-any.whl (78 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.5294981Z Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.5413072Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.5530609Z Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.5649198Z Downloading boolean_py-5.0-py3-none-any.whl (26 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.5765694Z Downloading cachecontrol-0.14.4-py3-none-any.whl (22 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.5884780Z Downloading msgpack-1.2.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (472 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.6011800Z Downloading click-8.5.0-py3-none-any.whl (125 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.6131505Z Downloading filelock-4.0.12-py3-none-any.whl (111 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.6250426Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.6386019Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.6576069Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.6695922Z Downloading opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.6815904Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.7022285Z Downloading pip_api-0.0.35-py3-none-any.whl (123 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.7221380Z Downloading pip_requirements_parser-32.0.1-py3-none-any.whl (35 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.7338109Z Downloading platformdirs-4.12.3-py3-none-any.whl (32 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.7510836Z Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.7639023Z Downloading pydantic_core-2.46.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.7759627Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 180.4 MB/s  0:00:00
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.7858067Z Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.7978266Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.8034824Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 274.8 MB/s  0:00:00
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.8133210Z Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.8257507Z Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.8304169Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 188.5 MB/s  0:00:00
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.8403419Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.8522807Z Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.8641338Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.8759651Z Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.8879520Z Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.9001534Z Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.9117121Z Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.9350844Z Downloading stevedore-5.9.1-py3-none-any.whl (54 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.9472948Z Downloading tomli-2.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (286 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.9592291Z Downloading tomli_w-1.2.0-py3-none-any.whl (6.7 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.9707607Z Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.9823755Z Downloading mako-1.4.3-py3-none-any.whl (80 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:03.9943492Z Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:04.0057006Z Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+test-and-security	Install backend dependencies	2026-10-07T13:03:04.2198737Z Installing collected packages: sortedcontainers, boolean.py, urllib3, typing-extensions, tomli-w, tomli, stevedore, PyYAML, python-dotenv, pyparsing, pygments, psycopg-binary, prometheus-client, pluggy, platformdirs, pip-api, packaging, packageurl-python, msgpack, mdurl, MarkupSafe, license-expression, iniconfig, idna, h11, filelock, defusedxml, click, charset_normalizer, certifi, annotated-types, annotated-doc, uvicorn, typing-inspection, sqlalchemy, requests, pytest, pydantic-core, py-serializable, psycopg, pip-requirements-parser, opentelemetry-api, markdown-it-py, Mako, httpcore, anyio, starlette, rich, pydantic, httpx, cyclonedx-python-lib, CacheControl, alembic, pydantic-settings, prometheus-fastapi-instrumentator, fastapi, bandit, pip-audit
+test-and-security	Install backend dependencies	2026-10-07T13:03:10.6158109Z
+test-and-security	Install backend dependencies	2026-10-07T13:03:10.6196933Z Successfully installed CacheControl-0.14.4 Mako-1.4.3 MarkupSafe-3.0.4 PyYAML-6.0.3 alembic-1.20.0 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 bandit-1.9.4 boolean.py-5.0 certifi-2026.7.22 charset_normalizer-3.5.2 click-8.5.0 cyclonedx-python-lib-11.12.0 defusedxml-0.7.1 fastapi-0.142.2 filelock-4.0.12 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.20 iniconfig-2.3.1 license-expression-30.4.4 markdown-it-py-4.2.0 mdurl-0.1.2 msgpack-1.2.3 opentelemetry-api-1.45.1 packageurl-python-0.17.6 packaging-26.3 pip-api-0.0.35 pip-audit-2.10.1 pip-requirements-parser-32.0.1 platformdirs-4.12.3 pluggy-1.6.0 prometheus-client-0.26.0 prometheus-fastapi-instrumentator-8.1.0 psycopg-3.3.6 psycopg-binary-3.3.6 py-serializable-2.1.0 pydantic-2.13.5 pydantic-core-2.46.5 pydantic-settings-2.15.0 pygments-2.21.0 pyparsing-3.3.3 pytest-9.1.1 python-dotenv-1.2.4 requests-2.34.2 rich-15.0.0 sortedcontainers-2.4.0 sqlalchemy-2.1.3 starlette-1.7.0 stevedore-5.9.1 tomli-2.5.0 tomli-w-1.2.0 typing-extensions-4.16.0 typing-inspection-0.4.4 urllib3-2.8.0 uvicorn-0.54.0
+test-and-security	Unit and API tests	﻿2026-10-07T13:03:10.7431239Z ##[group]Run pytest -v session21-final-devops-project/application/backend/tests --junitxml=test-results.xml
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7431998Z pytest -v session21-final-devops-project/application/backend/tests --junitxml=test-results.xml
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7471917Z shell: /usr/bin/bash -e {0}
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7472357Z env:
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7472697Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7473131Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7473621Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7474020Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7474461Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7474851Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test-and-security	Unit and API tests	2026-10-07T13:03:10.7475305Z ##[endgroup]
+test-and-security	Unit and API tests	2026-10-07T13:03:11.4034065Z ============================= test session starts ==============================
+test-and-security	Unit and API tests	2026-10-07T13:03:11.4035527Z platform linux -- Python 3.12.15, pytest-9.1.1, pluggy-1.6.0 -- /opt/hostedtoolcache/Python/3.12.15/x64/bin/python
+test-and-security	Unit and API tests	2026-10-07T13:03:11.4036198Z cachedir: .pytest_cache
+test-and-security	Unit and API tests	2026-10-07T13:03:11.4036867Z rootdir: /home/runner/work/devops-heros/devops-heros/session21-final-devops-project/application/backend
+test-and-security	Unit and API tests	2026-10-07T13:03:11.4037459Z configfile: pytest.ini
+test-and-security	Unit and API tests	2026-10-07T13:03:11.4037807Z plugins: platformdirs-4.12.3, anyio-4.15.1
+test-and-security	Unit and API tests	2026-10-07T13:03:12.2571538Z collecting ... collected 17 items
+test-and-security	Unit and API tests	2026-10-07T13:03:12.2571864Z
+test-and-security	Unit and API tests	2026-10-07T13:03:12.2711444Z session21-final-devops-project/application/backend/tests/test_api.py::test_health PASSED [  5%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.2790351Z session21-final-devops-project/application/backend/tests/test_api.py::test_readiness PASSED [ 11%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.2921563Z session21-final-devops-project/application/backend/tests/test_api.py::test_create_and_read_ticket PASSED [ 17%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3049115Z session21-final-devops-project/application/backend/tests/test_api.py::test_update_and_statistics PASSED [ 23%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3159495Z session21-final-devops-project/application/backend/tests/test_api.py::test_delete_ticket PASSED [ 29%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3210553Z session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload0] PASSED [ 35%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3259912Z session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload1] PASSED [ 41%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3309010Z session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload2] PASSED [ 47%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3358159Z session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload3] PASSED [ 52%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3422446Z session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload4] PASSED [ 58%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3527450Z session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_update_does_not_change_record[payload0] PASSED [ 64%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3629198Z session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_update_does_not_change_record[payload1] PASSED [ 70%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3731325Z session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_update_does_not_change_record[payload2] PASSED [ 76%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3790439Z session21-final-devops-project/application/backend/tests/test_api.py::test_missing_ticket[get] PASSED [ 82%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3850782Z session21-final-devops-project/application/backend/tests/test_api.py::test_missing_ticket[put] PASSED [ 88%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.3912785Z session21-final-devops-project/application/backend/tests/test_api.py::test_missing_ticket[delete] PASSED [ 94%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4470644Z session21-final-devops-project/application/backend/tests/test_api.py::test_metrics PASSED [100%]
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4471900Z
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4472956Z =============================== warnings summary ===============================
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4474376Z ../../../../../opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/fastapi/testclient.py:1
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4477291Z   /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4479353Z     from starlette.testclient import TestClient as TestClient  # noqa
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4480027Z
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4480571Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4481934Z - generated xml file: /home/runner/work/devops-heros/devops-heros/test-results.xml -
+test-and-security	Unit and API tests	2026-10-07T13:03:12.4483165Z ======================== 17 passed, 1 warning in 1.00s =========================
+test-and-security	SAST - Bandit	﻿2026-10-07T13:03:12.5580428Z ##[group]Run bandit -r session21-final-devops-project/application/backend/app -ll
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5581047Z bandit -r session21-final-devops-project/application/backend/app -ll
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5618747Z shell: /usr/bin/bash -e {0}
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5619075Z env:
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5619451Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5619906Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5620337Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5620891Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5621269Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5622102Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.5622472Z ##[endgroup]
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7011343Z [main]	INFO	profile include tests: None
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7012548Z [main]	INFO	profile exclude tests: None
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7013428Z [main]	INFO	cli include tests: None
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7014027Z [main]	INFO	cli exclude tests: None
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7014475Z [main]	INFO	running on Python 3.12.15
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7194899Z Run started:2026-10-07 13:03:12.719212+00:00
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7195654Z
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7195959Z Test results:
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7196502Z 	No issues identified.
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7196839Z
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7197022Z Code scanned:
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7197493Z 	Total lines of code: 142
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7198163Z 	Total lines skipped (#nosec): 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7199184Z 	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7199922Z
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7200138Z Run metrics:
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7200630Z 	Total issues (by severity):
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7201178Z 		Undefined: 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7201706Z 		Low: 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7202284Z 		Medium: 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7202676Z 		High: 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7203047Z 	Total issues (by confidence):
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7203436Z 		Undefined: 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7203816Z 		Low: 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7204140Z 		Medium: 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7204455Z 		High: 0
+test-and-security	SAST - Bandit	2026-10-07T13:03:12.7204798Z Files skipped (0):
+test-and-security	SCA - Python	﻿2026-10-07T13:03:12.7434176Z ##[group]Run pip-audit -r session21-final-devops-project/application/backend/requirements.txt
+test-and-security	SCA - Python	2026-10-07T13:03:12.7434851Z pip-audit -r session21-final-devops-project/application/backend/requirements.txt
+test-and-security	SCA - Python	2026-10-07T13:03:12.7474572Z shell: /usr/bin/bash -e {0}
+test-and-security	SCA - Python	2026-10-07T13:03:12.7474905Z env:
+test-and-security	SCA - Python	2026-10-07T13:03:12.7475299Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	SCA - Python	2026-10-07T13:03:12.7475768Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test-and-security	SCA - Python	2026-10-07T13:03:12.7476205Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	SCA - Python	2026-10-07T13:03:12.7476593Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	SCA - Python	2026-10-07T13:03:12.7477183Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	SCA - Python	2026-10-07T13:03:12.7477582Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test-and-security	SCA - Python	2026-10-07T13:03:12.7477930Z ##[endgroup]
+test-and-security	SCA - Python	2026-10-07T13:03:19.7286119Z No known vulnerabilities found
+test-and-security	Frontend build and dependency audit	﻿2026-10-07T13:03:19.7776087Z ##[group]Run npm ci
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7776406Z npm ci
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7776695Z npm audit --audit-level=high
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7777023Z npm run build
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7813423Z shell: /usr/bin/bash -e {0}
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7813860Z env:
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7814184Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7814610Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7815144Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7815541Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7815967Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7816391Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:19.7816757Z ##[endgroup]
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.0313282Z
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.0314489Z added 19 packages, and audited 20 packages in 1s
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.0314943Z
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.0320241Z 8 packages are looking for funding
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.0321175Z   run `npm fund` for details
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.0323039Z
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.0323199Z found 0 vulnerabilities
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.3615783Z found 0 vulnerabilities
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.4482951Z
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.4483902Z > helpdesk-frontend@1.0.0 build
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.4484812Z > node node_modules/vite/bin/vite.js build
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.4485417Z
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.6487509Z vite v8.3.3 building client environment for production...
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.6586503Z transforming...
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.7113404Z ✓ 15 modules transformed.
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.7292171Z rendering chunks...
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.7616185Z computing gzip size...
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.7645829Z dist/index.html                   0.34 kB │ gzip:  0.25 kB
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.7646747Z dist/assets/index-CAYldStt.css    3.42 kB │ gzip:  1.24 kB
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.7647504Z dist/assets/index-AcGpdCUK.js   225.21 kB │ gzip: 70.55 kB
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.7647941Z
+test-and-security	Frontend build and dependency audit	2026-10-07T13:03:21.7650416Z ✓ built in 115ms
+test-and-security	Secret scan - Gitleaks	﻿2026-10-07T13:03:21.7823463Z ##[group]Run docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.1 dir /repo/session21-final-devops-project --redact --no-banner
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7824247Z docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.1 dir /repo/session21-final-devops-project --redact --no-banner
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7860763Z shell: /usr/bin/bash -e {0}
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7861095Z env:
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7861418Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7861869Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7862345Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7862721Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7863137Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7863535Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.7863929Z ##[endgroup]
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:21.8838564Z Unable to find image 'zricethezav/gitleaks:v8.30.1' locally
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:22.6608593Z v8.30.1: Pulling from zricethezav/gitleaks
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:22.8868685Z d49a2dee86fb: Pulling fs layer
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:22.8869519Z d92b655ae8e2: Pulling fs layer
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:22.8869887Z 61fdfd7c0175: Pulling fs layer
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:22.8870349Z a43ab0c74cc4: Pulling fs layer
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:22.8870680Z a43ab0c74cc4: Waiting
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.0730756Z d49a2dee86fb: Verifying Checksum
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.0731291Z d49a2dee86fb: Download complete
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.0844415Z d92b655ae8e2: Verifying Checksum
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.0845438Z d92b655ae8e2: Download complete
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.1138576Z 61fdfd7c0175: Verifying Checksum
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.1139119Z 61fdfd7c0175: Download complete
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.1642709Z d49a2dee86fb: Pull complete
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.2409071Z a43ab0c74cc4: Verifying Checksum
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.2409963Z a43ab0c74cc4: Download complete
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:23.9285519Z d92b655ae8e2: Pull complete
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:24.1464665Z 61fdfd7c0175: Pull complete
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:24.1562771Z a43ab0c74cc4: Pull complete
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:24.1616732Z Digest: sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:24.1632509Z Status: Downloaded newer image for zricethezav/gitleaks:v8.30.1
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:24.6093638Z 1:03PM INF scanned ~335487 bytes (335.49 KB) in 267ms
+test-and-security	Secret scan - Gitleaks	2026-10-07T13:03:24.6094426Z 1:03PM INF no leaks found
+test-and-security	Run actions/upload-artifact@v4	﻿2026-10-07T13:03:24.6971717Z ##[group]Run actions/upload-artifact@v4
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6972098Z with:
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6972362Z   name: helpdesk-test-results
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6972658Z   path: test-results.xml
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6972964Z   if-no-files-found: warn
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6973254Z   compression-level: 6
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6973539Z   overwrite: false
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6973797Z   include-hidden-files: false
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6974065Z env:
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6974391Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6974815Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6975540Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6975934Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6976345Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6976759Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.6977094Z ##[endgroup]
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.8429405Z (node:2473) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.8430686Z (Use `node --trace-deprecation ...` to show where the warning was created)
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.8471136Z With the provided path, there will be 1 file uploaded
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.8475735Z Artifact name is valid!
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:24.8476435Z Root directory input is valid!
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:25.2020923Z Beginning upload of artifact content to blob storage
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:25.2161787Z (node:2473) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:25.4214086Z Uploaded bytes 513
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:25.4780029Z Finished uploading artifact content to blob storage!
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:25.4780918Z SHA256 digest of uploaded artifact zip is d2d5d7f11d7da4118c4d819e07aa423478d9541a82ebcb2aee7aa65c96afc9c3
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:25.4782058Z Finalizing artifact upload
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:25.7552713Z Artifact helpdesk-test-results.zip successfully finalized. Artifact ID 11483259716
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:25.7554429Z Artifact helpdesk-test-results has been successfully uploaded! Final size is 513 bytes. Artifact ID is 11483259716
+test-and-security	Run actions/upload-artifact@v4	2026-10-07T13:03:25.7560154Z Artifact download URL: https://github.com/Json604/devops-heros/actions/runs/37625465559/artifacts/11483259716
+test-and-security	Post Run actions/setup-node@v4	﻿2026-10-07T13:03:25.7696020Z Post job cleanup.
+test-and-security	Post Run actions/setup-node@v4	2026-10-07T13:03:25.8791659Z (node:2485) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+test-and-security	Post Run actions/setup-node@v4	2026-10-07T13:03:25.8792505Z (Use `node --trace-deprecation ...` to show where the warning was created)
+test-and-security	Post Run actions/setup-python@v5	﻿2026-10-07T13:03:25.8953692Z Post job cleanup.
+test-and-security	Post Run actions/setup-python@v5	2026-10-07T13:03:25.9964851Z (node:2493) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+test-and-security	Post Run actions/setup-python@v5	2026-10-07T13:03:25.9966116Z (Use `node --trace-deprecation ...` to show where the warning was created)
+test-and-security	Post Run actions/checkout@v4	﻿2026-10-07T13:03:26.0104115Z Post job cleanup.
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.0836157Z [command]/usr/bin/git version
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.0895963Z git version 2.55.0
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.0967991Z Temporarily overriding HOME='/home/runner/work/_temp/718108d2-6ad5-4bef-8d18-551d188d5f16' before making global git config changes
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.0985420Z Adding repository directory to the temporary git global config as a safe directory
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.0986774Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.0988705Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.0994340Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.1218885Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.1250098Z http.https://github.com/.extraheader
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.1268366Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.1298445Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.1476967Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+test-and-security	Post Run actions/checkout@v4	2026-10-07T13:03:26.1501643Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+test-and-security	Complete job	﻿2026-10-07T13:03:26.1839954Z Cleaning up orphan processes
+test-and-security	Complete job	2026-10-07T13:03:26.2146715Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+build-scan-deploy	Set up job	﻿2026-10-07T13:03:32.3713202Z Current runner version: '2.337.0'
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3743025Z ##[group]Runner Image Provisioner
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3744138Z Hosted Compute Agent
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3744754Z Version: 20260901.588
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3745395Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3746217Z Build Date: 2026-09-01T19:56:44Z
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3746924Z Worker ID: {2d0c9ffa-3ad2-48d5-b71f-abca6ef18ade}
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3747834Z Azure Region: northcentralus
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3748476Z ##[endgroup]
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3750049Z ##[group]Operating System
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3750817Z Ubuntu
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3751382Z 24.04.5
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3751990Z LTS
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3752554Z ##[endgroup]
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3753126Z ##[group]Runner Image
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3753808Z Image: ubuntu-24.04
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3754399Z Version: 20260927.320.1
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3755602Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3757420Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3758465Z ##[endgroup]
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3759958Z ##[group]GITHUB_TOKEN Permissions
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3762174Z Contents: read
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3762808Z Metadata: read
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3763477Z Packages: write
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3764083Z ##[endgroup]
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3766866Z Secret source: Actions
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3767984Z Cache mode: write
+build-scan-deploy	Set up job	2026-10-07T13:03:32.3768711Z Prepare workflow directory
+build-scan-deploy	Set up job	2026-10-07T13:03:32.4240360Z Prepare all required actions
+build-scan-deploy	Set up job	2026-10-07T13:03:32.4313164Z Getting action download info
+build-scan-deploy	Set up job	2026-10-07T13:03:32.7431401Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+build-scan-deploy	Set up job	2026-10-07T13:03:32.8472459Z Download action repository 'helm/kind-action@v1' (SHA:ef37e7f390d99f746eb8b610417061a60e82a6cc)
+build-scan-deploy	Set up job	2026-10-07T13:03:32.9983851Z Download action repository 'azure/setup-helm@v4.3.0' (SHA:b9e51907a09c216f16ebe8536097933489208112)
+build-scan-deploy	Set up job	2026-10-07T13:03:33.2421928Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+build-scan-deploy	Set up job	2026-10-07T13:03:33.5439711Z Complete job name: build-scan-deploy
+build-scan-deploy	Run actions/checkout@v4	﻿2026-10-07T13:03:33.6307680Z ##[group]Run actions/checkout@v4
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6308608Z with:
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6309108Z   repository: Json604/devops-heros
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6313354Z   token: ***
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6313840Z   ssh-strict: true
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6314316Z   ssh-user: git
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6314801Z   persist-credentials: true
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6315341Z   clean: true
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6315825Z   sparse-checkout-cone-mode: true
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6316390Z   fetch-depth: 1
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6316887Z   fetch-tags: false
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6317374Z   show-progress: true
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6317857Z   lfs: false
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6318306Z   submodules: false
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6318798Z   set-safe-directory: true
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6319468Z   allow-unsafe-pr-checkout: false
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.6320281Z ##[endgroup]
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7411150Z Syncing repository: Json604/devops-heros
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7413882Z ##[group]Getting Git version info
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7414796Z Working directory is '/home/runner/work/devops-heros/devops-heros'
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7416381Z [command]/usr/bin/git version
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7463600Z git version 2.55.0
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7498646Z ##[endgroup]
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7520781Z Temporarily overriding HOME='/home/runner/work/_temp/27fe8622-60d6-4af5-87cc-db48579e04fd' before making global git config changes
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7523447Z Adding repository directory to the temporary git global config as a safe directory
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7527209Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7583513Z Deleting the contents of '/home/runner/work/devops-heros/devops-heros'
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7593472Z ##[group]Initializing the repository
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7597166Z [command]/usr/bin/git init /home/runner/work/devops-heros/devops-heros
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7687561Z hint: Using 'master' as the name for the initial branch. This default branch name
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7689972Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7692151Z hint: to use in all of your new repositories, which will suppress this warning,
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7693439Z hint: call:
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7694513Z hint:
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7695391Z hint: 	git config --global init.defaultBranch <name>
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7696418Z hint:
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7697350Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7698796Z hint: 'development'. The just-created branch can be renamed via this command:
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7700213Z hint:
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7700920Z hint: 	git branch -m <name>
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7701692Z hint:
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7702715Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7704401Z Initialized empty Git repository in /home/runner/work/devops-heros/devops-heros/.git/
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7707434Z [command]/usr/bin/git remote add origin https://github.com/Json604/devops-heros
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7762439Z ##[endgroup]
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7763980Z ##[group]Disabling automatic garbage collection
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7767031Z [command]/usr/bin/git config --local gc.auto 0
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7809704Z ##[endgroup]
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7811239Z ##[group]Setting up auth
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7817220Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.7861255Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.8270786Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.8315556Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.8579261Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.8624208Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.8890114Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.8936275Z ##[endgroup]
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.8937661Z ##[group]Fetching the repository
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:33.8947946Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +af5deab26c61c57d991fc5816c6abcc350977e7a:refs/remotes/origin/submission/kartikey-10121
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.6344843Z From https://github.com/Json604/devops-heros
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.6346159Z  * [new ref]         af5deab26c61c57d991fc5816c6abcc350977e7a -> origin/submission/kartikey-10121
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.6349310Z ##[endgroup]
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.6350033Z ##[group]Determining the checkout info
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.6352396Z ##[endgroup]
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.6358472Z [command]/usr/bin/git sparse-checkout disable
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.6417856Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.6456358Z ##[group]Checking out the ref
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.6462340Z [command]/usr/bin/git checkout --progress --force -B submission/kartikey-10121 refs/remotes/origin/submission/kartikey-10121
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.8743473Z Switched to a new branch 'submission/kartikey-10121'
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.8745697Z branch 'submission/kartikey-10121' set up to track 'origin/submission/kartikey-10121'.
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.8864433Z ##[endgroup]
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.8883397Z [command]/usr/bin/git log -1 --format=%H
+build-scan-deploy	Run actions/checkout@v4	2026-10-07T13:03:35.8884082Z af5deab26c61c57d991fc5816c6abcc350977e7a
+build-scan-deploy	Build both images	﻿2026-10-07T13:03:35.9136059Z ##[group]Run docker build -t campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a session21-final-devops-project/application/backend
+build-scan-deploy	Build both images	2026-10-07T13:03:35.9137427Z docker build -t campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a session21-final-devops-project/application/backend
+build-scan-deploy	Build both images	2026-10-07T13:03:35.9138508Z docker build -t campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a session21-final-devops-project/application/frontend
+build-scan-deploy	Build both images	2026-10-07T13:03:35.9385939Z shell: /usr/bin/bash -e {0}
+build-scan-deploy	Build both images	2026-10-07T13:03:35.9386452Z ##[endgroup]
+build-scan-deploy	Build both images	2026-10-07T13:03:36.4568620Z #0 building with "default" instance using docker driver
+build-scan-deploy	Build both images	2026-10-07T13:03:36.4569198Z
+build-scan-deploy	Build both images	2026-10-07T13:03:36.4569569Z #1 [internal] load build definition from Dockerfile
+build-scan-deploy	Build both images	2026-10-07T13:03:36.4570207Z #1 transferring dockerfile: 383B done
+build-scan-deploy	Build both images	2026-10-07T13:03:36.4570632Z #1 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:36.4570845Z
+build-scan-deploy	Build both images	2026-10-07T13:03:36.4571110Z #2 [auth] library/python:pull token for registry-1.docker.io
+build-scan-deploy	Build both images	2026-10-07T13:03:36.6072663Z #2 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:36.6073039Z
+build-scan-deploy	Build both images	2026-10-07T13:03:36.6073371Z #3 [internal] load metadata for docker.io/library/python:3.12-alpine
+build-scan-deploy	Build both images	2026-10-07T13:03:36.9279845Z #3 DONE 0.6s
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0460112Z
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0460731Z #4 [internal] load .dockerignore
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0461266Z #4 transferring context: 95B done
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0461678Z #4 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0461890Z
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0462043Z #5 [internal] load build context
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0462486Z #5 transferring context: 10.20kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0462907Z #5 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0463083Z
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0463696Z #6 [1/7] FROM docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0464953Z #6 resolve docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 done
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0465834Z #6 sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 5.24MB / 16.36MB 0.1s
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0466645Z #6 sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa 248B / 248B 0.0s done
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0467438Z #6 sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 10.30kB / 10.30kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0468497Z #6 sha256:2055081c860db8c842b663415b795b026e7e5cc63b59c5193fcc9997713ea5b8 1.74kB / 1.74kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0469340Z #6 sha256:979e5a8a56846771598d47ebf1f8a75b46155104e168a0b237c0783c1dedff8a 5.43kB / 5.43kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:37.0470278Z #6 sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa 0B / 416.28kB 0.1s
+build-scan-deploy	Build both images	2026-10-07T13:03:37.1530134Z #6 sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 16.36MB / 16.36MB 0.1s done
+build-scan-deploy	Build both images	2026-10-07T13:03:37.1531697Z #6 sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa 416.28kB / 416.28kB 0.1s done
+build-scan-deploy	Build both images	2026-10-07T13:03:37.1533229Z #6 extracting sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa 0.1s done
+build-scan-deploy	Build both images	2026-10-07T13:03:39.8806924Z #6 extracting sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935
+build-scan-deploy	Build both images	2026-10-07T13:03:40.5450283Z #6 extracting sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 0.6s done
+build-scan-deploy	Build both images	2026-10-07T13:03:40.5452277Z #6 extracting sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7298464Z #6 extracting sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa done
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7299577Z #6 DONE 3.6s
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7299808Z
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7299953Z #7 [2/7] WORKDIR /app
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7300282Z #7 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7300453Z
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7300616Z #8 [3/7] COPY requirements.txt .
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7301025Z #8 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7301216Z
+build-scan-deploy	Build both images	2026-10-07T13:03:40.7301657Z #9 [4/7] RUN pip install --no-cache-dir -r requirements.txt && adduser -D -u 10001 appuser
+build-scan-deploy	Build both images	2026-10-07T13:03:42.8574636Z #9 2.278 Collecting fastapi==0.142.2 (from -r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.0713084Z #9 2.300   Downloading fastapi-0.142.2-py3-none-any.whl.metadata (27 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.0713731Z #9 2.337 Collecting uvicorn==0.54.0 (from -r requirements.txt (line 2))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.0714230Z #9 2.342   Downloading uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.2298129Z #9 2.651 Collecting sqlalchemy==2.1.3 (from -r requirements.txt (line 3))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.3334671Z #9 2.656   Downloading sqlalchemy-2.1.3-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (9.7 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.3335438Z #9 2.686 Collecting psycopg==3.3.6 (from psycopg[binary]==3.3.6->-r requirements.txt (line 4))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.3335987Z #9 2.690   Downloading psycopg-3.3.6-py3-none-any.whl.metadata (4.4 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.3336500Z #9 2.708 Collecting pydantic-settings==2.15.0 (from -r requirements.txt (line 5))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.3337044Z #9 2.712   Downloading pydantic_settings-2.15.0-py3-none-any.whl.metadata (3.9 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.3337682Z #9 2.727 Collecting prometheus-fastapi-instrumentator==8.1.0 (from -r requirements.txt (line 6))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.3338330Z #9 2.731   Downloading prometheus_fastapi_instrumentator-8.1.0-py3-none-any.whl.metadata (13 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.3338939Z #9 2.754 Collecting alembic==1.20.0 (from -r requirements.txt (line 7))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.4892954Z #9 2.759   Downloading alembic-1.20.0-py3-none-any.whl.metadata (7.3 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.4893991Z #9 2.791 Collecting starlette>=0.46.0 (from fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.4894883Z #9 2.795   Downloading starlette-1.7.0-py3-none-any.whl.metadata (6.6 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.4895437Z #9 2.910 Collecting pydantic>=2.9.0 (from fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5966908Z #9 2.915   Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5967983Z #9 2.942 Collecting typing-extensions>=4.8.0 (from fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5969007Z #9 2.947   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5970273Z #9 2.956 Collecting typing-inspection>=0.4.2 (from fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5971225Z #9 2.961   Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5972170Z #9 2.970 Collecting annotated-doc>=0.0.2 (from fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5973000Z #9 2.975   Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5973882Z #9 2.995 Collecting opentelemetry-api>=1.44.0 (from fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5974710Z #9 2.999   Downloading opentelemetry_api-1.45.1-py3-none-any.whl.metadata (1.4 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.5975491Z #9 3.017 Collecting click>=7.0 (from uvicorn==0.54.0->-r requirements.txt (line 2))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.7246034Z #9 3.022   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.7247023Z #9 3.032 Collecting h11>=0.8 (from uvicorn==0.54.0->-r requirements.txt (line 2))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.7247803Z #9 3.036   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.7248726Z #9 3.071 Collecting python-dotenv>=0.21.0 (from pydantic-settings==2.15.0->-r requirements.txt (line 5))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.7250065Z #9 3.076   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.7251254Z #9 3.098 Collecting prometheus-client<1.0.0,>=0.8.0 (from prometheus-fastapi-instrumentator==8.1.0->-r requirements.txt (line 6))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.7252406Z #9 3.103   Downloading prometheus_client-0.26.0-py3-none-any.whl.metadata (2.1 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.7253238Z #9 3.145 Collecting Mako (from alembic==1.20.0->-r requirements.txt (line 7))
+build-scan-deploy	Build both images	2026-10-07T13:03:43.8793093Z #9 3.150   Downloading mako-1.4.3-py3-none-any.whl.metadata (2.9 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:43.8870698Z #9 3.308 Collecting psycopg-binary==3.3.6 (from psycopg[binary]==3.3.6->-r requirements.txt (line 4))
+build-scan-deploy	Build both images	2026-10-07T13:03:44.0655288Z #9 3.313   Downloading psycopg_binary-3.3.6-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (2.7 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.0656591Z #9 3.332 Collecting annotated-types>=0.6.0 (from pydantic>=2.9.0->fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:44.0657657Z #9 3.336   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.5886926Z #9 4.009 Collecting pydantic-core==2.46.5 (from pydantic>=2.9.0->fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:44.6944030Z #9 4.014   Downloading pydantic_core-2.46.5-cp312-cp312-musllinux_1_1_x86_64.whl.metadata (6.6 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.6945218Z #9 4.042 Collecting anyio<5,>=4.0.0 (from starlette>=0.46.0->fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:44.6946120Z #9 4.047   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.6946976Z #9 4.115 Collecting MarkupSafe>=2.0 (from Mako->alembic==1.20.0->-r requirements.txt (line 7))
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7955105Z #9 4.119   Downloading markupsafe-3.0.4-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (2.7 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7956325Z #9 4.135 Collecting idna>=2.8 (from anyio<5,>=4.0.0->starlette>=0.46.0->fastapi==0.142.2->-r requirements.txt (line 1))
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7957260Z #9 4.138   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7957937Z #9 4.156 Downloading fastapi-0.142.2-py3-none-any.whl (144 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7958448Z #9 4.161 Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7958954Z #9 4.167 Downloading sqlalchemy-2.1.3-cp312-cp312-musllinux_1_2_x86_64.whl (4.7 MB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7960137Z #9 4.193    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 212.5 MB/s eta 0:00:00
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7960611Z #9 4.197 Downloading psycopg-3.3.6-py3-none-any.whl (215 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7961076Z #9 4.201 Downloading pydantic_settings-2.15.0-py3-none-any.whl (69 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7961646Z #9 4.206 Downloading prometheus_fastapi_instrumentator-8.1.0-py3-none-any.whl (19 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7962141Z #9 4.210 Downloading alembic-1.20.0-py3-none-any.whl (268 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:44.7962616Z #9 4.216 Downloading psycopg_binary-3.3.6-cp312-cp312-musllinux_1_2_x86_64.whl (4.3 MB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0126433Z #9 4.237    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 228.0 MB/s eta 0:00:00
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0127830Z #9 4.241 Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0128888Z #9 4.245 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0130088Z #9 4.249 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0130600Z #9 4.253 Downloading opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0131065Z #9 4.257 Downloading prometheus_client-0.26.0-py3-none-any.whl (64 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0131491Z #9 4.261 Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0132029Z #9 4.266 Downloading pydantic_core-2.46.5-cp312-cp312-musllinux_1_1_x86_64.whl (2.3 MB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0132774Z #9 4.275    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 322.9 MB/s eta 0:00:00
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0133253Z #9 4.279 Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0133774Z #9 4.283 Downloading starlette-1.7.0-py3-none-any.whl (78 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0134236Z #9 4.287 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0134694Z #9 4.291 Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0135136Z #9 4.295 Downloading mako-1.4.3-py3-none-any.whl (80 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0135535Z #9 4.299 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0136009Z #9 4.302 Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0136470Z #9 4.306 Downloading markupsafe-3.0.4-cp312-cp312-musllinux_1_2_x86_64.whl (23 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0137409Z #9 4.310 Downloading idna-3.20-py3-none-any.whl (69 kB)
+build-scan-deploy	Build both images	2026-10-07T13:03:45.0139017Z #9 4.433 Installing collected packages: typing-extensions, python-dotenv, psycopg-binary, prometheus-client, MarkupSafe, idna, h11, click, annotated-types, annotated-doc, uvicorn, typing-inspection, sqlalchemy, pydantic-core, psycopg, opentelemetry-api, Mako, anyio, starlette, pydantic, alembic, pydantic-settings, prometheus-fastapi-instrumentator, fastapi
+build-scan-deploy	Build both images	2026-10-07T13:03:49.5159889Z #9 8.937 Successfully installed Mako-1.4.3 MarkupSafe-3.0.4 alembic-1.20.0 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 click-8.5.0 fastapi-0.142.2 h11-0.16.0 idna-3.20 opentelemetry-api-1.45.1 prometheus-client-0.26.0 prometheus-fastapi-instrumentator-8.1.0 psycopg-3.3.6 psycopg-binary-3.3.6 pydantic-2.13.5 pydantic-core-2.46.5 pydantic-settings-2.15.0 python-dotenv-1.2.4 sqlalchemy-2.1.3 starlette-1.7.0 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.54.0
+build-scan-deploy	Build both images	2026-10-07T13:03:49.7319259Z #9 8.937 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+build-scan-deploy	Build both images	2026-10-07T13:03:49.7321652Z #9 9.002
+build-scan-deploy	Build both images	2026-10-07T13:03:49.7322067Z #9 9.002 [notice] A new release of pip is available: 25.0.1 -> 26.2.1
+build-scan-deploy	Build both images	2026-10-07T13:03:49.7322665Z #9 9.002 [notice] To update, run: pip install --upgrade pip
+build-scan-deploy	Build both images	2026-10-07T13:03:49.8334814Z #9 DONE 9.3s
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0340133Z
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0341187Z #10 [5/7] COPY alembic.ini ./
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0341620Z #10 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0341802Z
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0341941Z #11 [6/7] COPY alembic ./alembic
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0342307Z #11 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0342476Z
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0342603Z #12 [7/7] COPY app ./app
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0342922Z #12 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0343147Z
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0343279Z #13 exporting to image
+build-scan-deploy	Build both images	2026-10-07T13:03:50.0343615Z #13 exporting layers
+build-scan-deploy	Build both images	2026-10-07T13:03:50.6045043Z #13 exporting layers 0.7s done
+build-scan-deploy	Build both images	2026-10-07T13:03:50.6296769Z #13 writing image sha256:0f7aae4af2d1ce03676e86009b028a239d8ef6215fcd2543aec73ec1d3c8d895 done
+build-scan-deploy	Build both images	2026-10-07T13:03:50.6298131Z #13 naming to docker.io/library/campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a done
+build-scan-deploy	Build both images	2026-10-07T13:03:50.6299284Z #13 DONE 0.7s
+build-scan-deploy	Build both images	2026-10-07T13:03:50.7478138Z #0 building with "default" instance using docker driver
+build-scan-deploy	Build both images	2026-10-07T13:03:50.7478636Z
+build-scan-deploy	Build both images	2026-10-07T13:03:50.7478803Z #1 [internal] load build definition from Dockerfile
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9645988Z #1 transferring dockerfile: 306B done
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9646404Z #1 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9646535Z
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9646715Z #2 [auth] library/node:pull token for registry-1.docker.io
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9647068Z #2 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9647183Z
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9647398Z #3 [auth] nginxinc/nginx-unprivileged:pull token for registry-1.docker.io
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9647832Z #3 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9647957Z
+build-scan-deploy	Build both images	2026-10-07T13:03:50.9648129Z #4 [internal] load metadata for docker.io/library/node:24-alpine
+build-scan-deploy	Build both images	2026-10-07T13:03:51.1736879Z #4 ...
+build-scan-deploy	Build both images	2026-10-07T13:03:51.1737200Z
+build-scan-deploy	Build both images	2026-10-07T13:03:51.1737539Z #5 [internal] load metadata for docker.io/nginxinc/nginx-unprivileged:stable-alpine
+build-scan-deploy	Build both images	2026-10-07T13:03:51.1737991Z #5 DONE 0.4s
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3122507Z
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3125303Z #4 [internal] load metadata for docker.io/library/node:24-alpine
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3127212Z #4 DONE 0.4s
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3127819Z
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3128459Z #6 [internal] load .dockerignore
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3129212Z #6 transferring context: 63B done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3130358Z #6 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3130845Z
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3131164Z #7 [internal] load build context
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3131894Z #7 transferring context: 37.61kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3134183Z #7 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3134972Z
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3136446Z #8 [stage-1 1/3] FROM docker.io/nginxinc/nginx-unprivileged:stable-alpine@sha256:15c994d10d6d78658721c3bcafff14cb281fba2a4bdf9d5ba92c416a472516e3
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3138516Z #8 resolve docker.io/nginxinc/nginx-unprivileged:stable-alpine@sha256:15c994d10d6d78658721c3bcafff14cb281fba2a4bdf9d5ba92c416a472516e3 done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3140185Z #8 sha256:4483b2e4c12fe77211e051cd0546ee79770d5174535c961b04ac918ebb75b469 2.61kB / 2.61kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3141367Z #8 sha256:a9d91d9450f793af27b287548fd30c510a99e55bf095c42dc1f87267005b768e 0B / 2.79kB 0.1s
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3142557Z #8 sha256:15c994d10d6d78658721c3bcafff14cb281fba2a4bdf9d5ba92c416a472516e3 6.79kB / 6.79kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3144502Z #8 sha256:1c5c57be5370eee774a18efd5e40bcbba4a6317a9796d985af84d56252014464 14.02kB / 14.02kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.3145724Z #8 sha256:d37f5699de52e349bc0f8744ac13fe8b5d900b41109679a701b8b6c4db1c2a76 0B / 4.36MB 0.1s
+build-scan-deploy	Build both images	2026-10-07T13:03:51.4521744Z #8 sha256:a9d91d9450f793af27b287548fd30c510a99e55bf095c42dc1f87267005b768e 2.79kB / 2.79kB 0.1s done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.4524018Z #8 sha256:d37f5699de52e349bc0f8744ac13fe8b5d900b41109679a701b8b6c4db1c2a76 4.36MB / 4.36MB 0.1s done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.4525420Z #8 extracting sha256:d37f5699de52e349bc0f8744ac13fe8b5d900b41109679a701b8b6c4db1c2a76 0.1s done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.4526804Z #8 sha256:6f7aa381299ab5f130ca129a4f57d105dc72a2aed5d2e1c1a2c42aa19cd5ae1c 629B / 629B 0.1s done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.4528069Z #8 sha256:70c74ecba780e11dd2a613cc974b2bec98f26f9ec8a0b2b5f57388e834a531b8 403B / 403B 0.2s done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.4530079Z #8 sha256:fe62b9ebffae2066cabc22e3b5387825c99c20c606b5c9a3770a8aa1bc9f2795 0B / 1.40kB 0.2s
+build-scan-deploy	Build both images	2026-10-07T13:03:51.4531193Z #8 sha256:f813b516e403aefd53b7814813bb2603b7384b8d3b815da12959c55b3f2a78f3 0B / 17.33MB 0.2s
+build-scan-deploy	Build both images	2026-10-07T13:03:51.4532447Z #8 sha256:8d47ab7f089b5f0486eceb0704583c655d9baeec3bdfc51fca9f4a2ca91d0a44 965B / 965B 0.2s done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.4533415Z #8 sha256:8816d14ad2c9db4baf87009874807399c639450c1ea100abaf2506b6ec91f58a 1.20kB / 1.20kB 0.2s done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.5776394Z #8 sha256:fe62b9ebffae2066cabc22e3b5387825c99c20c606b5c9a3770a8aa1bc9f2795 1.40kB / 1.40kB 0.2s done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.5777236Z #8 sha256:f813b516e403aefd53b7814813bb2603b7384b8d3b815da12959c55b3f2a78f3 14.68MB / 17.33MB 0.3s
+build-scan-deploy	Build both images	2026-10-07T13:03:51.6818664Z #8 sha256:f813b516e403aefd53b7814813bb2603b7384b8d3b815da12959c55b3f2a78f3 17.33MB / 17.33MB 0.3s done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.6820162Z #8 extracting sha256:a9d91d9450f793af27b287548fd30c510a99e55bf095c42dc1f87267005b768e done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.6821226Z #8 extracting sha256:6f7aa381299ab5f130ca129a4f57d105dc72a2aed5d2e1c1a2c42aa19cd5ae1c done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.6822250Z #8 extracting sha256:8d47ab7f089b5f0486eceb0704583c655d9baeec3bdfc51fca9f4a2ca91d0a44 done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.6823439Z #8 extracting sha256:70c74ecba780e11dd2a613cc974b2bec98f26f9ec8a0b2b5f57388e834a531b8 done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.6826588Z #8 extracting sha256:8816d14ad2c9db4baf87009874807399c639450c1ea100abaf2506b6ec91f58a
+build-scan-deploy	Build both images	2026-10-07T13:03:51.7897237Z #8 extracting sha256:8816d14ad2c9db4baf87009874807399c639450c1ea100abaf2506b6ec91f58a done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.7900389Z #8 extracting sha256:fe62b9ebffae2066cabc22e3b5387825c99c20c606b5c9a3770a8aa1bc9f2795 done
+build-scan-deploy	Build both images	2026-10-07T13:03:51.7901425Z #8 extracting sha256:f813b516e403aefd53b7814813bb2603b7384b8d3b815da12959c55b3f2a78f3
+build-scan-deploy	Build both images	2026-10-07T13:03:52.2125637Z #8 extracting sha256:f813b516e403aefd53b7814813bb2603b7384b8d3b815da12959c55b3f2a78f3 0.4s done
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3500342Z #8 DONE 1.1s
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3500876Z
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3501720Z #9 [build 1/6] FROM docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3502954Z #9 resolve docker.io/library/node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1 done
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3504146Z #9 sha256:c10884952bb8c37122fcc3fe6f97af3ab0a80e5eb02ee5df707406b4e11a7e3e 6.44kB / 6.44kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3505453Z #9 sha256:3c504d5a797be28f9de43147d49cd8ecb2eea46dfaf7beb8715db695d5f0a7f0 56.52MB / 56.52MB 0.2s done
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3506502Z #9 sha256:02f40d53b06f6b91fec0cd6a6719656da99270bff8ee54ed8dcdf4c157763fc1 1.26MB / 1.26MB 0.0s done
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3507327Z #9 sha256:7ce7dcbafb7f750cf0c6be3c30e34372b06dd1182fa67f6ae30782c8150c5444 444B / 444B 0.1s done
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3507962Z #9 sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1 3.87kB / 3.87kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3508769Z #9 sha256:83f1c388c31fb2e51f7cbd4dea949b96260798c98f206e8e4696bc93bd964e3a 1.72kB / 1.72kB done
+build-scan-deploy	Build both images	2026-10-07T13:03:52.3509682Z #9 extracting sha256:3c504d5a797be28f9de43147d49cd8ecb2eea46dfaf7beb8715db695d5f0a7f0 0.9s
+build-scan-deploy	Build both images	2026-10-07T13:03:53.0355248Z #9 extracting sha256:3c504d5a797be28f9de43147d49cd8ecb2eea46dfaf7beb8715db695d5f0a7f0 1.5s done
+build-scan-deploy	Build both images	2026-10-07T13:03:53.0356368Z #9 extracting sha256:02f40d53b06f6b91fec0cd6a6719656da99270bff8ee54ed8dcdf4c157763fc1 0.0s done
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2300757Z #9 extracting sha256:7ce7dcbafb7f750cf0c6be3c30e34372b06dd1182fa67f6ae30782c8150c5444 done
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2301720Z #9 DONE 1.9s
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2301965Z
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2302129Z #10 [build 2/6] WORKDIR /app
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2302548Z #10 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2302727Z
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2302930Z #11 [build 3/6] COPY package*.json ./
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2303360Z #11 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2303546Z
+build-scan-deploy	Build both images	2026-10-07T13:03:53.2303692Z #12 [build 4/6] RUN npm ci
+build-scan-deploy	Build both images	2026-10-07T13:03:54.4371060Z #12 1.358
+build-scan-deploy	Build both images	2026-10-07T13:03:54.4371760Z #12 1.358 added 19 packages, and audited 20 packages in 1s
+build-scan-deploy	Build both images	2026-10-07T13:03:54.4372112Z #12 1.358
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5454286Z #12 1.358 8 packages are looking for funding
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5455288Z #12 1.358   run `npm fund` for details
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5456017Z #12 1.359
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5456477Z #12 1.359 found 0 vulnerabilities
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5457180Z #12 1.361 npm notice
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5458314Z #12 1.361 npm notice New major version of npm available! 11.19.0 -> 12.2.0
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5459228Z #12 1.361 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5464221Z #12 1.361 npm notice To update run: npm install -g npm@12.2.0
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5466332Z #12 1.361 npm notice
+build-scan-deploy	Build both images	2026-10-07T13:03:54.5466698Z #12 DONE 1.5s
+build-scan-deploy	Build both images	2026-10-07T13:03:54.7173890Z
+build-scan-deploy	Build both images	2026-10-07T13:03:54.7174484Z #13 [build 5/6] COPY . .
+build-scan-deploy	Build both images	2026-10-07T13:03:54.7174897Z #13 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:54.7175033Z
+build-scan-deploy	Build both images	2026-10-07T13:03:54.7175151Z #14 [build 6/6] RUN npm run build
+build-scan-deploy	Build both images	2026-10-07T13:03:54.8269047Z #14 0.260
+build-scan-deploy	Build both images	2026-10-07T13:03:54.8269784Z #14 0.260 > helpdesk-frontend@1.0.0 build
+build-scan-deploy	Build both images	2026-10-07T13:03:54.8270364Z #14 0.260 > node node_modules/vite/bin/vite.js build
+build-scan-deploy	Build both images	2026-10-07T13:03:54.8270866Z #14 0.260
+build-scan-deploy	Build both images	2026-10-07T13:03:55.1350337Z #14 0.568 vite v8.3.3 building client environment for production...
+build-scan-deploy	Build both images	2026-10-07T13:03:55.2376884Z #14 0.582 transforming...
+build-scan-deploy	Build both images	2026-10-07T13:03:55.2378171Z #14 0.646 ✓ 15 modules transformed.
+build-scan-deploy	Build both images	2026-10-07T13:03:55.2378542Z #14 0.671 rendering chunks...
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3410192Z #14 0.708 computing gzip size...
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3411249Z #14 0.712 dist/index.html                   0.34 kB │ gzip:  0.25 kB
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3412076Z #14 0.712 dist/assets/index-CAYldStt.css    3.42 kB │ gzip:  1.24 kB
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3412870Z #14 0.712 dist/assets/index-AcGpdCUK.js   225.21 kB │ gzip: 70.55 kB
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3414607Z #14 0.712
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3415608Z #14 0.713 ✓ built in 142ms
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3416904Z #14 DONE 0.7s
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3422909Z
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3425346Z #15 [stage-1 2/3] COPY --from=build /app/dist /usr/share/nginx/html
+build-scan-deploy	Build both images	2026-10-07T13:03:55.3427293Z #15 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:55.5052595Z
+build-scan-deploy	Build both images	2026-10-07T13:03:55.5053254Z #16 [stage-1 3/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+build-scan-deploy	Build both images	2026-10-07T13:03:55.5053671Z #16 DONE 0.0s
+build-scan-deploy	Build both images	2026-10-07T13:03:55.5053800Z
+build-scan-deploy	Build both images	2026-10-07T13:03:55.5053903Z #17 exporting to image
+build-scan-deploy	Build both images	2026-10-07T13:03:55.5054144Z #17 exporting layers
+build-scan-deploy	Build both images	2026-10-07T13:03:56.0058669Z #17 exporting layers 0.7s done
+build-scan-deploy	Build both images	2026-10-07T13:03:56.0222616Z #17 writing image sha256:b5abb7549493dd82cc1f37ed4c4ee170a888275c7e69ead7bff0ec6f658d69d0 done
+build-scan-deploy	Build both images	2026-10-07T13:03:56.0226911Z #17 naming to docker.io/library/campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a done
+build-scan-deploy	Build both images	2026-10-07T13:03:56.0229887Z #17 DONE 0.7s
+build-scan-deploy	Container security gates	﻿2026-10-07T13:03:56.0315008Z ##[group]Run mkdir -p reports
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.0315347Z mkdir -p reports
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.0315644Z for component in backend frontend; do
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.0316786Z   docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD/reports:/reports" aquasec/trivy:0.75.0 image --scanners vuln --severity HIGH,CRITICAL --exit-code 1 --format json --output /reports/$component.json campus-helpdesk-$component:af5deab26c61c57d991fc5816c6abcc350977e7a
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.0317855Z done
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.0386962Z shell: /usr/bin/bash -e {0}
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.0387258Z ##[endgroup]
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.0627607Z Unable to find image 'aquasec/trivy:0.75.0' locally
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.4469665Z 0.75.0: Pulling from aquasec/trivy
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.5668979Z e2de96513ba9: Already exists
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.5683257Z c716e0146a8a: Pulling fs layer
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.5684027Z 08201c795fbc: Pulling fs layer
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.5686734Z e3614b31dd78: Pulling fs layer
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.6392447Z e3614b31dd78: Verifying Checksum
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.6392993Z e3614b31dd78: Download complete
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.6859756Z c716e0146a8a: Verifying Checksum
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.6860359Z c716e0146a8a: Download complete
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.8300643Z 08201c795fbc: Verifying Checksum
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.8301525Z 08201c795fbc: Download complete
+build-scan-deploy	Container security gates	2026-10-07T13:03:56.9128176Z c716e0146a8a: Pull complete
+build-scan-deploy	Container security gates	2026-10-07T13:03:57.7908808Z 08201c795fbc: Pull complete
+build-scan-deploy	Container security gates	2026-10-07T13:03:57.8031931Z e3614b31dd78: Pull complete
+build-scan-deploy	Container security gates	2026-10-07T13:03:57.8067989Z Digest: sha256:af6acf9a6b85dfe389a1941505c0ce9efef52a4719635e1a962f022a3d855daa
+build-scan-deploy	Container security gates	2026-10-07T13:03:57.8076520Z Status: Downloaded newer image for aquasec/trivy:0.75.0
+build-scan-deploy	Container security gates	2026-10-07T13:03:58.0264199Z 2026-10-07T13:03:58Z	INFO	[vulndb] Need to update DB
+build-scan-deploy	Container security gates	2026-10-07T13:03:58.0264943Z 2026-10-07T13:03:58Z	INFO	[vulndb] Downloading vulnerability DB...
+build-scan-deploy	Container security gates	2026-10-07T13:03:58.0265751Z 2026-10-07T13:03:58Z	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+build-scan-deploy	Container security gates	2026-10-07T13:04:02.8466089Z 24.64 MiB / 119.53 MiB [------------>_______________________________________________] 20.61% ? p/s ?58.00 MiB / 119.53 MiB [----------------------------->______________________________] 48.52% ? p/s ?93.34 MiB / 119.53 MiB [---------------------------------------------->_____________] 78.09% ? p/s ?119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 158.05 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 158.05 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 158.05 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 147.85 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 147.85 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 147.85 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 138.31 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 138.31 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 138.31 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 129.39 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 129.39 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 129.39 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 121.04 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 121.04 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 121.04 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 113.23 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 113.23 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 113.23 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [-----------------------------------------------] 100.00% 28.87 MiB p/s 4.3s2026-10-07T13:04:02Z	INFO	[vulndb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-db:2"
+build-scan-deploy	Container security gates	2026-10-07T13:04:02.8476278Z 2026-10-07T13:04:02Z	INFO	[vuln] Vulnerability scanning is enabled
+build-scan-deploy	Container security gates	2026-10-07T13:04:07.0142384Z 2026-10-07T13:04:07Z	INFO	[python] Licenses acquired from one or more METADATA files may be subject to additional terms. Use `--debug` flag to see all affected packages.
+build-scan-deploy	Container security gates	2026-10-07T13:04:07.0693212Z 2026-10-07T13:04:07Z	INFO	Detected OS	family="alpine" version="3.24.2"
+build-scan-deploy	Container security gates	2026-10-07T13:04:07.0702258Z 2026-10-07T13:04:07Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=38
+build-scan-deploy	Container security gates	2026-10-07T13:04:07.0719249Z 2026-10-07T13:04:07Z	INFO	Number of language-specific files	num=1
+build-scan-deploy	Container security gates	2026-10-07T13:04:07.0720291Z 2026-10-07T13:04:07Z	INFO	[python-pkg] Detecting vulnerabilities...
+build-scan-deploy	Container security gates	2026-10-07T13:04:07.0736020Z 2026-10-07T13:04:07Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.75/guide/scanner/vulnerability#severity-selection for details.
+build-scan-deploy	Container security gates	2026-10-07T13:04:07.4366047Z 2026-10-07T13:04:07Z	INFO	[vulndb] Need to update DB
+build-scan-deploy	Container security gates	2026-10-07T13:04:07.4367153Z 2026-10-07T13:04:07Z	INFO	[vulndb] Downloading vulnerability DB...
+build-scan-deploy	Container security gates	2026-10-07T13:04:07.4369173Z 2026-10-07T13:04:07Z	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+build-scan-deploy	Container security gates	2026-10-07T13:04:11.9581934Z 26.87 MiB / 119.53 MiB [------------->______________________________________________] 22.48% ? p/s ?81.09 MiB / 119.53 MiB [---------------------------------------->___________________] 67.84% ? p/s ?119.53 MiB / 119.53 MiB [--------------------------------------------------------->] 100.00% ? p/s ?119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 154.25 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 154.25 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 154.25 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 144.30 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 144.30 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 144.30 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 134.99 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 134.99 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 134.99 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 126.28 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 126.28 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 126.28 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 118.13 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 118.13 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 118.13 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 110.51 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 110.51 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [-----------------------------------------------] 100.00% 30.04 MiB p/s 4.2s2026-10-07T13:04:11Z	INFO	[vulndb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-db:2"
+build-scan-deploy	Container security gates	2026-10-07T13:04:11.9667762Z 2026-10-07T13:04:11Z	INFO	[vuln] Vulnerability scanning is enabled
+build-scan-deploy	Container security gates	2026-10-07T13:04:15.2541385Z 2026-10-07T13:04:15Z	INFO	Detected OS	family="alpine" version="3.24.2"
+build-scan-deploy	Container security gates	2026-10-07T13:04:15.2542484Z 2026-10-07T13:04:15Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=70
+build-scan-deploy	Container security gates	2026-10-07T13:04:15.2653002Z 2026-10-07T13:04:15Z	INFO	Number of language-specific files	num=0
+build-scan-deploy	Container security gates	2026-10-07T13:04:15.2654091Z 2026-10-07T13:04:15Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.75/guide/scanner/vulnerability#severity-selection for details.
+build-scan-deploy	Publish SHA-tagged images to GHCR	﻿2026-10-07T13:04:15.5208196Z ##[group]Run printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$OWNER" --password-stdin
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5208870Z printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$OWNER" --password-stdin
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5209636Z owner=$(printf '%s' "$OWNER" | tr '[:upper:]' '[:lower:]')
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5210085Z for component in backend frontend; do
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5210847Z   docker tag campus-helpdesk-$component:af5deab26c61c57d991fc5816c6abcc350977e7a ghcr.io/$owner/campus-helpdesk-$component:af5deab26c61c57d991fc5816c6abcc350977e7a
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5211751Z   docker push ghcr.io/$owner/campus-helpdesk-$component:af5deab26c61c57d991fc5816c6abcc350977e7a
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5212246Z done
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5281583Z shell: /usr/bin/bash -e {0}
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5281877Z env:
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5284835Z   GHCR_TOKEN: ***
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5285074Z   OWNER: Json604
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.5285293Z ##[endgroup]
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.8713746Z
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.8714633Z WARNING! Your credentials are stored unencrypted in '/home/runner/.docker/config.json'.
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.8715249Z Configure a credential helper to remove this warning. See
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.8715669Z https://docs.docker.com/go/credential-store/
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.8715908Z
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.8716040Z Login Succeeded
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9174710Z The push refers to repository [ghcr.io/json604/campus-helpdesk-backend]
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9971603Z b0fc4e16cd80: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9972119Z e5c730f7b063: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9972494Z f8d1a8b9dc25: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9972843Z bc8ad8bc4e16: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9973206Z edc55120c238: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9973554Z 667d32ee02d5: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9973891Z 4d211c3f1c45: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9974292Z 7e9021171c27: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9974641Z 41366f7f4879: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9974999Z 74d97c428c51: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9975315Z 667d32ee02d5: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9975690Z 4d211c3f1c45: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9975966Z 7e9021171c27: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9976263Z 41366f7f4879: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:15.9976566Z 74d97c428c51: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:17.8245105Z b0fc4e16cd80: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:17.8279029Z edc55120c238: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:17.8319638Z f8d1a8b9dc25: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:18.2091835Z e5c730f7b063: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:19.0760133Z 4d211c3f1c45: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:19.4180814Z 41366f7f4879: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:19.4567146Z 667d32ee02d5: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:19.6866660Z 74d97c428c51: Mounted from github/gh-aw-firewall/squid
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:20.6064119Z bc8ad8bc4e16: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:21.6006264Z 7e9021171c27: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.7542584Z af5deab26c61c57d991fc5816c6abcc350977e7a: digest: sha256:e153189206b5a0c4c3593304e1d4e8a871d6ae9c83ba76c9eab07a1fcf52f66b size: 2405
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.7902053Z The push refers to repository [ghcr.io/json604/campus-helpdesk-frontend]
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8716262Z 12110fdd810e: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8716750Z 1f735899e6e5: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8717108Z 94c5378786ec: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8717443Z 28d40a9a804f: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8717706Z af0977e61d66: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8717953Z 66308c73e780: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8718813Z 52dc7181d118: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8719130Z b5eb5d0c67f1: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8719946Z 44304498376b: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8720277Z da908592be25: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8720578Z 74d97c428c51: Preparing
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8720884Z 66308c73e780: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8721249Z 52dc7181d118: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8721545Z da908592be25: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8721824Z 74d97c428c51: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8740231Z b5eb5d0c67f1: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:23.8740659Z 44304498376b: Waiting
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:25.0938550Z af0977e61d66: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:25.2651443Z 28d40a9a804f: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:25.5915743Z 12110fdd810e: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:25.6325164Z 1f735899e6e5: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:26.1855467Z 66308c73e780: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:26.5394780Z 52dc7181d118: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:26.8436872Z 44304498376b: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:26.9831399Z 94c5378786ec: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:27.0800383Z 74d97c428c51: Mounted from json604/campus-helpdesk-backend
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:27.3150995Z b5eb5d0c67f1: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:27.6757167Z da908592be25: Pushed
+build-scan-deploy	Publish SHA-tagged images to GHCR	2026-10-07T13:04:29.7424433Z af5deab26c61c57d991fc5816c6abcc350977e7a: digest: sha256:8e78cb54f895971828753706d4fa6fdeb5516a5050785c07f260a89ab29015fb size: 2613
+build-scan-deploy	Run helm/kind-action@v1	﻿2026-10-07T13:04:29.7575997Z ##[group]Run helm/kind-action@v1
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7576312Z with:
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7576543Z   cluster_name: helpdesk-ci
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7576812Z   version: v0.31.0
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7577032Z   wait: 60s
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7577233Z   verbosity: 0
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7577445Z   kubectl_version: v1.35.0
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7577686Z   registry: false
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7577915Z   registry_image: registry:2
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7578175Z   registry_name: kind-registry
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7578433Z   registry_port: 5000
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7578690Z   registry_enable_delete: false
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7578954Z   install_only: false
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7579181Z   ignore_failed_clean: false
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7579744Z   cloud_provider: false
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7579982Z ##[endgroup]
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7966071Z Installing kind...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:29.7983988Z /opt/hostedtoolcache/kind/v0.31.0/amd64/kind/bin ~/work/devops-heros/devops-heros
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.0447864Z kind-linux-amd64: OK
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.0495816Z ~/work/devops-heros/devops-heros
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.0496375Z Adding kind directory to PATH...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.0496667Z Installing kubectl...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.0512681Z /opt/hostedtoolcache/kind/v0.31.0/amd64/kubectl/bin ~/work/devops-heros/devops-heros
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.3046037Z kubectl: OK
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.3064222Z ~/work/devops-heros/devops-heros
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.3064686Z Adding kubectl directory to PATH...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.3088899Z kind v0.31.0 go1.25.5 linux/amd64
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.3450754Z Client Version: v1.35.0
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.3460171Z Kustomize Version: v5.7.1
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.3468425Z Creating kind cluster...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.5253392Z Creating cluster "helpdesk-ci" ...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:30.5254402Z  • Ensuring node image (kindest/node:v1.35.0) 🖼  ...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:39.0756777Z  ✓ Ensuring node image (kindest/node:v1.35.0) 🖼
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:39.0757281Z  • Preparing nodes 📦   ...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:40.6842174Z  ✓ Preparing nodes 📦
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:40.7129570Z  • Writing configuration 📜  ...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:40.8996817Z  ✓ Writing configuration 📜
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:40.8997324Z  • Starting control-plane 🕹️  ...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:49.1254172Z  ✓ Starting control-plane 🕹️
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:49.1254816Z  • Installing CNI 🔌  ...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:49.4097056Z  ✓ Installing CNI 🔌
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:49.4098285Z  • Installing StorageClass 💾  ...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:49.7343138Z  ✓ Installing StorageClass 💾
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:04:49.7621146Z  • Waiting ≤ 1m0s for control-plane = Ready ⏳  ...
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:05:08.8270534Z  ✓ Waiting ≤ 1m0s for control-plane = Ready ⏳
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:05:08.8271483Z  • Ready after 19s 💚
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:05:08.9797597Z Set kubectl context to "kind-helpdesk-ci"
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:05:08.9798485Z You can now use your cluster with:
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:05:08.9798693Z
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:05:08.9798849Z kubectl cluster-info --context kind-helpdesk-ci
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:05:08.9799081Z
+build-scan-deploy	Run helm/kind-action@v1	2026-10-07T13:05:08.9800001Z Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+build-scan-deploy	Run azure/setup-helm@v4.3.0	﻿2026-10-07T13:05:08.9906709Z ##[group]Run azure/setup-helm@v4.3.0
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:08.9907024Z with:
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:08.9907238Z   version: v3.19.0
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:08.9910277Z   token: ***
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:08.9910537Z   downloadBaseURL: https://get.helm.sh
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:08.9910839Z ##[endgroup]
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:09.0635838Z ##[group]Installing v3.19.0
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:09.0645379Z Downloading 'v3.19.0' from 'https://get.helm.sh'
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:09.2930805Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/01e71ea9-5126-4560-83ae-0452c38068a0 -f /home/runner/work/_temp/5d7ddf7f-4268-434a-b943-b61d6547496c
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:09.8974918Z ##[endgroup]
+build-scan-deploy	Run azure/setup-helm@v4.3.0	2026-10-07T13:05:09.8975489Z Helm tool version 'v3.19.0' has been cached at /opt/hostedtoolcache/helm/3.19.0/x64/linux-amd64/helm
+build-scan-deploy	Deploy and verify Kubernetes	﻿2026-10-07T13:05:09.9152546Z ##[group]Run kind load docker-image campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a --name helpdesk-ci
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:09.9154992Z kind load docker-image campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a --name helpdesk-ci
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:09.9156611Z bash session21-final-devops-project/scripts/create-secret.sh helpdesk
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:09.9158950Z helm upgrade --install helpdesk session21-final-devops-project/helm/helpdesk -n helpdesk --set backend.tag=af5deab26c61c57d991fc5816c6abcc350977e7a --set frontend.tag=af5deab26c61c57d991fc5816c6abcc350977e7a --set hpa.enabled=false --set ingress.enabled=false --wait --wait-for-jobs --timeout 300s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:09.9161457Z kubectl get pods,svc,pvc -n helpdesk
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:09.9163648Z kubectl run smoke -n helpdesk --image=curlimages/curl:8.17.0 --restart=Never --command -- sh -ec 'curl --fail --retry 10 --retry-delay 3 http://backend:8000/ready; curl --fail http://frontend:8080; curl --fail -X POST -H "Content-Type: application/json" -d "{\"title\":\"CI deployment verification\"}" http://backend:8000/api/tickets'
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:09.9166158Z kubectl wait -n helpdesk --for=jsonpath='{.status.phase}'=Succeeded pod/smoke --timeout=120s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:09.9166992Z kubectl logs -n helpdesk smoke
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:09.9253582Z shell: /usr/bin/bash -e {0}
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:09.9253899Z ##[endgroup]
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:10.3133857Z Image: "campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a" with ID "sha256:0f7aae4af2d1ce03676e86009b028a239d8ef6215fcd2543aec73ec1d3c8d895" not yet present on node "helpdesk-ci-control-plane", loading...
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:10.4522699Z Image: "campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a" with ID "sha256:b5abb7549493dd82cc1f37ed4c4ee170a888275c7e69ead7bff0ec6f658d69d0" not yet present on node "helpdesk-ci-control-plane", loading...
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:15.3552148Z namespace/helpdesk created
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:15.4576675Z secret/helpdesk-database created
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:15.5041987Z Release "helpdesk" does not exist. Installing it now.
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.7504264Z NAME: helpdesk
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.7504793Z LAST DEPLOYED: Wed Oct  7 13:05:15 2026
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.7505868Z NAMESPACE: helpdesk
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.7506846Z STATUS: deployed
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.7507440Z REVISION: 1
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.7508022Z TEST SUITE: None
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8084233Z NAME                                     READY   STATUS      RESTARTS   AGE
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8084824Z pod/helpdesk-backend-78c7c78f67-bfcrj    1/1     Running     0          28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8085373Z pod/helpdesk-backend-78c7c78f67-rtc65    1/1     Running     0          28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8086628Z pod/helpdesk-frontend-676c6584c4-gptt5   1/1     Running     0          28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8087139Z pod/helpdesk-frontend-676c6584c4-wvd68   1/1     Running     0          28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8087810Z pod/helpdesk-migrate-1-xdtl7             0/1     Completed   2          28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8088585Z pod/helpdesk-postgres-0                  1/1     Running     0          28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8088947Z
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8089137Z NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8089832Z service/backend    ClusterIP   10.96.75.228    <none>        8000/TCP   28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8090295Z service/frontend   ClusterIP   10.96.165.103   <none>        8080/TCP   28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8090738Z service/postgres   ClusterIP   10.96.206.93    <none>        5432/TCP   28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8091008Z
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8091357Z NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8092306Z persistentvolumeclaim/data-helpdesk-postgres-0   Bound    pvc-977fac8d-b46d-4dbf-b269-5fd472a99eef   1Gi        RWO            standard       <unset>                 28s
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:43.8599874Z pod/smoke created
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.4615051Z pod/smoke condition met
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5178755Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5179782Z                                  Dload  Upload   Total   Spent    Left  Speed
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5180194Z
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5180456Z   0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5181067Z 100    18 100    18   0     0  4214     0  --:--:-- --:--:-- --:--:--  4500
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5181698Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5182362Z                                  Dload  Upload   Total   Spent    Left  Speed
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5184015Z {"status":"READY"}<!doctype html><html><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Campus Helpdesk</title>  <script type="module" crossorigin src="/assets/index-AcGpdCUK.js"></script>
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5186093Z   <link rel="stylesheet" crossorigin href="/assets/index-CAYldStt.css">
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5186528Z </head><body><div id="root"></div></body></html>
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5186737Z
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5186889Z   0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5187288Z 100   349 100   349   0     0 319012     0  --:--:-- --:--:-- --:--:-- 349000
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5187731Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5188155Z                                  Dload  Upload   Total   Spent    Left  Speed
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5188392Z
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5188520Z   0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5188901Z 100   246 100   208 100    38 18569  3392  --:--:-- --:--:-- --:--:-- 22363
+build-scan-deploy	Deploy and verify Kubernetes	2026-10-07T13:05:46.5211021Z {"title":"CI deployment verification","description":"","priority":"MEDIUM","status":"OPEN","category":"OTHER","requester":"Anonymous","assignee":"Unassigned","id":1,"created_at":"2026-10-07T13:05:45.296664Z"}
+build-scan-deploy	Publish GitOps deployment values	﻿2026-10-07T13:05:46.5251690Z ##[group]Run owner=$(printf '%s' "$OWNER" | tr '[:upper:]' '[:lower:]')
+build-scan-deploy	Publish GitOps deployment values	2026-10-07T13:05:46.5252208Z owner=$(printf '%s' "$OWNER" | tr '[:upper:]' '[:lower:]')
+build-scan-deploy	Publish GitOps deployment values	2026-10-07T13:05:46.5253333Z printf 'backend:\n  image: ghcr.io/%s/campus-helpdesk-backend\n  tag: "%s"\nfrontend:\n  image: ghcr.io/%s/campus-helpdesk-frontend\n  tag: "%s"\n' "$owner" 'af5deab26c61c57d991fc5816c6abcc350977e7a' "$owner" 'af5deab26c61c57d991fc5816c6abcc350977e7a' > release-values.yaml
+build-scan-deploy	Publish GitOps deployment values	2026-10-07T13:05:46.5323628Z shell: /usr/bin/bash -e {0}
+build-scan-deploy	Publish GitOps deployment values	2026-10-07T13:05:46.5323911Z env:
+build-scan-deploy	Publish GitOps deployment values	2026-10-07T13:05:46.5324359Z   OWNER: Json604
+build-scan-deploy	Publish GitOps deployment values	2026-10-07T13:05:46.5324581Z ##[endgroup]
+build-scan-deploy	Run actions/upload-artifact@v4	﻿2026-10-07T13:05:46.5490011Z ##[group]Run actions/upload-artifact@v4
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.5490354Z with:
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.5490594Z   name: helpdesk-security-and-release
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.5490898Z   path: reports/
+build-scan-deploy	Run actions/upload-artifact@v4	release-values.yaml
+build-scan-deploy	Run actions/upload-artifact@v4
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.5491178Z   if-no-files-found: warn
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.5491429Z   compression-level: 6
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.5491856Z   overwrite: false
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.5492221Z   include-hidden-files: false
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.5492687Z ##[endgroup]
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.7280254Z (node:14623) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.7281028Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.7387866Z Multiple search paths detected. Calculating the least common ancestor of all paths
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.7391413Z The least common ancestor is /home/runner/work/devops-heros/devops-heros. This will be the root directory of the artifact
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.7393004Z With the provided path, there will be 3 files uploaded
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.7395352Z Artifact name is valid!
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.7396450Z Root directory input is valid!
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:46.9765541Z Beginning upload of artifact content to blob storage
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:47.0036371Z (node:14623) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:47.1582218Z Uploaded bytes 36893
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:47.1973334Z Finished uploading artifact content to blob storage!
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:47.1974699Z SHA256 digest of uploaded artifact zip is 5e8720045a313672dfe4826bb6a3a8e6798e4cb290b0294c8d23b8d589407802
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:47.1975964Z Finalizing artifact upload
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:47.4425506Z Artifact helpdesk-security-and-release.zip successfully finalized. Artifact ID 11483892373
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:47.4426416Z Artifact helpdesk-security-and-release has been successfully uploaded! Final size is 36893 bytes. Artifact ID is 11483892373
+build-scan-deploy	Run actions/upload-artifact@v4	2026-10-07T13:05:47.4432086Z Artifact download URL: https://github.com/Json604/devops-heros/actions/runs/37625465559/artifacts/11483892373
+build-scan-deploy	Post Run helm/kind-action@v1	﻿2026-10-07T13:05:47.4614168Z Post job cleanup.
+build-scan-deploy	Post Run helm/kind-action@v1	2026-10-07T13:05:47.5042317Z Error response from daemon: No such container: kind-registry
+build-scan-deploy	Post Run helm/kind-action@v1	2026-10-07T13:05:47.5200360Z Deleting cluster "helpdesk-ci" ...
+build-scan-deploy	Post Run helm/kind-action@v1	2026-10-07T13:05:49.2947486Z Deleted nodes: ["helpdesk-ci-control-plane"]
+build-scan-deploy	Post Run actions/checkout@v4	﻿2026-10-07T13:05:49.3103135Z Post job cleanup.
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.3987717Z [command]/usr/bin/git version
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4039150Z git version 2.55.0
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4084662Z Temporarily overriding HOME='/home/runner/work/_temp/a9e6ca51-9d4e-48ef-8f88-e7f46606a7aa' before making global git config changes
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4085993Z Adding repository directory to the temporary git global config as a safe directory
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4091678Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4138444Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4177778Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4471539Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4516599Z http.https://github.com/.extraheader
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4518264Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4576779Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4880683Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build-scan-deploy	Post Run actions/checkout@v4	2026-10-07T13:05:49.4906946Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build-scan-deploy	Complete job	﻿2026-10-07T13:05:49.5323843Z Cleaning up orphan processes
+build-scan-deploy	Complete job	2026-10-07T13:05:49.5758087Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4, azure/setup-helm@v4.3.0. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

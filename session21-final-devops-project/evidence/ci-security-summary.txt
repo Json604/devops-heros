@@ -1,0 +1,5 @@
+backend: campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a
+  campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a (alpine 3.24.2): 0 HIGH/CRITICAL vulnerabilities
+  Python: 0 HIGH/CRITICAL vulnerabilities
+frontend: campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a
+  campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a (alpine 3.24.2): 0 HIGH/CRITICAL vulnerabilities

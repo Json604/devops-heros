@@ -1,6 +1,6 @@
 # Production web application mini-project
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 ```text

@@ -1,6 +1,6 @@
 # Session 13: Storage, HPA and probes
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 The mini-project follows the instructor's production-webapp exercise: a 500Mi PVC mounted at `/data`, two Nginx replicas, startup/readiness/liveness probes, and an HPA allowing two to five replicas.
@@ -37,3 +37,9 @@ kubectl delete namespace hpa-lab production-webapp
 ```
 
 Deleting the namespace also deletes its PVC; with the Minikube default Delete reclaim policy, its backing data is removed. Preserve required evidence first.
+
+## Screenshot evidence
+
+![Recorded assignment evidence](screenshots/session13.jpg)
+
+Command-output screenshots display the captured transcripts; the full text files are retained in `evidence/`. GitHub and application screenshots capture their live pages.

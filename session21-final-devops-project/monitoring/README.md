@@ -1,6 +1,6 @@
 # Monitoring and observability
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 The checked-in stack runs Prometheus and Grafana with ConfigMap provisioning. Prometheus scrapes `/metrics` and kubelet cAdvisor through the Kubernetes API using a dedicated read-only ServiceAccount. The dashboard contains request rate/count, CPU cores, memory bytes and application health.
@@ -37,3 +37,5 @@ Metrics are numeric time series useful for rates, trends and alerting. Logs are 
 Monitoring asks whether known health conditions hold. Observability helps investigate unknown causes by correlating telemetry with workload changes. Kubernetes adds node metrics, Pod/container metrics, events and readiness signals; HPA Metrics Server is distinct from Prometheus storage.
 
 This lightweight stack uses ephemeral monitoring storage, appropriate for a short lab. For longer retention, add persistent volumes, backups and authenticated access. If using Prometheus Operator instead, enable the chart's optional ServiceMonitor only after installing its CRDs.
+
+Before deliberately scaling the API to zero, pause Argo automated synchronization using the save/restore commands in [the troubleshooting guide](../troubleshooting/README.md), save the backend HPA manifest, and temporarily delete that HPA. Restore two backend replicas, reapply the saved HPA, and restore Argo synchronization after capturing the alert. Run this exercise separately from the troubleshooting challenge. [Recorded firing and recovery](../../session20-monitoring-observability-gitops/evidence/alert-demo.txt).

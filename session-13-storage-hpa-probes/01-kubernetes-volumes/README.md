@@ -1,6 +1,6 @@
 # Kubernetes volumes
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 | Object | Purpose | Lifetime / limitations |

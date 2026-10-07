@@ -1,0 +1,35 @@
+Unable to find image 'aquasec/trivy:0.75.0' locally
+0.75.0: Pulling from aquasec/trivy
+e3614b31dd78: Pulling fs layer
+0c492afd2421: Pulling fs layer
+0555f94d30e7: Pulling fs layer
+44136fa355b3: Already exists
+e3614b31dd78: Download complete
+d61aab339ed6: Download complete
+71dc72f6e829: Download complete
+0555f94d30e7: Download complete
+0555f94d30e7: Pull complete
+0c492afd2421: Download complete
+e3614b31dd78: Pull complete
+0c492afd2421: Pull complete
+Digest: sha256:af6acf9a6b85dfe389a1941505c0ce9efef52a4719635e1a962f022a3d855daa
+Status: Downloaded newer image for aquasec/trivy:0.75.0
+2026-10-07T12:51:42Z	INFO	[vulndb] Need to update DB
+2026-10-07T12:51:42Z	INFO	[vulndb] Downloading vulnerability DB...
+2026-10-07T12:51:42Z	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+2026-10-07T12:53:49Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-10-07T12:53:50Z	INFO	Detected OS	family="alpine" version="3.24.2"
+2026-10-07T12:53:50Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=70
+2026-10-07T12:53:50Z	INFO	Number of language-specific files	num=0
+2026-10-07T12:53:50Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.75/guide/scanner/vulnerability#severity-selection for details.
+
+Report Summary
+
+┌────────────────────────────────────────────────┬────────┬─────────────────┐
+│                     Target                     │  Type  │ Vulnerabilities │
+├────────────────────────────────────────────────┼────────┼─────────────────┤
+│ campus-helpdesk-frontend:local (alpine 3.24.2) │ alpine │        0        │
+└────────────────────────────────────────────────┴────────┴─────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)

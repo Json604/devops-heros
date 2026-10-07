@@ -1,0 +1,21 @@
+NAME                                     READY   STATUS      RESTARTS   AGE
+pod/helpdesk-backend-7d9c969878-bvgnj    1/1     Running     0          2m45s
+pod/helpdesk-backend-7d9c969878-f942s    1/1     Running     0          2m45s
+pod/helpdesk-frontend-756f7c46d5-d2nvb   1/1     Running     0          26m
+pod/helpdesk-frontend-756f7c46d5-r9qkk   1/1     Running     0          26m
+pod/helpdesk-migrate-1-dm5cl             0/1     Completed   0          72s
+pod/helpdesk-postgres-0                  1/1     Running     0          26m
+
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/backend    ClusterIP   10.106.7.31     <none>        8000/TCP   26m
+service/frontend   ClusterIP   10.108.133.92   <none>        8080/TCP   26m
+service/postgres   ClusterIP   10.98.195.20    <none>        5432/TCP   26m
+
+NAME                                                   REFERENCE                     TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/helpdesk-backend   Deployment/helpdesk-backend   cpu: 5%/60%   2         5         2          2m45s
+
+NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/data-helpdesk-postgres-0   Bound    pvc-d313bae4-76db-45f8-884a-94d6b05f1a13   1Gi        RWO            standard       <unset>                 26m
+
+NAME                                 CLASS   HOSTS            ADDRESS        PORTS   AGE
+ingress.networking.k8s.io/helpdesk   nginx   helpdesk.local   192.168.49.2   80      26m

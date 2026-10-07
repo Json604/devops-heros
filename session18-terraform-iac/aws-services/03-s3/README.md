@@ -1,6 +1,6 @@
 # S3: object storage
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 S3 stores objects inside buckets. Each object has a key, content, metadata and optionally a version ID. It is not a POSIX filesystem or a block device. Bucket names must satisfy the naming rules and be unique in the applicable namespace/partition.

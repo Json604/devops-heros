@@ -1,0 +1,3 @@
+NAME              SYNC STATUS   HEALTH STATUS
+campus-helpdesk   Synced        Healthy
+session20-web     Synced        Healthy

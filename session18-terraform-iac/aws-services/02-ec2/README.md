@@ -1,6 +1,6 @@
 # EC2: compute
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 EC2 provides virtual machines. An AMI contains the operating system and launch image; an instance type chooses CPU, memory, networking and architecture. A `t3.micro` is x86_64; an ARM instance needs a matching ARM AMI. A key pair is used for SSH authentication, although Systems Manager can avoid opening SSH when its agent and IAM role are configured.

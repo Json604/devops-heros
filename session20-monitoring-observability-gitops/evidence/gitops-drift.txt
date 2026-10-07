@@ -1,0 +1,34 @@
++ kubectl get application session20-web -n argocd
+NAME            SYNC STATUS   HEALTH STATUS
+session20-web   Synced        Healthy
++ kubectl get deployment/gitops-web -n gitops-lab
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+gitops-web   2/2     2            2           61s
++ kubectl scale deployment/gitops-web -n gitops-lab --replicas=3
+deployment.apps/gitops-web scaled
++ kubectl get deployment/gitops-web -n gitops-lab
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+gitops-web   2/3     3            2           61s
++ for i in '{1..18}'
+++ kubectl get deployment/gitops-web -n gitops-lab -o 'jsonpath={.spec.replicas}'
++ replicas=3
++ '[' 3 = 2 ']'
++ sleep 5
++ for i in '{1..18}'
+++ kubectl get deployment/gitops-web -n gitops-lab -o 'jsonpath={.spec.replicas}'
++ replicas=2
++ '[' 2 = 2 ']'
++ break
++ test 2 = 2
++ kubectl rollout status deployment/gitops-web -n gitops-lab --timeout=120s
+deployment "gitops-web" successfully rolled out
++ kubectl get deployment,pods -n gitops-lab
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/gitops-web   2/2     2            2           66s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/gitops-web-8ddd6967-vcdrj   1/1     Running   0          66s
+pod/gitops-web-8ddd6967-xfhh9   1/1     Running   0          66s
++ kubectl get application session20-web -n argocd
+NAME            SYNC STATUS   HEALTH STATUS
+session20-web   Synced        Healthy

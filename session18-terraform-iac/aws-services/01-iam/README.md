@@ -1,6 +1,6 @@
 # IAM: governance and access
 
-**Name:** Kartikey  
+**Name:** Kartikey
 **Roll number:** 24bcs10121
 
 IAM controls which AWS identities may perform which actions on which resources. A user is a long-lived identity; groups attach common policies to users. Roles are assumed temporarily by people, workloads or AWS services, and provide short-lived credentials through STS. A role is generally preferable to embedding an access key in code.

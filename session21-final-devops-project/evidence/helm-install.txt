@@ -1,0 +1,7 @@
+Release "helpdesk" does not exist. Installing it now.
+NAME: helpdesk
+LAST DEPLOYED: Wed Oct  7 18:17:24 2026
+NAMESPACE: helpdesk
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None

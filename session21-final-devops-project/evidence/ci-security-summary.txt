@@ -1,5 +1,6 @@
-backend: campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a
-  campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a (alpine 3.24.2): 0 HIGH/CRITICAL vulnerabilities
-  Python: 0 HIGH/CRITICAL vulnerabilities
-frontend: campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a
-  campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a (alpine 3.24.2): 0 HIGH/CRITICAL vulnerabilities
+Hosted workflow: https://github.com/Json604/devops-heros/actions/runs/37628858501
+Commit: 6c333d1aa10b8d5ebc9961ff04d0707bae371e84
+Result: success
+
+backend: HIGH/CRITICAL vulnerabilities = 0
+frontend: HIGH/CRITICAL vulnerabilities = 0

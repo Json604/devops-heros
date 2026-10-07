@@ -128,7 +128,7 @@ Pipeline artifacts include JUnit results, JSON scan reports and release values w
 
 ## Troubleshooting
 
-Run `bash troubleshooting/run-challenge.sh` only against the local `helpdesk` namespace. It introduces image, selector and readiness faults, captures diagnostics, restores the original values, and verifies HTTP. [Session 14](../session-14-kubernetes-troubleshooting/README.md) covers all nine required Kubernetes failure categories.
+Follow the [failure recovery guide](troubleshooting/README.md) to pause Argo self-healing first, then run `bash troubleshooting/run-challenge.sh` only against the local `helpdesk` namespace. It introduces image, selector and readiness faults, captures diagnostics, restores the original values, and verifies HTTP. [Session 14](../session-14-kubernetes-troubleshooting/README.md) covers all nine required Kubernetes failure categories.
 
 ## Evidence and screenshots
 
@@ -160,4 +160,4 @@ For cloud infrastructure, use the reviewed Terraform destroy plan described in i
 
 The exercise structure and original TaskBoard backend pattern come from [Nency-Ravaliya/devops-heros](https://github.com/Nency-Ravaliya/devops-heros), retained under the repository's MIT license. The application domain, ticket fields and validation, UI, tests, secret handling, deployment integration, Terraform and GitOps work are adapted for this submission.
 
-Successful hosted run: [GitHub Actions — tests, security gates, GHCR and Kubernetes deployment](https://github.com/Json604/devops-heros/actions/runs/37625465559). Both final images had zero HIGH/CRITICAL findings in that run.
+Successful hosted run: [GitHub Actions — tests, security gates, GHCR and Kubernetes deployment](https://github.com/Json604/devops-heros/actions/runs/37628858501). Both final images had zero HIGH/CRITICAL findings in that run.

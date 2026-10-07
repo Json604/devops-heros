@@ -32,4 +32,4 @@ Push and pull-request triggers run automatically; fork PRs do not push images. T
 
 Command-output screenshots display the captured transcripts; the full text files are retained in `evidence/`. GitHub and application screenshots capture their live pages.
 
-Successful hosted run: [GitHub Actions — CI and CD passed](https://github.com/Json604/devops-heros/actions/runs/37625465561). The [full hosted log](evidence/github-actions.txt) includes image publication and Kubernetes HTTP verification.
+Successful hosted run: [GitHub Actions — CI and CD passed](https://github.com/Json604/devops-heros/actions/runs/37628858550). The [full hosted log](evidence/github-actions.txt) includes image publication and Kubernetes HTTP verification.

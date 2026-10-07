@@ -26,17 +26,17 @@ Recorded on 7 October 2026. The [root index](README.md) links every assignment a
 
 ## Successful hosted pipelines
 
-- [Session 16: CI and CD passed](https://github.com/Json604/devops-heros/actions/runs/37625465561)
-- [Sessions 17/21: tests, security, GHCR and Kubernetes passed](https://github.com/Json604/devops-heros/actions/runs/37625465559)
+- [Session 16: CI and CD passed](https://github.com/Json604/devops-heros/actions/runs/37628858550)
+- [Sessions 17/21: tests, security, GHCR and Kubernetes passed](https://github.com/Json604/devops-heros/actions/runs/37628858501)
 
-Both helpdesk images were published with tag `af5deab26c61c57d991fc5816c6abcc350977e7a`:
+Both helpdesk images were published with tag `6c333d1aa10b8d5ebc9961ff04d0707bae371e84`:
 
 ```text
-ghcr.io/json604/campus-helpdesk-backend:af5deab26c61c57d991fc5816c6abcc350977e7a
-ghcr.io/json604/campus-helpdesk-frontend:af5deab26c61c57d991fc5816c6abcc350977e7a
+ghcr.io/json604/campus-helpdesk-backend:6c333d1aa10b8d5ebc9961ff04d0707bae371e84
+ghcr.io/json604/campus-helpdesk-frontend:6c333d1aa10b8d5ebc9961ff04d0707bae371e84
 ```
 
-The [hosted scan summary](session21-final-devops-project/evidence/ci-security-summary.txt) records zero HIGH/CRITICAL findings for both. The earlier failed gate is retained as evidence of an actual blocked release, followed by remediation. The registry push is verified in Actions logs; the GHCR account-management screenshot was not captured because the local token has no `read:packages` scope. No token permissions were expanded.
+The [hosted scan summary](session21-final-devops-project/evidence/ci-security-summary.txt) records zero HIGH/CRITICAL findings for both. The earlier failed gate is retained as evidence of an actual blocked release, followed by remediation. The registry push is verified in Actions logs and the public [GHCR package listing](https://github.com/Json604?tab=packages). A [package-page screenshot](session21-final-devops-project/screenshots/ghcr-packages.jpg) is included.
 
 ## Screenshot index
 
@@ -52,6 +52,7 @@ The [hosted scan summary](session21-final-devops-project/evidence/ci-security-su
 - [API tests](session21-final-devops-project/screenshots/api-tests.jpg)
 - [Kubernetes resources](session21-final-devops-project/screenshots/kubernetes.jpg)
 - [DevSecOps pipeline](session21-final-devops-project/screenshots/github-actions.jpg)
+- [Published GHCR packages](session21-final-devops-project/screenshots/ghcr-packages.jpg)
 - [Security results](session21-final-devops-project/screenshots/security.jpg)
 - [Prometheus targets](session21-final-devops-project/screenshots/prometheus-targets.jpg)
 - [Grafana dashboard](session21-final-devops-project/screenshots/grafana.jpg)
@@ -64,7 +65,6 @@ Command-output screenshots are browser captures of the recorded transcripts, lab
 
 1. Real AWS S3, EC2/VPC and EKS provisioning, live plans, `apply`, `show`, `output`, Console screenshots and `destroy`. No AWS profile or spending authorization was provided; no paid resources were created. The complete code and commands are ready. [EKS pricing](https://aws.amazon.com/eks/pricing/) includes cluster charges as well as the underlying resources.
 2. The instructor's live/recorded presentation and submission-form delivery. These have not been represented as completed.
-3. A signed-in GHCR package-page screenshot if required by the grading rubric; successful publication and SHA tags are already documented in hosted logs.
 
 ## Running locally
 

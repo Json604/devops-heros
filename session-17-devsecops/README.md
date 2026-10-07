@@ -25,4 +25,4 @@ Use [application setup](../session21-final-devops-project/README.md) to reproduc
 
 The hosted Kubernetes environment is temporary and destroyed with the runner. It verifies CD without pretending to be a persistent cloud deployment. Persistent delivery is handled by the final project's Argo CD configuration.
 
-Successful hosted run: [GitHub Actions — tests, security gates, GHCR and Kubernetes deployment](https://github.com/Json604/devops-heros/actions/runs/37625465559). Both final images had zero HIGH/CRITICAL findings in that run.
+Successful hosted run: [GitHub Actions — tests, security gates, GHCR and Kubernetes deployment](https://github.com/Json604/devops-heros/actions/runs/37628858501). Both final images had zero HIGH/CRITICAL findings in that run.

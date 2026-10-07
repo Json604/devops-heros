@@ -1,0 +1,223 @@
++ kubectl get hpa -n hpa-lab
+NAME       REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+cpu-demo   Deployment/cpu-demo   cpu: 500%/50%   1         5         5          3m7s
++ kubectl get pods -n hpa-lab
+NAME                             READY   STATUS    RESTARTS   AGE
+cpu-demo-946886ff5-29wwj         1/1     Running   0          3m7s
+cpu-demo-946886ff5-46ssz         1/1     Running   0          37s
+cpu-demo-946886ff5-jgnl4         1/1     Running   0          37s
+cpu-demo-946886ff5-l7h7m         1/1     Running   0          37s
+cpu-demo-946886ff5-m84zr         1/1     Running   0          37s
+load-generator-5c8b79f8c-2r6mq   1/1     Running   0          3m7s
+load-generator-5c8b79f8c-fk78d   1/1     Running   0          3m7s
++ kubectl top pods -n hpa-lab
+NAME                             CPU(cores)   MEMORY(bytes)   
+cpu-demo-946886ff5-29wwj         500m         48Mi            
+load-generator-5c8b79f8c-2r6mq   5m           1Mi             
+load-generator-5c8b79f8c-fk78d   5m           1Mi             
++ kubectl describe hpa cpu-demo -n hpa-lab
+Name:                                                  cpu-demo
+Namespace:                                             hpa-lab
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Wed, 07 Oct 2026 18:14:54 +0530
+Reference:                                             Deployment/cpu-demo
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  500% (500m) / 50%
+Min replicas:                                          1
+Max replicas:                                          5
+Behavior:
+  Scale Up:
+    Stabilization Window: 0 seconds
+    Select Policy: Max
+    Policies:
+      - Type: Pods     Value: 4    Period: 15 seconds
+      - Type: Percent  Value: 100  Period: 15 seconds
+  Scale Down:
+    Stabilization Window: 60 seconds
+    Select Policy: Max
+    Policies:
+      - Type: Percent  Value: 100  Period: 15 seconds
+Deployment pods:       5 current / 5 desired
+Conditions:
+  Type            Status  Reason            Message
+  ----            ------  ------            -------
+  AbleToScale     True    ReadyForNewScale  recommended size matches current size
+  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  True    TooManyReplicas   the desired replica count is more than the maximum replica count
+Events:
+  Type     Reason                        Age                   From                       Message
+  ----     ------                        ----                  ----                       -------
+  Warning  FailedGetResourceMetric       112s (x5 over 2m52s)  horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  112s (x5 over 2m52s)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       52s (x4 over 97s)     horizontal-pod-autoscaler  failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Warning  FailedComputeMetricsReplicas  52s (x4 over 97s)     horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Normal   SuccessfulRescale             37s                   horizontal-pod-autoscaler  New size: 5; reason: cpu resource utilization (percentage of request) above target
++ kubectl scale deployment/load-generator -n hpa-lab --replicas=0
+deployment.apps/load-generator scaled
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 500%/50%   1         5         5          3m7s
+
+NAME                                 READY   STATUS        RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj         1/1     Running       0          3m7s
+pod/cpu-demo-946886ff5-46ssz         1/1     Running       0          37s
+pod/cpu-demo-946886ff5-jgnl4         1/1     Running       0          37s
+pod/cpu-demo-946886ff5-l7h7m         1/1     Running       0          37s
+pod/cpu-demo-946886ff5-m84zr         1/1     Running       0          37s
+pod/load-generator-5c8b79f8c-2r6mq   1/1     Terminating   0          3m7s
+pod/load-generator-5c8b79f8c-fk78d   1/1     Terminating   0          3m7s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 500%/50%   1         5         5          3m27s
+
+NAME                                 READY   STATUS        RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj         1/1     Running       0          3m27s
+pod/cpu-demo-946886ff5-46ssz         1/1     Running       0          57s
+pod/cpu-demo-946886ff5-jgnl4         1/1     Running       0          57s
+pod/cpu-demo-946886ff5-l7h7m         1/1     Running       0          57s
+pod/cpu-demo-946886ff5-m84zr         1/1     Running       0          57s
+pod/load-generator-5c8b79f8c-2r6mq   1/1     Terminating   0          3m27s
+pod/load-generator-5c8b79f8c-fk78d   1/1     Terminating   0          3m27s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 395%/50%   1         5         5          3m48s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          3m48s
+pod/cpu-demo-946886ff5-46ssz   1/1     Running   0          78s
+pod/cpu-demo-946886ff5-jgnl4   1/1     Running   0          78s
+pod/cpu-demo-946886ff5-l7h7m   1/1     Running   0          78s
+pod/cpu-demo-946886ff5-m84zr   1/1     Running   0          78s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 395%/50%   1         5         5          4m8s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          4m8s
+pod/cpu-demo-946886ff5-46ssz   1/1     Running   0          98s
+pod/cpu-demo-946886ff5-jgnl4   1/1     Running   0          98s
+pod/cpu-demo-946886ff5-l7h7m   1/1     Running   0          98s
+pod/cpu-demo-946886ff5-m84zr   1/1     Running   0          98s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 395%/50%   1         5         5          4m28s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          4m28s
+pod/cpu-demo-946886ff5-46ssz   1/1     Running   0          118s
+pod/cpu-demo-946886ff5-jgnl4   1/1     Running   0          118s
+pod/cpu-demo-946886ff5-l7h7m   1/1     Running   0          118s
+pod/cpu-demo-946886ff5-m84zr   1/1     Running   0          118s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 75%/50%   1         5         5          4m48s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          4m48s
+pod/cpu-demo-946886ff5-46ssz   1/1     Running   0          2m18s
+pod/cpu-demo-946886ff5-jgnl4   1/1     Running   0          2m18s
+pod/cpu-demo-946886ff5-l7h7m   1/1     Running   0          2m18s
+pod/cpu-demo-946886ff5-m84zr   1/1     Running   0          2m18s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 75%/50%   1         5         5          5m8s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          5m8s
+pod/cpu-demo-946886ff5-46ssz   1/1     Running   0          2m38s
+pod/cpu-demo-946886ff5-jgnl4   1/1     Running   0          2m38s
+pod/cpu-demo-946886ff5-l7h7m   1/1     Running   0          2m38s
+pod/cpu-demo-946886ff5-m84zr   1/1     Running   0          2m38s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 75%/50%   1         5         5          5m28s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          5m28s
+pod/cpu-demo-946886ff5-46ssz   1/1     Running   0          2m58s
+pod/cpu-demo-946886ff5-jgnl4   1/1     Running   0          2m58s
+pod/cpu-demo-946886ff5-l7h7m   1/1     Running   0          2m58s
+pod/cpu-demo-946886ff5-m84zr   1/1     Running   0          2m58s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 1%/50%   1         5         5          5m48s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          5m48s
+pod/cpu-demo-946886ff5-46ssz   1/1     Running   0          3m18s
+pod/cpu-demo-946886ff5-jgnl4   1/1     Running   0          3m18s
+pod/cpu-demo-946886ff5-l7h7m   1/1     Running   0          3m18s
+pod/cpu-demo-946886ff5-m84zr   1/1     Running   0          3m18s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 1%/50%   1         5         5          6m8s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          6m8s
+pod/cpu-demo-946886ff5-46ssz   1/1     Running   0          3m38s
+pod/cpu-demo-946886ff5-jgnl4   1/1     Running   0          3m38s
+pod/cpu-demo-946886ff5-l7h7m   1/1     Running   0          3m38s
+pod/cpu-demo-946886ff5-m84zr   1/1     Running   0          3m38s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=5
++ '[' 5 = 1 ']'
++ sleep 20
++ for i in '{1..12}'
++ kubectl get hpa,pods -n hpa-lab
+NAME                                           REFERENCE             TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/cpu-demo   Deployment/cpu-demo   cpu: 1%/50%   1         5         5          6m28s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/cpu-demo-946886ff5-29wwj   1/1     Running   0          6m28s
+++ kubectl get deployment cpu-demo -n hpa-lab -o 'jsonpath={.spec.replicas}'
++ count=1
++ '[' 1 = 1 ']'
++ break
++ test 1 = 1

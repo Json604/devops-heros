@@ -1,0 +1,51 @@
+$ kubectl -n helpdesk get pods,svc,hpa
+NAME                                     READY   STATUS      RESTARTS   AGE
+pod/helpdesk-backend-5bf859796c-98d75    1/1     Running     0          3m48s
+pod/helpdesk-backend-5bf859796c-mrj4w    1/1     Running     0          3m35s
+pod/helpdesk-frontend-6d7dbc7f54-hqnrq   1/1     Running     0          3m41s
+pod/helpdesk-frontend-6d7dbc7f54-q64t9   1/1     Running     0          3m48s
+pod/helpdesk-migrate-1-jhjpr             0/1     Completed   0          3m48s
+pod/helpdesk-migrate-2-6wrfz             0/1     Completed   0          8m22s
+pod/helpdesk-postgres-0                  1/1     Running     0          10m
+
+NAME               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/backend    ClusterIP   172.20.114.132   <none>        8000/TCP   10m
+service/frontend   ClusterIP   172.20.81.78     <none>        8080/TCP   10m
+service/postgres   ClusterIP   172.20.235.128   <none>        5432/TCP   10m
+
+NAME                                                   REFERENCE                     TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/helpdesk-backend   Deployment/helpdesk-backend   cpu: 4%/60%   2         5         2          3m48s
+$ kubectl -n helpdesk get deployment -o jsonpath={range .items[*]}{.metadata.name}{" "}{.spec.template.spec.containers[0].image}{"\n"}{end}
+helpdesk-backend ghcr.io/json604/campus-helpdesk-backend:328f4c59f80884906604ab4b03fd345754bf1e00
+helpdesk-frontend ghcr.io/json604/campus-helpdesk-frontend:328f4c59f80884906604ab4b03fd345754bf1e00
+$ kubectl -n argocd get application campus-helpdesk-eks
+NAME                  SYNC STATUS   HEALTH STATUS
+campus-helpdesk-eks   Synced        Healthy
+
+✓ main Sessions 17 and 21 - Helpdesk DevSecOps · 37659251965
+Triggered via push about 8 minutes ago
+
+JOBS
+✓ test-and-security in 38s (ID 112922242767)
+✓ build-scan-deploy in 2m21s (ID 112922529008)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test-and-security: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test-and-security: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4, azure/setup-helm@v4.3.0. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+build-scan-deploy: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+build-scan-deploy: .github#1
+
+
+ARTIFACTS
+helpdesk-security-and-release
+helpdesk-test-results
+
+For more information about a job, try: gh run view --job=<job-id>
+View this run on GitHub: https://github.com/Json604/devops-heros/actions/runs/37659251965

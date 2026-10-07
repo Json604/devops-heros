@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-07T17:51:42.901630+00:00",
+  "region": "ap-south-1",
+  "clusters": [],
+  "volumes": [],
+  "instances_in_project_vpc": [],
+  "vpcs": [],
+  "terraform_state_resources": []
+}

@@ -39,3 +39,39 @@ Monitoring asks whether known health conditions hold. Observability helps invest
 This lightweight stack uses ephemeral monitoring storage, appropriate for a short lab. For longer retention, add persistent volumes, backups and authenticated access. If using Prometheus Operator instead, enable the chart's optional ServiceMonitor only after installing its CRDs.
 
 Before deliberately scaling the API to zero, pause Argo automated synchronization using the save/restore commands in [the troubleshooting guide](../troubleshooting/README.md), save the backend HPA manifest, and temporarily delete that HPA. Restore two backend replicas, reapply the saved HPA, and restore Argo synchronization after capturing the alert. Run this exercise separately from the troubleshooting challenge. [Recorded firing and recovery](../../session20-monitoring-observability-gitops/evidence/alert-demo.txt).
+
+## EKS: Helm-managed Prometheus and Grafana
+
+The live EKS run used kube-prometheus-stack **92.1.0** and Grafana chart **10.5.15**. Install the Operator and its CRDs before enabling Helpdesk's ServiceMonitor. The ServiceMonitor discovers both backend Pods; this avoids scraping only one load-balanced Service address.
+
+```bash
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add grafana https://grafana.github.io/helm-charts
+helm upgrade --install monitoring prometheus-community/kube-prometheus-stack \
+  --version 92.1.0 -n monitoring --create-namespace \
+  -f monitoring/prometheus-values.yaml --wait --timeout 8m
+kubectl wait --for=condition=Established crd/servicemonitors.monitoring.coreos.com
+```
+
+Create `grafana-admin` in `monitoring` outside Git with `username` and `password` keys. Use a random password. Then:
+
+```bash
+helm upgrade --install grafana grafana/grafana --version 10.5.15 \
+  -n monitoring -f monitoring/grafana-values.yaml \
+  --set-file dashboards.coursework.helpdesk.json=monitoring/dashboard-eks.json \
+  --wait --timeout 5m
+kubectl port-forward -n monitoring svc/monitoring-kube-prometheus-prometheus 9191:9090
+# Separate terminal:
+kubectl port-forward -n monitoring svc/grafana 3192:80
+```
+
+The EKS dashboard selects `namespace="helpdesk",service="backend"` because the Operator generates `job="backend"`; the earlier raw stack used `job="helpdesk"`. Reusing the raw-stack selector would give empty request panels. Grafana's Prometheus datasource UID is explicitly set to match the dashboard.
+
+Both backend targets were UP. Request counts/rates, CPU and memory panels contained live data. Counters reset when the release replaces Pods; the decrease in the request-count panel is expected, while `rate()` accounts for counter resets.
+
+- [EKS target screenshot](../screenshots/eks-prometheus-targets.png)
+- [EKS Grafana screenshot](../screenshots/eks-grafana.png)
+- [Actual target response](../evidence/eks-prometheus-targets.json)
+- [Actual metrics](../evidence/eks-metrics.txt)
+
+Services remain ClusterIP and are accessed through loopback port-forwards. Anonymous Grafana access is read-only for the local lab. Monitoring storage is ephemeral and removed during teardown.

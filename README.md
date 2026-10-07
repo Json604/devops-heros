@@ -1,6 +1,13 @@
 # devops-heros
 
-## Kubernetes assignment submissions
+## Sessions 1–12
+
+- [Sessions 1 & 2 — Linux fundamentals](session2-linux/README.md)
+- [Session 3 — Shell scripting](session3-shell-scripting/README.md)
+- [Session 4 — Networking](session4-networking/README.md)
+- [Session 5 — Git and GitHub](session5-git-github/README.md)
+- [Sessions 6 & 7 — Docker fundamentals and images](session6-7-docker/README.md)
+- [Session 8 — Docker networking](session8-docker-networking-volume/README.md)
 
 - [Session 9 — Kubernetes fundamentals](./session9-k8s/README.md)
 - [Session 10 — Pods, controllers and deployments](./session10-k8s-core-objects/README.md)
@@ -31,4 +38,4 @@
 | 20 | [Monitoring, observability and GitOps](session20-monitoring-observability-gitops/README.md) |
 | 21 | [Campus Helpdesk final project](session21-final-devops-project/README.md) |
 
-See [submission status](SUBMISSION.md) for executed checks, pipeline URLs, screenshots and the remaining Session 21 requirements. Code, command transcripts and screenshots are included in each session directory. Sessions 18 and 19 include real AWS provisioning and verified teardown evidence, separate from the mocked Terraform tests.
+See [submission status](SUBMISSION.md) for executed checks, pipeline URLs and screenshots. Code, command transcripts and screenshots are included in each session directory. Sessions 18, 19 and 21 contain real AWS execution evidence alongside separate local mocked-provider tests. The final project is Campus Helpdesk, a React/FastAPI/PostgreSQL application for campus IT requests.

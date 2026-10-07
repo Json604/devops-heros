@@ -26,7 +26,7 @@ flowchart LR
   T[Terraform] --> E[AWS VPC + EKS + worker nodes + EBS CSI]
 ```
 
-The hosted CI deployment uses a disposable Kind cluster. The persistent local demonstration runs on Minikube. Terraform is ready for a separately authorized AWS deployment; no cloud resources were created in this run.
+The hosted CI verifies deployment in a disposable Kind cluster. The project was also deployed on a real two-node AWS EKS cluster in Mumbai, with Helm, Prometheus/Grafana and Argo CD release promotion. The earlier local demonstration uses Minikube. Cloud execution and teardown evidence are linked below.
 
 ## Technologies and structure
 
@@ -114,7 +114,7 @@ The ConfigMap supplies non-secret settings. `create-secret.sh` generates a passw
 
 ## Terraform infrastructure
 
-See [terraform/README.md](terraform/README.md). The project creates a VPC, two public subnets, routes, EKS, two worker nodes, IAM roles and EBS CSI using Pod Identity. It includes `terraform.tfvars.example` with no credentials. Format, validation and mocked-provider architecture tests pass. **Real AWS plan/apply/destroy and Console screenshots are still pending.** They require an AWS profile and a spending decision. Mock output is explicitly identified and is not an AWS deployment claim.
+See [terraform/README.md](terraform/README.md). Terraform provisioned 20 resources, including a VPC, two public subnets, EKS, a managed group with two Ready workers, IAM roles and EBS CSI using Pod Identity. The actual AWS workflow is separate from the earlier mock tests. The administrator address is redacted from published logs; credentials, local variables, plans and state are excluded from Git.
 
 ## CI/CD and DevSecOps
 
@@ -137,7 +137,7 @@ Follow the [failure recovery guide](troubleshooting/README.md) to pause Argo sel
 - [Terraform validation](evidence/terraform-validate.txt), [mocked Terraform plan assertions](evidence/terraform-test.txt)
 - [Application screenshot](screenshots/helpdesk-compose.jpg)
 
-Hosted run URLs, monitoring and troubleshooting captures are indexed in the submission status document at the repository root. AWS Console screenshots and a classroom presentation cannot be substituted by local output.
+Hosted run URLs, monitoring and troubleshooting captures are indexed in [the submission status](../SUBMISSION.md).
 
 ## Lessons learned and limits
 
@@ -161,3 +161,42 @@ For cloud infrastructure, use the reviewed Terraform destroy plan described in i
 The exercise structure and original TaskBoard backend pattern come from [Nency-Ravaliya/devops-heros](https://github.com/Nency-Ravaliya/devops-heros), retained under the repository's MIT license. The application domain, ticket fields and validation, UI, tests, secret handling, deployment integration, Terraform and GitOps work are adapted for this submission.
 
 Successful hosted run: [GitHub Actions — tests, security gates, GHCR and Kubernetes deployment](https://github.com/Json604/devops-heros/actions/runs/37628858501). Both final images had zero HIGH/CRITICAL findings in that run.
+
+## Final cloud verification
+
+- [Successful main pipeline](https://github.com/Json604/devops-heros/actions/runs/37659251965): tests, build, SAST, SCA, secret scan, Trivy gates, GHCR publication and Kubernetes smoke test.
+- [EKS infrastructure plan](evidence/aws-plan.txt) and [apply](evidence/aws-apply.txt): 20 resources created in `ap-south-1`.
+- [Helm and worker verification](evidence/eks-verification.txt): two Ready nodes, two backend and two frontend replicas, ClusterIP Services and bound PostgreSQL storage.
+- [GitOps release promotion](gitops/README.md#recorded-eks-release-promotion): immutable SHA images from the successful pipeline, committed promotion, Argo Synced/Healthy and updated browser text.
+- [Helm monitoring setup](monitoring/README.md#eks-helm-managed-prometheus-and-grafana): Operator CRDs installed before the ServiceMonitor; both backend targets UP and populated Grafana panels.
+
+The browser used `http://helpdesk.127.0.0.1.nip.io:8181` through a loopback port-forward to the **Ingress controller**, so both `/` and `/api` traversed Ingress rules. No public LoadBalancer was required. The local Compose instance uses `http://localhost:3100` because another local process owns port 3000.
+
+| Requested source path | Location in this project |
+|---|---|
+| backend/app, backend/tests, backend/alembic | application/backend/app, application/backend/tests, application/backend/alembic |
+| frontend | application/frontend |
+| k8s | kubernetes |
+| Helm monitoring values | monitoring/prometheus-values.yaml, monitoring/grafana-values.yaml |
+| Active workflow | repository-root .github/workflows/helpdesk.yml; copy in this project's .github/workflows/ci-cd.yml |
+
+### Additional execution screenshots
+
+![Passing API tests in terminal](screenshots/pytest-terminal.png)
+![Compose build and startup](screenshots/compose-build-terminal.png)
+![Rebuilt local application](screenshots/compose-current.png)
+![Commit history](screenshots/commit-history-terminal.png)
+![Main pipeline security gate](screenshots/main-trivy-gate.png)
+![EKS active in AWS](screenshots/aws-eks-active.png)
+![Two-subnet VPC](screenshots/aws-eks-vpc.png)
+![EKS workers, Helm and GitOps](screenshots/eks-helm-gitops-terminal.png)
+![Application through EKS Ingress after promotion](screenshots/eks-ingress-release.png)
+![Live metrics endpoint](screenshots/eks-metrics-terminal.png)
+![Both backend targets UP](screenshots/eks-prometheus-targets.png)
+![Live Grafana panels](screenshots/eks-grafana.png)
+
+[Main release scan summary](evidence/main-ci-security-summary.txt) records zero HIGH/CRITICAL findings in both pipeline image reports.
+
+### Cloud cleanup
+
+The reviewed [destroy plan](evidence/aws-destroy-plan.txt) removed only the 20 project resources. [Terraform execution](evidence/aws-destroy.txt) finished with **20 destroyed**. [AWS cleanup checks](evidence/aws-cleanup.json) confirm no EKS clusters, EBS volumes, project VPC or active project instances remained in `ap-south-1`; Terraform state is empty. Short-lived AWS usage can still incur charges. The local Compose demonstration remains available.

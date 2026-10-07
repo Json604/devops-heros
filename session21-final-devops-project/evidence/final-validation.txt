@@ -1,0 +1,14 @@
+7 October 2026 — final technical review
+Calculator tests: 7 passed.
+Helpdesk API tests: 17 passed; one dependency deprecation warning.
+Notes and Helpdesk Helm lint: passed.
+Root GitHub workflows: actionlint passed.
+All three Terraform projects: validate and mocked plan tests passed.
+EKS live deployment: 20 Terraform resources, two Ready workers, PostgreSQL bound EBS storage, two frontend and two backend replicas.
+Prometheus Operator: both backend targets UP; Grafana request/CPU/memory panels populated.
+Main pipeline 37659251965: successful; release image SHA 328f4c59f80884906604ab4b03fd345754bf1e00.
+GitOps promotion 9d7f9c4eca33523505070b31f124023ddd6493f5: Argo Synced/Healthy; browser header updated and ticket persisted.
+Main pipeline 37659866382 after promotion: successful.
+Tracked capstone export (129 files at review time): Gitleaks v8.30.1 scanned 1.41 MB; no leaks found. Local .env and Terraform state/variables/plans were excluded from the export.
+Whole-repository history findings are documented separately in history-secret-review.txt.
+AWS cleanup: 20 Terraform resources destroyed; cluster, volumes, project instances and VPC absent; Terraform state empty.

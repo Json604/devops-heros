@@ -22,3 +22,24 @@ To verify drift correction, scale `helpdesk-frontend` manually to three replicas
 For a Git rollback, revert the release-tag commit and push. Database changes need a compatible migration strategy; reverting application images does not automatically reverse schema changes.
 
 During the local run, Docker Desktop's upstream DNS intermittently returned NXDOMAIN for `github.com`, causing Argo `ComparisonError` while application Pods stayed healthy. A lookup against `1.1.1.1` succeeded. The dedicated lab cluster's CoreDNS forwarding was changed to `1.1.1.1 8.8.8.8`, then CoreDNS was restarted and both Applications refreshed. This changed only the newly created lab cluster, not the workstation DNS settings.
+
+## Recorded EKS release promotion
+
+The [main-branch pipeline](https://github.com/Json604/devops-heros/actions/runs/37659251965) successfully tested, scanned and published both images for commit `328f4c59f80884906604ab4b03fd345754bf1e00`. Its user-visible change replaced the header text with “Report campus IT issues and follow each request to resolution.”
+
+Promotion commit `9d7f9c4eca33523505070b31f124023ddd6493f5` records these immutable tags in `helm/helpdesk/values-release.yaml`. `application-eks.yaml` tracks `main` and combines base, production and release values. It is a separate Application from the local Minikube demo.
+
+```bash
+kubectl apply -f gitops/application-eks.yaml
+kubectl -n argocd get application campus-helpdesk-eks
+kubectl -n helpdesk get deploy -o wide
+```
+
+Argo reported **Synced / Healthy** at the promotion commit. The EKS Deployments used both published SHA tags, and the browser through the Ingress hostname showed the new text while retaining the database ticket. Promotion is an explicit reviewed Git commit, not an automatic mutation by the build job. After Argo takes ownership, Helm release history records the initial bootstrap only; subsequent reconciliation belongs to Argo.
+
+- [Release verification commands/output](../evidence/eks-release-verification.txt)
+- [Argo state](../evidence/eks-gitops-release.json)
+- [Deployed image specifications](../evidence/eks-deployments.json)
+- [Updated application screenshot](../screenshots/eks-ingress-release.png)
+
+The cloud Application was deleted before its namespace during cleanup so reconciliation could not recreate the resources. The PostgreSQL PVC/EBS volume was removed while the CSI driver was still running, before destroying EKS.

@@ -1,0 +1,77 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolume",
+      "metadata": {
+        "annotations": {
+          "pv.kubernetes.io/provisioned-by": "ebs.csi.aws.com",
+          "volume.kubernetes.io/provisioner-deletion-secret-name": "",
+          "volume.kubernetes.io/provisioner-deletion-secret-namespace": ""
+        },
+        "creationTimestamp": "2026-10-07T17:26:01Z",
+        "finalizers": [
+          "external-provisioner.volume.kubernetes.io/finalizer",
+          "kubernetes.io/pv-protection",
+          "external-attacher/ebs-csi-aws-com"
+        ],
+        "name": "pvc-e4c1fad1-409f-479a-b6d3-e31f6bd042f4",
+        "resourceVersion": "4146",
+        "uid": "234bbf94-4bbb-4529-8b31-7b62c18af1fa"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteOnce"
+        ],
+        "capacity": {
+          "storage": "5Gi"
+        },
+        "claimRef": {
+          "apiVersion": "v1",
+          "kind": "PersistentVolumeClaim",
+          "name": "data-helpdesk-postgres-0",
+          "namespace": "helpdesk",
+          "resourceVersion": "4110",
+          "uid": "e4c1fad1-409f-479a-b6d3-e31f6bd042f4"
+        },
+        "csi": {
+          "driver": "ebs.csi.aws.com",
+          "fsType": "ext4",
+          "volumeAttributes": {
+            "storage.kubernetes.io/csiProvisionerIdentity": "1791393420736-1375-ebs.csi.aws.com"
+          },
+          "volumeHandle": "vol-0392ba0c6aa706ac7"
+        },
+        "nodeAffinity": {
+          "required": {
+            "nodeSelectorTerms": [
+              {
+                "matchExpressions": [
+                  {
+                    "key": "topology.kubernetes.io/zone",
+                    "operator": "In",
+                    "values": [
+                      "ap-south-1a"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "persistentVolumeReclaimPolicy": "Delete",
+        "storageClassName": "gp3",
+        "volumeMode": "Filesystem"
+      },
+      "status": {
+        "lastPhaseTransitionTime": "2026-10-07T17:26:01Z",
+        "phase": "Bound"
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

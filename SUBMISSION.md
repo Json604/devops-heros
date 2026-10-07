@@ -26,17 +26,17 @@ Recorded on 7 October 2026. The [root index](README.md) links every assignment a
 
 ## Successful hosted pipelines
 
-- [Session 16: CI and CD passed](https://github.com/Json604/devops-heros/actions/runs/37628858550)
-- [Sessions 17/21: tests, security, GHCR and Kubernetes passed](https://github.com/Json604/devops-heros/actions/runs/37628858501)
+- [Session 16: CI and CD passed](https://github.com/Json604/devops-heros/actions/runs/37659252236)
+- [Sessions 17/21: tests, security, GHCR and Kubernetes passed](https://github.com/Json604/devops-heros/actions/runs/37659251965)
 
-Both helpdesk images were published with tag `6c333d1aa10b8d5ebc9961ff04d0707bae371e84`:
+Both helpdesk images were published with tag `328f4c59f80884906604ab4b03fd345754bf1e00`:
 
 ```text
-ghcr.io/json604/campus-helpdesk-backend:6c333d1aa10b8d5ebc9961ff04d0707bae371e84
-ghcr.io/json604/campus-helpdesk-frontend:6c333d1aa10b8d5ebc9961ff04d0707bae371e84
+ghcr.io/json604/campus-helpdesk-backend:328f4c59f80884906604ab4b03fd345754bf1e00
+ghcr.io/json604/campus-helpdesk-frontend:328f4c59f80884906604ab4b03fd345754bf1e00
 ```
 
-The [hosted scan summary](session21-final-devops-project/evidence/ci-security-summary.txt) records zero HIGH/CRITICAL findings for both. The earlier failed gate is retained as evidence of an actual blocked release, followed by remediation. The registry push is verified in Actions logs and the public [GHCR package listing](https://github.com/Json604?tab=packages). A [package-page screenshot](session21-final-devops-project/screenshots/ghcr-packages.jpg) is included.
+The [hosted scan summary](session21-final-devops-project/evidence/main-ci-security-summary.txt) records zero HIGH/CRITICAL findings for both. The earlier failed gate is retained as evidence of an actual blocked release, followed by remediation. The registry push is verified in Actions logs and the public [GHCR package listing](https://github.com/Json604?tab=packages). A [package-page screenshot](session21-final-devops-project/screenshots/ghcr-packages.jpg) is included.
 
 ## Screenshot index
 
@@ -61,12 +61,15 @@ The [hosted scan summary](session21-final-devops-project/evidence/ci-security-su
 - [Alert firing output](session21-final-devops-project/screenshots/alerts.jpg)
 - [Final troubleshooting](session21-final-devops-project/screenshots/final-troubleshooting.jpg)
 
-Command-output screenshots are browser captures of the recorded transcripts, labeled as such. Application, monitoring and GitHub screenshots capture their live pages. Full text evidence accompanies the screenshots.
+Earlier command-output screenshots are browser captures of recorded transcripts, labeled as such. Additional final-check screenshots capture the native terminal. Application, monitoring and GitHub screenshots capture their live pages. Full text evidence accompanies the screenshots.
 
-## Outstanding external requirements
+## Final review
 
-1. Session 21 remains separate: EKS provisioning and its plan/Console/destroy evidence have not been completed. Sessions 18 and 19 live AWS requirements are complete and their resources were removed. The Session 21 review also identified production ServiceMonitor prerequisites, specific screenshots, and the persistent release demonstration still to address.
-2. The instructor's live/recorded presentation and submission-form delivery. These have not been represented as completed.
+Session 21 was deployed to real EKS: two workers, persistent PostgreSQL, Ingress, HPA, Helm monitoring and a successful GitOps image promotion. The [project README](session21-final-devops-project/README.md#final-cloud-verification) links the execution evidence and screenshots. Sessions 9 and 11 were also rechecked: the official basics tutorial was run, and the FQDN/CoreDNS and controller comparisons were completed.
+
+All 20 Session 21 Terraform resources were destroyed after evidence collection; AWS cleanup checks confirm the cluster, workers, storage and VPC are gone.
+
+The presentation requirement was confirmed outdated by the student. The submission form remains unsubmitted, as requested.
 
 ## Running locally
 

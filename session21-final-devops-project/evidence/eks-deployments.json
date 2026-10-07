@@ -1,0 +1,329 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "argocd.argoproj.io/tracking-id": "campus-helpdesk-eks:apps/Deployment:helpdesk/helpdesk-backend",
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{\"argocd.argoproj.io/tracking-id\":\"campus-helpdesk-eks:apps/Deployment:helpdesk/helpdesk-backend\"},\"name\":\"helpdesk-backend\",\"namespace\":\"helpdesk\"},\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"helpdesk-backend\"}},\"template\":{\"metadata\":{\"annotations\":{\"checksum/config\":\"c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6\"},\"labels\":{\"app\":\"helpdesk-backend\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"POSTGRES_PASSWORD\",\"valueFrom\":{\"secretKeyRef\":{\"key\":\"password\",\"name\":\"helpdesk-database\"}}}],\"envFrom\":[{\"configMapRef\":{\"name\":\"helpdesk-config\"}}],\"image\":\"ghcr.io/json604/campus-helpdesk-backend:328f4c59f80884906604ab4b03fd345754bf1e00\",\"imagePullPolicy\":\"IfNotPresent\",\"livenessProbe\":{\"httpGet\":{\"path\":\"/health\",\"port\":\"http\"},\"periodSeconds\":10},\"name\":\"backend\",\"ports\":[{\"containerPort\":8000,\"name\":\"http\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/ready\",\"port\":\"http\"},\"periodSeconds\":5},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"256Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"128Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"runAsNonRoot\":true,\"runAsUser\":10001},\"startupProbe\":{\"failureThreshold\":60,\"httpGet\":{\"path\":\"/health\",\"port\":\"http\"},\"periodSeconds\":3}}]}}}}\n",
+          "meta.helm.sh/release-name": "helpdesk",
+          "meta.helm.sh/release-namespace": "helpdesk"
+        },
+        "creationTimestamp": "2026-10-07T17:25:58Z",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "name": "helpdesk-backend",
+        "namespace": "helpdesk",
+        "resourceVersion": "6638",
+        "uid": "d9e70109-88c7-4177-80ff-63616ad04fa8"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 2,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "helpdesk-backend"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/config": "c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6"
+            },
+            "labels": {
+              "app": "helpdesk-backend"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "POSTGRES_PASSWORD",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "key": "password",
+                        "name": "helpdesk-database"
+                      }
+                    }
+                  }
+                ],
+                "envFrom": [
+                  {
+                    "configMapRef": {
+                      "name": "helpdesk-config"
+                    }
+                  }
+                ],
+                "image": "ghcr.io/json604/campus-helpdesk-backend:328f4c59f80884906604ab4b03fd345754bf1e00",
+                "imagePullPolicy": "IfNotPresent",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/health",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "backend",
+                "ports": [
+                  {
+                    "containerPort": 8000,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/ready",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "runAsNonRoot": true,
+                  "runAsUser": 10001
+                },
+                "startupProbe": {
+                  "failureThreshold": 60,
+                  "httpGet": {
+                    "path": "/health",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 3,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 2,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-10-07T17:26:34Z",
+            "lastUpdateTime": "2026-10-07T17:26:34Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-10-07T17:25:58Z",
+            "lastUpdateTime": "2026-10-07T17:33:04Z",
+            "message": "ReplicaSet \"helpdesk-backend-5bf859796c\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 2,
+        "replicas": 2,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 2
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "argocd.argoproj.io/tracking-id": "campus-helpdesk-eks:apps/Deployment:helpdesk/helpdesk-frontend",
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{\"argocd.argoproj.io/tracking-id\":\"campus-helpdesk-eks:apps/Deployment:helpdesk/helpdesk-frontend\"},\"name\":\"helpdesk-frontend\",\"namespace\":\"helpdesk\"},\"spec\":{\"replicas\":2,\"selector\":{\"matchLabels\":{\"app\":\"helpdesk-frontend\"}},\"template\":{\"metadata\":{\"annotations\":{\"checksum/config\":\"c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6\"},\"labels\":{\"app\":\"helpdesk-frontend\"}},\"spec\":{\"containers\":[{\"image\":\"ghcr.io/json604/campus-helpdesk-frontend:328f4c59f80884906604ab4b03fd345754bf1e00\",\"imagePullPolicy\":\"IfNotPresent\",\"livenessProbe\":{\"httpGet\":{\"path\":\"/health\",\"port\":\"http\"},\"periodSeconds\":10},\"name\":\"frontend\",\"ports\":[{\"containerPort\":8080,\"name\":\"http\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/health\",\"port\":\"http\"},\"periodSeconds\":5},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"256Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"128Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"runAsNonRoot\":true,\"runAsUser\":101},\"startupProbe\":{\"failureThreshold\":60,\"httpGet\":{\"path\":\"/health\",\"port\":\"http\"},\"periodSeconds\":3}}]}}}}\n",
+          "meta.helm.sh/release-name": "helpdesk",
+          "meta.helm.sh/release-namespace": "helpdesk"
+        },
+        "creationTimestamp": "2026-10-07T17:25:58Z",
+        "generation": 2,
+        "labels": {
+          "app.kubernetes.io/managed-by": "Helm"
+        },
+        "name": "helpdesk-frontend",
+        "namespace": "helpdesk",
+        "resourceVersion": "6594",
+        "uid": "654836e6-5987-4b3b-85c2-be45893f9a3c"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 2,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "helpdesk-frontend"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "checksum/config": "c28fe6ddf51877efa48ec6fba6712ad5a9d46b3de680f9d29f22ccd364eee2e6"
+            },
+            "labels": {
+              "app": "helpdesk-frontend"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "image": "ghcr.io/json604/campus-helpdesk-frontend:328f4c59f80884906604ab4b03fd345754bf1e00",
+                "imagePullPolicy": "IfNotPresent",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/health",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "name": "frontend",
+                "ports": [
+                  {
+                    "containerPort": 8080,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/health",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "256Mi"
+                  },
+                  "requests": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  },
+                  "runAsNonRoot": true,
+                  "runAsUser": 101
+                },
+                "startupProbe": {
+                  "failureThreshold": 60,
+                  "httpGet": {
+                    "path": "/health",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 3,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 1
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 2,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-10-07T17:26:09Z",
+            "lastUpdateTime": "2026-10-07T17:26:09Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-10-07T17:25:58Z",
+            "lastUpdateTime": "2026-10-07T17:33:01Z",
+            "message": "ReplicaSet \"helpdesk-frontend-6d7dbc7f54\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 2,
+        "replicas": 2,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 2
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

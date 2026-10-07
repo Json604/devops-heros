@@ -1,0 +1,6 @@
+Main pipeline: https://github.com/Json604/devops-heros/actions/runs/37659251965
+Commit/image SHA: 328f4c59f80884906604ab4b03fd345754bf1e00
+Trivy v0.75.0 scanned both built images; HIGH and CRITICAL findings fail the job.
+frontend.json: 0 HIGH/CRITICAL findings
+backend.json: 0 HIGH/CRITICAL findings
+A clean result means the scanner database found no matching HIGH/CRITICAL vulnerabilities in this run; it is not a guarantee against every vulnerability or configuration error.

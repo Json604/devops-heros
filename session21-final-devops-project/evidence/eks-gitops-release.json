@@ -1,0 +1,386 @@
+{
+  "apiVersion": "argoproj.io/v1alpha1",
+  "kind": "Application",
+  "metadata": {
+    "annotations": {
+      "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"argoproj.io/v1alpha1\",\"kind\":\"Application\",\"metadata\":{\"annotations\":{},\"name\":\"campus-helpdesk-eks\",\"namespace\":\"argocd\"},\"spec\":{\"destination\":{\"namespace\":\"helpdesk\",\"server\":\"https://kubernetes.default.svc\"},\"project\":\"default\",\"source\":{\"helm\":{\"releaseName\":\"helpdesk\",\"valueFiles\":[\"values.yaml\",\"values-prod.yaml\",\"values-release.yaml\"]},\"path\":\"session21-final-devops-project/helm/helpdesk\",\"repoURL\":\"https://github.com/Json604/devops-heros.git\",\"targetRevision\":\"main\"},\"syncPolicy\":{\"automated\":{\"prune\":true,\"selfHeal\":true},\"syncOptions\":[\"CreateNamespace=true\"]}}}\n"
+    },
+    "creationTimestamp": "2026-10-07T17:32:30Z",
+    "generation": 23,
+    "name": "campus-helpdesk-eks",
+    "namespace": "argocd",
+    "resourceVersion": "7095",
+    "uid": "b59d27f9-fee6-453d-9dfa-96a1e2cee50a"
+  },
+  "spec": {
+    "destination": {
+      "namespace": "helpdesk",
+      "server": "https://kubernetes.default.svc"
+    },
+    "project": "default",
+    "source": {
+      "helm": {
+        "releaseName": "helpdesk",
+        "valueFiles": [
+          "values.yaml",
+          "values-prod.yaml",
+          "values-release.yaml"
+        ]
+      },
+      "path": "session21-final-devops-project/helm/helpdesk",
+      "repoURL": "https://github.com/Json604/devops-heros.git",
+      "targetRevision": "main"
+    },
+    "syncPolicy": {
+      "automated": {
+        "prune": true,
+        "selfHeal": true
+      },
+      "syncOptions": [
+        "CreateNamespace=true"
+      ]
+    }
+  },
+  "status": {
+    "controllerNamespace": "argocd",
+    "health": {
+      "lastTransitionTime": "2026-10-07T17:33:28Z",
+      "status": "Healthy"
+    },
+    "history": [
+      {
+        "deployStartedAt": "2026-10-07T17:32:39Z",
+        "deployedAt": "2026-10-07T17:32:59Z",
+        "id": 0,
+        "initiatedBy": {
+          "automated": true
+        },
+        "revision": "9d7f9c4eca33523505070b31f124023ddd6493f5",
+        "source": {
+          "helm": {
+            "releaseName": "helpdesk",
+            "valueFiles": [
+              "values.yaml",
+              "values-prod.yaml",
+              "values-release.yaml"
+            ]
+          },
+          "path": "session21-final-devops-project/helm/helpdesk",
+          "repoURL": "https://github.com/Json604/devops-heros.git",
+          "targetRevision": "main"
+        }
+      }
+    ],
+    "operationState": {
+      "finishedAt": "2026-10-07T17:32:59Z",
+      "message": "successfully synced (no more tasks)",
+      "operation": {
+        "initiatedBy": {
+          "automated": true
+        },
+        "retry": {
+          "limit": 5
+        },
+        "sync": {
+          "prune": true,
+          "revision": "9d7f9c4eca33523505070b31f124023ddd6493f5",
+          "source": {
+            "helm": {
+              "releaseName": "helpdesk",
+              "valueFiles": [
+                "values.yaml",
+                "values-prod.yaml",
+                "values-release.yaml"
+              ]
+            },
+            "path": "session21-final-devops-project/helm/helpdesk",
+            "repoURL": "https://github.com/Json604/devops-heros.git",
+            "targetRevision": "main"
+          },
+          "syncOptions": [
+            "CreateNamespace=true"
+          ]
+        }
+      },
+      "phase": "Succeeded",
+      "startedAt": "2026-10-07T17:32:39Z",
+      "syncResult": {
+        "resources": [
+          {
+            "group": "",
+            "hookPhase": "Succeeded",
+            "kind": "ConfigMap",
+            "message": "configmap/helpdesk-config configured. Warning: resource configmaps/helpdesk-config is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically.",
+            "name": "helpdesk-config",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          },
+          {
+            "group": "",
+            "hookPhase": "Succeeded",
+            "kind": "Service",
+            "message": "service/frontend configured. Warning: resource services/frontend is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically.",
+            "name": "frontend",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          },
+          {
+            "group": "",
+            "hookPhase": "Succeeded",
+            "kind": "Service",
+            "message": "service/postgres configured. Warning: resource services/postgres is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically.",
+            "name": "postgres",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          },
+          {
+            "group": "",
+            "hookPhase": "Succeeded",
+            "kind": "Service",
+            "message": "service/backend configured. Warning: resource services/backend is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically.",
+            "name": "backend",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          },
+          {
+            "group": "apps",
+            "hookPhase": "Running",
+            "images": [
+              "ghcr.io/json604/campus-helpdesk-backend:328f4c59f80884906604ab4b03fd345754bf1e00"
+            ],
+            "kind": "Deployment",
+            "message": "deployment.apps/helpdesk-backend configured. Warning: resource deployments/helpdesk-backend is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically.",
+            "name": "helpdesk-backend",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          },
+          {
+            "group": "apps",
+            "hookPhase": "Running",
+            "images": [
+              "ghcr.io/json604/campus-helpdesk-frontend:328f4c59f80884906604ab4b03fd345754bf1e00"
+            ],
+            "kind": "Deployment",
+            "message": "deployment.apps/helpdesk-frontend configured. Warning: resource deployments/helpdesk-frontend is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically.",
+            "name": "helpdesk-frontend",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          },
+          {
+            "group": "autoscaling",
+            "hookPhase": "Succeeded",
+            "kind": "HorizontalPodAutoscaler",
+            "message": "recommended size matches current size",
+            "name": "helpdesk-backend",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v2"
+          },
+          {
+            "group": "apps",
+            "hookPhase": "Succeeded",
+            "images": [
+              "postgres:16-alpine"
+            ],
+            "kind": "StatefulSet",
+            "message": "partitioned roll out complete: 1 new pods have been updated...",
+            "name": "helpdesk-postgres",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          },
+          {
+            "group": "batch",
+            "hookPhase": "Succeeded",
+            "hookType": "Sync",
+            "images": [
+              "ghcr.io/json604/campus-helpdesk-backend:328f4c59f80884906604ab4b03fd345754bf1e00"
+            ],
+            "kind": "Job",
+            "message": "Reached expected number of succeeded pods",
+            "name": "helpdesk-migrate-1",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          },
+          {
+            "group": "networking.k8s.io",
+            "hookPhase": "Succeeded",
+            "kind": "Ingress",
+            "message": "ingress.networking.k8s.io/helpdesk configured. Warning: resource ingresses/helpdesk is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically.",
+            "name": "helpdesk",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          },
+          {
+            "group": "monitoring.coreos.com",
+            "hookPhase": "Succeeded",
+            "kind": "ServiceMonitor",
+            "message": "servicemonitor.monitoring.coreos.com/helpdesk configured. Warning: resource servicemonitors/helpdesk is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by  apply.  apply should only be used on resources created declaratively by either  create --save-config or  apply. The missing annotation will be patched automatically.",
+            "name": "helpdesk",
+            "namespace": "helpdesk",
+            "status": "Synced",
+            "syncPhase": "Sync",
+            "version": "v1"
+          }
+        ],
+        "revision": "9d7f9c4eca33523505070b31f124023ddd6493f5",
+        "source": {
+          "helm": {
+            "releaseName": "helpdesk",
+            "valueFiles": [
+              "values.yaml",
+              "values-prod.yaml",
+              "values-release.yaml"
+            ]
+          },
+          "path": "session21-final-devops-project/helm/helpdesk",
+          "repoURL": "https://github.com/Json604/devops-heros.git",
+          "targetRevision": "main"
+        }
+      }
+    },
+    "reconciledAt": "2026-10-07T17:35:05Z",
+    "resourceHealthSource": "appTree",
+    "resources": [
+      {
+        "kind": "ConfigMap",
+        "name": "helpdesk-config",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v1"
+      },
+      {
+        "kind": "Service",
+        "name": "backend",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v1"
+      },
+      {
+        "kind": "Service",
+        "name": "frontend",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v1"
+      },
+      {
+        "kind": "Service",
+        "name": "postgres",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v1"
+      },
+      {
+        "group": "apps",
+        "kind": "Deployment",
+        "name": "helpdesk-backend",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v1"
+      },
+      {
+        "group": "apps",
+        "kind": "Deployment",
+        "name": "helpdesk-frontend",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v1"
+      },
+      {
+        "group": "apps",
+        "kind": "StatefulSet",
+        "name": "helpdesk-postgres",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v1"
+      },
+      {
+        "group": "autoscaling",
+        "kind": "HorizontalPodAutoscaler",
+        "name": "helpdesk-backend",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v2"
+      },
+      {
+        "group": "batch",
+        "hook": true,
+        "kind": "Job",
+        "name": "helpdesk-migrate-1",
+        "namespace": "helpdesk",
+        "requiresPruning": true,
+        "version": "v1"
+      },
+      {
+        "group": "monitoring.coreos.com",
+        "kind": "ServiceMonitor",
+        "name": "helpdesk",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v1"
+      },
+      {
+        "group": "networking.k8s.io",
+        "kind": "Ingress",
+        "name": "helpdesk",
+        "namespace": "helpdesk",
+        "status": "Synced",
+        "version": "v1"
+      }
+    ],
+    "sourceHydrator": {},
+    "sourceType": "Helm",
+    "summary": {
+      "externalURLs": [
+        "http://helpdesk.127.0.0.1.nip.io/",
+        "http://helpdesk.127.0.0.1.nip.io/api"
+      ],
+      "images": [
+        "ghcr.io/json604/campus-helpdesk-backend:328f4c59f80884906604ab4b03fd345754bf1e00",
+        "ghcr.io/json604/campus-helpdesk-frontend:328f4c59f80884906604ab4b03fd345754bf1e00",
+        "postgres:16-alpine"
+      ]
+    },
+    "sync": {
+      "comparedTo": {
+        "destination": {
+          "namespace": "helpdesk",
+          "server": "https://kubernetes.default.svc"
+        },
+        "source": {
+          "helm": {
+            "releaseName": "helpdesk",
+            "valueFiles": [
+              "values.yaml",
+              "values-prod.yaml",
+              "values-release.yaml"
+            ]
+          },
+          "path": "session21-final-devops-project/helm/helpdesk",
+          "repoURL": "https://github.com/Json604/devops-heros.git",
+          "targetRevision": "main"
+        }
+      },
+      "revision": "9d7f9c4eca33523505070b31f124023ddd6493f5",
+      "status": "Synced"
+    }
+  }
+}

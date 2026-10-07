@@ -1,0 +1,43 @@
+$ kubectl get nodes -o wide
+NAME                                         STATUS   ROLES    AGE   VERSION               INTERNAL-IP   EXTERNAL-IP      OS-IMAGE                        KERNEL-VERSION                     CONTAINER-RUNTIME
+ip-10-21-1-205.ap-south-1.compute.internal   Ready    <none>   17m   v1.35.8-eks-3b4a6ca   10.21.1.205   13.234.117.118   Amazon Linux 2023.12.20260928   6.12.110-135.201.amzn2023.x86_64   containerd://2.2.7+unknown
+ip-10-21-2-142.ap-south-1.compute.internal   Ready    <none>   17m   v1.35.8-eks-3b4a6ca   10.21.2.142   15.252.70.94     Amazon Linux 2023.12.20260928   6.12.110-135.201.amzn2023.x86_64   containerd://2.2.7+unknown
+$ kubectl -n helpdesk get pods,svc,pvc,ingress,hpa,servicemonitor
+NAME                                     READY   STATUS              RESTARTS   AGE
+pod/helpdesk-backend-5bf859796c-98d75    1/1     Running             0          14s
+pod/helpdesk-backend-5bf859796c-mrj4w    0/1     Pending             0          1s
+pod/helpdesk-backend-64896ffb8b-gsqbd    1/1     Running             0          6m58s
+pod/helpdesk-frontend-6d7dbc7f54-hqnrq   0/1     ContainerCreating   0          7s
+pod/helpdesk-frontend-6d7dbc7f54-q64t9   1/1     Running             0          14s
+pod/helpdesk-frontend-d9b96758c-kh68g    1/1     Running             0          6m59s
+pod/helpdesk-migrate-1-jhjpr             0/1     Completed           0          14s
+pod/helpdesk-migrate-2-6wrfz             0/1     Completed           0          4m48s
+pod/helpdesk-postgres-0                  1/1     Running             0          6m58s
+
+NAME               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/backend    ClusterIP   172.20.114.132   <none>        8000/TCP   6m59s
+service/frontend   ClusterIP   172.20.81.78     <none>        8080/TCP   6m59s
+service/postgres   ClusterIP   172.20.235.128   <none>        5432/TCP   6m59s
+
+NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/data-helpdesk-postgres-0   Bound    pvc-e4c1fad1-409f-479a-b6d3-e31f6bd042f4   5Gi        RWO            gp3            <unset>                 6m59s
+
+NAME                                 CLASS   HOSTS                       ADDRESS         PORTS   AGE
+ingress.networking.k8s.io/helpdesk   nginx   helpdesk.127.0.0.1.nip.io   172.20.163.63   80      6m59s
+
+NAME                                                   REFERENCE                     TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/helpdesk-backend   Deployment/helpdesk-backend   cpu: <unknown>/60%   2         5         0          15s
+
+NAME                                            AGE
+servicemonitor.monitoring.coreos.com/helpdesk   4m49s
+$ /tmp/devops-tools/darwin-arm64/helm list -n helpdesk
+NAME    	NAMESPACE	REVISION	UPDATED                            	STATUS  	CHART         	APP VERSION
+helpdesk	helpdesk 	2       	2026-10-07 22:58:06.66023 +0530 IST	deployed	helpdesk-1.0.0	1.0.0
+$ kubectl -n monitoring get pods
+NAME                                                   READY   STATUS    RESTARTS   AGE
+grafana-544ccc95f9-gcqgl                               1/1     Running   0          2m29s
+monitoring-kube-prometheus-operator-6ffc467f59-ghn5d   1/1     Running   0          7m43s
+monitoring-kube-state-metrics-6d8ffd8867-k7qxh         1/1     Running   0          7m43s
+monitoring-prometheus-node-exporter-8nmzs              1/1     Running   0          7m43s
+monitoring-prometheus-node-exporter-bpqfm              1/1     Running   0          7m43s
+prometheus-monitoring-kube-prometheus-prometheus-0     2/2     Running   0          7m36s

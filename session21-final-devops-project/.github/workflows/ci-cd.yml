@@ -2,10 +2,6 @@ name: Sessions 17 and 21 - Helpdesk DevSecOps
 on:
   push:
     branches: [main, 'submission/**']
-    paths:
-      - 'session21-final-devops-project/**'
-      - 'session-17-devsecops/**'
-      - '.github/workflows/helpdesk.yml'
   pull_request:
     paths:
       - 'session21-final-devops-project/**'

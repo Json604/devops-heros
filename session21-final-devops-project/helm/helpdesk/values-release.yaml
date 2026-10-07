@@ -1,0 +1,6 @@
+backend:
+  tag: "328f4c59f80884906604ab4b03fd345754bf1e00"
+frontend:
+  tag: "328f4c59f80884906604ab4b03fd345754bf1e00"
+ingress:
+  host: helpdesk.127.0.0.1.nip.io

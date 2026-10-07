@@ -1,0 +1,211 @@
+++ dirname session-15-helm/run-lab.sh
++ cd session-15-helm
++ CHART=mini-project/notes-chart
++ NS=helm-lab
+++ mktemp -d
++ TEMP_CHART=/var/folders/xn/whqtw2sn7hj8fp_5hkf1nj3r0000gn/T/tmp.dNpDoSHnyZ/practice
++ helm create /var/folders/xn/whqtw2sn7hj8fp_5hkf1nj3r0000gn/T/tmp.dNpDoSHnyZ/practice
+Creating /var/folders/xn/whqtw2sn7hj8fp_5hkf1nj3r0000gn/T/tmp.dNpDoSHnyZ/practice
++ helm repo add bitnami https://charts.bitnami.com/bitnami
+"bitnami" has been added to your repositories
++ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "bitnami" chart repository
+Update Complete. ⎈Happy Helming!⎈
++ helm search repo bitnami/nginx --versions
++ head -12
+NAME                            	CHART VERSION	APP VERSION	DESCRIPTION                                       
+bitnami/nginx                   	25.2.1       	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.2.0       	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.15      	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.14      	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.13      	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.12      	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.11      	1.31.5     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.10      	1.31.5     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.9       	1.31.5     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.5       	1.31.4     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.1       	1.31.4     	NGINX Open Source is a web server that can be a...
++ helm lint mini-project/notes-chart
+==> Linting mini-project/notes-chart
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
++ helm template notes mini-project/notes-chart
+---
+# Source: notes-chart/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notes-config
+data:
+  APP_NAME: "notes-app"
+  ENVIRONMENT: "development"
+---
+# Source: notes-chart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: notes-svc
+spec:
+  type: NodePort
+  selector:
+    app: notes
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30090
+---
+# Source: notes-chart/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes-deploy
+  labels:
+    app: notes
+    environment: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notes
+  template:
+    metadata:
+      annotations:
+        checksum/config: 28c3bcdc315e75de7945d7d0a2e9b1d45551feb3da11d02d147e3c3b3a0ec78f
+      labels:
+        app: notes
+    spec:
+      containers:
+        - name: notes
+          image: "nginx:1.24"
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: notes-config
++ helm install notes mini-project/notes-chart -n helm-lab --create-namespace --wait --timeout 180s
+NAME: notes
+LAST DEPLOYED: Wed Oct  7 18:17:30 2026
+NAMESPACE: helm-lab
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
++ helm list -n helm-lab
+NAME 	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART            	APP VERSION
+notes	helm-lab 	1       	2026-10-07 18:17:30.081911 +0530 IST	deployed	notes-chart-0.1.0	1.0        
++ helm status notes -n helm-lab
+NAME: notes
+LAST DEPLOYED: Wed Oct  7 18:17:30 2026
+NAMESPACE: helm-lab
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
++ helm get values notes -n helm-lab
+USER-SUPPLIED VALUES:
+null
++ helm get manifest notes -n helm-lab
+---
+# Source: notes-chart/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notes-config
+data:
+  APP_NAME: "notes-app"
+  ENVIRONMENT: "development"
+---
+# Source: notes-chart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: notes-svc
+spec:
+  type: NodePort
+  selector:
+    app: notes
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30090
+---
+# Source: notes-chart/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes-deploy
+  labels:
+    app: notes
+    environment: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notes
+  template:
+    metadata:
+      annotations:
+        checksum/config: 28c3bcdc315e75de7945d7d0a2e9b1d45551feb3da11d02d147e3c3b3a0ec78f
+      labels:
+        app: notes
+    spec:
+      containers:
+        - name: notes
+          image: "nginx:1.24"
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: notes-config
+
++ helm upgrade notes mini-project/notes-chart -n helm-lab -f mini-project/notes-chart/values-prod.yaml --wait --timeout 180s
+Release "notes" has been upgraded. Happy Helming!
+NAME: notes
+LAST DEPLOYED: Wed Oct  7 18:18:02 2026
+NAMESPACE: helm-lab
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
++ kubectl get pods -n helm-lab
+NAME                            READY   STATUS    RESTARTS   AGE
+notes-deploy-65cc4fbfc8-452s2   1/1     Running   0          2s
+notes-deploy-65cc4fbfc8-8ztbl   1/1     Running   0          3s
+notes-deploy-65cc4fbfc8-hht6h   1/1     Running   0          28s
++ kubectl exec -n helm-lab deploy/notes-deploy -- printenv ENVIRONMENT
+production
++ helm upgrade notes mini-project/notes-chart -n helm-lab -f mini-project/notes-chart/values-prod.yaml --set replicaCount=2 --set app.environment=staging --wait --timeout 180s
+Release "notes" has been upgraded. Happy Helming!
+NAME: notes
+LAST DEPLOYED: Wed Oct  7 18:18:30 2026
+NAMESPACE: helm-lab
+STATUS: deployed
+REVISION: 3
+TEST SUITE: None
++ kubectl get pods -n helm-lab
+NAME                            READY   STATUS      RESTARTS   AGE
+notes-deploy-5ff8d7f679-5wlbz   1/1     Running     0          2s
+notes-deploy-5ff8d7f679-sv4zz   1/1     Running     0          1s
+notes-deploy-65cc4fbfc8-8ztbl   0/1     Completed   0          5s
++ helm history notes -n helm-lab
+REVISION	UPDATED                 	STATUS    	CHART            	APP VERSION	DESCRIPTION     
+1       	Wed Oct  7 18:17:30 2026	superseded	notes-chart-0.1.0	1.0        	Install complete
+2       	Wed Oct  7 18:18:02 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+3       	Wed Oct  7 18:18:30 2026	deployed  	notes-chart-0.1.0	1.0        	Upgrade complete
++ helm rollback notes 1 -n helm-lab --wait --timeout 180s
+Rollback was a success! Happy Helming!
++ helm history notes -n helm-lab
+REVISION	UPDATED                 	STATUS    	CHART            	APP VERSION	DESCRIPTION     
+1       	Wed Oct  7 18:17:30 2026	superseded	notes-chart-0.1.0	1.0        	Install complete
+2       	Wed Oct  7 18:18:02 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+3       	Wed Oct  7 18:18:30 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+4       	Wed Oct  7 18:18:32 2026	deployed  	notes-chart-0.1.0	1.0        	Rollback to 1   
++ kubectl get pods -n helm-lab
+NAME                            READY   STATUS      RESTARTS   AGE
+notes-deploy-5ff8d7f679-5wlbz   0/1     Completed   0          5s
+notes-deploy-6d679fd645-bc5v2   1/1     Running     0          3s
++ kubectl exec -n helm-lab deploy/notes-deploy -- printenv ENVIRONMENT
+development
++ helm uninstall notes -n helm-lab --wait
+release "notes" uninstalled
++ helm list -n helm-lab
+NAME	NAMESPACE	REVISION	UPDATED	STATUS	CHART	APP VERSION

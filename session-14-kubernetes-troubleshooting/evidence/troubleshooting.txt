@@ -1,0 +1,702 @@
+namespace/troubleshooting-lab created
+=== crashloop: broken ===
+pod/crashloop created
+NAME        READY   STATUS   RESTARTS      AGE   IP            NODE              NOMINATED NODE   READINESS GATES
+crashloop   0/1     Error    2 (20s ago)   20s   10.244.0.13   kartikey-devops   <none>           <none>
+Name:             crashloop
+Namespace:        troubleshooting-lab
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:17:04 +0530
+Labels:           <none>
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.13
+IPs:
+  IP:  10.244.0.13
+Containers:
+  app:
+    Container ID:  containerd://25b1ad4e8cb11d764bf550ab504607eacd6bb0e3955e14f8668a6c1e2661af59
+    Image:         busybox:1.36
+    Image ID:      docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+      echo "missing startup command"; exit 1
+    State:          Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Wed, 07 Oct 2026 18:17:19 +0530
+      Finished:     Wed, 07 Oct 2026 18:17:19 +0530
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Wed, 07 Oct 2026 18:17:04 +0530
+      Finished:     Wed, 07 Oct 2026 18:17:04 +0530
+    Ready:          False
+    Restart Count:  2
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kpg9m (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-kpg9m:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age               From               Message
+  ----     ------     ----              ----               -------
+  Normal   Scheduled  20s               default-scheduler  Successfully assigned troubleshooting-lab/crashloop to kartikey-devops
+  Normal   Pulled     5s (x3 over 20s)  kubelet            spec.containers{app}: Container image "busybox:1.36" already present on machine
+  Normal   Created    5s (x3 over 20s)  kubelet            spec.containers{app}: Created container: app
+  Normal   Started    5s (x3 over 20s)  kubelet            spec.containers{app}: Started container app
+  Warning  BackOff    5s (x2 over 19s)  kubelet            spec.containers{app}: Back-off restarting failed container app in pod crashloop_troubleshooting-lab(5e1712fb-d1a6-481a-a032-d61b58dd79e9)
+missing startup command
+LAST SEEN          TYPE      REASON      OBJECT          MESSAGE
+20s                Normal    Scheduled   Pod/crashloop   Successfully assigned troubleshooting-lab/crashloop to kartikey-devops
+5s (x3 over 20s)   Normal    Pulled      Pod/crashloop   Container image "busybox:1.36" already present on machine
+5s (x3 over 20s)   Normal    Created     Pod/crashloop   Created container: app
+5s (x3 over 20s)   Normal    Started     Pod/crashloop   Started container app
+5s (x2 over 19s)   Warning   BackOff     Pod/crashloop   Back-off restarting failed container app in pod crashloop_troubleshooting-lab(5e1712fb-d1a6-481a-a032-d61b58dd79e9)
+=== crashloop: fixed ===
+pod "crashloop" deleted from troubleshooting-lab namespace
+pod/crashloop created
+pod/crashloop condition met
+NAME        READY   STATUS    RESTARTS   AGE
+crashloop   1/1     Running   0          1s
+healthy
+=== imagepull: broken ===
+pod/imagepull created
+NAME        READY   STATUS         RESTARTS   AGE   IP            NODE              NOMINATED NODE   READINESS GATES
+imagepull   0/1     ErrImagePull   0          20s   10.244.0.24   kartikey-devops   <none>           <none>
+Name:             imagepull
+Namespace:        troubleshooting-lab
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:17:26 +0530
+Labels:           <none>
+Annotations:      <none>
+Status:           Pending
+IP:               10.244.0.24
+IPs:
+  IP:  10.244.0.24
+Containers:
+  app:
+    Container ID:  
+    Image:         nginx:tag-does-not-exist-24bcs10121
+    Image ID:      
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+      echo healthy; sleep 3600
+    State:          Waiting
+      Reason:       ErrImagePull
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-46cjl (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-46cjl:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age   From               Message
+  ----     ------     ----  ----               -------
+  Normal   Scheduled  20s   default-scheduler  Successfully assigned troubleshooting-lab/imagepull to kartikey-devops
+  Normal   Pulling    20s   kubelet            spec.containers{app}: Pulling image "nginx:tag-does-not-exist-24bcs10121"
+  Warning  Failed     1s    kubelet            spec.containers{app}: Failed to pull image "nginx:tag-does-not-exist-24bcs10121": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/library/nginx:tag-does-not-exist-24bcs10121": failed to resolve reference "docker.io/library/nginx:tag-does-not-exist-24bcs10121": docker.io/library/nginx:tag-does-not-exist-24bcs10121: not found
+  Warning  Failed     1s    kubelet            spec.containers{app}: Error: ErrImagePull
+  Normal   BackOff    0s    kubelet            spec.containers{app}: Back-off pulling image "nginx:tag-does-not-exist-24bcs10121"
+  Warning  Failed     0s    kubelet            spec.containers{app}: Error: ImagePullBackOff
+Error from server (BadRequest): container "app" in pod "imagepull" is waiting to start: image can't be pulled
+LAST SEEN   TYPE      REASON      OBJECT          MESSAGE
+20s         Normal    Scheduled   Pod/imagepull   Successfully assigned troubleshooting-lab/imagepull to kartikey-devops
+20s         Normal    Pulling     Pod/imagepull   Pulling image "nginx:tag-does-not-exist-24bcs10121"
+1s          Warning   Failed      Pod/imagepull   Failed to pull image "nginx:tag-does-not-exist-24bcs10121": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/library/nginx:tag-does-not-exist-24bcs10121": failed to resolve reference "docker.io/library/nginx:tag-does-not-exist-24bcs10121": docker.io/library/nginx:tag-does-not-exist-24bcs10121: not found
+1s          Warning   Failed      Pod/imagepull   Error: ErrImagePull
+0s          Normal    BackOff     Pod/imagepull   Back-off pulling image "nginx:tag-does-not-exist-24bcs10121"
+0s          Warning   Failed      Pod/imagepull   Error: ImagePullBackOff
+=== imagepull: fixed ===
+pod "imagepull" deleted from troubleshooting-lab namespace
+pod/imagepull created
+pod/imagepull condition met
+NAME        READY   STATUS    RESTARTS   AGE
+imagepull   1/1     Running   0          21s
+2026/10/07 12:48:08 [notice] 1#1: start worker process 30
+2026/10/07 12:48:08 [notice] 1#1: start worker process 31
+2026/10/07 12:48:08 [notice] 1#1: start worker process 32
+2026/10/07 12:48:08 [notice] 1#1: start worker process 33
+2026/10/07 12:48:08 [notice] 1#1: start worker process 34
+2026/10/07 12:48:08 [notice] 1#1: start worker process 35
+2026/10/07 12:48:08 [notice] 1#1: start worker process 36
+2026/10/07 12:48:08 [notice] 1#1: start worker process 37
+2026/10/07 12:48:08 [notice] 1#1: start worker process 38
+2026/10/07 12:48:08 [notice] 1#1: start worker process 39
+=== pending: broken ===
+pod/pending created
+NAME      READY   STATUS    RESTARTS   AGE   IP       NODE     NOMINATED NODE   READINESS GATES
+pending   0/1     Pending   0          20s   <none>   <none>   <none>           <none>
+Name:             pending
+Namespace:        troubleshooting-lab
+Priority:         0
+Service Account:  default
+Node:             <none>
+Labels:           <none>
+Annotations:      <none>
+Status:           Pending
+IP:               
+IPs:              <none>
+Containers:
+  app:
+    Image:      busybox:1.36
+    Port:       <none>
+    Host Port:  <none>
+    Command:
+      sh
+      -c
+      echo healthy; sleep 3600
+    Requests:
+      cpu:        100
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-hz2h8 (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False 
+Volumes:
+  kube-api-access-hz2h8:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age               From               Message
+  ----     ------            ----              ----               -------
+  Warning  FailedScheduling  0s (x4 over 20s)  default-scheduler  0/1 nodes are available: 1 Insufficient cpu. no new claims to deallocate, preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
+LAST SEEN          TYPE      REASON             OBJECT        MESSAGE
+0s (x4 over 20s)   Warning   FailedScheduling   Pod/pending   0/1 nodes are available: 1 Insufficient cpu. no new claims to deallocate, preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
+=== pending: fixed ===
+pod "pending" deleted from troubleshooting-lab namespace
+pod/pending created
+pod/pending condition met
+NAME      READY   STATUS    RESTARTS   AGE
+pending   1/1     Running   0          1s
+healthy
+=== containercreating: broken ===
+pod/containercreating created
+NAME                READY   STATUS              RESTARTS   AGE   IP       NODE              NOMINATED NODE   READINESS GATES
+containercreating   0/1     ContainerCreating   0          20s   <none>   kartikey-devops   <none>           <none>
+Name:             containercreating
+Namespace:        troubleshooting-lab
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:18:30 +0530
+Labels:           <none>
+Annotations:      <none>
+Status:           Pending
+IP:               
+IPs:              <none>
+Containers:
+  app:
+    Container ID:  
+    Image:         busybox:1.36
+    Image ID:      
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+      echo healthy; sleep 3600
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /config from config (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-lrmkc (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   False 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  config:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      missing-volume-config
+    Optional:  false
+  kube-api-access-lrmkc:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason       Age               From               Message
+  ----     ------       ----              ----               -------
+  Normal   Scheduled    20s               default-scheduler  Successfully assigned troubleshooting-lab/containercreating to kartikey-devops
+  Warning  FailedMount  4s (x6 over 20s)  kubelet            MountVolume.SetUp failed for volume "config" : configmap "missing-volume-config" not found
+Error from server (BadRequest): container "app" in pod "containercreating" is waiting to start: ContainerCreating
+LAST SEEN          TYPE      REASON        OBJECT                  MESSAGE
+20s                Normal    Scheduled     Pod/containercreating   Successfully assigned troubleshooting-lab/containercreating to kartikey-devops
+4s (x6 over 20s)   Warning   FailedMount   Pod/containercreating   MountVolume.SetUp failed for volume "config" : configmap "missing-volume-config" not found
+=== containercreating: fixed ===
+pod "containercreating" deleted from troubleshooting-lab namespace
+pod/containercreating created
+pod/containercreating condition met
+NAME                READY   STATUS    RESTARTS   AGE
+containercreating   1/1     Running   0          1s
+healthy
+=== configuration: broken ===
+pod/configuration created
+NAME            READY   STATUS                       RESTARTS   AGE   IP            NODE              NOMINATED NODE   READINESS GATES
+configuration   0/1     CreateContainerConfigError   0          20s   10.244.0.38   kartikey-devops   <none>           <none>
+Name:             configuration
+Namespace:        troubleshooting-lab
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:18:53 +0530
+Labels:           <none>
+Annotations:      <none>
+Status:           Pending
+IP:               10.244.0.38
+IPs:
+  IP:  10.244.0.38
+Containers:
+  app:
+    Container ID:  
+    Image:         busybox:1.36
+    Image ID:      
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+      echo healthy; sleep 3600
+    State:          Waiting
+      Reason:       CreateContainerConfigError
+    Ready:          False
+    Restart Count:  0
+    Environment:
+      SETTING:  <set to the key 'mode' of config map 'missing-env-config'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-7596f (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-7596f:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age               From               Message
+  ----     ------     ----              ----               -------
+  Normal   Scheduled  20s               default-scheduler  Successfully assigned troubleshooting-lab/configuration to kartikey-devops
+  Normal   Pulled     7s (x3 over 20s)  kubelet            spec.containers{app}: Container image "busybox:1.36" already present on machine
+  Warning  Failed     7s (x3 over 20s)  kubelet            spec.containers{app}: Error: configmap "missing-env-config" not found
+Error from server (BadRequest): container "app" in pod "configuration" is waiting to start: CreateContainerConfigError
+LAST SEEN          TYPE      REASON      OBJECT              MESSAGE
+20s                Normal    Scheduled   Pod/configuration   Successfully assigned troubleshooting-lab/configuration to kartikey-devops
+7s (x3 over 20s)   Normal    Pulled      Pod/configuration   Container image "busybox:1.36" already present on machine
+7s (x3 over 20s)   Warning   Failed      Pod/configuration   Error: configmap "missing-env-config" not found
+=== configuration: fixed ===
+pod "configuration" deleted from troubleshooting-lab namespace
+pod/configuration created
+pod/configuration condition met
+NAME            READY   STATUS    RESTARTS   AGE
+configuration   1/1     Running   0          1s
+healthy
+=== dns: broken ===
+pod/dns created
+NAME   READY   STATUS    RESTARTS   AGE   IP            NODE              NOMINATED NODE   READINESS GATES
+dns    1/1     Running   0          20s   10.244.0.40   kartikey-devops   <none>           <none>
+Name:             dns
+Namespace:        troubleshooting-lab
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 18:19:15 +0530
+Labels:           <none>
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.40
+IPs:
+  IP:  10.244.0.40
+Containers:
+  app:
+    Container ID:  containerd://d74917df627129d6ba488a7fa471819da8ffdf1737efd29d2f5a94484e3e9e84
+    Image:         busybox:1.36
+    Image ID:      docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+      nslookup kubernetes.default.svc.cluster.local; sleep 3600
+    State:          Running
+      Started:      Wed, 07 Oct 2026 18:19:15 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-sp5r8 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-sp5r8:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  20s   default-scheduler  Successfully assigned troubleshooting-lab/dns to kartikey-devops
+  Normal  Pulled     20s   kubelet            spec.containers{app}: Container image "busybox:1.36" already present on machine
+  Normal  Created    20s   kubelet            spec.containers{app}: Created container: app
+  Normal  Started    20s   kubelet            spec.containers{app}: Started container app
+;; connection timed out; no servers could be reached
+
+nslookup: write to '127.0.0.1': Connection refused
+LAST SEEN   TYPE     REASON      OBJECT    MESSAGE
+20s         Normal   Scheduled   Pod/dns   Successfully assigned troubleshooting-lab/dns to kartikey-devops
+20s         Normal   Pulled      Pod/dns   Container image "busybox:1.36" already present on machine
+20s         Normal   Created     Pod/dns   Created container: app
+20s         Normal   Started     Pod/dns   Started container app
+=== dns: fixed ===
+pod "dns" deleted from troubleshooting-lab namespace
+pod/dns created
+pod/dns condition met
+NAME   READY   STATUS    RESTARTS   AGE
+dns    1/1     Running   0          1s
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+Name:	kubernetes.default.svc.cluster.local
+Address: 10.96.0.1
+
+
+deployment.apps/troubleshooting-app created
+service/troubleshooting-service created
+Waiting for deployment "troubleshooting-app" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "troubleshooting-app" rollout to finish: 1 of 2 updated replicas are available...
+deployment "troubleshooting-app" successfully rolled out
+service/troubleshooting-service patched
+NAME                                   READY   STATUS    RESTARTS   AGE     LABELS
+configuration                          1/1     Running   0          54s     <none>
+containercreating                      1/1     Running   0          76s     <none>
+crashloop                              1/1     Running   0          2m43s   <none>
+dns                                    1/1     Running   0          2s      <none>
+imagepull                              1/1     Running   0          2m20s   <none>
+pending                                1/1     Running   0          99s     <none>
+troubleshooting-app-7fc89bb698-kvr6s   1/1     Running   0          1s      app=troubleshooting-app,pod-template-hash=7fc89bb698
+troubleshooting-app-7fc89bb698-mm9p7   1/1     Running   0          1s      app=troubleshooting-app,pod-template-hash=7fc89bb698
+Name:                     troubleshooting-service
+Namespace:                troubleshooting-lab
+Labels:                   <none>
+Annotations:              <none>
+Selector:                 app=wrong-app
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.106.207.10
+IPs:                      10.106.207.10
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+Endpoints:                
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+NAME                            ADDRESSTYPE   PORTS     ENDPOINTS   AGE
+troubleshooting-service-gwd6k   IPv4          <unset>   <unset>     1s
+service/troubleshooting-service configured
+NAME                            ADDRESSTYPE   PORTS   ENDPOINTS                 AGE
+troubleshooting-service-gwd6k   IPv4          80      10.244.0.42,10.244.0.43   1s
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+service/troubleshooting-service patched
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+Expected the incorrect port to fail
++ NS=troubleshooting-lab
++ kubectl get service -n troubleshooting-lab troubleshooting-service -o yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"troubleshooting-service","namespace":"troubleshooting-lab"},"spec":{"ports":[{"port":80,"targetPort":80}],"selector":{"app":"troubleshooting-app"},"type":"ClusterIP"}}
+  creationTimestamp: "2026-10-07T12:50:07Z"
+  name: troubleshooting-service
+  namespace: troubleshooting-lab
+  resourceVersion: "2296"
+  uid: 50495cc5-06c5-48c0-97a5-7cc6523f2a34
+spec:
+  clusterIP: 10.106.207.10
+  clusterIPs:
+  - 10.106.207.10
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 81
+  selector:
+    app: troubleshooting-app
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
++ kubectl get endpointslices -n troubleshooting-lab -l kubernetes.io/service-name=troubleshooting-service
+NAME                            ADDRESSTYPE   PORTS   ENDPOINTS                 AGE
+troubleshooting-service-gwd6k   IPv4          81      10.244.0.42,10.244.0.43   102s
++ kubectl exec -n troubleshooting-lab crashloop -- wget -T 5 -qO- http://troubleshooting-service
+wget: can't connect to remote host (10.106.207.10): Connection refused
+command terminated with exit code 1
++ kubectl exec -n troubleshooting-lab deployment/troubleshooting-app -- curl -fsS localhost:80
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
++ kubectl apply -n troubleshooting-lab -f session-14-kubernetes-troubleshooting/mini-project/service.yaml
+service/troubleshooting-service configured
++ sleep 5
++ kubectl exec -n troubleshooting-lab crashloop -- wget -T 5 -qO- http://troubleshooting-service
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
++ kubectl explain pod.spec.containers.readinessProbe
+KIND:       Pod
+VERSION:    v1
+
+FIELD: readinessProbe <Probe>
+
+
+DESCRIPTION:
+    Periodic probe of container service readiness. Container will be removed
+    from service endpoints if the probe fails. Cannot be updated. More info:
+    https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+    Probe describes a health check to be performed against a container to
+    determine whether it is alive or ready to receive traffic.
+    
+FIELDS:
+  exec	<ExecAction>
+    Exec specifies a command to execute in the container.
+
+  failureThreshold	<integer>
+    Minimum consecutive failures for the probe to be considered failed after
+    having succeeded. Defaults to 3. Minimum value is 1.
+
+  grpc	<GRPCAction>
+    GRPC specifies a GRPC HealthCheckRequest.
+
+  httpGet	<HTTPGetAction>
+    HTTPGet specifies an HTTP GET request to perform.
+
+  initialDelaySeconds	<integer>
+    Number of seconds after the container has started before liveness probes are
+    initiated. More info:
+    https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+
+  periodSeconds	<integer>
+    How often (in seconds) to perform the probe. Default to 10 seconds. Minimum
+    value is 1.
+
+  successThreshold	<integer>
+    Minimum consecutive successes for the probe to be considered successful
+    after having failed. Defaults to 1. Must be 1 for liveness and startup.
+    Minimum value is 1.
+
+  tcpSocket	<TCPSocketAction>
+    TCPSocket specifies a connection to a TCP port.
+
+  terminationGracePeriodSeconds	<integer>
+    Optional duration in seconds the pod needs to terminate gracefully upon
+    probe failure. The grace period is the duration in seconds after the
+    processes running in the pod are sent a termination signal and the time when
+    the processes are forcibly halted with a kill signal. Set this value longer
+    than the expected cleanup time for your process. If this value is nil, the
+    pod's terminationGracePeriodSeconds will be used. Otherwise, this value
+    overrides the value provided by the pod spec. Value must be non-negative
+    integer. The value zero indicates stop immediately via the kill signal (no
+    opportunity to shut down). This is a beta field and requires enabling
+    ProbeTerminationGracePeriod feature gate. Minimum value is 1.
+    spec.terminationGracePeriodSeconds is used if unset.
+
+  timeoutSeconds	<integer>
+    Number of seconds after which the probe times out. Defaults to 1 second.
+    Minimum value is 1. More info:
+    https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+
+
++ kubectl top pods -n troubleshooting-lab
+NAME                                   CPU(cores)   MEMORY(bytes)   
+configuration                          0m           0Mi             
+containercreating                      0m           0Mi             
+crashloop                              0m           0Mi             
+dns                                    0m           0Mi             
+imagepull                              0m           8Mi             
+pending                                0m           0Mi             
+troubleshooting-app-7fc89bb698-kvr6s   0m           8Mi             
+troubleshooting-app-7fc89bb698-mm9p7   1m           8Mi             
++ kubectl get pods -n troubleshooting-lab -o wide
+NAME                                   READY   STATUS    RESTARTS   AGE     IP            NODE              NOMINATED NODE   READINESS GATES
+configuration                          1/1     Running   0          2m41s   10.244.0.39   kartikey-devops   <none>           <none>
+containercreating                      1/1     Running   0          3m3s    10.244.0.37   kartikey-devops   <none>           <none>
+crashloop                              1/1     Running   0          4m30s   10.244.0.23   kartikey-devops   <none>           <none>
+dns                                    1/1     Running   0          109s    10.244.0.41   kartikey-devops   <none>           <none>
+imagepull                              1/1     Running   0          4m7s    10.244.0.27   kartikey-devops   <none>           <none>
+pending                                1/1     Running   0          3m26s   10.244.0.33   kartikey-devops   <none>           <none>
+troubleshooting-app-7fc89bb698-kvr6s   1/1     Running   0          108s    10.244.0.42   kartikey-devops   <none>           <none>
+troubleshooting-app-7fc89bb698-mm9p7   1/1     Running   0          108s    10.244.0.43   kartikey-devops   <none>           <none>

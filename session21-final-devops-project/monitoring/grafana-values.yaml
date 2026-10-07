@@ -1,0 +1,40 @@
+service:
+  type: ClusterIP
+admin:
+  existingSecret: grafana-admin
+  userKey: username
+  passwordKey: password
+persistence:
+  enabled: false
+grafana.ini:
+  auth.anonymous:
+    enabled: true
+    org_role: Viewer
+  users:
+    allow_sign_up: false
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        access: proxy
+        url: http://monitoring-kube-prometheus-prometheus:9090
+        isDefault: true
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+      - name: coursework
+        orgId: 1
+        folder: Coursework
+        type: file
+        options:
+          path: /var/lib/grafana/dashboards/coursework
+dashboards:
+  coursework:
+    helpdesk:
+      json: ''
+resources:
+  requests: {cpu: 50m, memory: 128Mi}
+  limits: {cpu: 250m, memory: 256Mi}

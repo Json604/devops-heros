@@ -126,3 +126,33 @@ Kubernetes separates control decisions from the machines that run application Po
 4. The kubelet reports status back through the API. Controllers continue reconciling, while Service networking sends traffic to ready endpoints.
 
 **Reference:** [Kubernetes cluster architecture](https://kubernetes.io/docs/concepts/architecture/).
+
+## 6. Kubernetes Basics tutorial — deployment to rollback
+
+Completed on 7 October 2026 using the separate `kartikey-devops` Minikube profile (Kubernetes 1.34) and namespace `session9-basics`. The earlier installation screenshots above belong to the original profile; these are separate runs.
+
+Followed the [official Kubernetes Basics modules](https://kubernetes.io/docs/tutorials/kubernetes-basics/): cluster, deployment, exploration, Service, scaling and update. The application used `gcr.io/google-samples/kubernetes-bootcamp:v1`; its v2 update used `docker.io/jocatalin/kubernetes-bootcamp:v2`.
+
+| Module | Executed work and observation |
+|---|---|
+| Cluster | Used the Ready Minikube node and an isolated namespace |
+| Deploy | Created `kubernetes-bootcamp`; rollout reached available |
+| Explore | Inspected Deployment/Pods, read logs and ran curl inside the Pod |
+| Expose | Created a NodePort Service on port 8080; in-cluster HTTP reached the app |
+| Scale | Increased replicas from one to four; all four became available |
+| Update | Changed v1 to v2; observed the new ReplicaSet and v2 HTTP response |
+| Rollback | Undid the image rollout and verified v1 returned; scaled down to two |
+
+[Full commands and actual output](evidence/basics-tutorial.txt). The transcript retains the initial Service connection failure while networking converged and an unsupported curl option in the old reference image; the subsequent compatible request succeeded. Terminating Pods briefly coexist with the final two replicas because graceful termination is asynchronous.
+
+To inspect before cleanup:
+
+```bash
+kubectl --context=kartikey-devops -n session9-basics get deploy,rs,pods,svc
+kubectl --context=kartikey-devops -n session9-basics rollout history deployment/kubernetes-bootcamp
+kubectl --context=kartikey-devops -n session9-basics exec deploy/kubernetes-bootcamp -- curl -s localhost:8080
+```
+
+Cleanup: `kubectl --context=kartikey-devops delete namespace session9-basics`.
+
+![Bootcamp deployment, Service and rollback verification](screenshots/05-basics-tutorial.png)

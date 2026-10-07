@@ -49,7 +49,7 @@ function App() {
     `${ticket.title} ${ticket.requester} ${ticket.category}`.toLowerCase().includes(search.toLowerCase()));
 
   return <div className="workspace">
-    <header><div><p className="eyebrow">CAMPUS IT SERVICES</p><h1>Helpdesk</h1><p>Report a problem. Track it through resolution.</p></div><div className="identity"><strong>Kartikey</strong><span>24bcs10121</span></div></header>
+    <header><div><p className="eyebrow">CAMPUS IT SERVICES</p><h1>Helpdesk</h1><p>Report campus IT issues and follow each request to resolution.</p></div><div className="identity"><strong>Kartikey</strong><span>24bcs10121</span></div></header>
     <main>
       <section className="summary" aria-label="Ticket summary">
         {['ALL', ...states].map(state => <button key={state} className={filter === state ? 'metric selected' : 'metric'} onClick={() => setFilter(state)} aria-pressed={filter === state}>

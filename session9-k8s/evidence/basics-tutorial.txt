@@ -1,0 +1,284 @@
+$ kubectl --context=kartikey-devops -n session9-basics get deployment,pods -o wide
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS            IMAGES                                         SELECTOR
+deployment.apps/kubernetes-bootcamp   1/1     1            1           2m20s   kubernetes-bootcamp   gcr.io/google-samples/kubernetes-bootcamp:v1   app=kubernetes-bootcamp
+
+NAME                                       READY   STATUS    RESTARTS   AGE     IP            NODE              NOMINATED NODE   READINESS GATES
+pod/kubernetes-bootcamp-658f6cbd58-kfkp8   1/1     Running   0          2m20s   10.244.0.82   kartikey-devops   <none>           <none>
+
+$ kubectl --context=kartikey-devops -n session9-basics describe deployment kubernetes-bootcamp
+Name:                   kubernetes-bootcamp
+Namespace:              session9-basics
+CreationTimestamp:      Wed, 07 Oct 2026 22:33:48 +0530
+Labels:                 app=kubernetes-bootcamp
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=kubernetes-bootcamp
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=kubernetes-bootcamp
+  Containers:
+   kubernetes-bootcamp:
+    Image:         gcr.io/google-samples/kubernetes-bootcamp:v1
+    Port:          <none>
+    Host Port:     <none>
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   kubernetes-bootcamp-658f6cbd58 (1/1 replicas created)
+Events:
+  Type    Reason             Age    From                   Message
+  ----    ------             ----   ----                   -------
+  Normal  ScalingReplicaSet  2m20s  deployment-controller  Scaled up replica set kubernetes-bootcamp-658f6cbd58 from 0 to 1
+
+$ kubectl --context=kartikey-devops -n session9-basics logs deploy/kubernetes-bootcamp
+Kubernetes Bootcamp App Started At: 2026-10-07T17:05:02.086Z | Running On:  kubernetes-bootcamp-658f6cbd58-kfkp8 
+
+
+$ kubectl --context=kartikey-devops -n session9-basics exec deploy/kubernetes-bootcamp -- curl -s localhost:8080
+Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-658f6cbd58-kfkp8 | v=1
+
+$ kubectl --context=kartikey-devops -n session9-basics expose deployment kubernetes-bootcamp --type=NodePort --port=8080
+service/kubernetes-bootcamp exposed
+
+$ kubectl --context=kartikey-devops -n session9-basics get svc kubernetes-bootcamp
+NAME                  TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+kubernetes-bootcamp   NodePort   10.104.25.44   <none>        8080:31517/TCP   0s
+
+$ kubectl --context=kartikey-devops -n session9-basics exec deploy/kubernetes-bootcamp -- curl -s http://kubernetes-bootcamp:8080
+command terminated with exit code 7
+
+$ kubectl --context=kartikey-devops -n session9-basics get deployment,pods -o wide
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS            IMAGES                                         SELECTOR
+deployment.apps/kubernetes-bootcamp   1/1     1            1           2m43s   kubernetes-bootcamp   gcr.io/google-samples/kubernetes-bootcamp:v1   app=kubernetes-bootcamp
+
+NAME                                       READY   STATUS    RESTARTS   AGE     IP            NODE              NOMINATED NODE   READINESS GATES
+pod/kubernetes-bootcamp-658f6cbd58-kfkp8   1/1     Running   0          2m43s   10.244.0.82   kartikey-devops   <none>           <none>
+
+$ kubectl --context=kartikey-devops -n session9-basics describe deployment kubernetes-bootcamp
+Name:                   kubernetes-bootcamp
+Namespace:              session9-basics
+CreationTimestamp:      Wed, 07 Oct 2026 22:33:48 +0530
+Labels:                 app=kubernetes-bootcamp
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=kubernetes-bootcamp
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=kubernetes-bootcamp
+  Containers:
+   kubernetes-bootcamp:
+    Image:         gcr.io/google-samples/kubernetes-bootcamp:v1
+    Port:          <none>
+    Host Port:     <none>
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   kubernetes-bootcamp-658f6cbd58 (1/1 replicas created)
+Events:
+  Type    Reason             Age    From                   Message
+  ----    ------             ----   ----                   -------
+  Normal  ScalingReplicaSet  2m43s  deployment-controller  Scaled up replica set kubernetes-bootcamp-658f6cbd58 from 0 to 1
+
+$ kubectl --context=kartikey-devops -n session9-basics logs deploy/kubernetes-bootcamp
+Kubernetes Bootcamp App Started At: 2026-10-07T17:05:02.086Z | Running On:  kubernetes-bootcamp-658f6cbd58-kfkp8 
+
+Running On: kubernetes-bootcamp-658f6cbd58-kfkp8 | Total Requests: 1 | App Uptime: 66.266 seconds | Log Time: 2026-10-07T17:06:08.352Z
+
+$ kubectl --context=kartikey-devops -n session9-basics exec deploy/kubernetes-bootcamp -- curl -s localhost:8080
+Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-658f6cbd58-kfkp8 | v=1
+
+$ kubectl --context=kartikey-devops -n session9-basics get svc kubernetes-bootcamp
+NAME                  TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+kubernetes-bootcamp   NodePort   10.104.25.44   <none>        8080:31517/TCP   23s
+
+$ kubectl --context=kartikey-devops -n session9-basics get svc kubernetes-bootcamp
+NAME                  TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+kubernetes-bootcamp   NodePort   10.104.25.44   <none>        8080:31517/TCP   23s
+
+$ kubectl --context=kartikey-devops -n session9-basics exec deploy/kubernetes-bootcamp -- curl --retry 10 --retry-connrefused --retry-delay 2 -fsS http://kubernetes-bootcamp:8080
+curl: option --retry-connrefused: is unknown
+curl: try 'curl --help' or 'curl --manual' for more information
+command terminated with exit code 2
+
+$ kubectl --context=kartikey-devops -n session9-basics get deployment,pods -o wide
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS            IMAGES                                         SELECTOR
+deployment.apps/kubernetes-bootcamp   1/1     1            1           3m3s   kubernetes-bootcamp   gcr.io/google-samples/kubernetes-bootcamp:v1   app=kubernetes-bootcamp
+
+NAME                                       READY   STATUS    RESTARTS   AGE    IP            NODE              NOMINATED NODE   READINESS GATES
+pod/kubernetes-bootcamp-658f6cbd58-kfkp8   1/1     Running   0          3m3s   10.244.0.82   kartikey-devops   <none>           <none>
+
+$ kubectl --context=kartikey-devops -n session9-basics describe deployment kubernetes-bootcamp
+Name:                   kubernetes-bootcamp
+Namespace:              session9-basics
+CreationTimestamp:      Wed, 07 Oct 2026 22:33:48 +0530
+Labels:                 app=kubernetes-bootcamp
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=kubernetes-bootcamp
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=kubernetes-bootcamp
+  Containers:
+   kubernetes-bootcamp:
+    Image:         gcr.io/google-samples/kubernetes-bootcamp:v1
+    Port:          <none>
+    Host Port:     <none>
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   kubernetes-bootcamp-658f6cbd58 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  3m3s  deployment-controller  Scaled up replica set kubernetes-bootcamp-658f6cbd58 from 0 to 1
+
+$ kubectl --context=kartikey-devops -n session9-basics logs deploy/kubernetes-bootcamp
+Kubernetes Bootcamp App Started At: 2026-10-07T17:05:02.086Z | Running On:  kubernetes-bootcamp-658f6cbd58-kfkp8 
+
+Running On: kubernetes-bootcamp-658f6cbd58-kfkp8 | Total Requests: 1 | App Uptime: 66.266 seconds | Log Time: 2026-10-07T17:06:08.352Z
+Running On: kubernetes-bootcamp-658f6cbd58-kfkp8 | Total Requests: 2 | App Uptime: 89.702 seconds | Log Time: 2026-10-07T17:06:31.788Z
+
+$ kubectl --context=kartikey-devops -n session9-basics exec deploy/kubernetes-bootcamp -- curl -s localhost:8080
+Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-658f6cbd58-kfkp8 | v=1
+
+$ kubectl --context=kartikey-devops -n session9-basics get svc kubernetes-bootcamp
+NAME                  TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+kubernetes-bootcamp   NodePort   10.104.25.44   <none>        8080:31517/TCP   43s
+
+$ kubectl --context=kartikey-devops -n session9-basics get svc kubernetes-bootcamp
+NAME                  TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+kubernetes-bootcamp   NodePort   10.104.25.44   <none>        8080:31517/TCP   43s
+
+$ kubectl --context=kartikey-devops -n session9-basics exec deploy/kubernetes-bootcamp -- curl --retry 10 --retry-delay 2 -fsS http://kubernetes-bootcamp:8080
+Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-658f6cbd58-kfkp8 | v=1
+
+$ kubectl --context=kartikey-devops -n session9-basics scale deployment/kubernetes-bootcamp --replicas=4
+deployment.apps/kubernetes-bootcamp scaled
+
+$ kubectl --context=kartikey-devops -n session9-basics rollout status deployment/kubernetes-bootcamp --timeout=120s
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 1 of 4 updated replicas are available...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 2 of 4 updated replicas are available...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 3 of 4 updated replicas are available...
+deployment "kubernetes-bootcamp" successfully rolled out
+
+$ kubectl --context=kartikey-devops -n session9-basics get deployment,replicasets,pods
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/kubernetes-bootcamp   4/4     4            4           3m4s
+
+NAME                                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/kubernetes-bootcamp-658f6cbd58   4         4         4       3m4s
+
+NAME                                       READY   STATUS    RESTARTS   AGE
+pod/kubernetes-bootcamp-658f6cbd58-gfvm7   1/1     Running   0          1s
+pod/kubernetes-bootcamp-658f6cbd58-hg9kv   1/1     Running   0          1s
+pod/kubernetes-bootcamp-658f6cbd58-j46pc   1/1     Running   0          1s
+pod/kubernetes-bootcamp-658f6cbd58-kfkp8   1/1     Running   0          3m4s
+
+$ kubectl --context=kartikey-devops -n session9-basics set image deployment/kubernetes-bootcamp kubernetes-bootcamp=docker.io/jocatalin/kubernetes-bootcamp:v2
+deployment.apps/kubernetes-bootcamp image updated
+
+$ kubectl --context=kartikey-devops -n session9-basics rollout status deployment/kubernetes-bootcamp --timeout=120s
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 3 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 3 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 3 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 3 of 4 updated replicas are available...
+deployment "kubernetes-bootcamp" successfully rolled out
+
+$ kubectl --context=kartikey-devops -n session9-basics exec deploy/kubernetes-bootcamp -- curl -s localhost:8080
+Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-57cc954bb9-zp49m | v=2
+
+$ kubectl --context=kartikey-devops -n session9-basics get replicasets,pods
+NAME                                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/kubernetes-bootcamp-57cc954bb9   4         4         4       58s
+replicaset.apps/kubernetes-bootcamp-658f6cbd58   0         0         0       4m2s
+
+NAME                                       READY   STATUS        RESTARTS   AGE
+pod/kubernetes-bootcamp-57cc954bb9-kbts2   1/1     Running       0          3s
+pod/kubernetes-bootcamp-57cc954bb9-lq9jm   1/1     Running       0          4s
+pod/kubernetes-bootcamp-57cc954bb9-w45sn   1/1     Running       0          58s
+pod/kubernetes-bootcamp-57cc954bb9-zp49m   1/1     Running       0          58s
+pod/kubernetes-bootcamp-658f6cbd58-gfvm7   1/1     Terminating   0          59s
+pod/kubernetes-bootcamp-658f6cbd58-j46pc   1/1     Terminating   0          59s
+pod/kubernetes-bootcamp-658f6cbd58-kfkp8   1/1     Terminating   0          4m2s
+
+$ kubectl --context=kartikey-devops -n session9-basics rollout undo deployment/kubernetes-bootcamp
+deployment.apps/kubernetes-bootcamp rolled back
+
+$ kubectl --context=kartikey-devops -n session9-basics rollout status deployment/kubernetes-bootcamp --timeout=120s
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 1 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 3 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 3 out of 4 new replicas have been updated...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "kubernetes-bootcamp" rollout to finish: 1 old replicas are pending termination...
+deployment "kubernetes-bootcamp" successfully rolled out
+
+$ kubectl --context=kartikey-devops -n session9-basics exec deploy/kubernetes-bootcamp -- curl -s localhost:8080
+Hello Kubernetes bootcamp! | Running on: kubernetes-bootcamp-658f6cbd58-d8vs6 | v=1
+
+$ kubectl --context=kartikey-devops -n session9-basics scale deployment/kubernetes-bootcamp --replicas=2
+deployment.apps/kubernetes-bootcamp scaled
+
+$ kubectl --context=kartikey-devops -n session9-basics rollout status deployment/kubernetes-bootcamp --timeout=120s
+deployment "kubernetes-bootcamp" successfully rolled out
+
+$ kubectl --context=kartikey-devops -n session9-basics get deployment,pods,svc
+NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/kubernetes-bootcamp   2/2     2            2           4m4s
+
+NAME                                       READY   STATUS        RESTARTS   AGE
+pod/kubernetes-bootcamp-57cc954bb9-kbts2   1/1     Terminating   0          5s
+pod/kubernetes-bootcamp-57cc954bb9-lq9jm   1/1     Terminating   0          6s
+pod/kubernetes-bootcamp-57cc954bb9-w45sn   1/1     Terminating   0          60s
+pod/kubernetes-bootcamp-57cc954bb9-zp49m   1/1     Terminating   0          60s
+pod/kubernetes-bootcamp-658f6cbd58-9bzf6   1/1     Terminating   0          1s
+pod/kubernetes-bootcamp-658f6cbd58-d6fpw   1/1     Terminating   0          1s
+pod/kubernetes-bootcamp-658f6cbd58-d8vs6   1/1     Running       0          2s
+pod/kubernetes-bootcamp-658f6cbd58-gfvm7   1/1     Terminating   0          61s
+pod/kubernetes-bootcamp-658f6cbd58-j46pc   1/1     Terminating   0          61s
+pod/kubernetes-bootcamp-658f6cbd58-kfkp8   1/1     Terminating   0          4m4s
+pod/kubernetes-bootcamp-658f6cbd58-xgjtz   1/1     Running       0          2s
+
+NAME                          TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes-bootcamp   NodePort   10.104.25.44   <none>        8080:31517/TCP   104s
+

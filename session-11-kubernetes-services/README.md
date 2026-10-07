@@ -125,3 +125,18 @@ These screenshots show the listed commands and results from this cluster:
 - [12.1-docker-driver-direct-failure.png](./screenshots/12.1-docker-driver-direct-failure.png), [12.2-minikube-service-forward.png](./screenshots/12.2-minikube-service-forward.png)
 
 The LoadBalancer screenshot records its tunnel-assigned `127.0.0.1` address and successful HTTP response. The temporary `/etc/hosts` mapping was also created and checked during Session 12; direct `.local` lookup through curl timed out on macOS, while the port-forward Host-header request succeeded.
+
+## Required comparisons and DNS notes
+
+- [FQDN, namespaces and Pod-to-Service communication](fqdn/README.md)
+- [CoreDNS configuration, resolution and troubleshooting](coredns/README.md)
+
+| Concern | Deployment | ReplicaSet |
+|---|---|---|
+| Responsibility | Manage application revisions and rollout strategy | Maintain the requested number of matching Pods |
+| Pod management | Creates and scales ReplicaSets, which manage Pods | Creates replacements when too few matching Pods exist |
+| Scaling | Changes desired replicas across its managed ReplicaSets | Maintains its own replica count |
+| Application update | Creates a new ReplicaSet and coordinates rolling replacement | Does not orchestrate a rollout when its template changes |
+| Typical use | Declare a stateless application through a Deployment | Usually managed by a Deployment rather than edited independently |
+
+A ReplicaSet maintains Pod count; a Service provides a stable address and routes traffic to ready endpoints selected by labels. A Service neither creates Pods nor restarts failed ones. A ReplicaSet alone provides no stable client endpoint as Pod addresses change. The path is `client → Service IP/port → selected ready Pod IP/targetPort`; EndpointSlices describe those backends.

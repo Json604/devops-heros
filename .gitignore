@@ -20,3 +20,5 @@ kubeconfig*
 build/
 
 /session19-cloud-terraform/terraform.tfvars
+
+/session21-final-devops-project/terraform/terraform.tfvars

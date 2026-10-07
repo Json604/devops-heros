@@ -1,20 +1,21 @@
 ++ dirname session-15-helm/run-lab.sh
 + cd session-15-helm
++ HELM_BIN=/tmp/devops-tools/darwin-arm64/helm
 + CHART=mini-project/notes-chart
 + NS=helm-lab
 ++ mktemp -d
-+ TEMP_CHART=/var/folders/xn/whqtw2sn7hj8fp_5hkf1nj3r0000gn/T/tmp.dNpDoSHnyZ/practice
-+ helm create /var/folders/xn/whqtw2sn7hj8fp_5hkf1nj3r0000gn/T/tmp.dNpDoSHnyZ/practice
-Creating /var/folders/xn/whqtw2sn7hj8fp_5hkf1nj3r0000gn/T/tmp.dNpDoSHnyZ/practice
-+ helm repo add bitnami https://charts.bitnami.com/bitnami
-"bitnami" has been added to your repositories
-+ helm repo update
++ TEMP_CHART=/var/folders/xn/whqtw2sn7hj8fp_5hkf1nj3r0000gn/T/tmp.Mhq7IVCC0a/practice
++ /tmp/devops-tools/darwin-arm64/helm create /var/folders/xn/whqtw2sn7hj8fp_5hkf1nj3r0000gn/T/tmp.Mhq7IVCC0a/practice
+Creating /var/folders/xn/whqtw2sn7hj8fp_5hkf1nj3r0000gn/T/tmp.Mhq7IVCC0a/practice
++ /tmp/devops-tools/darwin-arm64/helm repo add bitnami https://charts.bitnami.com/bitnami
+"bitnami" already exists with the same configuration, skipping
++ /tmp/devops-tools/darwin-arm64/helm repo update
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "bitnami" chart repository
 Update Complete. ⎈Happy Helming!⎈
-+ helm search repo bitnami/nginx --versions
++ /tmp/devops-tools/darwin-arm64/helm search repo bitnami/nginx --versions
 + head -12
-NAME                            	CHART VERSION	APP VERSION	DESCRIPTION                                       
+NAME                            	CHART VERSION	APP VERSION	DESCRIPTION
 bitnami/nginx                   	25.2.1       	1.31.6     	NGINX Open Source is a web server that can be a...
 bitnami/nginx                   	25.2.0       	1.31.6     	NGINX Open Source is a web server that can be a...
 bitnami/nginx                   	25.1.15      	1.31.6     	NGINX Open Source is a web server that can be a...
@@ -26,12 +27,12 @@ bitnami/nginx                   	25.1.10      	1.31.5     	NGINX Open Source is 
 bitnami/nginx                   	25.1.9       	1.31.5     	NGINX Open Source is a web server that can be a...
 bitnami/nginx                   	25.1.5       	1.31.4     	NGINX Open Source is a web server that can be a...
 bitnami/nginx                   	25.1.1       	1.31.4     	NGINX Open Source is a web server that can be a...
-+ helm lint mini-project/notes-chart
++ /tmp/devops-tools/darwin-arm64/helm lint mini-project/notes-chart
 ==> Linting mini-project/notes-chart
 [INFO] Chart.yaml: icon is recommended
 
 1 chart(s) linted, 0 chart(s) failed
-+ helm template notes mini-project/notes-chart
++ /tmp/devops-tools/darwin-arm64/helm template notes mini-project/notes-chart
 ---
 # Source: notes-chart/templates/configmap.yaml
 apiVersion: v1
@@ -84,27 +85,27 @@ spec:
           envFrom:
             - configMapRef:
                 name: notes-config
-+ helm install notes mini-project/notes-chart -n helm-lab --create-namespace --wait --timeout 180s
++ /tmp/devops-tools/darwin-arm64/helm install notes mini-project/notes-chart -n helm-lab --create-namespace --wait --timeout 180s
 NAME: notes
-LAST DEPLOYED: Wed Oct  7 18:17:30 2026
+LAST DEPLOYED: Wed Oct  7 20:38:05 2026
 NAMESPACE: helm-lab
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-+ helm list -n helm-lab
++ /tmp/devops-tools/darwin-arm64/helm list -n helm-lab
 NAME 	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART            	APP VERSION
-notes	helm-lab 	1       	2026-10-07 18:17:30.081911 +0530 IST	deployed	notes-chart-0.1.0	1.0        
-+ helm status notes -n helm-lab
+notes	helm-lab 	1       	2026-10-07 20:38:05.985132 +0530 IST	deployed	notes-chart-0.1.0	1.0
++ /tmp/devops-tools/darwin-arm64/helm status notes -n helm-lab
 NAME: notes
-LAST DEPLOYED: Wed Oct  7 18:17:30 2026
+LAST DEPLOYED: Wed Oct  7 20:38:05 2026
 NAMESPACE: helm-lab
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
-+ helm get values notes -n helm-lab
++ /tmp/devops-tools/darwin-arm64/helm get values notes -n helm-lab
 USER-SUPPLIED VALUES:
 null
-+ helm get manifest notes -n helm-lab
++ /tmp/devops-tools/darwin-arm64/helm get manifest notes -n helm-lab
 ---
 # Source: notes-chart/templates/configmap.yaml
 apiVersion: v1
@@ -158,54 +159,367 @@ spec:
             - configMapRef:
                 name: notes-config
 
-+ helm upgrade notes mini-project/notes-chart -n helm-lab -f mini-project/notes-chart/values-prod.yaml --wait --timeout 180s
++ /tmp/devops-tools/darwin-arm64/helm upgrade notes mini-project/notes-chart -n helm-lab -f mini-project/notes-chart/values-prod.yaml --wait --timeout 180s
 Release "notes" has been upgraded. Happy Helming!
 NAME: notes
-LAST DEPLOYED: Wed Oct  7 18:18:02 2026
+LAST DEPLOYED: Wed Oct  7 20:38:08 2026
 NAMESPACE: helm-lab
 STATUS: deployed
 REVISION: 2
 TEST SUITE: None
 + kubectl get pods -n helm-lab
 NAME                            READY   STATUS    RESTARTS   AGE
-notes-deploy-65cc4fbfc8-452s2   1/1     Running   0          2s
-notes-deploy-65cc4fbfc8-8ztbl   1/1     Running   0          3s
-notes-deploy-65cc4fbfc8-hht6h   1/1     Running   0          28s
+notes-deploy-65cc4fbfc8-d7vmv   1/1     Running   0          4s
+notes-deploy-65cc4fbfc8-knxd8   1/1     Running   0          3s
+notes-deploy-65cc4fbfc8-znn94   1/1     Running   0          2s
 + kubectl exec -n helm-lab deploy/notes-deploy -- printenv ENVIRONMENT
 production
-+ helm upgrade notes mini-project/notes-chart -n helm-lab -f mini-project/notes-chart/values-prod.yaml --set replicaCount=2 --set app.environment=staging --wait --timeout 180s
++ /tmp/devops-tools/darwin-arm64/helm upgrade notes mini-project/notes-chart -n helm-lab -f mini-project/notes-chart/values-prod.yaml --set image.tag=broken-tag-does-not-exist
 Release "notes" has been upgraded. Happy Helming!
 NAME: notes
-LAST DEPLOYED: Wed Oct  7 18:18:30 2026
+LAST DEPLOYED: Wed Oct  7 20:38:12 2026
 NAMESPACE: helm-lab
 STATUS: deployed
 REVISION: 3
 TEST SUITE: None
++ failure_seen=false
++ for attempt in '{1..30}'
 + kubectl get pods -n helm-lab
-NAME                            READY   STATUS      RESTARTS   AGE
-notes-deploy-5ff8d7f679-5wlbz   1/1     Running     0          2s
-notes-deploy-5ff8d7f679-sv4zz   1/1     Running     0          1s
-notes-deploy-65cc4fbfc8-8ztbl   0/1     Completed   0          5s
-+ helm history notes -n helm-lab
-REVISION	UPDATED                 	STATUS    	CHART            	APP VERSION	DESCRIPTION     
-1       	Wed Oct  7 18:17:30 2026	superseded	notes-chart-0.1.0	1.0        	Install complete
-2       	Wed Oct  7 18:18:02 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
-3       	Wed Oct  7 18:18:30 2026	deployed  	notes-chart-0.1.0	1.0        	Upgrade complete
-+ helm rollback notes 1 -n helm-lab --wait --timeout 180s
+NAME                            READY   STATUS              RESTARTS   AGE
+notes-deploy-65cc4fbfc8-d7vmv   1/1     Running             0          4s
+notes-deploy-65cc4fbfc8-knxd8   1/1     Running             0          3s
+notes-deploy-65cc4fbfc8-znn94   1/1     Running             0          2s
+notes-deploy-d6f55464d-ctjtv    0/1     ContainerCreating   0          0s
+++ kubectl get pods -n helm-lab -o 'jsonpath={.items[*].status.containerStatuses[*].state.waiting.reason}'
++ reasons=ContainerCreating
++ [[ ContainerCreating == *ImagePullBackOff* ]]
++ sleep 5
++ for attempt in '{1..30}'
++ kubectl get pods -n helm-lab
+NAME                            READY   STATUS              RESTARTS   AGE
+notes-deploy-65cc4fbfc8-d7vmv   1/1     Running             0          9s
+notes-deploy-65cc4fbfc8-knxd8   1/1     Running             0          8s
+notes-deploy-65cc4fbfc8-znn94   1/1     Running             0          7s
+notes-deploy-d6f55464d-ctjtv    0/1     ContainerCreating   0          5s
+++ kubectl get pods -n helm-lab -o 'jsonpath={.items[*].status.containerStatuses[*].state.waiting.reason}'
++ reasons=ContainerCreating
++ [[ ContainerCreating == *ImagePullBackOff* ]]
++ sleep 5
++ for attempt in '{1..30}'
++ kubectl get pods -n helm-lab
+NAME                            READY   STATUS         RESTARTS   AGE
+notes-deploy-65cc4fbfc8-d7vmv   1/1     Running        0          14s
+notes-deploy-65cc4fbfc8-knxd8   1/1     Running        0          13s
+notes-deploy-65cc4fbfc8-znn94   1/1     Running        0          12s
+notes-deploy-d6f55464d-ctjtv    0/1     ErrImagePull   0          10s
+++ kubectl get pods -n helm-lab -o 'jsonpath={.items[*].status.containerStatuses[*].state.waiting.reason}'
++ reasons=ErrImagePull
++ [[ ErrImagePull == *ImagePullBackOff* ]]
++ sleep 5
++ for attempt in '{1..30}'
++ kubectl get pods -n helm-lab
+NAME                            READY   STATUS         RESTARTS   AGE
+notes-deploy-65cc4fbfc8-d7vmv   1/1     Running        0          20s
+notes-deploy-65cc4fbfc8-knxd8   1/1     Running        0          19s
+notes-deploy-65cc4fbfc8-znn94   1/1     Running        0          18s
+notes-deploy-d6f55464d-ctjtv    0/1     ErrImagePull   0          16s
+++ kubectl get pods -n helm-lab -o 'jsonpath={.items[*].status.containerStatuses[*].state.waiting.reason}'
++ reasons=ErrImagePull
++ [[ ErrImagePull == *ImagePullBackOff* ]]
++ sleep 5
++ for attempt in '{1..30}'
++ kubectl get pods -n helm-lab
+NAME                            READY   STATUS             RESTARTS   AGE
+notes-deploy-65cc4fbfc8-d7vmv   1/1     Running            0          25s
+notes-deploy-65cc4fbfc8-knxd8   1/1     Running            0          24s
+notes-deploy-65cc4fbfc8-znn94   1/1     Running            0          23s
+notes-deploy-d6f55464d-ctjtv    0/1     ImagePullBackOff   0          21s
+++ kubectl get pods -n helm-lab -o 'jsonpath={.items[*].status.containerStatuses[*].state.waiting.reason}'
++ reasons=ImagePullBackOff
++ [[ ImagePullBackOff == *ImagePullBackOff* ]]
++ failure_seen=true
++ break
++ kubectl describe pods -n helm-lab
+Name:             notes-deploy-65cc4fbfc8-d7vmv
+Namespace:        helm-lab
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 20:38:08 +0530
+Labels:           app=notes
+                  pod-template-hash=65cc4fbfc8
+Annotations:      checksum/config: d9972a798d862c4184419eb7afd57705f33d2ab9874d3794206200d2346bbffe
+Status:           Running
+IP:               10.244.0.75
+IPs:
+  IP:           10.244.0.75
+Controlled By:  ReplicaSet/notes-deploy-65cc4fbfc8
+Containers:
+  notes:
+    Container ID:   containerd://1b3d11e3a0914e2b0b4f09a3b4388cbda9a7dd1b1113904ee0abd705ef556853
+    Image:          nginx:1.25
+    Image ID:       docker.io/library/nginx@sha256:a484819eb60211f5299034ac80f6a681b06f89e65866ce91f356ed7c72af059c
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 07 Oct 2026 20:38:08 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment Variables from:
+      notes-config  ConfigMap  Optional: false
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-2bk95 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-2bk95:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             notes-deploy-65cc4fbfc8-knxd8
+Namespace:        helm-lab
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 20:38:09 +0530
+Labels:           app=notes
+                  pod-template-hash=65cc4fbfc8
+Annotations:      checksum/config: d9972a798d862c4184419eb7afd57705f33d2ab9874d3794206200d2346bbffe
+Status:           Running
+IP:               10.244.0.76
+IPs:
+  IP:           10.244.0.76
+Controlled By:  ReplicaSet/notes-deploy-65cc4fbfc8
+Containers:
+  notes:
+    Container ID:   containerd://b657a1c1af3fce6c83e763ece6a78425e2da4c62e101a4cdb923758cb3d7b27d
+    Image:          nginx:1.25
+    Image ID:       docker.io/library/nginx@sha256:a484819eb60211f5299034ac80f6a681b06f89e65866ce91f356ed7c72af059c
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 07 Oct 2026 20:38:09 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment Variables from:
+      notes-config  ConfigMap  Optional: false
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-bqcv6 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-bqcv6:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             notes-deploy-65cc4fbfc8-znn94
+Namespace:        helm-lab
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 20:38:10 +0530
+Labels:           app=notes
+                  pod-template-hash=65cc4fbfc8
+Annotations:      checksum/config: d9972a798d862c4184419eb7afd57705f33d2ab9874d3794206200d2346bbffe
+Status:           Running
+IP:               10.244.0.77
+IPs:
+  IP:           10.244.0.77
+Controlled By:  ReplicaSet/notes-deploy-65cc4fbfc8
+Containers:
+  notes:
+    Container ID:   containerd://b88c2dec610b6129b78f7e8e2f669d3166681ab2866d82163aad01308bb23d1e
+    Image:          nginx:1.25
+    Image ID:       docker.io/library/nginx@sha256:a484819eb60211f5299034ac80f6a681b06f89e65866ce91f356ed7c72af059c
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 07 Oct 2026 20:38:10 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment Variables from:
+      notes-config  ConfigMap  Optional: false
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-82v7j (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-82v7j:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             notes-deploy-d6f55464d-ctjtv
+Namespace:        helm-lab
+Priority:         0
+Service Account:  default
+Node:             kartikey-devops/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 20:38:12 +0530
+Labels:           app=notes
+                  pod-template-hash=d6f55464d
+Annotations:      checksum/config: d9972a798d862c4184419eb7afd57705f33d2ab9874d3794206200d2346bbffe
+Status:           Pending
+IP:               10.244.0.78
+IPs:
+  IP:           10.244.0.78
+Controlled By:  ReplicaSet/notes-deploy-d6f55464d
+Containers:
+  notes:
+    Container ID:
+    Image:          nginx:broken-tag-does-not-exist
+    Image ID:
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Environment Variables from:
+      notes-config  ConfigMap  Optional: false
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-skjj9 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       False
+  ContainersReady             False
+  PodScheduled                True
+Volumes:
+  kube-api-access-skjj9:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
++ kubectl get events -n helm-lab --sort-by=.lastTimestamp
+LAST SEEN   TYPE      REASON              OBJECT                               MESSAGE
+27s         Normal    ScalingReplicaSet   deployment/notes-deploy              Scaled up replica set notes-deploy-6d679fd645 from 0 to 1
+27s         Normal    Scheduled           pod/notes-deploy-6d679fd645-qxhlz    Successfully assigned helm-lab/notes-deploy-6d679fd645-qxhlz to kartikey-devops
+27s         Normal    Pulled              pod/notes-deploy-6d679fd645-qxhlz    Container image "nginx:1.24" already present on machine
+27s         Normal    Created             pod/notes-deploy-6d679fd645-qxhlz    Created container: notes
+27s         Normal    Started             pod/notes-deploy-6d679fd645-qxhlz    Started container notes
+27s         Normal    SuccessfulCreate    replicaset/notes-deploy-6d679fd645   Created pod: notes-deploy-6d679fd645-qxhlz
+25s         Normal    ScalingReplicaSet   deployment/notes-deploy              Scaled up replica set notes-deploy-6d679fd645 from 1 to 3
+25s         Normal    Scheduled           pod/notes-deploy-6d679fd645-7mzg9    Successfully assigned helm-lab/notes-deploy-6d679fd645-7mzg9 to kartikey-devops
+25s         Normal    SuccessfulCreate    replicaset/notes-deploy-6d679fd645   Created pod: notes-deploy-6d679fd645-j8rqh
+25s         Normal    Started             pod/notes-deploy-6d679fd645-j8rqh    Started container notes
+25s         Normal    ScalingReplicaSet   deployment/notes-deploy              Scaled up replica set notes-deploy-65cc4fbfc8 from 0 to 1
+25s         Normal    Started             pod/notes-deploy-65cc4fbfc8-d7vmv    Started container notes
+25s         Normal    SuccessfulCreate    replicaset/notes-deploy-65cc4fbfc8   Created pod: notes-deploy-65cc4fbfc8-d7vmv
+25s         Normal    Scheduled           pod/notes-deploy-65cc4fbfc8-d7vmv    Successfully assigned helm-lab/notes-deploy-65cc4fbfc8-d7vmv to kartikey-devops
+25s         Normal    Created             pod/notes-deploy-65cc4fbfc8-d7vmv    Created container: notes
+25s         Normal    SuccessfulCreate    replicaset/notes-deploy-6d679fd645   Created pod: notes-deploy-6d679fd645-7mzg9
+25s         Normal    Pulled              pod/notes-deploy-6d679fd645-7mzg9    Container image "nginx:1.24" already present on machine
+25s         Normal    Created             pod/notes-deploy-6d679fd645-7mzg9    Created container: notes
+25s         Normal    Started             pod/notes-deploy-6d679fd645-7mzg9    Started container notes
+25s         Normal    Pulled              pod/notes-deploy-65cc4fbfc8-d7vmv    Container image "nginx:1.25" already present on machine
+25s         Normal    Scheduled           pod/notes-deploy-6d679fd645-j8rqh    Successfully assigned helm-lab/notes-deploy-6d679fd645-j8rqh to kartikey-devops
+25s         Normal    Pulled              pod/notes-deploy-6d679fd645-j8rqh    Container image "nginx:1.24" already present on machine
+25s         Normal    Created             pod/notes-deploy-6d679fd645-j8rqh    Created container: notes
+24s         Normal    SuccessfulCreate    replicaset/notes-deploy-65cc4fbfc8   Created pod: notes-deploy-65cc4fbfc8-knxd8
+24s         Normal    Started             pod/notes-deploy-65cc4fbfc8-knxd8    Started container notes
+24s         Normal    ScalingReplicaSet   deployment/notes-deploy              Scaled up replica set notes-deploy-65cc4fbfc8 from 1 to 2
+24s         Normal    ScalingReplicaSet   deployment/notes-deploy              Scaled down replica set notes-deploy-6d679fd645 from 3 to 2
+24s         Normal    Scheduled           pod/notes-deploy-65cc4fbfc8-knxd8    Successfully assigned helm-lab/notes-deploy-65cc4fbfc8-knxd8 to kartikey-devops
+24s         Normal    Pulled              pod/notes-deploy-65cc4fbfc8-knxd8    Container image "nginx:1.25" already present on machine
+24s         Normal    Created             pod/notes-deploy-65cc4fbfc8-knxd8    Created container: notes
+24s         Normal    SuccessfulDelete    replicaset/notes-deploy-6d679fd645   Deleted pod: notes-deploy-6d679fd645-j8rqh
+23s         Normal    Scheduled           pod/notes-deploy-65cc4fbfc8-znn94    Successfully assigned helm-lab/notes-deploy-65cc4fbfc8-znn94 to kartikey-devops
+23s         Normal    Created             pod/notes-deploy-65cc4fbfc8-znn94    Created container: notes
+23s         Normal    Pulled              pod/notes-deploy-65cc4fbfc8-znn94    Container image "nginx:1.25" already present on machine
+23s         Normal    SuccessfulDelete    replicaset/notes-deploy-6d679fd645   Deleted pod: notes-deploy-6d679fd645-7mzg9
+23s         Normal    ScalingReplicaSet   deployment/notes-deploy              Scaled up replica set notes-deploy-65cc4fbfc8 from 2 to 3
+23s         Normal    ScalingReplicaSet   deployment/notes-deploy              Scaled down replica set notes-deploy-6d679fd645 from 2 to 1
+23s         Normal    Killing             pod/notes-deploy-6d679fd645-7mzg9    Stopping container notes
+23s         Normal    SuccessfulCreate    replicaset/notes-deploy-65cc4fbfc8   Created pod: notes-deploy-65cc4fbfc8-znn94
+23s         Normal    Started             pod/notes-deploy-65cc4fbfc8-znn94    Started container notes
+23s         Normal    Killing             pod/notes-deploy-6d679fd645-j8rqh    Stopping container notes
+22s         Normal    SuccessfulDelete    replicaset/notes-deploy-6d679fd645   Deleted pod: notes-deploy-6d679fd645-qxhlz
+22s         Normal    ScalingReplicaSet   deployment/notes-deploy              Scaled down replica set notes-deploy-6d679fd645 from 1 to 0
+22s         Normal    Killing             pod/notes-deploy-6d679fd645-qxhlz    Stopping container notes
+21s         Normal    SuccessfulCreate    replicaset/notes-deploy-d6f55464d    Created pod: notes-deploy-d6f55464d-ctjtv
+21s         Normal    Scheduled           pod/notes-deploy-d6f55464d-ctjtv     Successfully assigned helm-lab/notes-deploy-d6f55464d-ctjtv to kartikey-devops
+21s         Normal    ScalingReplicaSet   deployment/notes-deploy              Scaled up replica set notes-deploy-d6f55464d from 0 to 1
+14s         Warning   Failed              pod/notes-deploy-d6f55464d-ctjtv     Error: ImagePullBackOff
+14s         Normal    BackOff             pod/notes-deploy-d6f55464d-ctjtv     Back-off pulling image "nginx:broken-tag-does-not-exist"
+3s          Normal    Pulling             pod/notes-deploy-d6f55464d-ctjtv     Pulling image "nginx:broken-tag-does-not-exist"
+2s          Warning   Failed              pod/notes-deploy-d6f55464d-ctjtv     Error: ErrImagePull
+2s          Warning   Failed              pod/notes-deploy-d6f55464d-ctjtv     Failed to pull image "nginx:broken-tag-does-not-exist": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/library/nginx:broken-tag-does-not-exist": failed to resolve reference "docker.io/library/nginx:broken-tag-does-not-exist": docker.io/library/nginx:broken-tag-does-not-exist: not found
++ test true = true
++ kubectl get pods -n helm-lab
+NAME                            READY   STATUS             RESTARTS   AGE
+notes-deploy-65cc4fbfc8-d7vmv   1/1     Running            0          25s
+notes-deploy-65cc4fbfc8-knxd8   1/1     Running            0          24s
+notes-deploy-65cc4fbfc8-znn94   1/1     Running            0          23s
+notes-deploy-d6f55464d-ctjtv    0/1     ImagePullBackOff   0          21s
++ /tmp/devops-tools/darwin-arm64/helm history notes -n helm-lab
+REVISION	UPDATED                 	STATUS    	CHART            	APP VERSION	DESCRIPTION
+1       	Wed Oct  7 20:38:05 2026	superseded	notes-chart-0.1.0	1.0        	Install complete
+2       	Wed Oct  7 20:38:08 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+3       	Wed Oct  7 20:38:12 2026	deployed  	notes-chart-0.1.0	1.0        	Upgrade complete
++ /tmp/devops-tools/darwin-arm64/helm rollback notes 2 -n helm-lab --wait --timeout 180s
 Rollback was a success! Happy Helming!
-+ helm history notes -n helm-lab
-REVISION	UPDATED                 	STATUS    	CHART            	APP VERSION	DESCRIPTION     
-1       	Wed Oct  7 18:17:30 2026	superseded	notes-chart-0.1.0	1.0        	Install complete
-2       	Wed Oct  7 18:18:02 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
-3       	Wed Oct  7 18:18:30 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
-4       	Wed Oct  7 18:18:32 2026	deployed  	notes-chart-0.1.0	1.0        	Rollback to 1   
++ /tmp/devops-tools/darwin-arm64/helm history notes -n helm-lab
+REVISION	UPDATED                 	STATUS    	CHART            	APP VERSION	DESCRIPTION
+1       	Wed Oct  7 20:38:05 2026	superseded	notes-chart-0.1.0	1.0        	Install complete
+2       	Wed Oct  7 20:38:08 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+3       	Wed Oct  7 20:38:12 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+4       	Wed Oct  7 20:38:33 2026	deployed  	notes-chart-0.1.0	1.0        	Rollback to 2
 + kubectl get pods -n helm-lab
-NAME                            READY   STATUS      RESTARTS   AGE
-notes-deploy-5ff8d7f679-5wlbz   0/1     Completed   0          5s
-notes-deploy-6d679fd645-bc5v2   1/1     Running     0          3s
+NAME                            READY   STATUS    RESTARTS   AGE
+notes-deploy-65cc4fbfc8-d7vmv   1/1     Running   0          27s
+notes-deploy-65cc4fbfc8-knxd8   1/1     Running   0          26s
+notes-deploy-65cc4fbfc8-znn94   1/1     Running   0          25s
 + kubectl exec -n helm-lab deploy/notes-deploy -- printenv ENVIRONMENT
-development
-+ helm uninstall notes -n helm-lab --wait
+production
++ /tmp/devops-tools/darwin-arm64/helm uninstall notes -n helm-lab --wait
 release "notes" uninstalled
-+ helm list -n helm-lab
++ /tmp/devops-tools/darwin-arm64/helm list -n helm-lab
 NAME	NAMESPACE	REVISION	UPDATED	STATUS	CHART	APP VERSION

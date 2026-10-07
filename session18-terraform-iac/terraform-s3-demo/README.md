@@ -37,7 +37,7 @@ terraform apply destroy.tfplan
 # terraform destroy
 ```
 
-Review both plans before applying. The bucket name must be globally unique; append your account ID if needed. AWS can charge for stored data and requests. Live apply and destroy were not performed because this run had no configured AWS credentials or spending approval. Keep screenshots of the actual bucket and command results when completing that requirement.
+Review both plans before applying. The bucket name must be globally unique; append your account ID if needed. AWS can charge for stored data and requests. Live apply and destroy remain pending AWS authentication. The account was identified in browser sign-in, but CLI authentication returned HTTP 400 and no usable local profile was created. Keep screenshots of the actual bucket and command results when completing that requirement.
 
 Do not commit credentials, state or plan files. Terraform state maps resource addresses to real AWS objects and may contain sensitive values. This lab defaults to local state; team use should configure an encrypted remote backend with restricted access and locking. Do not delete state as a substitute for `terraform destroy`.
 

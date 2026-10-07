@@ -1,0 +1,574 @@
++ kubectl get hpa,pods -n production-webapp
+NAME                                              REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         2          144m
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/web-app-5b6bd49dd5-7rr5n   1/1     Running   0          142m
+pod/web-app-5b6bd49dd5-t5h2k   1/1     Running   0          144m
++ kubectl exec -n production-webapp deployment/web-app -- curl -fsS http://web-service
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
++ kubectl apply -f session-13-storage-hpa-probes/mini-project/load-generator.yaml
+deployment.apps/web-load-generator created
++ kubectl rollout status deployment/web-load-generator -n production-webapp --timeout=180s
+Waiting for deployment "web-load-generator" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "web-load-generator" rollout to finish: 1 of 2 updated replicas are available...
+deployment "web-load-generator" successfully rolled out
++ scaled=false
++ for i in '{1..48}'
++ kubectl get hpa,pods -n production-webapp
+NAME                                              REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         2          145m
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/web-app-5b6bd49dd5-7rr5n             1/1     Running   0          142m
+pod/web-app-5b6bd49dd5-t5h2k             1/1     Running   0          145m
+pod/web-load-generator-b5c8b6f69-fqsht   1/1     Running   0          10s
+pod/web-load-generator-b5c8b6f69-m8ll5   1/1     Running   0          10s
++ kubectl top pods -n production-webapp -l app=web-app
+NAME                       CPU(cores)   MEMORY(bytes)
+web-app-5b6bd49dd5-7rr5n   1m           8Mi
+web-app-5b6bd49dd5-t5h2k   1m           8Mi
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.readyReplicas}'
++ replicas=2
++ [[ 2 -gt 2 ]]
++ sleep 10
++ for i in '{1..48}'
++ kubectl get hpa,pods -n production-webapp
+NAME                                              REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         2          145m
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/web-app-5b6bd49dd5-7rr5n             1/1     Running   0          142m
+pod/web-app-5b6bd49dd5-t5h2k             1/1     Running   0          145m
+pod/web-load-generator-b5c8b6f69-fqsht   1/1     Running   0          20s
+pod/web-load-generator-b5c8b6f69-m8ll5   1/1     Running   0          20s
++ kubectl top pods -n production-webapp -l app=web-app
+NAME                       CPU(cores)   MEMORY(bytes)
+web-app-5b6bd49dd5-7rr5n   1m           8Mi
+web-app-5b6bd49dd5-t5h2k   1m           8Mi
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.readyReplicas}'
++ replicas=2
++ [[ 2 -gt 2 ]]
++ sleep 10
++ for i in '{1..48}'
++ kubectl get hpa,pods -n production-webapp
+NAME                                              REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         2          145m
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/web-app-5b6bd49dd5-7rr5n             1/1     Running   0          142m
+pod/web-app-5b6bd49dd5-t5h2k             1/1     Running   0          145m
+pod/web-load-generator-b5c8b6f69-fqsht   1/1     Running   0          30s
+pod/web-load-generator-b5c8b6f69-m8ll5   1/1     Running   0          30s
++ kubectl top pods -n production-webapp -l app=web-app
+NAME                       CPU(cores)   MEMORY(bytes)
+web-app-5b6bd49dd5-7rr5n   1m           8Mi
+web-app-5b6bd49dd5-t5h2k   1m           8Mi
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.readyReplicas}'
++ replicas=2
++ [[ 2 -gt 2 ]]
++ sleep 10
++ for i in '{1..48}'
++ kubectl get hpa,pods -n production-webapp
+NAME                                              REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         2          145m
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/web-app-5b6bd49dd5-7rr5n             1/1     Running   0          143m
+pod/web-app-5b6bd49dd5-t5h2k             1/1     Running   0          145m
+pod/web-load-generator-b5c8b6f69-fqsht   1/1     Running   0          40s
+pod/web-load-generator-b5c8b6f69-m8ll5   1/1     Running   0          40s
++ kubectl top pods -n production-webapp -l app=web-app
+NAME                       CPU(cores)   MEMORY(bytes)
+web-app-5b6bd49dd5-7rr5n   1m           8Mi
+web-app-5b6bd49dd5-t5h2k   1m           8Mi
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.readyReplicas}'
++ replicas=2
++ [[ 2 -gt 2 ]]
++ sleep 10
++ for i in '{1..48}'
++ kubectl get hpa,pods -n production-webapp
+NAME                                              REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         2          145m
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/web-app-5b6bd49dd5-7rr5n             1/1     Running   0          143m
+pod/web-app-5b6bd49dd5-t5h2k             1/1     Running   0          145m
+pod/web-load-generator-b5c8b6f69-fqsht   1/1     Running   0          50s
+pod/web-load-generator-b5c8b6f69-m8ll5   1/1     Running   0          50s
++ kubectl top pods -n production-webapp -l app=web-app
+NAME                       CPU(cores)   MEMORY(bytes)
+web-app-5b6bd49dd5-7rr5n   1m           8Mi
+web-app-5b6bd49dd5-t5h2k   1m           8Mi
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.readyReplicas}'
++ replicas=2
++ [[ 2 -gt 2 ]]
++ sleep 10
++ for i in '{1..48}'
++ kubectl get hpa,pods -n production-webapp
+NAME                                              REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 128%/50%   2         5         2          145m
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/web-app-5b6bd49dd5-2bnrn             0/1     Running   0          3s
+pod/web-app-5b6bd49dd5-47dcl             0/1     Running   0          3s
+pod/web-app-5b6bd49dd5-7rr5n             1/1     Running   0          143m
+pod/web-app-5b6bd49dd5-t5h2k             1/1     Running   0          145m
+pod/web-load-generator-b5c8b6f69-fqsht   1/1     Running   0          60s
+pod/web-load-generator-b5c8b6f69-m8ll5   1/1     Running   0          60s
++ kubectl top pods -n production-webapp -l app=web-app
+NAME                       CPU(cores)   MEMORY(bytes)
+web-app-5b6bd49dd5-7rr5n   132m         9Mi
+web-app-5b6bd49dd5-t5h2k   125m         11Mi
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.readyReplicas}'
++ replicas=2
++ [[ 2 -gt 2 ]]
++ sleep 10
++ for i in '{1..48}'
++ kubectl get hpa,pods -n production-webapp
+NAME                                              REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 128%/50%   2         5         2          146m
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/web-app-5b6bd49dd5-2bnrn             1/1     Running   0          13s
+pod/web-app-5b6bd49dd5-47dcl             1/1     Running   0          13s
+pod/web-app-5b6bd49dd5-7rr5n             1/1     Running   0          143m
+pod/web-app-5b6bd49dd5-t5h2k             1/1     Running   0          146m
+pod/web-load-generator-b5c8b6f69-fqsht   1/1     Running   0          70s
+pod/web-load-generator-b5c8b6f69-m8ll5   1/1     Running   0          70s
++ kubectl top pods -n production-webapp -l app=web-app
+NAME                       CPU(cores)   MEMORY(bytes)
+web-app-5b6bd49dd5-7rr5n   132m         9Mi
+web-app-5b6bd49dd5-t5h2k   125m         11Mi
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.readyReplicas}'
++ replicas=4
++ [[ 4 -gt 2 ]]
++ scaled=true
++ break
++ kubectl describe hpa web-app-hpa -n production-webapp
+Name:                                                  web-app-hpa
+Namespace:                                             production-webapp
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Wed, 07 Oct 2026 18:12:30 +0530
+Reference:                                             Deployment/web-app
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  128% (128m) / 50%
+Min replicas:                                          2
+Max replicas:                                          5
+Deployment pods:                                       2 current / 4 desired
+Conditions:
+  Type            Status  Reason            Message
+  ----            ------  ------            -------
+  AbleToScale     True    SucceededRescale  the HPA controller was able to update the target scale to 4
+  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  True    ScaleUpLimit      the desired replica count is increasing faster than the maximum scale rate
+Events:
+  Type    Reason             Age   From                       Message
+  ----    ------             ----  ----                       -------
+  Normal  SuccessfulRescale  14s   horizontal-pod-autoscaler  New size: 4; reason: cpu resource utilization (percentage of request) above target
++ test true = true
++ cleanup
++ kubectl delete deployment web-load-generator -n production-webapp --ignore-not-found
+deployment.apps "web-load-generator" deleted from production-webapp namespace
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 128%/50%   2         5         2          146m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=4
++ [[ 4 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 128%/50%   2         5         4          146m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 128%/50%   2         5         5          146m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 128%/50%   2         5         5          146m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 128%/50%   2         5         5          146m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 83%/50%   2         5         5          146m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 83%/50%   2         5         5          147m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 83%/50%   2         5         5          147m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 83%/50%   2         5         5          147m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 83%/50%   2         5         5          147m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 83%/50%   2         5         5          147m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          147m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          148m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          148m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          148m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          148m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          148m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          148m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          149m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          149m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          149m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          149m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          149m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          149m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          150m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          150m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          150m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          150m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          150m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          150m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          151m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          151m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          151m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          151m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          151m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          151m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          152m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          152m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          152m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=5
++ [[ 5 = 2 ]]
++ sleep 10
++ for i in '{1..54}'
++ kubectl get hpa -n production-webapp
+NAME          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         5          152m
+++ kubectl get deployment web-app -n production-webapp -o 'jsonpath={.status.replicas}'
++ replicas=2
++ [[ 2 = 2 ]]
++ kubectl get pods -n production-webapp
+NAME                       READY   STATUS    RESTARTS   AGE
+web-app-5b6bd49dd5-7rr5n   1/1     Running   0          150m
+web-app-5b6bd49dd5-t5h2k   1/1     Running   0          152m
++ kubectl describe hpa web-app-hpa -n production-webapp
+Name:                                                  web-app-hpa
+Namespace:                                             production-webapp
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Wed, 07 Oct 2026 18:12:30 +0530
+Reference:                                             Deployment/web-app
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  1% (1m) / 50%
+Min replicas:                                          2
+Max replicas:                                          5
+Deployment pods:                                       5 current / 2 desired
+Conditions:
+  Type            Status  Reason            Message
+  ----            ------  ------            -------
+  AbleToScale     True    SucceededRescale  the HPA controller was able to update the target scale to 2
+  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  True    TooFewReplicas    the desired replica count is less than the minimum replica count
+Events:
+  Type    Reason             Age    From                       Message
+  ----    ------             ----   ----                       -------
+  Normal  SuccessfulRescale  6m48s  horizontal-pod-autoscaler  New size: 4; reason: cpu resource utilization (percentage of request) above target
+  Normal  SuccessfulRescale  6m33s  horizontal-pod-autoscaler  New size: 5; reason: cpu resource utilization (percentage of request) above target
+  Normal  SuccessfulRescale  2s     horizontal-pod-autoscaler  New size: 2; reason: All metrics below target
++ trap - EXIT
++ exit 0
+deployment "web-app" successfully rolled out
+NAME                                              REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 1%/50%   2         5         2          154m
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/web-app-5b6bd49dd5-7rr5n   1/1     Running   0          151m
+pod/web-app-5b6bd49dd5-t5h2k   1/1     Running   0          154m
+Name:                                                  web-app-hpa
+Namespace:                                             production-webapp
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Wed, 07 Oct 2026 18:12:30 +0530
+Reference:                                             Deployment/web-app
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  1% (1m) / 50%
+Min replicas:                                          2
+Max replicas:                                          5
+Deployment pods:                                       2 current / 2 desired
+Conditions:
+  Type            Status  Reason            Message
+  ----            ------  ------            -------
+  AbleToScale     True    ReadyForNewScale  recommended size matches current size
+  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  True    TooFewReplicas    the desired replica count is less than the minimum replica count
+Events:
+  Type    Reason             Age    From                       Message
+  ----    ------             ----   ----                       -------
+  Normal  SuccessfulRescale  8m32s  horizontal-pod-autoscaler  New size: 4; reason: cpu resource utilization (percentage of request) above target
+  Normal  SuccessfulRescale  8m17s  horizontal-pod-autoscaler  New size: 5; reason: cpu resource utilization (percentage of request) above target
+  Normal  SuccessfulRescale  106s   horizontal-pod-autoscaler  New size: 2; reason: All metrics below target

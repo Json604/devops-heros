@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-load-generator
+  namespace: production-webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-load-generator
+  template:
+    metadata:
+      labels:
+        app: web-load-generator
+    spec:
+      containers:
+        - name: load
+          image: fortio/fortio@sha256:942c86131c24ee9bd4a7754610be417ac1b9fe2f11d1860620a9f6932ceb712f
+          args: [load, -c, '64', -qps, '0', -t, 12m, http://web-service]
+          resources:
+            requests: {cpu: 100m, memory: 64Mi}
+            limits: {cpu: 500m, memory: 128Mi}

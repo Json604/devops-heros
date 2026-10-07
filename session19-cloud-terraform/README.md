@@ -36,7 +36,7 @@ EC2 user data installs and starts Nginx; wait for initialization before testing.
 
 ## Validation and execution status
 
-`terraform init`, `validate`, and `terraform test` passed locally. [Mocked architecture test](evidence/terraform-test.txt) checks subnet count and IMDSv2. The mocks produce no AWS resources. Live plan/apply/destroy, AWS Console screenshots and HTTP evidence from EC2 remain pending because no paid AWS deployment was authorized.
+`terraform init`, `validate`, and `terraform test` passed locally. [Mocked architecture test](evidence/terraform-test.txt) checks subnet count and IMDSv2. The mocks produce no AWS resources. Live plan/apply/destroy, AWS Console screenshots and HTTP evidence from EC2 remain pending usable AWS authentication. CLI sign-in returned HTTP 400; no resources have been created.
 
 The `/32` input is validated to prevent accidentally opening HTTP to the whole internet. The example `203.0.113.10/32` is a documentation address, not a usable deployment setting. Both EC2 and public IPv4 allocation may incur charges; destroy the real stack after its evaluation.
 

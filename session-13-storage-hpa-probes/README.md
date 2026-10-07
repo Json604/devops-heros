@@ -43,3 +43,5 @@ Deleting the namespace also deletes its PVC; with the Minikube default Delete re
 ![Recorded assignment evidence](screenshots/session13.jpg)
 
 Command-output screenshots display the captured transcripts; the full text files are retained in `evidence/`. GitHub and application screenshots capture their live pages.
+
+The production-webapp mini-project also completed its own Service HTTP check and 2 → 5 → 2 scaling exercise: [commands and evidence](mini-project/README.md#mini-project-load-and-service-verification).

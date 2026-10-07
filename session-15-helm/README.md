@@ -21,12 +21,12 @@ Run `bash run-lab.sh`. [Complete output](evidence/helm-workflow.txt) includes ev
 | `helm get values notes -n helm-lab` | Show overrides used for release. |
 | `helm get manifest notes -n helm-lab` | Show installed manifests. |
 | `helm upgrade notes mini-project/notes-chart -n helm-lab -f mini-project/notes-chart/values-prod.yaml --wait` | Revision 2: three replicas and production settings. |
-| `helm upgrade ... --set replicaCount=2 --set app.environment=staging` | Revision 3: two replicas and staging settings. |
+| `helm upgrade ... --set image.tag=broken-tag-does-not-exist` | Revision 3: intentionally broken image; observe ErrImagePull and ImagePullBackOff. |
 | `helm history notes -n helm-lab` | Inspect revisions and statuses. |
-| `helm rollback notes 1 -n helm-lab --wait` | Revision 4 restores revision 1's values. |
+| `helm rollback notes 2 -n helm-lab --wait` | Revision 4 restores the working production revision. |
 | `helm uninstall notes -n helm-lab --wait` | Remove release resources. |
 
-The run verified Pods and `printenv ENVIRONMENT` after changes. Rollback restored the development value. A rollback creates a new revision; it does not erase historical revisions. Helm rollback also does not undo database schema/data changes, which need a separate migration policy.
+The run verified Pods and `printenv ENVIRONMENT` after changes. The bad upgrade produced `ImagePullBackOff`. Rollback restored three healthy replicas and the `production` environment value. A rollback creates a new revision; it does not erase historical revisions. Helm rollback also does not undo database schema/data changes, which need a separate migration policy.
 
 Use a distinct `service.nodePort` override when installing another Notes release in the same cluster, because a NodePort is cluster-wide.
 

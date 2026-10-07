@@ -12,9 +12,9 @@ Recorded on 7 October 2026. The [root index](README.md) links every assignment a
 
 | Session | Implementation and observed result |
 |---|---|
-| 13 | Volume documentation; PVC retained student data across Pod deletion; CPU HPA scaled 1 → 5 → 1; load generator and probe-equipped mini-project. |
+| 13 | Volume documentation; PVC retained student data across Pod deletion; CPU HPA scaled 1 → 5 → 1; load generator and probe-equipped mini-project, separately scaled 2 → 5 → 2 under HTTP load. |
 | 14 | Broken/fixed manifests and investigations for crashes, pull errors, scheduling, mounts, configuration, DNS, selectors and ports; before/after output. |
-| 15 | Notes Helm chart; create/repo/search/install/list/status/get; two upgrades; rollback to revision 1; verification; uninstall. |
+| 15 | Notes Helm chart; create/repo/search/install/list/status/get; production upgrade; deliberately broken image upgrade; rollback to working revision 2; three healthy production replicas; uninstall. |
 | 16 | Calculator app and 7 tests; build artifact; Docker image; GHCR push; two-replica Kubernetes deployment and HTTP check in GitHub Actions. |
 | 17 | 17 API tests, frontend build, SAST, SCA, secret scanning, both container scans, security gates, SHA-tagged GHCR publication and Kubernetes deployment. |
 | 18 | S3 Terraform implementation; AWS service research; provider initialization, validation and mocked-provider tests. Live AWS work remains pending below. |
@@ -63,7 +63,7 @@ Command-output screenshots are browser captures of the recorded transcripts, lab
 
 ## Outstanding external requirements
 
-1. Real AWS S3, EC2/VPC and EKS provisioning, live plans, `apply`, `show`, `output`, Console screenshots and `destroy`. No AWS profile or spending authorization was provided; no paid resources were created. The complete code and commands are ready. [EKS pricing](https://aws.amazon.com/eks/pricing/) includes cluster charges as well as the underlying resources.
+1. Real AWS S3, EC2/VPC and EKS provisioning, live plans, `apply`, `show`, `output`, Console screenshots and `destroy`. AWS execution is authorized, but no usable local AWS profile is configured: browser-based CLI sign-in returned HTTP 400. No paid resources were created. The complete code and commands are ready. [EKS pricing](https://aws.amazon.com/eks/pricing/) includes cluster charges as well as the underlying resources.
 2. The instructor's live/recorded presentation and submission-form delivery. These have not been represented as completed.
 
 ## Running locally

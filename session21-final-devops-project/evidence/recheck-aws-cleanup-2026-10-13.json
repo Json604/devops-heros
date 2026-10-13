@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-10-13T00:43:53.291553+00:00",
+  "region": "ap-south-1",
+  "cluster": "kartikey-helpdesk",
+  "vpc_id": "vpc-0b64abdae355912e6",
+  "terraform_resources_destroyed": 20,
+  "checks": {
+    "cluster": "ResourceNotFoundException",
+    "vpcs": [],
+    "active_instance_reservations": [],
+    "postgres_volume": "InvalidVolume.NotFound",
+    "subnets": [],
+    "network_interfaces": [],
+    "security_groups": [],
+    "terraform_state_resources": []
+  }
+}

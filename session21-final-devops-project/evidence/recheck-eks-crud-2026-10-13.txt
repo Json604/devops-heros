@@ -1,0 +1,2 @@
+EKS Ingress/PostgreSQL smoke test: create 201, read 200, update 200, delete 204.
+Temporary audit ticket removed. Recorded demonstration ticket retained until teardown.

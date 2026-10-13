@@ -1,0 +1,10 @@
+application.argoproj.io "campus-helpdesk-eks" deleted from argocd namespace
+namespace "helpdesk" deleted
+No resources found
+namespace "monitoring" deleted
+namespace "argocd" deleted
+namespace "ingress-nginx" deleted
+poddisruptionbudget.policy "coredns" deleted from kube-system namespace
+poddisruptionbudget.policy "ebs-csi-controller" deleted from kube-system namespace
+
+The empty ingress-nginx namespace was finalized only after all five deletion conditions were False and content was confirmed removed.

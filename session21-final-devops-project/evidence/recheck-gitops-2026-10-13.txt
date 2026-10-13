@@ -1,0 +1,9 @@
+$ kubectl get application campus-helpdesk-eks -n argocd
+
+campus-helpdesk-eks   Synced   Healthy
+Git revision: 400110b3da389090e55a3d37dd2757cec8f73f73
+
+$ kubectl get deploy -n helpdesk -o wide
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES                                                                              SELECTOR
+helpdesk-backend    2/2     2            2           4m5s   backend      ghcr.io/json604/campus-helpdesk-backend:81797c56934d6630a75cf8e1c390a658ed772795    app=helpdesk-backend
+helpdesk-frontend   2/2     2            2           4m5s   frontend     ghcr.io/json604/campus-helpdesk-frontend:81797c56934d6630a75cf8e1c390a658ed772795   app=helpdesk-frontend

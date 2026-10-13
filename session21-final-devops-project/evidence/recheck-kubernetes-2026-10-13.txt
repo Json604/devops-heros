@@ -1,0 +1,32 @@
+$ kubectl get nodes
+NAME                                         STATUS   ROLES    AGE     VERSION
+ip-10-21-1-206.ap-south-1.compute.internal   Ready    <none>   7m54s   v1.35.8-eks-3b4a6ca
+ip-10-21-2-58.ap-south-1.compute.internal    Ready    <none>   7m54s   v1.35.8-eks-3b4a6ca
+
+$ kubectl get pods,svc,ingress,hpa,pvc -n helpdesk
+NAME                                     READY   STATUS      RESTARTS   AGE
+pod/helpdesk-backend-5cfdfdd4bb-2xss5    1/1     Running     0          2m16s
+pod/helpdesk-backend-5cfdfdd4bb-p87dp    1/1     Running     0          2m3s
+pod/helpdesk-frontend-5bff4564dc-fz8rt   1/1     Running     0          2m9s
+pod/helpdesk-frontend-5bff4564dc-g2g29   1/1     Running     0          2m16s
+pod/helpdesk-migrate-1-5zjmc             0/1     Completed   0          2m16s
+pod/helpdesk-postgres-0                  1/1     Running     0          5m34s
+
+NAME               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/backend    ClusterIP   172.20.229.63    <none>        8000/TCP   5m36s
+service/frontend   ClusterIP   172.20.24.216    <none>        8080/TCP   5m36s
+service/postgres   ClusterIP   172.20.150.182   <none>        5432/TCP   5m36s
+
+NAME                                 CLASS   HOSTS                       ADDRESS       PORTS   AGE
+ingress.networking.k8s.io/helpdesk   nginx   helpdesk.127.0.0.1.nip.io   172.20.4.60   80      5m35s
+
+NAME                                                   REFERENCE                     TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/helpdesk-backend   Deployment/helpdesk-backend   cpu: 6%/60%   2         5         2          5m35s
+
+NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/data-helpdesk-postgres-0   Bound    pvc-01d1ea33-ae0f-4bed-a061-141296e1e483   5Gi        RWO            gp3            <unset>                 5m35s
+
+$ /tmp/capstone-helm/darwin-arm64/helm list -n helpdesk
+NAME    	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART         	APP VERSION
+helpdesk	helpdesk 	1       	2026-10-13 05:52:05.376277 +0530 IST	deployed	helpdesk-1.0.0	1.0.0      
+

@@ -1,0 +1,72 @@
+{
+  "up": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {
+            "__name__": "up",
+            "container": "backend",
+            "endpoint": "http",
+            "instance": "10.21.2.50:8000",
+            "job": "backend",
+            "namespace": "helpdesk",
+            "pod": "helpdesk-backend-5cfdfdd4bb-2xss5",
+            "service": "backend"
+          },
+          "value": [
+            1791851316.795,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "up",
+            "container": "backend",
+            "endpoint": "http",
+            "instance": "10.21.1.236:8000",
+            "job": "backend",
+            "namespace": "helpdesk",
+            "pod": "helpdesk-backend-5cfdfdd4bb-p87dp",
+            "service": "backend"
+          },
+          "value": [
+            1791851316.795,
+            "1"
+          ]
+        }
+      ]
+    }
+  },
+  "requests": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {},
+          "value": [
+            1791851317.055,
+            "259"
+          ]
+        }
+      ]
+    }
+  },
+  "rate": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {},
+          "value": [
+            1791851317.294,
+            "1.548179496969697"
+          ]
+        }
+      ]
+    }
+  }
+}

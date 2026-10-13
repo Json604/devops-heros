@@ -1,0 +1,13 @@
+[
+  {
+    "title": "Wi-Fi issue for final capstone demo",
+    "description": "Created through EKS Ingress during the fresh walkthrough.",
+    "priority": "MEDIUM",
+    "status": "RESOLVED",
+    "category": "NETWORK",
+    "requester": "24bcs10121",
+    "assignee": "Unassigned",
+    "id": 1,
+    "created_at": "2026-10-13T00:24:22.760482Z"
+  }
+]

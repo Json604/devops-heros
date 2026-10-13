@@ -6,9 +6,9 @@
 
 Campus Helpdesk tracks campus IT requests by category, priority, requester, assignee and status. React/Vite provides the interface, FastAPI exposes CRUD and metrics endpoints, and PostgreSQL stores tickets through Alembic migrations. The capstone uses its own helpdesk domain rather than the reference TaskBoard domain.
 
-**Start here:** [complete project documentation](session21-final-devops-project/README.md), [rubric audit and evidence](CAPSTONE-AUDIT.md), [presentation deck](demo/slides.pdf), [video status and recording guide](demo/README.md).
+**Start here:** [complete project documentation](session21-final-devops-project/README.md), [rubric audit and evidence](CAPSTONE-AUDIT.md), [presentation deck](demo/slides.pdf), [presentation video](demo/presentation.mp4).
 
-**Submission status, 13 October 2026:** implementation and recorded cloud evidence are present. The mandatory live presentation video is still outstanding. The form has not been submitted. Use the form's earlier deadline: **16 October 2026, 11:59 PM**.
+**Submission status, 13 October 2026:** all ten rubric modules have implementation/evidence and the required video and 12-slide deck are included. A fresh EKS lifecycle and GitOps/monitoring walkthrough were recorded, then all 20 Terraform resources were destroyed. The form has not been submitted. Use the form's earlier deadline: **16 October 2026, 11:59 PM**.
 
 ### Architecture and stack
 
@@ -42,7 +42,7 @@ Open `http://localhost:3000`; the existing workstation uses `FRONTEND_PORT=3100`
 
 ### Delivery and infrastructure
 
-[The active workflow](.github/workflows/helpdesk.yml) runs on `main` and submission-branch pushes. API tests, frontend build and source/dependency/secret checks precede both image builds. Trivy blocks HIGH/CRITICAL findings before SHA-tagged GHCR publication. A disposable Kind cluster verifies Helm installation and HTTP/API behavior. [Successful hosted pipeline](https://github.com/Json604/devops-heros/actions/runs/37662449564).
+[The active workflow](.github/workflows/helpdesk.yml) runs on `main` and submission-branch pushes. API tests, frontend build and source/dependency/secret checks precede both image builds. Trivy blocks HIGH/CRITICAL findings before SHA-tagged GHCR publication. A disposable Kind cluster verifies Helm installation and HTTP/API behavior. [Successful hosted pipeline](https://github.com/Json604/devops-heros/actions/runs/38326250900).
 
 [Terraform](session21-final-devops-project/terraform/README.md) provisioned an AWS VPC, two public subnets, EKS with two managed workers and EBS CSI in `ap-south-1`. Saved plan/apply/Console evidence and complete teardown are included. These are historical execution records; the cloud cluster is no longer running.
 

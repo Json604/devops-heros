@@ -3,9 +3,13 @@
 **Name:** Kartikey
 **Roll number:** 24bcs10121
 
-**13 October submission review:** see the [rubric audit](../CAPSTONE-AUDIT.md), [12-slide presentation](../demo/slides.pdf) and [recording guide](../demo/recording-guide.md). The current guidelines require a live walkthrough video, which is still outstanding. Use the form's **16 October 2026, 11:59 PM** deadline.
+**13 October submission review:** see the [rubric audit](../CAPSTONE-AUDIT.md), [12-slide presentation](../demo/slides.pdf) and [recording guide](../demo/recording-guide.md). The required [presentation video](../demo/presentation.mp4) is included with [chapters and narration disclosure](../demo/video-notes.md). Use the form's **16 October 2026, 11:59 PM** deadline.
 
 Campus Helpdesk tracks campus IT requests by category, requester, priority, assignee and status. It implements a responsive React interface, FastAPI REST endpoints, PostgreSQL persistence, Alembic migrations and a complete build/deploy/observe workflow.
+
+## Fresh verification: 13 October 2026
+
+The [presentation](../demo/README.md) records a new deployment, separate from the older evidence below. [The recorded CI run](https://github.com/Json604/devops-heros/actions/runs/38326250900) passed all gates and published both images with SHA `81797c56934d6630a75cf8e1c390a658ed772795`. Terraform created 20 resources; Argo reconciled promotion `400110b3da389090e55a3d37dd2757cec8f73f73` to Synced/Healthy with two ready frontend and backend replicas. PostgreSQL CRUD, Ingress, metrics and both Prometheus targets were verified; Grafana displayed real traffic. All cloud resources were removed afterward. See the [fresh evidence index](../CAPSTONE-AUDIT.md#fresh-13-october-execution) and [cleanup verification](evidence/recheck-aws-cleanup-2026-10-13.json).
 
 ## Architecture
 

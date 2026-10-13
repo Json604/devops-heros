@@ -1,0 +1,47 @@
+$ git add session21-final-devops-project/security/README.md
+Exit status: 0
+
+$ git commit -m Document fresh capstone security scans and secret-scan scope
+[submission/kartikey-10121 81797c5] Document fresh capstone security scans and secret-scan scope
+ 1 file changed, 4 insertions(+)
+Exit status: 0
+
+$ git push origin HEAD:main HEAD:submission/kartikey-10121
+To https://github.com/Json604/devops-heros.git
+   877e836..81797c5  HEAD -> main
+   877e836..81797c5  HEAD -> submission/kartikey-10121
+Exit status: 0
+
+
+$ gh run view 38326250900 (job/step summary)
+test-and-security
+  success  Set up job
+  success  Run actions/checkout@v4
+  success  Run actions/setup-python@v5
+  success  Run actions/setup-node@v4
+  success  Install backend dependencies
+  success  Unit and API tests
+  success  SAST - Bandit
+  success  SCA - Python
+  success  Frontend build and dependency audit
+  success  Secret scan - Gitleaks
+  success  Run actions/upload-artifact@v4
+  success  Post Run actions/setup-node@v4
+  success  Post Run actions/setup-python@v5
+  success  Post Run actions/checkout@v4
+  success  Complete job
+build-scan-deploy
+  success  Set up job
+  success  Run actions/checkout@v4
+  success  Build both images
+  success  Container security gates
+  success  Publish SHA-tagged images to GHCR
+  success  Run helm/kind-action@v1
+  success  Run azure/setup-helm@v4.3.0
+  success  Deploy and verify Kubernetes
+  success  Publish GitOps deployment values
+  success  Run actions/upload-artifact@v4
+  skipped  Diagnostics
+  success  Post Run helm/kind-action@v1
+  success  Post Run actions/checkout@v4
+  success  Complete job

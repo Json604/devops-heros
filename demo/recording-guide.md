@@ -1,6 +1,6 @@
 # Presentation and live recording guide
 
-This is a preparation guide, not a submitted video. Record your explanation with the visible application, terminal and browser. Avoid recording credentials, `.env`, kubeconfigs, AWS login prompts or Terraform state.
+The completed [presentation video](presentation.mp4) and [chapter transcript](video-notes.md) are included. This guide is retained for reproducing or personally re-recording the walkthrough. Record your explanation with the visible application, terminal and browser. Avoid recording credentials, `.env`, kubeconfigs, AWS login prompts or Terraform state.
 
 ## Slides first (about 4 minutes)
 

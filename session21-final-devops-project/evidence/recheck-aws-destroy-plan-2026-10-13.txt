@@ -1,0 +1,579 @@
+aws_iam_role.cluster: Refreshing state... [id=helpdesk-cluster-78a16f2606067fdb70ca2b56bb]
+aws_iam_role.ebs: Refreshing state... [id=helpdesk-ebs-98cb3575cc6e5c5411b6d6775f]
+aws_vpc.lab: Refreshing state... [id=vpc-0b64abdae355912e6]
+aws_iam_role.node: Refreshing state... [id=helpdesk-node-6d68d80b810e7c17af2c250b5b]
+aws_internet_gateway.lab: Refreshing state... [id=igw-0179c14cd76ee1048]
+aws_subnet.public[1]: Refreshing state... [id=subnet-075e68de66198be94]
+aws_subnet.public[0]: Refreshing state... [id=subnet-06ad1bd1abfaaf816]
+aws_route_table.public: Refreshing state... [id=rtb-0d295bf522b275d4a]
+aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-045af259634c8a702]
+aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0a7c59a39408315d0]
+aws_iam_role_policy_attachment.cluster: Refreshing state... [id=helpdesk-cluster-78a16f2606067fdb70ca2b56bb/arn:aws:iam::aws:policy/AmazonEKSClusterPolicy]
+aws_iam_role_policy_attachment.node["AmazonEKSWorkerNodePolicy"]: Refreshing state... [id=helpdesk-node-6d68d80b810e7c17af2c250b5b/arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy]
+aws_iam_role_policy_attachment.node["AmazonEKS_CNI_Policy"]: Refreshing state... [id=helpdesk-node-6d68d80b810e7c17af2c250b5b/arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy]
+aws_iam_role_policy_attachment.node["AmazonEC2ContainerRegistryReadOnly"]: Refreshing state... [id=helpdesk-node-6d68d80b810e7c17af2c250b5b/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly]
+aws_iam_role_policy_attachment.ebs: Refreshing state... [id=helpdesk-ebs-98cb3575cc6e5c5411b6d6775f/arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy]
+aws_eks_cluster.helpdesk: Refreshing state... [id=kartikey-helpdesk]
+aws_eks_node_group.main: Refreshing state... [id=kartikey-helpdesk:helpdesk-workers]
+aws_eks_addon.identity: Refreshing state... [id=kartikey-helpdesk:eks-pod-identity-agent]
+aws_eks_pod_identity_association.ebs: Refreshing state... [id=a-yytsismbddehv8pz0]
+aws_eks_addon.ebs: Refreshing state... [id=kartikey-helpdesk:aws-ebs-csi-driver]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_eks_addon.ebs will be destroyed
+  - resource "aws_eks_addon" "ebs" {
+      - addon_name               = "aws-ebs-csi-driver" -> null
+      - addon_version            = "v1.66.0-eksbuild.1" -> null
+      - arn                      = "arn:aws:eks:ap-south-1:365811604761:addon/kartikey-helpdesk/aws-ebs-csi-driver/aad09950-f448-84fd-53c1-3b47b55e0c32" -> null
+      - cluster_name             = "kartikey-helpdesk" -> null
+      - created_at               = "2026-10-13T00:20:34Z" -> null
+      - id                       = "kartikey-helpdesk:aws-ebs-csi-driver" -> null
+      - modified_at              = "2026-10-13T00:21:15Z" -> null
+      - region                   = "ap-south-1" -> null
+      - tags                     = {} -> null
+      - tags_all                 = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+        # (2 unchanged attributes hidden)
+
+      - namespace_config {
+          - namespace = "kube-system" -> null
+        }
+    }
+
+  # aws_eks_addon.identity will be destroyed
+  - resource "aws_eks_addon" "identity" {
+      - addon_name               = "eks-pod-identity-agent" -> null
+      - addon_version            = "v1.3.10-eksbuild.3" -> null
+      - arn                      = "arn:aws:eks:ap-south-1:365811604761:addon/kartikey-helpdesk/eks-pod-identity-agent/a2d09950-c26d-fd7b-b39d-212387bcce7f" -> null
+      - cluster_name             = "kartikey-helpdesk" -> null
+      - created_at               = "2026-10-13T00:20:08Z" -> null
+      - id                       = "kartikey-helpdesk:eks-pod-identity-agent" -> null
+      - modified_at              = "2026-10-13T00:20:24Z" -> null
+      - region                   = "ap-south-1" -> null
+      - tags                     = {} -> null
+      - tags_all                 = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+        # (2 unchanged attributes hidden)
+
+      - namespace_config {
+          - namespace = "kube-system" -> null
+        }
+    }
+
+  # aws_eks_cluster.helpdesk will be destroyed
+  - resource "aws_eks_cluster" "helpdesk" {
+      - arn                           = "arn:aws:eks:ap-south-1:365811604761:cluster/kartikey-helpdesk" -> null
+      - bootstrap_self_managed_addons = true -> null
+      - certificate_authority         = [
+          - {
+              - data = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURNVENDQWhtZ0F3SUJBZ0lRTEZFOUpmOU9iWXpBdEQ5RnRsd3RvVEFOQmdrcWhraUc5dzBCQVFzRkFEQW4KTVJBd0RnWURWUVFLRXdkQlYxTWdSVXRUTVJNd0VRWURWUVFERXdwcmRXSmxjbTVsZEdWek1CNFhEVEkyTVRBeApNekF3TVRBek4xb1hEVE14TVRBeE1qQXdNVEF6TjFvd0p6RVFNQTRHQTFVRUNoTUhRVmRUSUVWTFV6RVRNQkVHCkExVUVBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUIKQUwxc3JlNDd2djJ3Z0xqOFpJeldPWnJkekhvN3lYclZQWVZQYjRTOGM0cHlSL2ZhYmRTM2x5R0hEUEVFOU45YwphUWZ3VVdjbk5iaTFjaVpraWFyN2NaWU9CZVJuR293ZWxWWWdBVnhQN0VXY0t5aW1PRkdZNVBaYzNUVVZ1c0VFCjF6MlJzN0RnWnJRREMyOUdMWjZ5SzVuUVk1dUJHU0RiaHl5S3c5TDdIZnBxeVRwaE9wRFNwY1V5WC9OWEpUUGcKNCs5N0NmWkRrY2w0Z0QycFhIMlpBTEU3eUpvL0kraktKWWRGT1NteEVKVG90OXdVbmcwRG9vQlh5UmU2ZW80UwpvV0hEWWUwZ2ttUFpoQ2ZWV0RtZ09oMFhkQUJzTmpqdXVzUGFkY0xBVk5HYVV2UGg2WkZaZ2hhc0FscXMyNm50Cm81RU9oZUovVXBwRS8xOE1qb1VzOHRrQ0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWQKRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZDcUVibmFIQmFmRXVMOTlwWHlFeE9mNm01NmRNQlVHQTFVZApFUVFPTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBSjNIRGw5VzZLWVpZWUE2CnBJMHUxcW1iaW4xYVVKUk1OVjZMMnpFL0xTSWxRb1Q1eVpyUnoyTDlPWGc5WGxpeXVnY0RyeU9ZWVlkeVJiUUgKSlF4S2g0S0RGWGFkUUNpR1BiSFJpQ0tPWjNDZnhFM0JLZjNIV0tLNjRubHZ2dXd4dE9GbFBnQnFFeDlBV0ZiSgpWUGcvbFBPR0xSTG1nM2NEMmRSUXhpeXdTWEZSS1kyK1BpZ0pPK2pOblVhSjVJVTdIL1R2T2xwNDlOdWFMb0o4CjBYYnRlS1lSaytkV0JuRUhWc1FQcHhqZzdCRUtBK01hNnRBVTZkeHNEWTkvMDM5RUJVWFlWRFI4dXRQWUZIOEEKSEhuczNJTzBKRHJpRmNhMHV2QUZ3MHBudk9JN0RNakJkUXB5SWZOeWl5dnQ2RHJyN0h6SjJWZ0NjVWdTOHRNMwpLSlhEdThzPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg=="
+            },
+        ] -> null
+      - created_at                    = "2026-10-13T00:10:25Z" -> null
+      - deletion_protection           = false -> null
+      - enabled_cluster_log_types     = [] -> null
+      - endpoint                      = "https://6DDBF13892C205BC40F0913BCAAB317A.gr7.ap-south-1.eks.amazonaws.com" -> null
+      - id                            = "kartikey-helpdesk" -> null
+      - identity                      = [
+          - {
+              - oidc = [
+                  - {
+                      - issuer = "https://oidc.eks.ap-south-1.amazonaws.com/id/6DDBF13892C205BC40F0913BCAAB317A"
+                    },
+                ]
+            },
+        ] -> null
+      - name                          = "kartikey-helpdesk" -> null
+      - platform_version              = "eks.24" -> null
+      - region                        = "ap-south-1" -> null
+      - role_arn                      = "arn:aws:iam::365811604761:role/helpdesk-cluster-78a16f2606067fdb70ca2b56bb" -> null
+      - status                        = "ACTIVE" -> null
+      - tags                          = {} -> null
+      - tags_all                      = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - version                       = "1.35" -> null
+
+      - access_config {
+          - authentication_mode                         = "API_AND_CONFIG_MAP" -> null
+          - bootstrap_cluster_creator_admin_permissions = true -> null
+        }
+
+      - compute_config {
+          - enabled       = false -> null
+          - node_pools    = [] -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - control_plane_scaling_config {
+          - tier = "standard" -> null
+        }
+
+      - kube_api_server_config {
+          - event_ttl = "60m" -> null
+
+          - service_node_port_range {
+              - max_port = 32767 -> null
+              - min_port = 30000 -> null
+            }
+        }
+
+      - kube_controller_manager_config {
+          - horizontal_pod_autoscaler_controller_config {
+              - horizontal_pod_autoscaler_sync_period = "15s" -> null
+            }
+          - pod_gc_controller_config {
+              - terminated_pod_gc_threshold = 12500 -> null
+            }
+        }
+
+      - kube_scheduler_config {
+          - node_resources_fit {
+              - scoring_strategy {
+                  - type = "LeastAllocated" -> null
+
+                  - resource {
+                      - name   = "cpu" -> null
+                      - weight = 1 -> null
+                    }
+                  - resource {
+                      - name   = "memory" -> null
+                      - weight = 1 -> null
+                    }
+                }
+            }
+        }
+
+      - kubernetes_network_config {
+          - ip_family         = "ipv4" -> null
+          - service_ipv4_cidr = "172.20.0.0/16" -> null
+            # (1 unchanged attribute hidden)
+
+          - elastic_load_balancing {
+              - enabled = false -> null
+            }
+        }
+
+      - storage_config {
+          - block_storage {
+              - enabled = false -> null
+            }
+        }
+
+      - upgrade_policy {
+          - support_type = "EXTENDED" -> null
+        }
+
+      - vpc_config {
+          - cluster_security_group_id = "sg-0666b234b5f8ec4d1" -> null
+          - control_plane_egress_mode = "AWS_MANAGED" -> null
+          - endpoint_private_access   = true -> null
+          - endpoint_public_access    = true -> null
+          - public_access_cidrs       = [
+              - "<ADMIN_IPV4>/32",
+            ] -> null
+          - security_group_ids        = [] -> null
+          - subnet_ids                = [
+              - "subnet-06ad1bd1abfaaf816",
+              - "subnet-075e68de66198be94",
+            ] -> null
+          - vpc_id                    = "vpc-0b64abdae355912e6" -> null
+        }
+    }
+
+  # aws_eks_node_group.main will be destroyed
+  - resource "aws_eks_node_group" "main" {
+      - ami_type               = "AL2023_x86_64_STANDARD" -> null
+      - arn                    = "arn:aws:eks:ap-south-1:365811604761:nodegroup/kartikey-helpdesk/helpdesk-workers/e8d09950-16c2-9a9e-c8cb-c08b31a1dd95" -> null
+      - capacity_type          = "ON_DEMAND" -> null
+      - cluster_name           = "kartikey-helpdesk" -> null
+      - disk_size              = 20 -> null
+      - id                     = "kartikey-helpdesk:helpdesk-workers" -> null
+      - instance_types         = [
+          - "t3.medium",
+        ] -> null
+      - labels                 = {} -> null
+      - node_group_name        = "helpdesk-workers" -> null
+      - node_role_arn          = "arn:aws:iam::365811604761:role/helpdesk-node-6d68d80b810e7c17af2c250b5b" -> null
+      - region                 = "ap-south-1" -> null
+      - release_version        = "1.35.8-20261003" -> null
+      - resources              = [
+          - {
+              - autoscaling_groups              = [
+                  - {
+                      - name = "eks-helpdesk-workers-e8d09950-16c2-9a9e-c8cb-c08b31a1dd95"
+                    },
+                ]
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - status                 = "ACTIVE" -> null
+      - subnet_ids             = [
+          - "subnet-06ad1bd1abfaaf816",
+          - "subnet-075e68de66198be94",
+        ] -> null
+      - tags                   = {} -> null
+      - tags_all               = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - version                = "1.35" -> null
+        # (1 unchanged attribute hidden)
+
+      - scaling_config {
+          - desired_size = 2 -> null
+          - max_size     = 3 -> null
+          - min_size     = 1 -> null
+        }
+
+      - update_config {
+          - max_unavailable            = 1 -> null
+          - max_unavailable_percentage = 0 -> null
+            # (1 unchanged attribute hidden)
+        }
+    }
+
+  # aws_eks_pod_identity_association.ebs will be destroyed
+  - resource "aws_eks_pod_identity_association" "ebs" {
+      - association_arn      = "arn:aws:eks:ap-south-1:365811604761:podidentityassociation/kartikey-helpdesk/a-yytsismbddehv8pz0" -> null
+      - association_id       = "a-yytsismbddehv8pz0" -> null
+      - cluster_name         = "kartikey-helpdesk" -> null
+      - disable_session_tags = false -> null
+      - id                   = "a-yytsismbddehv8pz0" -> null
+      - namespace            = "kube-system" -> null
+      - region               = "ap-south-1" -> null
+      - role_arn             = "arn:aws:iam::365811604761:role/helpdesk-ebs-98cb3575cc6e5c5411b6d6775f" -> null
+      - service_account      = "ebs-csi-controller-sa" -> null
+      - tags_all             = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+    }
+
+  # aws_iam_role.cluster will be destroyed
+  - resource "aws_iam_role" "cluster" {
+      - arn                   = "arn:aws:iam::365811604761:role/helpdesk-cluster-78a16f2606067fdb70ca2b56bb" -> null
+      - assume_role_policy    = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "sts:AssumeRole"
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - Service = "eks.amazonaws.com"
+                        }
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - create_date           = "2026-10-13T00:10:08Z" -> null
+      - force_detach_policies = false -> null
+      - id                    = "helpdesk-cluster-78a16f2606067fdb70ca2b56bb" -> null
+      - managed_policy_arns   = [
+          - "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+        ] -> null
+      - max_session_duration  = 3600 -> null
+      - name                  = "helpdesk-cluster-78a16f2606067fdb70ca2b56bb" -> null
+      - name_prefix           = "helpdesk-cluster-" -> null
+      - path                  = "/" -> null
+      - tags                  = {} -> null
+      - tags_all              = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - unique_id             = "AROAVKLASDUMRJR6TPVBP" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # aws_iam_role.ebs will be destroyed
+  - resource "aws_iam_role" "ebs" {
+      - arn                   = "arn:aws:iam::365811604761:role/helpdesk-ebs-98cb3575cc6e5c5411b6d6775f" -> null
+      - assume_role_policy    = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = [
+                          - "sts:AssumeRole",
+                          - "sts:TagSession",
+                        ]
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - Service = "pods.eks.amazonaws.com"
+                        }
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - create_date           = "2026-10-13T00:10:08Z" -> null
+      - force_detach_policies = false -> null
+      - id                    = "helpdesk-ebs-98cb3575cc6e5c5411b6d6775f" -> null
+      - managed_policy_arns   = [
+          - "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy",
+        ] -> null
+      - max_session_duration  = 3600 -> null
+      - name                  = "helpdesk-ebs-98cb3575cc6e5c5411b6d6775f" -> null
+      - name_prefix           = "helpdesk-ebs-" -> null
+      - path                  = "/" -> null
+      - tags                  = {} -> null
+      - tags_all              = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - unique_id             = "AROAVKLASDUMTKP7TNGD5" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # aws_iam_role.node will be destroyed
+  - resource "aws_iam_role" "node" {
+      - arn                   = "arn:aws:iam::365811604761:role/helpdesk-node-6d68d80b810e7c17af2c250b5b" -> null
+      - assume_role_policy    = jsonencode(
+            {
+              - Statement = [
+                  - {
+                      - Action    = "sts:AssumeRole"
+                      - Effect    = "Allow"
+                      - Principal = {
+                          - Service = "ec2.amazonaws.com"
+                        }
+                    },
+                ]
+              - Version   = "2012-10-17"
+            }
+        ) -> null
+      - create_date           = "2026-10-13T00:10:08Z" -> null
+      - force_detach_policies = false -> null
+      - id                    = "helpdesk-node-6d68d80b810e7c17af2c250b5b" -> null
+      - managed_policy_arns   = [
+          - "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+          - "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+          - "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+        ] -> null
+      - max_session_duration  = 3600 -> null
+      - name                  = "helpdesk-node-6d68d80b810e7c17af2c250b5b" -> null
+      - name_prefix           = "helpdesk-node-" -> null
+      - path                  = "/" -> null
+      - tags                  = {} -> null
+      - tags_all              = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - unique_id             = "AROAVKLASDUM6GEDG7M4T" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # aws_iam_role_policy_attachment.cluster will be destroyed
+  - resource "aws_iam_role_policy_attachment" "cluster" {
+      - id         = "helpdesk-cluster-78a16f2606067fdb70ca2b56bb/arn:aws:iam::aws:policy/AmazonEKSClusterPolicy" -> null
+      - policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy" -> null
+      - role       = "helpdesk-cluster-78a16f2606067fdb70ca2b56bb" -> null
+    }
+
+  # aws_iam_role_policy_attachment.ebs will be destroyed
+  - resource "aws_iam_role_policy_attachment" "ebs" {
+      - id         = "helpdesk-ebs-98cb3575cc6e5c5411b6d6775f/arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy" -> null
+      - policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy" -> null
+      - role       = "helpdesk-ebs-98cb3575cc6e5c5411b6d6775f" -> null
+    }
+
+  # aws_iam_role_policy_attachment.node["AmazonEC2ContainerRegistryReadOnly"] will be destroyed
+  - resource "aws_iam_role_policy_attachment" "node" {
+      - id         = "helpdesk-node-6d68d80b810e7c17af2c250b5b/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly" -> null
+      - policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly" -> null
+      - role       = "helpdesk-node-6d68d80b810e7c17af2c250b5b" -> null
+    }
+
+  # aws_iam_role_policy_attachment.node["AmazonEKSWorkerNodePolicy"] will be destroyed
+  - resource "aws_iam_role_policy_attachment" "node" {
+      - id         = "helpdesk-node-6d68d80b810e7c17af2c250b5b/arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy" -> null
+      - policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy" -> null
+      - role       = "helpdesk-node-6d68d80b810e7c17af2c250b5b" -> null
+    }
+
+  # aws_iam_role_policy_attachment.node["AmazonEKS_CNI_Policy"] will be destroyed
+  - resource "aws_iam_role_policy_attachment" "node" {
+      - id         = "helpdesk-node-6d68d80b810e7c17af2c250b5b/arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy" -> null
+      - policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy" -> null
+      - role       = "helpdesk-node-6d68d80b810e7c17af2c250b5b" -> null
+    }
+
+  # aws_internet_gateway.lab will be destroyed
+  - resource "aws_internet_gateway" "lab" {
+      - arn      = "arn:aws:ec2:ap-south-1:365811604761:internet-gateway/igw-0179c14cd76ee1048" -> null
+      - id       = "igw-0179c14cd76ee1048" -> null
+      - owner_id = "365811604761" -> null
+      - region   = "ap-south-1" -> null
+      - tags     = {} -> null
+      - tags_all = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - vpc_id   = "vpc-0b64abdae355912e6" -> null
+    }
+
+  # aws_route_table.public will be destroyed
+  - resource "aws_route_table" "public" {
+      - arn              = "arn:aws:ec2:ap-south-1:365811604761:route-table/rtb-0d295bf522b275d4a" -> null
+      - id               = "rtb-0d295bf522b275d4a" -> null
+      - owner_id         = "365811604761" -> null
+      - propagating_vgws = [] -> null
+      - region           = "ap-south-1" -> null
+      - route            = [
+          - {
+              - cidr_block                 = "0.0.0.0/0"
+              - gateway_id                 = "igw-0179c14cd76ee1048"
+                # (12 unchanged attributes hidden)
+            },
+        ] -> null
+      - tags             = {} -> null
+      - tags_all         = {
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+      - vpc_id           = "vpc-0b64abdae355912e6" -> null
+    }
+
+  # aws_route_table_association.public[0] will be destroyed
+  - resource "aws_route_table_association" "public" {
+      - id             = "rtbassoc-0a7c59a39408315d0" -> null
+      - region         = "ap-south-1" -> null
+      - route_table_id = "rtb-0d295bf522b275d4a" -> null
+      - subnet_id      = "subnet-06ad1bd1abfaaf816" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_route_table_association.public[1] will be destroyed
+  - resource "aws_route_table_association" "public" {
+      - id             = "rtbassoc-045af259634c8a702" -> null
+      - region         = "ap-south-1" -> null
+      - route_table_id = "rtb-0d295bf522b275d4a" -> null
+      - subnet_id      = "subnet-075e68de66198be94" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_subnet.public[0] will be destroyed
+  - resource "aws_subnet" "public" {
+      - arn                                            = "arn:aws:ec2:ap-south-1:365811604761:subnet/subnet-06ad1bd1abfaaf816" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "ap-south-1a" -> null
+      - availability_zone_id                           = "aps1-az1" -> null
+      - cidr_block                                     = "10.21.1.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-06ad1bd1abfaaf816" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = true -> null
+      - owner_id                                       = "365811604761" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - region                                         = "ap-south-1" -> null
+      - tags                                           = {
+          - "kubernetes.io/role/elb" = "1"
+        } -> null
+      - tags_all                                       = {
+          - "Project"                = "devops-coursework"
+          - "RollNumber"             = "24bcs10121"
+          - "Student"                = "Kartikey"
+          - "kubernetes.io/role/elb" = "1"
+        } -> null
+      - vpc_id                                         = "vpc-0b64abdae355912e6" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # aws_subnet.public[1] will be destroyed
+  - resource "aws_subnet" "public" {
+      - arn                                            = "arn:aws:ec2:ap-south-1:365811604761:subnet/subnet-075e68de66198be94" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "ap-south-1b" -> null
+      - availability_zone_id                           = "aps1-az3" -> null
+      - cidr_block                                     = "10.21.2.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-075e68de66198be94" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = true -> null
+      - owner_id                                       = "365811604761" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - region                                         = "ap-south-1" -> null
+      - tags                                           = {
+          - "kubernetes.io/role/elb" = "1"
+        } -> null
+      - tags_all                                       = {
+          - "Project"                = "devops-coursework"
+          - "RollNumber"             = "24bcs10121"
+          - "Student"                = "Kartikey"
+          - "kubernetes.io/role/elb" = "1"
+        } -> null
+      - vpc_id                                         = "vpc-0b64abdae355912e6" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # aws_vpc.lab will be destroyed
+  - resource "aws_vpc" "lab" {
+      - arn                                  = "arn:aws:ec2:ap-south-1:365811604761:vpc/vpc-0b64abdae355912e6" -> null
+      - assign_generated_ipv6_cidr_block     = false -> null
+      - cidr_block                           = "10.21.0.0/16" -> null
+      - default_network_acl_id               = "acl-08d4445d70180d8c8" -> null
+      - default_route_table_id               = "rtb-06c7619c872c63acf" -> null
+      - default_security_group_id            = "sg-068aea3afddd0c734" -> null
+      - dhcp_options_id                      = "dopt-0eff2d9f28236c74f" -> null
+      - enable_dns_hostnames                 = true -> null
+      - enable_dns_support                   = true -> null
+      - enable_network_address_usage_metrics = false -> null
+      - id                                   = "vpc-0b64abdae355912e6" -> null
+      - instance_tenancy                     = "default" -> null
+      - ipv6_netmask_length                  = 0 -> null
+      - main_route_table_id                  = "rtb-06c7619c872c63acf" -> null
+      - owner_id                             = "365811604761" -> null
+      - region                               = "ap-south-1" -> null
+      - tags                                 = {
+          - "Name" = "kartikey-devops"
+        } -> null
+      - tags_all                             = {
+          - "Name"       = "kartikey-devops"
+          - "Project"    = "devops-coursework"
+          - "RollNumber" = "24bcs10121"
+          - "Student"    = "Kartikey"
+        } -> null
+        # (4 unchanged attributes hidden)
+    }
+
+Plan: 0 to add, 0 to change, 20 to destroy.
+
+Changes to Outputs:
+  - cluster_name      = "kartikey-helpdesk" -> null
+  - configure_kubectl = "aws eks update-kubeconfig --region ap-south-1 --name kartikey-helpdesk" -> null
+  - vpc_id            = "vpc-0b64abdae355912e6" -> null
+
+─────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: /tmp/capstone-destroy.tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "/tmp/capstone-destroy.tfplan"

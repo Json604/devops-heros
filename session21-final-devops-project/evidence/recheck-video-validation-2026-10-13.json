@@ -1,0 +1,22 @@
+{
+  "duration_seconds": 820.020996,
+  "size_bytes": 12988421,
+  "sha256": "2bfdb80c77cd086089b149fe98b49f0fa485a747a866b2d14fda6f8f5156b10e",
+  "streams": [
+    {
+      "codec": "h264",
+      "type": "video"
+    },
+    {
+      "codec": "aac",
+      "type": "audio"
+    }
+  ],
+  "full_decode": "passed without ffmpeg errors",
+  "chapter_frame_review": "38 representative frames inspected across three contact sheets",
+  "audio_levels": [
+    "mean_volume: -18.9 dB",
+    "max_volume: -3.7 dB"
+  ],
+  "narration": "Synthesized macOS Samantha, disclosed in video opening and demo documentation."
+}

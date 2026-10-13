@@ -3,6 +3,8 @@
 **Name:** Kartikey
 **Roll number:** 24bcs10121
 
+**13 October submission review:** see the [rubric audit](../CAPSTONE-AUDIT.md), [12-slide presentation](../demo/slides.pdf) and [recording guide](../demo/recording-guide.md). The current guidelines require a live walkthrough video, which is still outstanding. Use the form's **16 October 2026, 11:59 PM** deadline.
+
 Campus Helpdesk tracks campus IT requests by category, requester, priority, assignee and status. It implements a responsive React interface, FastAPI REST endpoints, PostgreSQL persistence, Alembic migrations and a complete build/deploy/observe workflow.
 
 ## Architecture
@@ -200,3 +202,7 @@ The browser used `http://helpdesk.127.0.0.1.nip.io:8181` through a loopback port
 ### Cloud cleanup
 
 The reviewed [destroy plan](evidence/aws-destroy-plan.txt) removed only the 20 project resources. [Terraform execution](evidence/aws-destroy.txt) finished with **20 destroyed**. [AWS cleanup checks](evidence/aws-cleanup.json) confirm no EKS clusters, EBS volumes, project VPC or active project instances remained in `ap-south-1`; Terraform state is empty. Short-lived AWS usage can still incur charges. The local Compose demonstration remains available.
+
+![Saved Terraform destroy completion transcript, recorded on 7 October](screenshots/aws-destroy-recorded.png)
+
+This screenshot displays the saved execution transcript; it is not a fresh cloud operation. The [13 October application screenshot](screenshots/compose-recheck-2026-10-13.png), [API tests](evidence/recheck-api-tests-2026-10-13.txt) and [PostgreSQL smoke checks](evidence/recheck-live-api-2026-10-13.txt) record the fresh local recheck.

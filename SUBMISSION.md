@@ -69,7 +69,7 @@ Session 21 was deployed to real EKS: two workers, persistent PostgreSQL, Ingress
 
 All 20 Session 21 Terraform resources were destroyed after evidence collection; AWS cleanup checks confirm the cluster, workers, storage and VPC are gone.
 
-The presentation requirement was confirmed outdated by the student. The submission form remains unsubmitted, as requested.
+**Correction, 13 October 2026:** the current reference repository explicitly requires a presentation video and slide deck. The earlier statement that this requirement was outdated is not supported by the current published guidelines. A [12-slide PDF deck](demo/slides.pdf) and [recording guide](demo/recording-guide.md) are now included. The mandatory live walkthrough video remains outstanding. See the [capstone audit](CAPSTONE-AUDIT.md) for the current readiness assessment. The submission form remains unsubmitted.
 
 ## Running locally
 

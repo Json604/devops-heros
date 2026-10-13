@@ -1,0 +1,5 @@
+/health: 200 {'status': 'UP'}
+/ready: 200 {'status': 'READY'}
+PostgreSQL CRUD: create/read/update/delete passed; audit ticket removed
+Prometheus metrics: http_requests_total present
+Frontend at localhost:3100 and frontend API proxy: HTTP 200

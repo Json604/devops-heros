@@ -1,0 +1,33 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.8, pytest-9.1.1, pluggy-1.6.0 -- /private/tmp/capstone-audit-venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/kartikey/Desktop/clg:uni/devops_assignments/devops-heros/session21-final-devops-project/application/backend
+configfile: pytest.ini
+plugins: platformdirs-4.13.0, anyio-4.15.1
+collecting ... collected 17 items
+
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_health PASSED [  5%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_readiness PASSED [ 11%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_create_and_read_ticket PASSED [ 17%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_update_and_statistics PASSED [ 23%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_delete_ticket PASSED [ 29%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload0] PASSED [ 35%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload1] PASSED [ 41%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload2] PASSED [ 47%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload3] PASSED [ 52%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_ticket_is_rejected[payload4] PASSED [ 58%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_update_does_not_change_record[payload0] PASSED [ 64%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_update_does_not_change_record[payload1] PASSED [ 70%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_invalid_update_does_not_change_record[payload2] PASSED [ 76%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_missing_ticket[get] PASSED [ 82%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_missing_ticket[put] PASSED [ 88%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_missing_ticket[delete] PASSED [ 94%]
+devops-heros/session21-final-devops-project/application/backend/tests/test_api.py::test_metrics PASSED [100%]
+
+=============================== warnings summary ===============================
+../../../../../private/tmp/capstone-audit-venv/lib/python3.14/site-packages/fastapi/testclient.py:1
+  /private/tmp/capstone-audit-venv/lib/python3.14/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 17 passed, 1 warning in 1.80s =========================

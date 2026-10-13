@@ -19,3 +19,7 @@ The first hosted image gate rejected the Python Debian image because of high-sev
 `trivy.yaml`, `bandit.yaml`, and `gitleaks.toml` document the policy. The workflow uses the corresponding explicit flags, defaults and HIGH/CRITICAL failure threshold. No real Secret manifest is committed. `.env`, private keys, Terraform state and kubeconfigs are ignored by Git. The PostgreSQL password is generated locally and injected by Secret reference.
 
 For example, the initial scan reported **CVE-2026-9538** in `perl-base`, described as denial of service through crafted Archive::Tar headers. The gate inventories installed OS packages even when the Python application does not directly call them. The Alpine runtime removed that affected package; the rebuilt backend and frontend both passed the same HIGH/CRITICAL threshold. See [initial report](../evidence/container-backend-initial.txt) and [hosted scan summary](../evidence/ci-security-summary.txt).
+
+## 13 October recheck
+
+The rebuilt backend and frontend both passed Trivy's HIGH/CRITICAL gate. Bandit and both dependency audits also passed. A clean checkout of the committed capstone passed Gitleaks. A scan of the full local directory sees the intentionally ignored `.env` password, so local-directory findings must be distinguished from committed content. The full repository history still reports the previously reviewed classroom examples from Sessions 8 and 12; see the [capstone audit](../../CAPSTONE-AUDIT.md).
